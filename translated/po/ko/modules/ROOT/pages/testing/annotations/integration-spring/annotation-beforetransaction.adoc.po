@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-beforetransaction.adoc:2
+#, no-wrap
+msgid "`@BeforeTransaction`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-beforetransaction.adoc:9
+msgid ""
+"`@BeforeTransaction` indicates that the annotated `void` method should be "
+"run before a transaction is started, for test methods that have been "
+"configured to run within a transaction by using Spring's `@Transactional` "
+"annotation. `@BeforeTransaction` methods are not required to be `public` and "
+"may be declared on Java 8-based interface default methods."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-beforetransaction.adoc:11
+msgid "The following example shows how to use the `@BeforeTransaction` annotation:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-beforetransaction.adoc:14
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-beforetransaction.adoc:22
+#, no-wrap
+msgid ""
+"\t@BeforeTransaction // <1>\n"
+"\tvoid beforeTransaction() {\n"
+"\t\t// logic to be run before a transaction is started\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-beforetransaction.adoc:24
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-beforetransaction.adoc:35
+msgid "Run this method before a transaction."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-beforetransaction.adoc:25
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-beforetransaction.adoc:33
+#, no-wrap
+msgid ""
+"\t@BeforeTransaction // <1>\n"
+"\tfun beforeTransaction() {\n"
+"\t\t// logic to be run before a transaction is started\n"
+"\t}\n"
+msgstr ""

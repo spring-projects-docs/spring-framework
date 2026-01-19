@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/declarative-xml.adoc:2
+#, no-wrap
+msgid "Declarative XML-based Caching"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/declarative-xml.adoc:10
+msgid ""
+"If annotations are not an option (perhaps due to having no access to the "
+"sources or no external code), you can use XML for declarative caching. So, "
+"instead of annotating the methods for caching, you can specify the target "
+"method and the caching directives externally (similar to the declarative "
+"transaction management "
+"xref:data-access/transaction/declarative/first-example.adoc[advice]). The "
+"example from the previous section can be translated into the following "
+"example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/declarative-xml.adoc:16
+#, no-wrap
+msgid ""
+"\t<!-- the service we want to make cacheable -->\n"
+"\t<bean id=\"bookService\" class=\"x.y.service.DefaultBookService\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/declarative-xml.adoc:24
+#, no-wrap
+msgid ""
+"\t<!-- cache definitions -->\n"
+"\t<cache:advice id=\"cacheAdvice\" cache-manager=\"cacheManager\">\n"
+"\t\t<cache:caching cache=\"books\">\n"
+"\t\t\t<cache:cacheable method=\"findBook\" key=\"#isbn\"/>\n"
+"\t\t\t<cache:cache-evict method=\"loadBooks\" all-entries=\"true\"/>\n"
+"\t\t</cache:caching>\n"
+"\t</cache:advice>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/declarative-xml.adoc:29
+#, no-wrap
+msgid ""
+"\t<!-- apply the cacheable behavior to all BookService interfaces -->\n"
+"\t<aop:config>\n"
+"\t\t<aop:advisor advice-ref=\"cacheAdvice\" pointcut=\"execution(* "
+"x.y.BookService.*(..))\"/>\n"
+"\t</aop:config>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/declarative-xml.adoc:31
+#, no-wrap
+msgid "\t<!-- cache manager definition omitted -->\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/declarative-xml.adoc:37
+msgid ""
+"In the preceding configuration, the `bookService` is made cacheable. The "
+"caching semantics to apply are encapsulated in the `cache:advice` "
+"definition, which causes the `findBooks` method to be used for putting data "
+"into the cache and the `loadBooks` method for evicting data. Both "
+"definitions work against the `books` cache."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/declarative-xml.adoc:42
+msgid ""
+"The `aop:config` definition applies the cache advice to the appropriate "
+"points in the program by using the AspectJ pointcut expression (more "
+"information is available in xref:core/aop.adoc[Aspect Oriented Programming "
+"with Spring]). In the preceding example, all methods from the `BookService` "
+"are considered and the cache advice is applied to them."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/declarative-xml.adoc:53
+msgid ""
+"The declarative XML caching supports all of the annotation-based model, so "
+"moving between the two should be fairly easy. Furthermore, both can be used "
+"inside the same application.  The XML-based approach does not touch the "
+"target code. However, it is inherently more verbose. When dealing with "
+"classes that have overloaded methods that are targeted for caching, "
+"identifying the proper methods does take an extra effort, since the `method` "
+"argument is not a good discriminator. In these cases, you can use the "
+"AspectJ pointcut to cherry pick the target methods and apply the appropriate "
+"caching functionality.  However, through XML, it is easier to apply package "
+"or group or interface-wide caching (again, due to the AspectJ pointcut) and "
+"to create template-like definitions (as we did in the preceding example by "
+"defining the target cache through the `cache:definitions` `cache` "
+"attribute)."
+msgstr ""

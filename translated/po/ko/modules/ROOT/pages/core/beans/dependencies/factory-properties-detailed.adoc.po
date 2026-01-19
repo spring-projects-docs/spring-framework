@@ -1,0 +1,991 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:40+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:2
+#, no-wrap
+msgid "Dependencies and Configuration in Detail"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:8
+msgid ""
+"As mentioned in the "
+"xref:core/beans/dependencies/factory-collaborators.adoc[previous section], "
+"you can define bean properties and constructor arguments as references to "
+"other managed beans (collaborators) or as values defined inline. Spring's "
+"XML-based configuration metadata supports sub-element types within its "
+"`<property/>` and `<constructor-arg/>` elements for this purpose."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:11
+#, no-wrap
+msgid "Straight Values (Primitives, Strings, and so on)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:18
+msgid ""
+"The `value` attribute of the `<property/>` element specifies a property or "
+"constructor argument as a human-readable string representation. Spring's "
+"xref:core/validation/convert.adoc#core-convert-ConversionService-API[conversion "
+"service] is used to convert these values from a `String` to the actual type "
+"of the property or argument.  The following example shows various values "
+"being set:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:28
+#, no-wrap
+msgid ""
+"\t<bean id=\"myDataSource\" "
+"class=\"org.apache.commons.dbcp.BasicDataSource\" "
+"destroy-method=\"close\">\n"
+"\t\t<!-- results in a setDriverClassName(String) call -->\n"
+"\t\t<property name=\"driverClassName\" value=\"com.mysql.jdbc.Driver\"/>\n"
+"\t\t<property name=\"url\" value=\"jdbc:mysql://localhost:3306/mydb\"/>\n"
+"\t\t<property name=\"username\" value=\"root\"/>\n"
+"\t\t<property name=\"password\" value=\"misterkaoli\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:32
+msgid ""
+"The following example uses the "
+"xref:core/beans/dependencies/factory-properties-detailed.adoc#beans-p-namespace[p-namespace] "
+"for even more succinct XML configuration:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:40
+#, no-wrap
+msgid ""
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:p=\"http://www.springframework.org/schema/p\"\n"
+"\t\txsi:schemaLocation=\"http://www.springframework.org/schema/beans\n"
+"\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:47
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"myDataSource\" "
+"class=\"org.apache.commons.dbcp.BasicDataSource\"\n"
+"\t\t\tdestroy-method=\"close\"\n"
+"\t\t\tp:driverClassName=\"com.mysql.jdbc.Driver\"\n"
+"\t\t\tp:url=\"jdbc:mysql://localhost:3306/mydb\"\n"
+"\t\t\tp:username=\"root\"\n"
+"\t\t\tp:password=\"misterkaoli\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:49
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:572
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:55
+msgid ""
+"The preceding XML is more succinct. However, typos are discovered at runtime "
+"rather than design time, unless you use an IDE (such as "
+"https://www.jetbrains.com/idea/[IntelliJ IDEA] or the "
+"{spring-site-tools}[Spring Tools]) that supports automatic property "
+"completion when you create bean definitions. Such IDE assistance is highly "
+"recommended."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:57
+msgid "You can also configure a `java.util.Properties` instance, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:62
+#, no-wrap
+msgid ""
+"\t<bean id=\"mappings\"\n"
+"\t\tclass=\"org.springframework.context.support.PropertySourcesPlaceholderConfigurer\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:71
+#, no-wrap
+msgid ""
+"\t\t<!-- typed as a java.util.Properties -->\n"
+"\t\t<property name=\"properties\">\n"
+"\t\t\t<value>\n"
+"\t\t\t\tjdbc.driver.className=com.mysql.jdbc.Driver\n"
+"\t\t\t\tjdbc.url=jdbc:mysql://localhost:3306/mydb\n"
+"\t\t\t</value>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:77
+msgid ""
+"The Spring container converts the text inside the `<value/>` element into a "
+"`java.util.Properties` instance by using the JavaBeans `PropertyEditor` "
+"mechanism. This is a nice shortcut, and is one of a few places where the "
+"Spring team do favor the use of the nested `<value/>` element over the "
+"`value` attribute style."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:79
+#, no-wrap
+msgid "The `idref` element"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:84
+msgid ""
+"The `idref` element is simply an error-proof way to pass the `id` (a string "
+"value - not a reference) of another bean in the container to a "
+"`<constructor-arg/>` or `<property/>` element. The following example shows "
+"how to use it:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:88
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:102
+#, no-wrap
+msgid "\t<bean id=\"collaborator\" class=\"...\" />\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:94
+#, no-wrap
+msgid ""
+"\t<bean id=\"client\" class=\"...\">\n"
+"\t\t<property name=\"targetName\">\n"
+"\t\t\t<idref bean=\"collaborator\" />\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:98
+msgid ""
+"The preceding bean definition snippet is exactly equivalent (at runtime) to "
+"the following snippet:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:106
+#, no-wrap
+msgid ""
+"\t<bean id=\"client\" class=\"...\">\n"
+"\t\t<property name=\"targetName\" value=\"collaborator\" />\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:115
+msgid ""
+"The first form is preferable to the second, because using the `idref` tag "
+"lets the container validate at deployment time that the referenced, named "
+"bean actually exists. In the second variation, no validation is performed on "
+"the value that is passed to the `targetName` property of the `client` "
+"bean. Typos are therefore only discovered (with most likely fatal results) "
+"when the `client` bean is actually instantiated. If the `client` bean is a "
+"xref:core/beans/factory-scopes.adoc[prototype] bean, this typo and the "
+"resulting exception may only be discovered long after the container is "
+"deployed."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:120
+msgid ""
+"A common place (at least in versions earlier than Spring 2.0) where the "
+"`<idref/>` element brings value is in the configuration of "
+"xref:core/aop-api/pfb.adoc#aop-pfb-1[AOP interceptors] in a "
+"`ProxyFactoryBean` bean definition. Using `<idref/>` elements when you "
+"specify the interceptor names prevents you from misspelling an interceptor "
+"ID."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:123
+#, no-wrap
+msgid "References to Other Beans (Collaborators)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:133
+msgid ""
+"The `ref` element is the final element inside a `<constructor-arg/>` or "
+"`<property/>` definition element. Here, you set the value of the specified "
+"property of a bean to be a reference to another bean (a collaborator) "
+"managed by the container. The referenced bean is a dependency of the bean "
+"whose property is to be set, and it is initialized on demand as needed "
+"before the property is set. (If the collaborator is a singleton bean, it may "
+"already be initialized by the container.) All references are ultimately a "
+"reference to another object. Scoping and validation depend on whether you "
+"specify the ID or name of the other object through the `bean` or `parent` "
+"attribute."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:140
+msgid ""
+"Specifying the target bean through the `bean` attribute of the `<ref/>` tag "
+"is the most general form and allows creation of a reference to any bean in "
+"the same container or parent container, regardless of whether it is in the "
+"same XML file. The value of the `bean` attribute may be the same as the `id` "
+"attribute of the target bean or be the same as one of the values in the "
+"`name` attribute of the target bean. The following example shows how to use "
+"a `ref` element:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:144
+#, no-wrap
+msgid "\t<ref bean=\"someBean\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:154
+msgid ""
+"Specifying the target bean through the `parent` attribute creates a "
+"reference to a bean that is in a parent container of the current "
+"container. The value of the `parent` attribute may be the same as either the "
+"`id` attribute of the target bean or one of the values in the `name` "
+"attribute of the target bean. The target bean must be in a parent container "
+"of the current one. You should use this bean reference variant mainly when "
+"you have a hierarchy of containers and you want to wrap an existing bean in "
+"a parent container with a proxy that has the same name as the parent "
+"bean. The following pair of listings shows how to use the `parent` "
+"attribute:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:161
+#, no-wrap
+msgid ""
+"\t<!-- in the parent context -->\n"
+"\t<bean id=\"accountService\" "
+"class=\"com.something.SimpleAccountService\">\n"
+"\t\t<!-- insert dependencies as required here -->\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:173
+#, no-wrap
+msgid ""
+"\t<!-- in the child (descendant) context, bean name is the same as the "
+"parent bean -->\n"
+"\t<bean id=\"accountService\" \n"
+"\t\tclass=\"org.springframework.aop.framework.ProxyFactoryBean\">\n"
+"\t\t<property name=\"target\">\n"
+"\t\t\t<ref parent=\"accountService\"/> <!-- notice how we refer to the "
+"parent bean -->\n"
+"\t\t</property>\n"
+"\t\t<!-- insert other configuration and dependencies as required here -->\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:178
+msgid ""
+"The `local` attribute on the `ref` element is no longer supported in the 4.0 "
+"beans XSD, since it does not provide value over a regular `bean` reference "
+"any more. Change your existing `ref local` references to `ref bean` when "
+"upgrading to the 4.0 schema."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:181
+#, no-wrap
+msgid "Inner Beans"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:185
+msgid ""
+"A `<bean/>` element inside the `<property/>` or `<constructor-arg/>` "
+"elements defines an inner bean, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:197
+#, no-wrap
+msgid ""
+"\t<bean id=\"outer\" class=\"...\">\n"
+"\t\t<!-- instead of using a reference to a target bean, simply define the "
+"target bean inline -->\n"
+"\t\t<property name=\"target\">\n"
+"\t\t\t<bean class=\"com.example.Person\"> <!-- this is the inner bean -->\n"
+"\t\t\t\t<property name=\"name\" value=\"Fiona Apple\"/>\n"
+"\t\t\t\t<property name=\"age\" value=\"25\"/>\n"
+"\t\t\t</bean>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:204
+msgid ""
+"An inner bean definition does not require a defined ID or name. If "
+"specified, the container does not use such a value as an identifier. The "
+"container also ignores the `scope` flag on creation, because inner beans are "
+"always anonymous and are always created with the outer bean. It is not "
+"possible to access inner beans independently or to inject them into "
+"collaborating beans other than into the enclosing bean."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:210
+msgid ""
+"As a corner case, it is possible to receive destruction callbacks from a "
+"custom scope -- for example, for a request-scoped inner bean contained "
+"within a singleton bean. The creation of the inner bean instance is tied to "
+"its containing bean, but destruction callbacks let it participate in the "
+"request scope's lifecycle. This is not a common scenario. Inner beans "
+"typically simply share their containing bean's scope."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:213
+#, no-wrap
+msgid "Collections"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:218
+msgid ""
+"The `<list/>`, `<set/>`, `<map/>`, and `<props/>` elements set the "
+"properties and arguments of the Java `Collection` types `List`, `Set`, "
+"`Map`, and `Properties`, respectively. The following example shows how to "
+"use them:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:252
+#, no-wrap
+msgid ""
+"\t<bean id=\"moreComplexObject\" class=\"example.ComplexObject\">\n"
+"\t\t<!-- results in a setAdminEmails(java.util.Properties) call -->\n"
+"\t\t<property name=\"adminEmails\">\n"
+"\t\t\t<props>\n"
+"\t\t\t\t<prop key=\"administrator\">administrator@example.org</prop>\n"
+"\t\t\t\t<prop key=\"support\">support@example.org</prop>\n"
+"\t\t\t\t<prop key=\"development\">development@example.org</prop>\n"
+"\t\t\t</props>\n"
+"\t\t</property>\n"
+"\t\t<!-- results in a setSomeList(java.util.List) call -->\n"
+"\t\t<property name=\"someList\">\n"
+"\t\t\t<list>\n"
+"\t\t\t\t<value>a list element followed by a reference</value>\n"
+"\t\t\t\t<ref bean=\"myDataSource\" />\n"
+"\t\t\t</list>\n"
+"\t\t</property>\n"
+"\t\t<!-- results in a setSomeMap(java.util.Map) call -->\n"
+"\t\t<property name=\"someMap\">\n"
+"\t\t\t<map>\n"
+"\t\t\t\t<entry key=\"an entry\" value=\"just some string\"/>\n"
+"\t\t\t\t<entry key=\"a ref\" value-ref=\"myDataSource\"/>\n"
+"\t\t\t</map>\n"
+"\t\t</property>\n"
+"\t\t<!-- results in a setSomeSet(java.util.Set) call -->\n"
+"\t\t<property name=\"someSet\">\n"
+"\t\t\t<set>\n"
+"\t\t\t\t<value>just some string</value>\n"
+"\t\t\t\t<ref bean=\"myDataSource\" />\n"
+"\t\t\t</set>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:256
+msgid ""
+"The value of a map key or value, or a set value, can also be any of the "
+"following elements:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:260
+#, no-wrap
+msgid "\tbean | ref | idref | list | set | map | props | value | null\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:263
+#, no-wrap
+msgid "Collection Merging"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:271
+msgid ""
+"The Spring container also supports merging collections. An application "
+"developer can define a parent `<list/>`, `<map/>`, `<set/>` or `<props/>` "
+"element and have child `<list/>`, `<map/>`, `<set/>` or `<props/>` elements "
+"inherit and override values from the parent collection. That is, the child "
+"collection's values are the result of merging the elements of the parent and "
+"child collections, with the child's collection elements overriding values "
+"specified in the parent collection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:275
+msgid ""
+"This section on merging discusses the parent-child bean mechanism. Readers "
+"unfamiliar with parent and child bean definitions may wish to read the "
+"xref:core/beans/child-bean-definitions.adoc[relevant section] before "
+"continuing."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:277
+msgid "The following example demonstrates collection merging:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:299
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<bean id=\"parent\" abstract=\"true\" class=\"example.ComplexObject\">\n"
+"\t\t\t<property name=\"adminEmails\">\n"
+"\t\t\t\t<props>\n"
+"\t\t\t\t\t<prop key=\"administrator\">administrator@example.com</prop>\n"
+"\t\t\t\t\t<prop key=\"support\">support@example.com</prop>\n"
+"\t\t\t\t</props>\n"
+"\t\t\t</property>\n"
+"\t\t</bean>\n"
+"\t\t<bean id=\"child\" parent=\"parent\">\n"
+"\t\t\t<property name=\"adminEmails\">\n"
+"\t\t\t\t<!-- the merge is specified on the child collection definition -->\n"
+"\t\t\t\t<props merge=\"true\">\n"
+"\t\t\t\t\t<prop key=\"sales\">sales@example.com</prop>\n"
+"\t\t\t\t\t<prop key=\"support\">support@example.co.uk</prop>\n"
+"\t\t\t\t</props>\n"
+"\t\t\t</property>\n"
+"\t\t</bean>\n"
+"\t<beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:307
+msgid ""
+"Notice the use of the `merge=true` attribute on the `<props/>` element of "
+"the `adminEmails` property of the `child` bean definition. When the `child` "
+"bean is resolved and instantiated by the container, the resulting instance "
+"has an `adminEmails` `Properties` collection that contains the result of "
+"merging the child's `adminEmails` collection with the parent's `adminEmails` "
+"collection. The following listing shows the result:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:313
+#, no-wrap
+msgid ""
+"administrator=administrator@example.com\n"
+"sales=sales@example.com\n"
+"support=support@example.co.uk\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:318
+msgid ""
+"The child `Properties` collection's value set inherits all property elements "
+"from the parent `<props/>`, and the child's value for the `support` value "
+"overrides the value in the parent collection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:327
+msgid ""
+"This merging behavior applies similarly to the `<list/>`, `<map/>`, and "
+"`<set/>` collection types. In the specific case of the `<list/>` element, "
+"the semantics associated with the `List` collection type (that is, the "
+"notion of an `ordered` collection of values) is maintained. The parent's "
+"values precede all of the child list's values. In the case of the `Map`, "
+"`Set`, and `Properties` collection types, no ordering exists. Hence, no "
+"ordering semantics are in effect for the collection types that underlie the "
+"associated `Map`, `Set`, and `Properties` implementation types that the "
+"container uses internally."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:329
+#, no-wrap
+msgid "Limitations of Collection Merging"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:335
+msgid ""
+"You cannot merge different collection types (such as a `Map` and a "
+"`List`). If you do attempt to do so, an appropriate `Exception` is "
+"thrown. The `merge` attribute must be specified on the lower, inherited, "
+"child definition. Specifying the `merge` attribute on a parent collection "
+"definition is redundant and does not result in the desired merging."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:337
+#, no-wrap
+msgid "Strongly-typed collection"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:346
+msgid ""
+"Thanks to Java's support for generic types, you can use strongly typed "
+"collections.  That is, it is possible to declare a `Collection` type such "
+"that it can only contain (for example) `String` elements. If you use Spring "
+"to dependency-inject a strongly-typed `Collection` into a bean, you can take "
+"advantage of Spring's type-conversion support such that the elements of your "
+"strongly-typed `Collection` instances are converted to the appropriate type "
+"prior to being added to the `Collection`.  The following Java class and bean "
+"definition show how to do so:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:349
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:413
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:444
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:354
+#, no-wrap
+msgid "\tpublic class SomeClass {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:356
+#, no-wrap
+msgid "\t\tprivate Map<String, Float> accounts;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:361
+#, no-wrap
+msgid ""
+"\t\tpublic void setAccounts(Map<String, Float> accounts) {\n"
+"\t\t\tthis.accounts = accounts;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:363
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:420
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:451
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:370
+#, no-wrap
+msgid ""
+"class SomeClass {\n"
+"\tlateinit var accounts: Map<String, Float>\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:386
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<bean id=\"something\" class=\"x.y.SomeClass\">\n"
+"\t\t\t<property name=\"accounts\">\n"
+"\t\t\t\t<map>\n"
+"\t\t\t\t\t<entry key=\"one\" value=\"9.99\"/>\n"
+"\t\t\t\t\t<entry key=\"two\" value=\"2.75\"/>\n"
+"\t\t\t\t\t<entry key=\"six\" value=\"3.99\"/>\n"
+"\t\t\t\t</map>\n"
+"\t\t\t</property>\n"
+"\t\t</bean>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:393
+msgid ""
+"When the `accounts` property of the `something` bean is prepared for "
+"injection, the generics information about the element type of the "
+"strongly-typed `Map<String, Float>` is available by reflection. Thus, "
+"Spring's type conversion infrastructure recognizes the various value "
+"elements as being of type `Float`, and the string values (`9.99`, `2.75`, "
+"and `3.99`) are converted into an actual `Float` type."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:396
+#, no-wrap
+msgid "Null and Empty String Values"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:401
+msgid ""
+"Spring treats empty arguments for properties and the like as empty "
+"`Strings`. The following XML-based configuration metadata snippet sets the "
+"`email` property to the empty `String` value (\"\")."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:407
+#, no-wrap
+msgid ""
+"\t<bean class=\"ExampleBean\">\n"
+"\t\t<property name=\"email\" value=\"\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:410
+msgid "The preceding example is equivalent to the following Java code:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:418
+#, no-wrap
+msgid "\texampleBean.setEmail(\"\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:425
+#, no-wrap
+msgid "\texampleBean.email = \"\"\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:430
+msgid ""
+"The `<null/>` element handles `null` values. The following listing shows an "
+"example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:438
+#, no-wrap
+msgid ""
+"\t<bean class=\"ExampleBean\">\n"
+"\t\t<property name=\"email\">\n"
+"\t\t\t<null/>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:441
+msgid "The preceding configuration is equivalent to the following Java code:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:449
+#, no-wrap
+msgid "\texampleBean.setEmail(null);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:456
+#, no-wrap
+msgid "\texampleBean.email = null\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:461
+#, no-wrap
+msgid "XML Shortcut with the p-namespace"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:465
+msgid ""
+"The p-namespace lets you use the `bean` element's attributes (instead of "
+"nested `<property/>` elements) to describe your property values "
+"collaborating beans, or both."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:470
+msgid ""
+"Spring supports extensible configuration formats "
+"xref:core/appendix/xsd-schemas.adoc[with namespaces], which are based on an "
+"XML Schema definition. The `beans` configuration format discussed in this "
+"chapter is defined in an XML Schema document. However, the p-namespace is "
+"not defined in an XSD file and exists only in the core of Spring."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:473
+msgid ""
+"The following example shows two XML snippets (the first uses standard XML "
+"format and the second uses the p-namespace) that resolve to the same result:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:481
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:506
+#, no-wrap
+msgid ""
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:p=\"http://www.springframework.org/schema/p\"\n"
+"\t\txsi:schemaLocation=\"http://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:485
+#, no-wrap
+msgid ""
+"\t\t<bean name=\"classic\" class=\"com.example.ExampleBean\">\n"
+"\t\t\t<property name=\"email\" value=\"someone@somewhere.com\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:489
+#, no-wrap
+msgid ""
+"\t\t<bean name=\"p-namespace\" class=\"com.example.ExampleBean\"\n"
+"\t\t\tp:email=\"someone@somewhere.com\"/>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:495
+msgid ""
+"The example shows an attribute in the p-namespace called `email` in the bean "
+"definition.  This tells Spring to include a property declaration. As "
+"previously mentioned, the p-namespace does not have a schema definition, so "
+"you can set the name of the attribute to the property name."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:498
+msgid ""
+"This next example includes two more bean definitions that both have a "
+"reference to another bean:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:511
+#, no-wrap
+msgid ""
+"\t\t<bean name=\"john-classic\" class=\"com.example.Person\">\n"
+"\t\t\t<property name=\"name\" value=\"John Doe\"/>\n"
+"\t\t\t<property name=\"spouse\" ref=\"jane\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:516
+#, no-wrap
+msgid ""
+"\t\t<bean name=\"john-modern\"\n"
+"\t\t\tclass=\"com.example.Person\"\n"
+"\t\t\tp:name=\"John Doe\"\n"
+"\t\t\tp:spouse-ref=\"jane\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:521
+#, no-wrap
+msgid ""
+"\t\t<bean name=\"jane\" class=\"com.example.Person\">\n"
+"\t\t\t<property name=\"name\" value=\"Jane Doe\"/>\n"
+"\t\t</bean>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:530
+msgid ""
+"This example includes not only a property value using the p-namespace but "
+"also uses a special format to declare property references. Whereas the first "
+"bean definition uses `<property name=\"spouse\" ref=\"jane\"/>` to create a "
+"reference from bean `john` to bean `jane`, the second bean definition uses "
+"`p:spouse-ref=\"jane\"` as an attribute to do the exact same thing. In this "
+"case, `spouse` is the property name, whereas the `-ref` part indicates that "
+"this is not a straight value but rather a reference to another bean."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:536
+msgid ""
+"The p-namespace is not as flexible as the standard XML format. For example, "
+"the format for declaring property references clashes with properties that "
+"end in `Ref`, whereas the standard XML format does not. We recommend that "
+"you choose your approach carefully and communicate this to your team members "
+"to avoid producing XML documents that use all three approaches at the same "
+"time."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:539
+#, no-wrap
+msgid "XML Shortcut with the c-namespace"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:545
+msgid ""
+"Similar to the "
+"xref:core/beans/dependencies/factory-properties-detailed.adoc#beans-p-namespace[XML "
+"Shortcut with the p-namespace], the c-namespace, introduced in Spring 3.1, "
+"allows inlined attributes for configuring the constructor arguments rather "
+"then nested `constructor-arg` elements."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:548
+msgid ""
+"The following example uses the `c:` namespace to do the same thing as the "
+"from "
+"xref:core/beans/dependencies/factory-collaborators.adoc#beans-constructor-injection[Constructor-based "
+"Dependency Injection]:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:556
+#, no-wrap
+msgid ""
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:c=\"http://www.springframework.org/schema/c\"\n"
+"\t\txsi:schemaLocation=\"http://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:559
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"beanTwo\" class=\"x.y.ThingTwo\"/>\n"
+"\t\t<bean id=\"beanThree\" class=\"x.y.ThingThree\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:566
+#, no-wrap
+msgid ""
+"\t\t<!-- traditional declaration with optional argument names -->\n"
+"\t\t<bean id=\"beanOne\" class=\"x.y.ThingOne\">\n"
+"\t\t\t<constructor-arg name=\"thingTwo\" ref=\"beanTwo\"/>\n"
+"\t\t\t<constructor-arg name=\"thingThree\" ref=\"beanThree\"/>\n"
+"\t\t\t<constructor-arg name=\"email\" value=\"something@somewhere.com\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:570
+#, no-wrap
+msgid ""
+"\t\t<!-- c-namespace declaration with argument names -->\n"
+"\t\t<bean id=\"beanOne\" class=\"x.y.ThingOne\" c:thingTwo-ref=\"beanTwo\"\n"
+"\t\t\tc:thingThree-ref=\"beanThree\" c:email=\"something@somewhere.com\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:578
+msgid ""
+"The `c:` namespace uses the same conventions as the `p:` one (a trailing "
+"`-ref` for bean references) for setting the constructor arguments by their "
+"names. Similarly, it needs to be declared in the XML file even though it is "
+"not defined in an XSD schema (it exists inside the Spring core)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:582
+msgid ""
+"For the rare cases where the constructor argument names are not available "
+"(usually if the bytecode was compiled without the `-parameters` flag), you "
+"can fall back to the argument indexes, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:588
+#, no-wrap
+msgid ""
+"\t<!-- c-namespace index declaration -->\n"
+"\t<bean id=\"beanOne\" class=\"x.y.ThingOne\" c:_0-ref=\"beanTwo\" "
+"c:_1-ref=\"beanThree\"\n"
+"\t\tc:_2=\"something@somewhere.com\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:594
+msgid ""
+"Due to the XML grammar, the index notation requires the presence of the "
+"leading `_`, as XML attribute names cannot start with a number (even though "
+"some IDEs allow it).  A corresponding index notation is also available for "
+"`<constructor-arg>` elements but not commonly used since the plain order of "
+"declaration is usually sufficient there."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:599
+msgid ""
+"In practice, the constructor resolution "
+"xref:core/beans/dependencies/factory-collaborators.adoc#beans-factory-ctor-arguments-resolution[mechanism] "
+"is quite efficient in matching arguments, so unless you really need to, we "
+"recommend using the name notation throughout your configuration."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:602
+#, no-wrap
+msgid "Compound Property Names"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:607
+msgid ""
+"You can use compound or nested property names when you set bean properties, "
+"as long as all components of the path except the final property name are not "
+"`null`. Consider the following bean definition:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:613
+#, no-wrap
+msgid ""
+"\t<bean id=\"something\" class=\"things.ThingOne\">\n"
+"\t\t<property name=\"fred.bob.sammy\" value=\"123\" />\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-properties-detailed.adoc:618
+msgid ""
+"The `something` bean has a `fred` property, which has a `bob` property, "
+"which has a `sammy` property, and that final `sammy` property is being set "
+"to a value of `123`. In order for this to work, the `fred` property of "
+"`something` and the `bob` property of `fred` must not be `null` after the "
+"bean is constructed. Otherwise, a `NullPointerException` is thrown."
+msgstr ""

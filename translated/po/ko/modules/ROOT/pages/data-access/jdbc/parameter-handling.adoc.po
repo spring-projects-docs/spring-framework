@@ -1,0 +1,447 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:2
+#, no-wrap
+msgid "Common Problems with Parameter and Data Value Handling"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:6
+msgid ""
+"Common problems with parameters and data values exist in the different "
+"approaches provided by Spring Framework's JDBC support. This section covers "
+"how to address them."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:9
+#, no-wrap
+msgid "Providing SQL Type Information for Parameters"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:14
+msgid ""
+"Usually, Spring determines the SQL type of the parameters based on the type "
+"of parameter passed in. It is possible to explicitly provide the SQL type to "
+"be used when setting parameter values. This is sometimes necessary to "
+"correctly set `NULL` values."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:16
+msgid "You can provide SQL type information in several ways:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:21
+msgid ""
+"Many update and query methods of the `JdbcTemplate` take an additional "
+"parameter in the form of an `int` array. This array is used to indicate the "
+"SQL type of the corresponding parameter by using constant values from the "
+"`java.sql.Types` class. Provide one entry for each parameter."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:25
+msgid ""
+"You can use the `SqlParameterValue` class to wrap the parameter value that "
+"needs this additional information. To do so, create a new instance for each "
+"value and pass in the SQL type and the parameter value in the "
+"constructor. You can also provide an optional scale parameter for numeric "
+"values."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:28
+msgid ""
+"For methods that work with named parameters, you can use the "
+"`SqlParameterSource` classes, `BeanPropertySqlParameterSource` or "
+"`MapSqlParameterSource`. They both have methods for registering the SQL type "
+"for any of the named parameter values."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:31
+#, no-wrap
+msgid "Handling BLOB and CLOB objects"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:41
+msgid ""
+"You can store images, other binary data, and large chunks of text in the "
+"database. These large objects are called BLOBs (Binary Large OBject) for "
+"binary data and CLOBs (Character Large OBject) for character data. In "
+"Spring, you can handle these large objects by using the `JdbcTemplate` "
+"directly and also when using the higher abstractions provided by RDBMS "
+"Objects and the `SimpleJdbc` classes. All of these approaches use an "
+"implementation of the `LobHandler` interface for the actual management of "
+"the LOB (Large OBject) data.  `LobHandler` provides access to a `LobCreator` "
+"class, through the `getLobCreator` method, that is used for creating new LOB "
+"objects to be inserted."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:43
+msgid ""
+"`LobCreator` and `LobHandler` provide the following support for LOB input "
+"and output:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:45
+msgid "BLOB"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:46
+msgid "`byte[]`: `getBlobAsBytes` and `setBlobAsBytes`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:47
+msgid "`InputStream`: `getBlobAsBinaryStream` and `setBlobAsBinaryStream`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:48
+msgid "CLOB"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:49
+msgid "`String`: `getClobAsString` and `setClobAsString`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:50
+msgid "`InputStream`: `getClobAsAsciiStream` and `setClobAsAsciiStream`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:51
+msgid "`Reader`: `getClobAsCharacterStream` and `setClobAsCharacterStream`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:54
+msgid ""
+"The next example shows how to create and insert a BLOB. Later we show how to "
+"read it back from the database."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:59
+msgid ""
+"This example uses a `JdbcTemplate` and an implementation of the "
+"`AbstractLobCreatingPreparedStatementCallback`. It implements one method, "
+"`setValues`. This method provides a `LobCreator` that we use to set the "
+"values for the LOB columns in your SQL insert statement."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:63
+msgid ""
+"For this example, we assume that there is a variable, `lobHandler`, that is "
+"already set to an instance of a `DefaultLobHandler`. You typically set this "
+"value through dependency injection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:65
+msgid "The following example shows how to create and insert a BLOB:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:68
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:143
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:77
+#, no-wrap
+msgid ""
+"\tfinal File blobIn = new File(\"spring2004.jpg\");\n"
+"\tfinal InputStream blobIs = new FileInputStream(blobIn);\n"
+"\tfinal File clobIn = new File(\"large.txt\");\n"
+"\tfinal InputStream clobIs = new FileInputStream(clobIn);\n"
+"\tfinal InputStreamReader clobReader = new InputStreamReader(clobIs);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:88
+#, no-wrap
+msgid ""
+"\tjdbcTemplate.execute(\n"
+"\t\t\"INSERT INTO lob_table (id, a_clob, a_blob) VALUES (?, ?, ?)\",\n"
+"\t\tnew AbstractLobCreatingPreparedStatementCallback(lobHandler) {  // <1>\n"
+"\t\t\tprotected void setValues(PreparedStatement ps, LobCreator lobCreator) "
+"throws SQLException {\n"
+"\t\t\t\tps.setLong(1, 1L);\n"
+"\t\t\t\tlobCreator.setClobAsCharacterStream(ps, 2, clobReader, "
+"(int)clobIn.length());  // <2>\n"
+"\t\t\t\tlobCreator.setBlobAsBinaryStream(ps, 3, blobIs, "
+"(int)blobIn.length());  // <3>\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:91
+#, no-wrap
+msgid ""
+"\tblobIs.close();\n"
+"\tclobReader.close();\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:93
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:120
+msgid ""
+"Pass in the `lobHandler` that (in this example) is a plain "
+"`DefaultLobHandler`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:94
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:121
+msgid ""
+"Using the method `setClobAsCharacterStream` to pass in the contents of the "
+"CLOB."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:95
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:122
+msgid ""
+"Using the method `setBlobAsBinaryStream` to pass in the contents of the "
+"BLOB."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:96
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:162
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:105
+#, no-wrap
+msgid ""
+"\tval blobIn = File(\"spring2004.jpg\")\n"
+"\tval blobIs = FileInputStream(blobIn)\n"
+"\tval clobIn = File(\"large.txt\")\n"
+"\tval clobIs = FileInputStream(clobIn)\n"
+"\tval clobReader = InputStreamReader(clobIs)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:118
+#, no-wrap
+msgid ""
+"\tjdbcTemplate.execute(\n"
+"\t\t\t\"INSERT INTO lob_table (id, a_clob, a_blob) VALUES (?, ?, ?)\",\n"
+"\t\t\tobject: AbstractLobCreatingPreparedStatementCallback(lobHandler) {  // "
+"<1>\n"
+"\t\t\t\toverride fun setValues(ps: PreparedStatement, lobCreator: "
+"LobCreator) {\n"
+"\t\t\t\t\tps.setLong(1, 1L)\n"
+"\t\t\t\t\tlobCreator.setClobAsCharacterStream(ps, 2, clobReader, "
+"clobIn.length().toInt())  // <2>\n"
+"\t\t\t\t\tlobCreator.setBlobAsBinaryStream(ps, 3, blobIs, "
+"blobIn.length().toInt())  // <3>\n"
+"\t\t\t\t}\n"
+"\t\t\t}\n"
+"\t)\n"
+"\tblobIs.close()\n"
+"\tclobReader.close()\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:132
+msgid ""
+"If you invoke the `setBlobAsBinaryStream`, `setClobAsAsciiStream`, or "
+"`setClobAsCharacterStream` method on the `LobCreator` returned from "
+"`DefaultLobHandler.getLobCreator()`, you can optionally specify a negative "
+"value for the `contentLength` argument. If the specified content length is "
+"negative, the `DefaultLobHandler` uses the JDBC 4.0 variants of the "
+"set-stream methods without a length parameter. Otherwise, it passes the "
+"specified length on to the driver."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:135
+msgid ""
+"See the documentation for the JDBC driver you use to verify that it supports "
+"streaming a LOB without providing the content length."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:140
+msgid ""
+"Now it is time to read the LOB data from the database. Again, you use a "
+"`JdbcTemplate` with the same instance variable `lobHandler` and a reference "
+"to a `DefaultLobHandler`.  The following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:158
+#, no-wrap
+msgid ""
+"\tList<Map<String, Object>> l = jdbcTemplate.query(\"select id, a_clob, "
+"a_blob from lob_table\",\n"
+"\t\tnew RowMapper<Map<String, Object>>() {\n"
+"\t\t\tpublic Map<String, Object> mapRow(ResultSet rs, int i) throws "
+"SQLException {\n"
+"\t\t\t\tMap<String, Object> results = new HashMap<String, Object>();\n"
+"\t\t\t\tString clobText = lobHandler.getClobAsString(rs, \"a_clob\");  // "
+"<1>\n"
+"\t\t\t\tresults.put(\"CLOB\", clobText);\n"
+"\t\t\t\tbyte[] blobBytes = lobHandler.getBlobAsBytes(rs, \"a_blob\");  // "
+"<2>\n"
+"\t\t\t\tresults.put(\"BLOB\", blobBytes);\n"
+"\t\t\t\treturn results;\n"
+"\t\t\t}\n"
+"\t\t});\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:160
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:173
+msgid "Using the method `getClobAsString` to retrieve the contents of the CLOB."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:161
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:174
+msgid "Using the method `getBlobAsBytes` to retrieve the contents of the BLOB."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:171
+#, no-wrap
+msgid ""
+"\tval l = jdbcTemplate.query(\"select id, a_clob, a_blob from lob_table\") { "
+"rs, _ ->\n"
+"\t\tval clobText = lobHandler.getClobAsString(rs, \"a_clob\")  // <1>\n"
+"\t\tval blobBytes = lobHandler.getBlobAsBytes(rs, \"a_blob\")  // <2>\n"
+"\t\tmapOf(\"CLOB\" to clobText, \"BLOB\" to blobBytes)\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:178
+#, no-wrap
+msgid "Passing in Lists of Values for IN Clause"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:190
+msgid ""
+"The SQL standard allows for selecting rows based on an expression that "
+"includes a variable list of values. A typical example would be `select * "
+"from T_ACTOR where id in (1, 2, 3)`. This variable list is not directly "
+"supported for prepared statements by the JDBC standard. You cannot declare a "
+"variable number of placeholders. You need a number of variations with the "
+"desired number of placeholders prepared, or you need to generate the SQL "
+"string dynamically once you know how many placeholders are required. The "
+"named parameter support provided in the `NamedParameterJdbcTemplate` takes "
+"the latter approach.  You can pass in the values as a `java.util.List` (or "
+"any `Iterable`) of simple values.  This list is used to insert the required "
+"placeholders into the actual SQL statement and pass in the values during "
+"statement execution."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:195
+msgid ""
+"Be careful when passing in many values. The JDBC standard does not guarantee "
+"that you can use more than 100 values for an `IN` expression list. Various "
+"databases exceed this number, but they usually have a hard limit for how "
+"many values are allowed.  For example, Oracle's limit is 1000."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:200
+msgid ""
+"In addition to the primitive values in the value list, you can create a "
+"`java.util.List` of object arrays. This list can support multiple "
+"expressions being defined for the `in` clause, such as `+++select * from "
+"T_ACTOR where (id, last_name) in ((1, 'Johnson'), (2, 'Harrop'))+++`. This, "
+"of course, requires that your database supports this syntax."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:203
+#, no-wrap
+msgid "Handling Complex Types for Stored Procedure Calls"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:209
+msgid ""
+"When you call stored procedures, you can sometimes use complex types "
+"specific to the database. To accommodate these types, Spring provides a "
+"`SqlReturnType` for handling them when they are returned from the stored "
+"procedure call and `SqlTypeValue` when they are passed in as a parameter to "
+"the stored procedure."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:214
+msgid ""
+"The `SqlReturnType` interface has a single method (named `getTypeValue`) "
+"that must be implemented. This interface is used as part of the declaration "
+"of an `SqlOutParameter`.  The following example shows returning the value of "
+"a `java.sql.Struct` object of the user declared type `ITEM_TYPE`:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:222
+msgid ""
+"You can use `SqlTypeValue` to pass the value of a Java object (such as "
+"`TestItem`) to a stored procedure. The `SqlTypeValue` interface has a single "
+"method (named `createTypeValue`) that you must implement. The active "
+"connection is passed in, and you can use it to create database-specific "
+"objects, such as `java.sql.Struct` instances or `java.sql.Array` "
+"instances. The following example creates a `java.sql.Struct` instance:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:227
+msgid ""
+"You can now add this `SqlTypeValue` to the `Map` that contains the input "
+"parameters for the `execute` call of the stored procedure."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/parameter-handling.adoc:232
+msgid ""
+"Another use for the `SqlTypeValue` is passing in an array of values to an "
+"Oracle stored procedure. Oracle has an `createOracleArray` method on "
+"`OracleConnection` that you can access by unwrapping it. You can use the "
+"`SqlTypeValue` to create an array and populate it with values from the Java "
+"`java.sql.Array`, as the following example shows:"
+msgstr ""

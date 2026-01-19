@@ -1,0 +1,183 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:2
+#, no-wrap
+msgid "HTML Fragments"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:6
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-view-fragments[See equivalent in "
+"the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:12
+msgid ""
+"https://htmx.org/[HTMX] and https://turbo.hotwired.dev/[Hotwire Turbo] "
+"emphasize an HTML-over-the-wire approach where clients receive server "
+"updates in HTML rather than in JSON.  This allows the benefits of an SPA "
+"(single page app) without having to write much or even any JavaScript. For a "
+"good overview and to learn more, please visit their respective websites."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:17
+msgid ""
+"In Spring MVC, view rendering typically involves specifying one view and one "
+"model.  However, in HTML-over-the-wire a common capability is to send "
+"multiple HTML fragments that the browser can use to update different parts "
+"of the page. For this, controller methods can return "
+"`Collection<ModelAndView>`. For example:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:20
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:45
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:74
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:28
+#, no-wrap
+msgid ""
+"\t@GetMapping\n"
+"\tList<ModelAndView> handle() {\n"
+"\t\treturn List.of(new ModelAndView(\"posts\"), new "
+"ModelAndView(\"comments\"));\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:30
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:55
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:95
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:38
+#, no-wrap
+msgid ""
+"\t@GetMapping\n"
+"\tfun handle(): List<ModelAndView> {\n"
+"\t\treturn listOf(ModelAndView(\"posts\"), ModelAndView(\"comments\"))\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:42
+msgid ""
+"The same can be done also by returning the dedicated type "
+"`FragmentsRendering`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:53
+#, no-wrap
+msgid ""
+"\t@GetMapping\n"
+"\tFragmentsRendering handle() {\n"
+"\t\treturn "
+"FragmentsRendering.fragment(\"posts\").fragment(\"comments\").build();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:63
+#, no-wrap
+msgid ""
+"\t@GetMapping\n"
+"\tfun handle(): FragmentsRendering {\n"
+"\t\treturn "
+"FragmentsRendering.fragment(\"posts\").fragment(\"comments\").build()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:68
+msgid ""
+"Each fragment can have an independent model, and that model inherits "
+"attributes from the shared model for the request."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:71
+msgid ""
+"HTMX and Hotwire Turbo support streaming updates over SSE (server-sent "
+"events).  A controller can use `SseEmitter` to send `ModelAndView` to render "
+"a fragment per event:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:93
+#, no-wrap
+msgid ""
+"\t@GetMapping\n"
+"\tSseEmitter handle() {\n"
+"\t\tSseEmitter emitter = new SseEmitter();\n"
+"\t\tstartWorkerThread(() -> {\n"
+"\t\t\ttry {\n"
+"\t\t\t\temitter.send(SseEmitter.event().data(new "
+"ModelAndView(\"posts\")));\n"
+"\t\t\t\temitter.send(SseEmitter.event().data(new "
+"ModelAndView(\"comments\")));\n"
+"\t\t\t\t// ...\n"
+"\t\t\t}\n"
+"\t\t\tcatch (IOException ex) {\n"
+"\t\t\t\t// Cancel sending\n"
+"\t\t\t}\n"
+"\t\t});\n"
+"\t\treturn emitter;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:114
+#, no-wrap
+msgid ""
+"\t@GetMapping \n"
+"\tfun handle(): SseEmitter {\n"
+"\t\tval emitter = SseEmitter()\n"
+"\t\tstartWorkerThread{\n"
+"\t\t\ttry {\n"
+"\t\t\t\temitter.send(SseEmitter.event().data(ModelAndView(\"posts\")))\n"
+"\t\t\t\temitter.send(SseEmitter.event().data(ModelAndView(\"comments\")))\n"
+"\t\t\t\t// ...\n"
+"\t\t\t}\n"
+"\t\t\tcatch (ex: IOException) {\n"
+"\t\t\t\t// Cancel sending\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t\treturn emitter\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-fragments.adoc:118
+msgid ""
+"The same can also be done by returning `Flux<ModelAndView>`, or any other "
+"type adaptable to a Reactive Streams `Publisher` through the "
+"`ReactiveAdapterRegistry`."
+msgstr ""

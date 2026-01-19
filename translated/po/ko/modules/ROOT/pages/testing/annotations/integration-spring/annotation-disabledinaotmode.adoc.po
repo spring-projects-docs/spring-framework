@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-disabledinaotmode.adoc:2
+#, no-wrap
+msgid "`@DisabledInAotMode`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-disabledinaotmode.adoc:7
+msgid ""
+"`@DisabledInAotMode` signals that the annotated test class is disabled in "
+"Spring AOT (ahead-of-time) mode, which means that the `ApplicationContext` "
+"for the test class will not be processed for AOT optimizations at build "
+"time."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-disabledinaotmode.adoc:12
+msgid ""
+"If a test class is annotated with `@DisabledInAotMode`, all other test "
+"classes which specify configuration to load the same `ApplicationContext` "
+"must also be annotated with `@DisabledInAotMode`. Failure to annotate all "
+"such test classes will result in an exception, either at build time or run "
+"time."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-disabledinaotmode.adoc:18
+msgid ""
+"When used with JUnit Jupiter based tests, `@DisabledInAotMode` also signals "
+"that the annotated test class or test method is disabled when running the "
+"test suite in Spring AOT mode. When applied at the class level, all test "
+"methods within that class will be disabled. In this sense, "
+"`@DisabledInAotMode` has semantics similar to those of JUnit Jupiter's "
+"`@DisabledInNativeImage` annotation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-disabledinaotmode.adoc:20
+msgid ""
+"For details on AOT support specific to integration tests, see "
+"xref:testing/testcontext-framework/aot.adoc[Ahead of Time Support for "
+"Tests]."
+msgstr ""

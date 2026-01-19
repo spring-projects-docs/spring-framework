@@ -1,0 +1,243 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:2
+#, no-wrap
+msgid "Bean Overriding in Tests"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:7
+msgid ""
+"Bean overriding in tests refers to the ability to override specific beans in "
+"the `ApplicationContext` for a test class, by annotating the test class or "
+"one or more non-static fields in the test class."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:11
+msgid ""
+"This feature is intended as a less risky alternative to the practice of "
+"registering a bean via `@Bean` with the `DefaultListableBeanFactory` "
+"`setAllowBeanDefinitionOverriding` flag set to `true`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:13
+msgid ""
+"The Spring TestContext framework provides two sets of annotations for bean "
+"overriding."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:15
+msgid "xref:testing/annotations/integration-spring/annotation-testbean.adoc[`@TestBean`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:16
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-mockitobean.adoc[`@MockitoBean` "
+"and `@MockitoSpyBean`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:19
+msgid ""
+"The former relies purely on Spring, while the latter set relies on the "
+"https://site.mockito.org/[Mockito] third-party library."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:21
+#, no-wrap
+msgid "Custom Bean Override Support"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:25
+msgid ""
+"The three annotations mentioned above build upon the `@BeanOverride` "
+"meta-annotation and associated infrastructure, which allows one to define "
+"custom bean overriding variants."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:27
+msgid "To implement custom bean override support, the following is needed:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:30
+msgid ""
+"An annotation meta-annotated with `@BeanOverride` that defines the "
+"`BeanOverrideProcessor` to use"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:31
+msgid "A custom `BeanOverrideProcessor` implementation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:32
+msgid ""
+"One or more concrete `BeanOverrideHandler` implementations created by the "
+"processor"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:35
+msgid ""
+"The Spring TestContext framework includes implementations of the following "
+"APIs that support bean overriding and are responsible for setting up the "
+"rest of the infrastructure."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:37
+msgid "a `BeanFactoryPostProcessor`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:38
+msgid "a `ContextCustomizerFactory`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:39
+msgid "a `TestExecutionListener`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:44
+msgid ""
+"The `spring-test` module registers implementations of the latter two "
+"(`BeanOverrideContextCustomizerFactory` and "
+"`BeanOverrideTestExecutionListener`) in its "
+"{spring-framework-code}/spring-test/src/main/resources/META-INF/spring.factories[`META-INF/spring.factories` "
+"properties file]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:49
+msgid ""
+"The bean overriding infrastructure searches for annotations on test classes "
+"as well as annotations on non-static fields in test classes that are "
+"meta-annotated with `@BeanOverride` and instantiates the corresponding "
+"`BeanOverrideProcessor` which is responsible for creating an appropriate "
+"`BeanOverrideHandler`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:53
+msgid ""
+"The internal `BeanOverrideBeanFactoryPostProcessor` then uses bean override "
+"handlers to alter the test's `ApplicationContext` by creating, replacing, or "
+"wrapping beans as defined by the corresponding `BeanOverrideStrategy`:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:55
+#, no-wrap
+msgid "`REPLACE`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:57
+msgid ""
+"Replaces the bean. Throws an exception if a corresponding bean does not "
+"exist."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:57
+#, no-wrap
+msgid "`REPLACE_OR_CREATE`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:60
+msgid ""
+"Replaces the bean if it exists. Creates a new bean if a corresponding bean "
+"does not exist."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:60
+#, no-wrap
+msgid "`WRAP`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:62
+msgid "Retrieves the original bean and wraps it."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:70
+msgid ""
+"When replacing a non-singleton bean, the non-singleton bean will be replaced "
+"with a singleton bean corresponding to bean override instance created by the "
+"applicable `BeanOverrideHandler`, and the corresponding bean definition will "
+"be converted to a `singleton`. Consequently, if a handler overrides a "
+"`prototype` or scoped bean, the overridden bean will be treated as a "
+"`singleton`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:74
+msgid ""
+"When replacing a bean created by a `FactoryBean`, the `FactoryBean` itself "
+"will be replaced with a singleton bean corresponding to bean override "
+"instance created by the applicable `BeanOverrideHandler`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:77
+msgid ""
+"When wrapping a bean created by a `FactoryBean`, the object created by the "
+"`FactoryBean` will be wrapped, not the `FactoryBean` itself."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:86
+msgid ""
+"In contrast to Spring's autowiring mechanism (for example, resolution of an "
+"`@Autowired` field), the bean overriding infrastructure in the TestContext "
+"framework has limited heuristics it can perform to locate a bean. Either the "
+"`BeanOverrideProcessor` can compute the name of the bean to override, or it "
+"can be unambiguously selected given the type of the annotated field and its "
+"qualifying annotations."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:89
+msgid ""
+"Typically, the bean is selected \"by type\" by the "
+"`BeanOverrideFactoryPostProcessor`.  Alternatively, the user can directly "
+"provide the bean name in the custom annotation."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/bean-overriding.adoc:92
+msgid ""
+"`BeanOverrideProcessor` implementations may also internally compute a bean "
+"name based on a convention or some other method."
+msgstr ""

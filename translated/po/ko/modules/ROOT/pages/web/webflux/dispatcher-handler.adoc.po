@@ -1,0 +1,568 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:2
+#, no-wrap
+msgid "`DispatcherHandler`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-servlet.adoc[See equivalent in the Servlet "
+"stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:10
+msgid ""
+"Spring WebFlux, similarly to Spring MVC, is designed around the front "
+"controller pattern, where a central `WebHandler`, the `DispatcherHandler`, "
+"provides a shared algorithm for request processing, while actual work is "
+"performed by configurable, delegate components.  This model is flexible and "
+"supports diverse workflows."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:18
+msgid ""
+"`DispatcherHandler` discovers the delegate components it needs from Spring "
+"configuration.  It is also designed to be a Spring bean itself and "
+"implements `ApplicationContextAware` for access to the context in which it "
+"runs. If `DispatcherHandler` is declared with a bean name of `webHandler`, "
+"it is, in turn, discovered by "
+"{spring-framework-api}/web/server/adapter/WebHttpHandlerBuilder.html[`WebHttpHandlerBuilder`], "
+"which puts together a request-processing chain, as described in "
+"xref:web/webflux/reactive-spring.adoc#webflux-web-handler-api[`WebHandler` "
+"API]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:20
+msgid "Spring configuration in a WebFlux application typically contains:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:22
+msgid "`DispatcherHandler` with the bean name `webHandler`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:23
+msgid "`WebFilter` and `WebExceptionHandler` beans"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:24
+msgid ""
+"xref:web/webflux/dispatcher-handler.adoc#webflux-special-bean-types[`DispatcherHandler` "
+"special beans]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:25
+msgid "Others"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:28
+msgid ""
+"The configuration is given to `WebHttpHandlerBuilder` to build the "
+"processing chain, as the following example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:31
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:37
+#, no-wrap
+msgid ""
+"\tApplicationContext context = ...\n"
+"\tHttpHandler handler = "
+"WebHttpHandlerBuilder.applicationContext(context).build();\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:39
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:45
+#, no-wrap
+msgid ""
+"\tval context: ApplicationContext = ...\n"
+"\tval handler = WebHttpHandlerBuilder.applicationContext(context).build()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:50
+msgid ""
+"The resulting `HttpHandler` is ready for use with a "
+"xref:web/webflux/reactive-spring.adoc#webflux-httphandler[server adapter]."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:53
+#, no-wrap
+msgid "Special Bean Types"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:55
+msgid ""
+"[.small]#xref:web/webmvc/mvc-servlet/special-bean-types.adoc[See equivalent "
+"in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:60
+msgid ""
+"The `DispatcherHandler` delegates to special beans to process requests and "
+"render the appropriate responses. By \"`special beans,`\" we mean "
+"Spring-managed `Object` instances that implement WebFlux framework "
+"contracts. Those usually come with built-in contracts, but you can customize "
+"their properties, extend them, or replace them."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:65
+msgid ""
+"The following table lists the special beans detected by the "
+"`DispatcherHandler`. Note that there are also some other beans detected at a "
+"lower level (see "
+"xref:web/webflux/reactive-spring.adoc#webflux-web-handler-api-special-beans[Special "
+"bean types] in the Web Handler API)."
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:91
+#, no-wrap
+msgid ""
+"| Bean type | Explanation\n"
+"\n"
+"| `HandlerMapping`\n"
+"| Map a request to a handler. The mapping is based on some criteria, the "
+"details of\n"
+"  which vary by `HandlerMapping` implementation -- annotated controllers, "
+"simple\n"
+"  URL pattern mappings, and others.\n"
+"\n"
+"  The main `HandlerMapping` implementations are "
+"`RequestMappingHandlerMapping` for\n"
+"  `@RequestMapping` annotated methods, `RouterFunctionMapping` for "
+"functional endpoint\n"
+"  routes, and `SimpleUrlHandlerMapping` for explicit registrations of URI "
+"path patterns\n"
+"  and `WebHandler` instances.\n"
+"\n"
+"| `HandlerAdapter`\n"
+"| Help the `DispatcherHandler` to invoke a handler mapped to a request "
+"regardless of\n"
+"  how the handler is actually invoked. For example, invoking an annotated "
+"controller\n"
+"  requires resolving annotations. The main purpose of a `HandlerAdapter` is "
+"to shield the\n"
+"  `DispatcherHandler` from such details.\n"
+"\n"
+"| `HandlerResultHandler`\n"
+"| Process the result from the handler invocation and finalize the "
+"response.\n"
+"  See xref:web/webflux/dispatcher-handler.adoc#webflux-resulthandling[Result "
+"Handling].\n"
+"\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:95
+#, no-wrap
+msgid "WebFlux Config"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:97
+msgid ""
+"[.small]#xref:web/webmvc/mvc-servlet/config.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:105
+msgid ""
+"Applications can declare the infrastructure beans (listed under "
+"xref:web/webflux/reactive-spring.adoc#webflux-web-handler-api-special-beans[Web "
+"Handler API] and "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-special-bean-types[`DispatcherHandler`])  "
+"that are required to process requests. However, in most cases, the "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-framework-config[WebFlux "
+"Config] is the best starting point. It declares the required beans and "
+"provides a higher-level configuration callback API to customize it."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:108
+msgid ""
+"Spring Boot relies on the WebFlux config to configure Spring WebFlux and "
+"also provides many extra convenient options."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:111
+#, no-wrap
+msgid "Processing"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:113
+msgid ""
+"[.small]#xref:web/webmvc/mvc-servlet/sequence.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:115
+msgid "`DispatcherHandler` processes requests as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:117
+msgid ""
+"Each `HandlerMapping` is asked to find a matching handler, and the first "
+"match is used."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:119
+msgid ""
+"If a handler is found, it is run through an appropriate `HandlerAdapter`, "
+"which exposes the return value from the execution as `HandlerResult`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:121
+msgid ""
+"The `HandlerResult` is given to an appropriate `HandlerResultHandler` to "
+"complete processing by writing to the response directly or by using a view "
+"to render."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:124
+#, no-wrap
+msgid "Result Handling"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:131
+msgid ""
+"The return value from the invocation of a handler, through a "
+"`HandlerAdapter`, is wrapped as a `HandlerResult`, along with some "
+"additional context, and passed to the first `HandlerResultHandler` that "
+"claims support for it. The following table shows the available "
+"`HandlerResultHandler` implementations, all of which are declared in the "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-framework-config[WebFlux "
+"Config]:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:157
+#, no-wrap
+msgid ""
+"| Result Handler Type | Return Values | Default Order\n"
+"\n"
+"| `ResponseEntityResultHandler`\n"
+"| `ResponseEntity`, typically from `@Controller` instances.\n"
+"| 0\n"
+"\n"
+"| `ServerResponseResultHandler`\n"
+"| `ServerResponse`, typically from functional endpoints.\n"
+"| 0\n"
+"\n"
+"| `ResponseBodyResultHandler`\n"
+"| Handle return values from `@ResponseBody` methods or `@RestController` "
+"classes.\n"
+"| 100\n"
+"\n"
+"| `ViewResolutionResultHandler`\n"
+"| `CharSequence`, "
+"{spring-framework-api}/web/reactive/result/view/View.html[`View`],\n"
+"  {spring-framework-api}/ui/Model.html[Model], `Map`,\n"
+"  "
+"{spring-framework-api}/web/reactive/result/view/Rendering.html[Rendering],\n"
+"  or any other `Object` is treated as a model attribute.\n"
+"\n"
+"  See also "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-viewresolution[View "
+"Resolution].\n"
+"| `Integer.MAX_VALUE`\n"
+"\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:161
+#, no-wrap
+msgid "Exceptions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:163
+msgid ""
+"[.small]#xref:web/webmvc/mvc-servlet/exceptionhandlers.adoc[See equivalent "
+"in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:167
+msgid ""
+"`HandlerAdapter` implementations can handle internally exceptions from "
+"invoking a request handler, such as a controller method. However, an "
+"exception may be deferred if the request handler returns an asynchronous "
+"value."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:171
+msgid ""
+"A `HandlerAdapter` may expose its exception handling mechanism as a "
+"`DispatchExceptionHandler` set on the `HandlerResult` it returns. When "
+"that's set, `DispatcherHandler` will also apply it to the handling of the "
+"result."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:175
+msgid ""
+"A `HandlerAdapter` may also choose to implement "
+"`DispatchExceptionHandler`. In that case `DispatcherHandler` will apply it "
+"to exceptions that arise before a handler is mapped, for example, during "
+"handler mapping, or earlier, for example, in a `WebFilter`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:178
+msgid ""
+"See also xref:web/webflux/controller/ann-exceptions.adoc[Exceptions] in the "
+"\"`Annotated Controller`\" section or "
+"xref:web/webflux/reactive-spring.adoc#webflux-exception-handler[Exceptions] "
+"in the WebHandler API section."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:181
+#, no-wrap
+msgid "View Resolution"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:183
+msgid ""
+"[.small]#xref:web/webmvc/mvc-servlet/viewresolver.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:189
+msgid ""
+"View resolution enables rendering to a browser with an HTML template and a "
+"model without tying you to a specific view technology. In Spring WebFlux, "
+"view resolution is supported through a dedicated "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-resulthandling[HandlerResultHandler] "
+"that uses `ViewResolver` instances to map a String (representing a logical "
+"view name) to a `View` instance. The `View` is then used to render the "
+"response."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:191
+msgid ""
+"Web applications need to use a xref:web/webflux-view.adoc[View rendering "
+"library] to support this use case."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:193
+#, no-wrap
+msgid "Handling"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:195
+msgid ""
+"[.small]#xref:web/webmvc/mvc-servlet/viewresolver.adoc#mvc-viewresolver-handling[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:199
+msgid ""
+"The `HandlerResult` passed into `ViewResolutionResultHandler` contains the "
+"return value from the handler and the model that contains attributes added "
+"during request handling. The return value is processed as one of the "
+"following:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:202
+msgid ""
+"`String`, `CharSequence`: A logical view name to be resolved to a `View` "
+"through the list of configured `ViewResolver` implementations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:206
+msgid ""
+"`void`: Select a default view name based on the request path, minus the "
+"leading and trailing slash, and resolve it to a `View`. The same also "
+"happens when a view name was not provided (for example, model attribute was "
+"returned) or an async return value (for example, `Mono` completed empty)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:208
+msgid ""
+"{spring-framework-api}/web/reactive/result/view/Rendering.html[Rendering]: "
+"API for view resolution scenarios. Explore the options in your IDE with code "
+"completion."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:209
+msgid ""
+"`Model`, `Map`: Extra model attributes to be added to the model for the "
+"request."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:214
+msgid ""
+"Any other: Any other return value (except for simple types, as determined by "
+"{spring-framework-api}/beans/BeanUtils.html#isSimpleProperty(java.lang.Class)[BeanUtils#isSimpleProperty])  "
+"is treated as a model attribute to be added to the model. The attribute name "
+"is derived from the class name by using "
+"{spring-framework-api}/core/Conventions.html[conventions], unless a handler "
+"method `@ModelAttribute` annotation is present."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:220
+msgid ""
+"The model can contain asynchronous, reactive types (for example, from "
+"Reactor or RxJava). Prior to rendering, `AbstractView` resolves such model "
+"attributes into concrete values and updates the model. Single-value reactive "
+"types are resolved to a single value or no value (if empty), while "
+"multi-value reactive types (for example, `Flux<T>`) are collected and "
+"resolved to `List<T>`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:224
+msgid ""
+"To configure view resolution is as simple as adding a "
+"`ViewResolutionResultHandler` bean to your Spring "
+"configuration. "
+"xref:web/webflux/config.adoc#webflux-config-view-resolvers[WebFlux Config] "
+"provides a dedicated configuration API for view resolution."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:226
+msgid ""
+"See xref:web/webflux-view.adoc[View Technologies] for more on the view "
+"technologies integrated with Spring WebFlux."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:228
+#, no-wrap
+msgid "Redirecting"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:230
+msgid ""
+"[.small]#xref:web/webmvc/mvc-servlet/viewresolver.adoc#mvc-redirecting-redirect-prefix[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:234
+msgid ""
+"The special `redirect:` prefix in a view name lets you perform a "
+"redirect. The `UrlBasedViewResolver` (and sub-classes) recognize this as an "
+"instruction that a redirect is needed. The rest of the view name is the "
+"redirect URL."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:240
+msgid ""
+"The net effect is the same as if the controller had returned a "
+"`RedirectView` or `Rendering.redirectTo(\"abc\").build()`, but now the "
+"controller itself can operate in terms of logical view names. A view name "
+"such as `redirect:/some/resource` is relative to the current application, "
+"while a view name such as `redirect:https://example.com/arbitrary/path` "
+"redirects to an absolute URL."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:243
+msgid ""
+"xref:web/webmvc/mvc-servlet/viewresolver.adoc#mvc-redirecting-forward-prefix[Unlike "
+"the Servlet stack], Spring WebFlux does not support \"FORWARD\" dispatches, "
+"so `forward:` prefixes are not supported as a result."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:245
+#, no-wrap
+msgid "Content Negotiation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:247
+msgid ""
+"[.small]#xref:web/webmvc/mvc-servlet/viewresolver.adoc#mvc-multiple-representations[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:251
+msgid ""
+"`ViewResolutionResultHandler` supports content negotiation. It compares the "
+"request media types with the media types supported by each selected "
+"`View`. The first `View` that supports the requested media type(s) is used."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/dispatcher-handler.adoc:256
+msgid ""
+"In order to support media types such as JSON and XML, Spring WebFlux "
+"provides `HttpMessageWriterView`, which is a special `View` that renders "
+"through an "
+"xref:web/webflux/reactive-spring.adoc#webflux-codecs[HttpMessageWriter]. "
+"Typically, you would configure these as default views through the "
+"xref:web/webflux/config.adoc#webflux-config-view-resolvers[WebFlux "
+"Configuration]. Default views are always selected and used if they match the "
+"requested media type."
+msgstr ""

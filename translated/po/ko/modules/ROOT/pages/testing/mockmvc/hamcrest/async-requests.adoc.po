@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:2
+#, no-wrap
+msgid "Async Requests"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:8
+msgid ""
+"This section shows how to use MockMvc on its own to test asynchronous "
+"request handling.  If using MockMvc through the "
+"xref:testing/webtestclient.adoc[WebTestClient], there is nothing special to "
+"do to make asynchronous requests work as the `WebTestClient` automatically "
+"does what is described in this section."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:13
+msgid ""
+"Servlet asynchronous requests, xref:web/webmvc/mvc-ann-async.adoc[supported "
+"in Spring MVC], work by exiting the Servlet container thread and allowing "
+"the application to compute the response asynchronously, after which an async "
+"dispatch is made to complete processing on a Servlet container thread."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:18
+msgid ""
+"In Spring MVC Test, async requests can be tested by asserting the produced "
+"async value first, then manually performing the async dispatch, and finally "
+"verifying the response.  Below is an example test for controller methods "
+"that return `DeferredResult`, `Callable`, or reactive type such as Reactor "
+"`Mono`:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:21
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:26
+#, no-wrap
+msgid "\t// static import of MockMvcRequestBuilders.* and MockMvcResultMatchers.*\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:34
+#, no-wrap
+msgid ""
+"\t@Test\n"
+"\tvoid test() throws Exception {\n"
+"\t\tMvcResult mvcResult = this.mockMvc.perform(get(\"/path\"))\n"
+"\t\t\t\t.andExpect(status().isOk()) <1>\n"
+"\t\t\t\t.andExpect(request().asyncStarted()) <2>\n"
+"\t\t\t\t.andExpect(request().asyncResult(\"body\")) <3>\n"
+"\t\t\t\t.andReturn();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:39
+#, no-wrap
+msgid ""
+"\t\tthis.mockMvc.perform(asyncDispatch(mvcResult)) <4>\n"
+"\t\t\t\t.andExpect(status().isOk()) <5>\n"
+"\t\t\t\t.andExpect(content().string(\"body\"));\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:41
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:68
+msgid "Check response status is still unchanged"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:42
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:69
+msgid "Async processing must have started"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:43
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:70
+msgid "Wait and assert the async result"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:44
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:71
+msgid "Manually perform an ASYNC dispatch (as there is no running container)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:45
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:72
+msgid "Verify the final response"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:46
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:58
+#, no-wrap
+msgid ""
+"\t@Test\n"
+"\tfun test() {\n"
+"\t\tvar mvcResult = mockMvc.get(\"/path\").andExpect {\n"
+"\t\t\tstatus { isOk() } // <1>\n"
+"\t\t\trequest { asyncStarted() } // <2>\n"
+"\t\t\t// TODO Remove unused generic parameter\n"
+"\t\t\trequest { asyncResult<Nothing>(\"body\") } // <3>\n"
+"\t\t}.andReturn()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/async-requests.adoc:66
+#, no-wrap
+msgid ""
+"\t\tmockMvc.perform(asyncDispatch(mvcResult)) // <4>\n"
+"\t\t\t\t.andExpect {\n"
+"\t\t\t\t\tstatus { isOk() } // <5>\n"
+"\t\t\t\t\tcontent().string(\"body\")\n"
+"\t\t\t\t}\n"
+"\t}\n"
+msgstr ""

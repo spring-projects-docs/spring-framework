@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view.adoc:2
+#, no-wrap
+msgid "View Technologies"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view.adoc:6
+msgid "[.small]#xref:web/webflux-view.adoc[See equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view.adoc:10
+msgid ""
+"The rendering of views in Spring MVC is pluggable. Whether you decide to use "
+"Thymeleaf, Groovy Markup Templates, JSPs, or other technologies is primarily "
+"a matter of a configuration change. This chapter covers view technologies "
+"integrated with Spring MVC."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view.adoc:12
+msgid ""
+"For more context on view rendering, please see "
+"xref:web/webmvc/mvc-servlet/viewresolver.adoc[View Resolution]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view.adoc:16
+msgid ""
+"The views of a Spring MVC application live within the internal trust "
+"boundaries of that application. Views have access to all the beans of your "
+"application context. As such, it is not recommended to use Spring MVC's "
+"template support in applications where the templates are editable by "
+"external sources, since this can have security implications."
+msgstr ""

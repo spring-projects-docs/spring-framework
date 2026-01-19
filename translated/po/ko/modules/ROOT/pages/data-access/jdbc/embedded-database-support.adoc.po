@@ -1,0 +1,487 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:2
+#, no-wrap
+msgid "Embedded Database Support"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:9
+msgid ""
+"The `org.springframework.jdbc.datasource.embedded` package provides support "
+"for embedded Java database engines. Support for "
+"https://www.hsqldb.org[HSQL], https://www.h2database.com[H2], and "
+"https://db.apache.org/derby[Derby] is provided natively. You can also use an "
+"extensible API to plug in new embedded database types and `DataSource` "
+"implementations."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:12
+#, no-wrap
+msgid "Why Use an Embedded Database?"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:17
+msgid ""
+"An embedded database can be useful during the development phase of a project "
+"because of its lightweight nature. Benefits include ease of configuration, "
+"quick startup time, testability, and the ability to rapidly evolve your SQL "
+"during development."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:20
+#, no-wrap
+msgid "Creating an Embedded Database"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:23
+msgid ""
+"You can expose an embedded database instance as a bean as the following "
+"example shows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:31
+msgid ""
+"The preceding configuration creates an embedded H2 database that is "
+"populated with SQL from the `schema.sql` and `test-data.sql` resources in "
+"the root of the classpath. In addition, as a best practice, the embedded "
+"database is assigned a uniquely generated name. The embedded database is "
+"made available to the Spring container as a bean of type "
+"`javax.sql.DataSource` that can then be injected into data access objects as "
+"needed."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:34
+msgid ""
+"See the "
+"{spring-framework-api}/jdbc/datasource/embedded/EmbeddedDatabaseBuilder.html[javadoc "
+"for `EmbeddedDatabaseBuilder`] for further details on all supported options."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:37
+#, no-wrap
+msgid "Selecting the Embedded Database Type"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:41
+msgid ""
+"This section covers how to select one of the three embedded databases that "
+"Spring supports. It includes the following topics:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:43
+msgid ""
+"xref:data-access/jdbc/embedded-database-support.adoc#jdbc-embedded-database-using-HSQL[Using "
+"HSQL]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:44
+msgid ""
+"xref:data-access/jdbc/embedded-database-support.adoc#jdbc-embedded-database-using-H2[Using "
+"H2]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:45
+msgid ""
+"xref:data-access/jdbc/embedded-database-support.adoc#jdbc-embedded-database-using-Derby[Using "
+"Derby]"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:47
+#, no-wrap
+msgid "Using HSQL"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:53
+msgid ""
+"Spring supports HSQL 1.8.0 and above. HSQL is the default embedded database "
+"if no type is explicitly specified. To specify HSQL explicitly, set the "
+"`type` attribute of the `embedded-database` tag to `HSQL`. If you use the "
+"builder API, call the `setType(EmbeddedDatabaseType)` method with "
+"`EmbeddedDatabaseType.HSQL`."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:55
+#, no-wrap
+msgid "Using H2"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:60
+msgid ""
+"Spring supports the H2 database. To enable H2, set the `type` attribute of "
+"the `embedded-database` tag to `H2`. If you use the builder API, call the "
+"`setType(EmbeddedDatabaseType)` method with `EmbeddedDatabaseType.H2`."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:62
+#, no-wrap
+msgid "Using Derby"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:67
+msgid ""
+"Spring supports Apache Derby 10.5 and above. To enable Derby, set the `type` "
+"attribute of the `embedded-database` tag to `DERBY`. If you use the builder "
+"API, call the `setType(EmbeddedDatabaseType)` method with "
+"`EmbeddedDatabaseType.DERBY`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:70
+#, no-wrap
+msgid "Customizing the Embedded Database Type"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:74
+msgid ""
+"While each supported type comes with default connection settings, it is "
+"possible to customize them if necessary. The following example uses H2 with "
+"a custom driver:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:77
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:151
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:83
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class DataSourceConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:92
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic DataSource dataSource() {\n"
+"\t\t\treturn new EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t\t.setDatabaseConfigurer(EmbeddedDatabaseConfigurers\n"
+"\t\t\t\t\t\t\t.customizeConfigurer(H2, this::customize))\n"
+"\t\t\t\t\t.addScript(\"schema.sql\")\n"
+"\t\t\t\t\t.build();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:103
+#, no-wrap
+msgid ""
+"\t\tprivate EmbeddedDatabaseConfigurer customize(EmbeddedDatabaseConfigurer "
+"defaultConfigurer) {\n"
+"\t\t\treturn new EmbeddedDatabaseConfigurerDelegate(defaultConfigurer) {\n"
+"\t\t\t\t@Override\n"
+"\t\t\t\tpublic void configureConnectionProperties(ConnectionProperties "
+"properties, String databaseName) {\n"
+"\t\t\t\t\tsuper.configureConnectionProperties(properties, databaseName);\n"
+"\t\t\t\t\tproperties.setDriverClass(CustomDriver.class);\n"
+"\t\t\t\t}\n"
+"\t\t\t};\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:105
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:183
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:111
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass DataSourceConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:120
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\treturn EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t.setDatabaseConfigurer(EmbeddedDatabaseConfigurers\n"
+"\t\t\t\t\t.customizeConfigurer(EmbeddedDatabaseType.H2) { this.customize(it) "
+"})\n"
+"\t\t\t\t.addScript(\"schema.sql\")\n"
+"\t\t\t\t.build()\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:133
+#, no-wrap
+msgid ""
+"\t\tprivate fun customize(defaultConfigurer: EmbeddedDatabaseConfigurer): "
+"EmbeddedDatabaseConfigurer {\n"
+"\t\t\treturn object : EmbeddedDatabaseConfigurerDelegate(defaultConfigurer) "
+"{\n"
+"\t\t\t\toverride fun configureConnectionProperties(\n"
+"\t\t\t\t\tproperties: ConnectionProperties,\n"
+"\t\t\t\t\tdatabaseName: String\n"
+"\t\t\t\t) {\n"
+"\t\t\t\t\tsuper.configureConnectionProperties(properties, databaseName)\n"
+"\t\t\t\t\tproperties.setDriverClass(CustomDriver::class.java)\n"
+"\t\t\t\t}\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:138
+#, no-wrap
+msgid "Testing Data Access Logic with an Embedded Database"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:148
+msgid ""
+"Embedded databases provide a lightweight way to test data access code. The "
+"next example is a data access integration test template that uses an "
+"embedded database. Using such a template can be useful for one-offs when the "
+"embedded database does not need to be reused across test classes. However, "
+"if you wish to create an embedded database that is shared within a test "
+"suite, consider using the xref:testing/testcontext-framework.adoc[Spring "
+"TestContext Framework] and configuring the embedded database as a bean in "
+"the Spring `ApplicationContext` as described in "
+"xref:data-access/jdbc/embedded-database-support.adoc#jdbc-embedded-database[Creating "
+"an Embedded Database].  The following listing shows the test template:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:156
+#, no-wrap
+msgid "\tpublic class DataAccessIntegrationTestTemplate {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:158
+#, no-wrap
+msgid "\t\tprivate EmbeddedDatabase db;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:168
+#, no-wrap
+msgid ""
+"\t\t@BeforeEach\n"
+"\t\tpublic void setUp() {\n"
+"\t\t\t// creates an HSQL in-memory database populated from default scripts\n"
+"\t\t\t// classpath:schema.sql and classpath:data.sql\n"
+"\t\t\tdb = new EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t\t.generateUniqueName(true)\n"
+"\t\t\t\t\t.addDefaultScripts()\n"
+"\t\t\t\t\t.build();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:174
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tpublic void testDataAccess() {\n"
+"\t\t\tJdbcTemplate template = new JdbcTemplate(db);\n"
+"\t\t\ttemplate.query( /* ... */ );\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:179
+#, no-wrap
+msgid ""
+"\t\t@AfterEach\n"
+"\t\tpublic void tearDown() {\n"
+"\t\t\tdb.shutdown();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:181
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:188
+#, no-wrap
+msgid "\tclass DataAccessIntegrationTestTemplate {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:190
+#, no-wrap
+msgid "\t\tprivate lateinit var db: EmbeddedDatabase\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:200
+#, no-wrap
+msgid ""
+"\t\t@BeforeEach\n"
+"\t\tfun setUp() {\n"
+"\t\t\t// creates an HSQL in-memory database populated from default scripts\n"
+"\t\t\t// classpath:schema.sql and classpath:data.sql\n"
+"\t\t\tdb = EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t\t.generateUniqueName(true)\n"
+"\t\t\t\t\t.addDefaultScripts()\n"
+"\t\t\t\t\t.build()\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:206
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tfun testDataAccess() {\n"
+"\t\t\tval template = JdbcTemplate(db)\n"
+"\t\t\ttemplate.query( /* ... */)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:212
+#, no-wrap
+msgid ""
+"\t\t@AfterEach\n"
+"\t\tfun tearDown() {\n"
+"\t\t\tdb.shutdown()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:217
+#, no-wrap
+msgid "Generating Unique Names for Embedded Databases"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:227
+msgid ""
+"Development teams often encounter errors with embedded databases if their "
+"test suite inadvertently attempts to recreate additional instances of the "
+"same database. This can happen quite easily if an XML configuration file or "
+"`@Configuration` class is responsible for creating an embedded database and "
+"the corresponding configuration is then reused across multiple testing "
+"scenarios within the same test suite (that is, within the same JVM process) "
+"-- for example, integration tests against embedded databases whose "
+"`ApplicationContext` configuration differs only with regard to which bean "
+"definition profiles are active."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:237
+msgid ""
+"The root cause of such errors is the fact that Spring's "
+"`EmbeddedDatabaseFactory` (used internally by both the "
+"`<jdbc:embedded-database>` XML namespace element and the "
+"`EmbeddedDatabaseBuilder` for Java configuration) sets the name of the "
+"embedded database to `testdb` if not otherwise specified. For the case of "
+"`<jdbc:embedded-database>`, the embedded database is typically assigned a "
+"name equal to the bean's `id` (often, something like `dataSource`). Thus, "
+"subsequent attempts to create an embedded database do not result in a new "
+"database. Instead, the same JDBC connection URL is reused, and attempts to "
+"create a new embedded database actually point to an existing embedded "
+"database created from the same configuration."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:241
+msgid ""
+"To address this common issue, Spring Framework 4.2 provides support for "
+"generating unique names for embedded databases. To enable the use of "
+"generated names, use one of the following options."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:243
+msgid "`EmbeddedDatabaseFactory.setGenerateUniqueDatabaseName()`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:244
+msgid "`EmbeddedDatabaseBuilder.generateUniqueName()`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:245
+msgid "`<jdbc:embedded-database generate-name=\"true\" ... >`"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:248
+#, no-wrap
+msgid "Extending the Embedded Database Support"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:251
+msgid "You can extend Spring JDBC embedded database support in two ways:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:253
+msgid ""
+"Implement `EmbeddedDatabaseConfigurer` to support a new embedded database "
+"type."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:255
+msgid ""
+"Implement `DataSourceFactory` to support a new `DataSource` implementation, "
+"such as a connection pool to manage embedded database connections."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/jdbc/embedded-database-support.adoc:257
+msgid ""
+"We encourage you to contribute extensions to the Spring community at "
+"{spring-framework-issues}[GitHub Issues]."
+msgstr ""

@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:2
+#, no-wrap
+msgid "JCache (JSR-107) Annotations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:13
+msgid ""
+"Since version 4.1, Spring's caching abstraction fully supports the JCache "
+"standard (JSR-107) annotations: `@CacheResult`, `@CachePut`, `@CacheRemove`, "
+"and `@CacheRemoveAll` as well as the `@CacheDefaults`, `@CacheKey`, and "
+"`@CacheValue` companions.  You can use these annotations even without "
+"migrating your cache store to JSR-107.  The internal implementation uses "
+"Spring's caching abstraction and provides default `CacheResolver` and "
+"`KeyGenerator` implementations that are compliant with the specification. In "
+"other words, if you are already using Spring's caching abstraction, you can "
+"switch to these standard annotations without changing your cache storage (or "
+"configuration, for that matter)."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:16
+#, no-wrap
+msgid "Feature Summary"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:21
+msgid ""
+"For those who are familiar with Spring's caching annotations, the following "
+"table describes the main differences between the Spring annotations and "
+"their JSR-107 counterparts:"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:22
+#, no-wrap
+msgid "Spring vs. JSR-107 caching annotations"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:51
+#, no-wrap
+msgid ""
+"| Spring | JSR-107 | Remark\n"
+"\n"
+"| `@Cacheable`\n"
+"| `@CacheResult`\n"
+"| Fairly similar. `@CacheResult` can cache specific exceptions and force "
+"the\n"
+"  execution of the method regardless of the content of the cache.\n"
+"\n"
+"| `@CachePut`\n"
+"| `@CachePut`\n"
+"| While Spring updates the cache with the result of the method invocation, "
+"JCache\n"
+"  requires that it be passed it as an argument that is annotated with "
+"`@CacheValue`.\n"
+"  Due to this difference, JCache allows updating the cache before or after "
+"the\n"
+"  actual method invocation.\n"
+"\n"
+"| `@CacheEvict`\n"
+"| `@CacheRemove`\n"
+"| Fairly similar. `@CacheRemove` supports conditional eviction when the\n"
+"  method invocation results in an exception.\n"
+"\n"
+"| `@CacheEvict(allEntries=true)`\n"
+"| `@CacheRemoveAll`\n"
+"| See `@CacheRemove`.\n"
+"\n"
+"| `@CacheConfig`\n"
+"| `@CacheDefaults`\n"
+"| Lets you configure the same concepts, in a similar fashion.\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:59
+msgid ""
+"JCache has the notion of `javax.cache.annotation.CacheResolver`, which is "
+"identical to the Spring's `CacheResolver` interface, except that JCache "
+"supports only a single cache. By default, a simple implementation retrieves "
+"the cache to use based on the name declared on the annotation. It should be "
+"noted that, if no cache name is specified on the annotation, a default is "
+"automatically generated. See the javadoc of `@CacheResult#cacheName()` for "
+"more information."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:62
+msgid ""
+"`CacheResolver` instances are retrieved by a `CacheResolverFactory`. It is "
+"possible to customize the factory for each cache operation, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:67
+#, no-wrap
+msgid ""
+"\t@CacheResult(cacheNames=\"books\", "
+"cacheResolverFactory=MyCacheResolverFactory.class) <1>\n"
+"\tpublic Book findBook(ISBN isbn)\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:69
+msgid "Customizing the factory for this operation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:73
+msgid ""
+"For all referenced classes, Spring tries to locate a bean with the given "
+"type.  If more than one match exists, a new instance is created and can use "
+"the regular bean lifecycle callbacks, such as dependency injection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:78
+msgid ""
+"Keys are generated by a `javax.cache.annotation.CacheKeyGenerator` that "
+"serves the same purpose as Spring's `KeyGenerator`. By default, all method "
+"arguments are taken into account, unless at least one parameter is annotated "
+"with `@CacheKey`. This is similar to Spring's "
+"xref:integration/cache/annotations.adoc#cache-annotations-cacheable-key[custom "
+"key generation declaration]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:80
+msgid ""
+"For instance, the following are identical operations, one using Spring's "
+"abstraction and the other using JCache:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:85
+#, no-wrap
+msgid ""
+"\t@Cacheable(cacheNames=\"books\", key=\"#isbn\")\n"
+"\tpublic Book findBook(ISBN isbn, boolean checkWarehouse, boolean "
+"includeUsed)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:88
+#, no-wrap
+msgid ""
+"\t@CacheResult(cacheName=\"books\")\n"
+"\tpublic Book findBook(@CacheKey ISBN isbn, boolean checkWarehouse, boolean "
+"includeUsed)\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:92
+msgid ""
+"You can also specify the `CacheKeyResolver` on the operation, similar to how "
+"you can specify the `CacheResolverFactory`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:100
+msgid ""
+"JCache can manage exceptions thrown by annotated methods. This can prevent "
+"an update of the cache, but it can also cache the exception as an indicator "
+"of the failure instead of calling the method again. Assume that "
+"`InvalidIsbnNotFoundException` is thrown if the structure of the ISBN is "
+"invalid. This is a permanent failure (no book could ever be retrieved with "
+"such a parameter). The following caches the exception so that further calls "
+"with the same, invalid, ISBN throw the cached exception directly instead of "
+"invoking the method again:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:106
+#, no-wrap
+msgid ""
+"\t@CacheResult(cacheName=\"books\", exceptionCacheName=\"failures\"\n"
+"\t\t\t\tcachedExceptions = InvalidIsbnNotFoundException.class)\n"
+"\tpublic Book findBook(ISBN isbn)\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:110
+#, no-wrap
+msgid "Enabling JSR-107 Support"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:116
+msgid ""
+"You do not need to do anything specific to enable the JSR-107 support "
+"alongside Spring's declarative annotation support. Both `@EnableCaching` and "
+"the `cache:annotation-driven` XML element automatically enable the JCache "
+"support if both the JSR-107 API and the `spring-context-support` module are "
+"present in the classpath."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/cache/jsr-107.adoc:120
+msgid ""
+"Depending on your use case, the choice is basically yours. You can even mix "
+"and match services by using the JSR-107 API on some and using Spring's own "
+"annotations on others. However, if these services impact the same caches, "
+"you should use a consistent and identical key generation implementation."
+msgstr ""

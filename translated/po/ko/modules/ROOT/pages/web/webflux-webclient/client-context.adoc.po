@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-context.adoc:2
+#, no-wrap
+msgid "Context"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-context.adoc:8
+msgid ""
+"xref:web/webflux-webclient/client-attributes.adoc[Attributes] provide a "
+"convenient way to pass information to the filter chain but they only "
+"influence the current request. If you want to pass information that "
+"propagates to additional requests that are nested, for example, via "
+"`flatMap`, or executed after, for example, via `concatMap`, then you'll need "
+"to use the Reactor `Context`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-context.adoc:11
+msgid ""
+"The Reactor `Context` needs to be populated at the end of a reactive chain "
+"in order to apply to all operations. For example:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-context.adoc:14
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-context.adoc:25
+#, no-wrap
+msgid ""
+"\tWebClient client = WebClient.builder()\n"
+"\t\t\t.filter((request, next) ->\n"
+"\t\t\t\t\tMono.deferContextual(contextView -> {\n"
+"\t\t\t\t\t\tString value = contextView.get(\"foo\");\n"
+"\t\t\t\t\t\t// ...\n"
+"\t\t\t\t\t}))\n"
+"\t\t\t.build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-context.adoc:33
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"https://example.org/\")\n"
+"\t\t\t.retrieve()\n"
+"\t\t\t.bodyToMono(String.class)\n"
+"\t\t\t.flatMap(body -> {\n"
+"\t\t\t\t\t// perform nested request (context propagates automatically)...\n"
+"\t\t\t})\n"
+"\t\t\t.contextWrite(context -> context.put(\"foo\", ...));\n"
+msgstr ""

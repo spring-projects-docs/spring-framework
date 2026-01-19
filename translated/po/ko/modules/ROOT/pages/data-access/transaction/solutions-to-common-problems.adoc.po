@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/transaction/solutions-to-common-problems.adoc:2
+#, no-wrap
+msgid "Solutions to Common Problems"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/transaction/solutions-to-common-problems.adoc:6
+msgid "This section describes solutions to some common problems."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/transaction/solutions-to-common-problems.adoc:9
+#, no-wrap
+msgid "Using the Wrong Transaction Manager for a Specific `DataSource`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/data-access/transaction/solutions-to-common-problems.adoc:20
+msgid ""
+"Use the correct `PlatformTransactionManager` implementation based on your "
+"choice of transactional technologies and requirements. Used properly, the "
+"Spring Framework merely provides a straightforward and portable "
+"abstraction. If you use global transactions, you must use the "
+"`org.springframework.transaction.jta.JtaTransactionManager` class (or an "
+"xref:data-access/transaction/application-server-integration.adoc[application "
+"server-specific subclass] of it) for all your transactional "
+"operations. Otherwise, the transaction infrastructure tries to perform local "
+"transactions on such resources as container `DataSource` instances. Such "
+"local transactions do not make sense, and a good application server treats "
+"them as errors."
+msgstr ""

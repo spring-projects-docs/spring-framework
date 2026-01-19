@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/context-hierarchy.adoc:2
+#, no-wrap
+msgid "Context Hierarchy"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/context-hierarchy.adoc:9
+msgid ""
+"`DispatcherServlet` expects a `WebApplicationContext` (an extension of a "
+"plain `ApplicationContext`) for its own "
+"configuration. `WebApplicationContext` has a link to the `ServletContext` "
+"and the `Servlet` with which it is associated. It is also bound to the "
+"`ServletContext` such that applications can use static methods on "
+"`RequestContextUtils` to look up the `WebApplicationContext` if they need "
+"access to it."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/context-hierarchy.adoc:16
+msgid ""
+"For many applications, having a single `WebApplicationContext` is simple and "
+"suffices.  It is also possible to have a context hierarchy where one root "
+"`WebApplicationContext` is shared across multiple `DispatcherServlet` (or "
+"other `Servlet`) instances, each with its own child `WebApplicationContext` "
+"configuration.  See xref:core/beans/context-introduction.adoc[Additional "
+"Capabilities of the `ApplicationContext`] for more on the context hierarchy "
+"feature."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/context-hierarchy.adoc:22
+msgid ""
+"The root `WebApplicationContext` typically contains infrastructure beans, "
+"such as data repositories and business services that need to be shared "
+"across multiple `Servlet` instances. Those beans are effectively inherited "
+"and can be overridden (that is, re-declared) in the Servlet-specific child "
+"`WebApplicationContext`, which typically contains beans local to the given "
+"`Servlet`.  The following image shows this relationship:"
+msgstr ""
+
+#. type: Target for macro image
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/context-hierarchy.adoc:23
+#, no-wrap
+msgid "mvc-context-hierarchy.png"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/context-hierarchy.adoc:26
+msgid ""
+"The following example configures a `WebApplicationContext` hierarchy, and "
+"the equivalent `web.xml`:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/context-hierarchy.adoc:31
+msgid ""
+"If an application context hierarchy is not required, applications can return "
+"all configuration through `getRootConfigClasses()` and `null` from "
+"`getServletConfigClasses()`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/context-hierarchy.adoc:35
+msgid ""
+"If an application context hierarchy is not required, applications may "
+"configure a \"`root`\" context only and leave the `contextConfigLocation` "
+"Servlet parameter empty."
+msgstr ""

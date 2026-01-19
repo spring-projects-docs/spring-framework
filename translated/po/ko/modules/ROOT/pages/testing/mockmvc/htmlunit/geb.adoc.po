@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:2
+#, no-wrap
+msgid "MockMvc and Geb"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:6
+msgid ""
+"In the previous section, we saw how to use MockMvc with WebDriver. In this "
+"section, we use https://www.gebish.org/[Geb] to make our tests even "
+"Groovy-er."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:8
+#, no-wrap
+msgid "Why Geb and MockMvc?"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:14
+msgid ""
+"Geb is backed by WebDriver, so it offers many of the "
+"xref:testing/mockmvc/htmlunit/webdriver.adoc#mockmvc-server-htmlunit-webdriver-why[same "
+"benefits] that we get from WebDriver. However, Geb makes things even easier "
+"by taking care of some of the boilerplate code for us."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:16
+#, no-wrap
+msgid "MockMvc and Geb Setup"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:20
+msgid ""
+"We can easily initialize a Geb `Browser` with a Selenium WebDriver that uses "
+"MockMvc, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:28
+#, no-wrap
+msgid ""
+"def setup() {\n"
+"\tbrowser.driver = MockMvcHtmlUnitDriverBuilder\n"
+"\t\t.webAppContextSetup(context)\n"
+"\t\t.build()\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:33
+msgid ""
+"This is a simple example of using `MockMvcHtmlUnitDriverBuilder`. For more "
+"advanced usage, see "
+"xref:testing/mockmvc/htmlunit/webdriver.adoc#mockmvc-server-htmlunit-webdriver-advanced-builder[Advanced "
+"`MockMvcHtmlUnitDriverBuilder`]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:38
+msgid ""
+"This ensures that any URL referencing `localhost` as the server is directed "
+"to our `MockMvc` instance without the need for a real HTTP connection. Any "
+"other URL is requested by using a network connection as normal. This lets us "
+"easily test the use of CDNs."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:40
+#, no-wrap
+msgid "MockMvc and Geb Usage"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:45
+msgid ""
+"Now we can use Geb as we normally would but without the need to deploy our "
+"application to a Servlet container. For example, we can request the view to "
+"create a message with the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:49
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:91
+#, no-wrap
+msgid "to CreateMessagePage\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:52
+msgid "We can then fill out the form and submit it to create a message, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:59
+#, no-wrap
+msgid ""
+"when:\n"
+"form.summary = expectedSummary\n"
+"form.text = expectedMessage\n"
+"submit.click(ViewMessagePage)\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:64
+msgid ""
+"Any unrecognized method calls or property accesses or references that are "
+"not found are forwarded to the current page object. This removes a lot of "
+"the boilerplate code we needed when using WebDriver directly."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:70
+msgid ""
+"As with direct WebDriver usage, this improves on the design of our "
+"xref:testing/mockmvc/htmlunit/mah.adoc#mockmvc-server-htmlunit-mah-usage[HtmlUnit "
+"test] by using the Page Object Pattern. As mentioned previously, we can use "
+"the Page Object Pattern with HtmlUnit and WebDriver, but it is even easier "
+"with Geb. Consider our new Groovy-based `CreateMessagePage` implementation:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:82
+#, no-wrap
+msgid ""
+"class CreateMessagePage extends Page {\n"
+"\tstatic url = 'messages/form'\n"
+"\tstatic at = { assert title == 'Messages : Create'; true }\n"
+"\tstatic content =  {\n"
+"\t\tsubmit { $('input[type=submit]') }\n"
+"\t\tform { $('form') }\n"
+"\t\terrors(required:false) { $('label.error, .alert-error')?.text() }\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:87
+msgid ""
+"Our `CreateMessagePage` extends `Page`. We do not go over the details of "
+"`Page`, but, in summary, it contains common functionality for all of our "
+"pages. We define a URL in which this page can be found. This lets us "
+"navigate to the page, as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:96
+msgid ""
+"We also have an `at` closure that determines if we are at the specified "
+"page. It should return `true` if we are on the correct page. This is why we "
+"can assert that we are on the correct page, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:102
+#, no-wrap
+msgid ""
+"then:\n"
+"at CreateMessagePage\n"
+"errors.contains('This field is required.')\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:106
+msgid ""
+"We use an assertion in the closure so that we can determine where things "
+"went wrong if we were at the wrong page."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:111
+msgid ""
+"Next, we create a `content` closure that specifies all the areas of interest "
+"within the page. We can use a "
+"https://www.gebish.org/manual/current/#the-jquery-ish-navigator-api[jQuery-ish "
+"Navigator API] to select the content in which we are interested."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:113
+msgid ""
+"Finally, we can verify that a new message was created successfully, as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:123
+#, no-wrap
+msgid ""
+"then:\n"
+"at ViewMessagePage\n"
+"success == 'Successfully created a new message'\n"
+"id\n"
+"date\n"
+"summary == expectedSummary\n"
+"message == expectedMessage\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/geb.adoc:126
+msgid ""
+"For further details on how to get the most out of Geb, see "
+"https://www.gebish.org/manual/current/[The Book of Geb] user's manual."
+msgstr ""

@@ -1,0 +1,1354 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:2
+#, no-wrap
+msgid "JSP and JSTL"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:5
+msgid ""
+"The Spring Framework has a built-in integration for using Spring MVC with "
+"JSP and JSTL."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:8
+#, no-wrap
+msgid "View Resolvers"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:11
+msgid ""
+"When developing with JSPs, you typically declare an "
+"`InternalResourceViewResolver` bean."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:15
+msgid ""
+"`InternalResourceViewResolver` can be used for dispatching to any Servlet "
+"resource but in particular for JSPs. As a best practice, we strongly "
+"encourage placing your JSP files in a directory under the `WEB-INF` "
+"directory so there can be no direct access by clients."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:18
+msgid ""
+"This is what is done by the configuration below which registers a JSP view "
+"resolver using a default view name prefix of `\"/WEB-INF/\"` and a default "
+"suffix of `\".jsp\"`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:23
+msgid "You can specify custom prefix and suffix."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:25
+#, no-wrap
+msgid "JSPs versus JSTL"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:29
+msgid ""
+"When using the JSP Standard Tag Library (JSTL) you must use a special view "
+"class, the `JstlView`, as JSTL needs some preparation before things such as "
+"the I18N features can work."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:32
+#, no-wrap
+msgid "Spring's JSP Tag Library"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:38
+msgid ""
+"Spring provides data binding of request parameters to command objects, as "
+"described in earlier chapters. To facilitate the development of JSP pages in "
+"combination with those data binding features, Spring provides a few tags "
+"that make things even easier. All Spring tags have HTML escaping features to "
+"enable or disable escaping of characters."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:43
+msgid ""
+"The `spring.tld` tag library descriptor (TLD) is included in the "
+"`spring-webmvc.jar`.  For a comprehensive reference on individual tags, "
+"browse the "
+"{spring-framework-api}/web/servlet/tags/package-summary.html#package.description[API "
+"reference] or see the tag library description."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:46
+#, no-wrap
+msgid "Spring's form tag library"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:52
+msgid ""
+"As of version 2.0, Spring provides a comprehensive set of data binding-aware "
+"tags for handling form elements when using JSP and Spring Web MVC. Each tag "
+"provides support for the set of attributes of its corresponding HTML tag "
+"counterpart, making the tags familiar and intuitive to use. The "
+"tag-generated HTML is HTML 4.01/XHTML 1.0 compliant."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:57
+msgid ""
+"Unlike other form/input tag libraries, Spring's form tag library is "
+"integrated with Spring Web MVC, giving the tags access to the command object "
+"and reference data your controller deals with. As we show in the following "
+"examples, the form tags make JSPs easier to develop, read, and maintain."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:60
+msgid ""
+"We go through the form tags and look at an example of how each tag is "
+"used. We have included generated HTML snippets where certain tags require "
+"further commentary."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:62
+#, no-wrap
+msgid "Configuration"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:66
+msgid ""
+"The form tag library comes bundled in `spring-webmvc.jar`. The library "
+"descriptor is called `spring-form.tld`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:69
+msgid ""
+"To use the tags from this library, add the following directive to the top of "
+"your JSP page:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:73
+#, no-wrap
+msgid ""
+"\t<%@ taglib prefix=\"form\" "
+"uri=\"http://www.springframework.org/tags/form\" %>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:75
+msgid ""
+"where `form` is the tag name prefix you want to use for the tags from this "
+"library."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:77
+#, no-wrap
+msgid "The Form Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:83
+msgid ""
+"This tag renders an HTML 'form' element and exposes a binding path to inner "
+"tags for binding. It puts the command object in the `PageContext` so that "
+"the command object can be accessed by inner tags. All the other tags in this "
+"library are nested tags of the `form` tag."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:88
+msgid ""
+"Assume that we have a domain object called `User`. It is a JavaBean with "
+"properties such as `firstName` and `lastName`. We can use it as the "
+"form-backing object of our form controller, which returns `form.jsp`. The "
+"following example shows what `form.jsp` could look like:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:108
+#, no-wrap
+msgid ""
+"\t<form:form>\n"
+"\t\t<table>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>First Name:</td>\n"
+"\t\t\t\t<td><form:input path=\"firstName\"/></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Last Name:</td>\n"
+"\t\t\t\t<td><form:input path=\"lastName\"/></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td colspan=\"2\">\n"
+"\t\t\t\t\t<input type=\"submit\" value=\"Save Changes\"/>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t</table>\n"
+"\t</form:form>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:113
+msgid ""
+"The `firstName` and `lastName` values are retrieved from the command object "
+"placed in the `PageContext` by the page controller. Keep reading to see more "
+"complex examples of how inner tags are used with the `form` tag."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:115
+msgid ""
+"The following listing shows the generated HTML, which looks like a standard "
+"form:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:135
+#, no-wrap
+msgid ""
+"\t<form method=\"POST\">\n"
+"\t\t<table>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>First Name:</td>\n"
+"\t\t\t\t<td><input name=\"firstName\" type=\"text\" value=\"Harry\"/></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Last Name:</td>\n"
+"\t\t\t\t<td><input name=\"lastName\" type=\"text\" value=\"Potter\"/></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td colspan=\"2\">\n"
+"\t\t\t\t\t<input type=\"submit\" value=\"Save Changes\"/>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t</table>\n"
+"\t</form>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:141
+msgid ""
+"The preceding JSP assumes that the variable name of the form-backing object "
+"is `command`. If you have put the form-backing object into the model under "
+"another name (definitely a best practice), you can bind the form to the "
+"named variable, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:161
+#, no-wrap
+msgid ""
+"\t<form:form modelAttribute=\"user\">\n"
+"\t\t<table>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>First Name:</td>\n"
+"\t\t\t\t<td><form:input path=\"firstName\"/></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Last Name:</td>\n"
+"\t\t\t\t<td><form:input path=\"lastName\"/></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td colspan=\"2\">\n"
+"\t\t\t\t\t<input type=\"submit\" value=\"Save Changes\"/>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t</table>\n"
+"\t</form:form>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:164
+#, no-wrap
+msgid "The `input` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:169
+msgid ""
+"This tag renders an HTML `input` element with the bound value and "
+"`type='text'` by default.  For an example of this tag, see "
+"xref:web/webmvc-view/mvc-jsp.adoc#mvc-view-jsp-formtaglib-formtag[The Form "
+"Tag]. You can also use HTML5-specific types, such as `email`, `tel`, `date`, "
+"and others."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:171
+#, no-wrap
+msgid "The `checkbox` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:174
+msgid "This tag renders an HTML `input` tag with the `type` set to `checkbox`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:177
+msgid ""
+"Assume that our `User` has preferences such as newsletter subscription and a "
+"list of hobbies. The following example shows the `Preferences` class:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:180
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:572
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:779
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:185
+#, no-wrap
+msgid "\tpublic class Preferences {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:189
+#, no-wrap
+msgid ""
+"\t\tprivate boolean receiveNewsletter;\n"
+"\t\tprivate String[] interests;\n"
+"\t\tprivate String favouriteWord;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:193
+#, no-wrap
+msgid ""
+"\t\tpublic boolean isReceiveNewsletter() {\n"
+"\t\t\treturn receiveNewsletter;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:197
+#, no-wrap
+msgid ""
+"\t\tpublic void setReceiveNewsletter(boolean receiveNewsletter) {\n"
+"\t\t\tthis.receiveNewsletter = receiveNewsletter;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:201
+#, no-wrap
+msgid ""
+"\t\tpublic String[] getInterests() {\n"
+"\t\t\treturn interests;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:205
+#, no-wrap
+msgid ""
+"\t\tpublic void setInterests(String[] interests) {\n"
+"\t\t\tthis.interests = interests;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:209
+#, no-wrap
+msgid ""
+"\t\tpublic String getFavouriteWord() {\n"
+"\t\t\treturn favouriteWord;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:214
+#, no-wrap
+msgid ""
+"\t\tpublic void setFavouriteWord(String favouriteWord) {\n"
+"\t\t\tthis.favouriteWord = favouriteWord;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:216
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:589
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:790
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:225
+#, no-wrap
+msgid ""
+"\tclass Preferences(\n"
+"\t\t\tvar receiveNewsletter: Boolean,\n"
+"\t\t\tvar interests: StringArray,\n"
+"\t\t\tvar favouriteWord: String\n"
+"\t)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:229
+msgid "The corresponding `form.jsp` could then resemble the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:239
+#, no-wrap
+msgid ""
+"\t<form:form>\n"
+"\t\t<table>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Subscribe to newsletter?:</td>\n"
+"\t\t\t\t<%-- Approach 1: Property is of type java.lang.Boolean --%>\n"
+"\t\t\t\t<td><form:checkbox path=\"preferences.receiveNewsletter\"/></td>\n"
+"\t\t\t</tr>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:249
+#, no-wrap
+msgid ""
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Interests:</td>\n"
+"\t\t\t\t<%-- Approach 2: Property is of an array or of type "
+"java.util.Collection --%>\n"
+"\t\t\t\t<td>\n"
+"\t\t\t\t\tQuidditch: <form:checkbox path=\"preferences.interests\" "
+"value=\"Quidditch\"/>\n"
+"\t\t\t\t\tHerbology: <form:checkbox path=\"preferences.interests\" "
+"value=\"Herbology\"/>\n"
+"\t\t\t\t\tDefence Against the Dark Arts: <form:checkbox "
+"path=\"preferences.interests\" value=\"Defence Against the Dark Arts\"/>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:259
+#, no-wrap
+msgid ""
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Favourite Word:</td>\n"
+"\t\t\t\t<%-- Approach 3: Property is of type java.lang.Object --%>\n"
+"\t\t\t\t<td>\n"
+"\t\t\t\t\tMagic: <form:checkbox path=\"preferences.favouriteWord\" "
+"value=\"Magic\"/>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t</table>\n"
+"\t</form:form>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:262
+msgid ""
+"There are three approaches to the `checkbox` tag, which should meet all your "
+"checkbox needs."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:266
+msgid ""
+"Approach One: When the bound value is of type `java.lang.Boolean`, the "
+"`input(checkbox)` is marked as `checked` if the bound value is `true`. The "
+"`value` attribute corresponds to the resolved value of the "
+"`setValue(Object)` value property."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:269
+msgid ""
+"Approach Two: When the bound value is of type `array` or "
+"`java.util.Collection`, the `input(checkbox)` is marked as `checked` if the "
+"configured `setValue(Object)` value is present in the bound `Collection`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:271
+msgid ""
+"Approach Three: For any other bound value type, the `input(checkbox)` is "
+"marked as `checked` if the configured `setValue(Object)` is equal to the "
+"bound value."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:274
+msgid ""
+"Note that, regardless of the approach, the same HTML structure is "
+"generated. The following HTML snippet defines some checkboxes:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:288
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>Interests:</td>\n"
+"\t\t<td>\n"
+"\t\t\tQuidditch: <input name=\"preferences.interests\" type=\"checkbox\" "
+"value=\"Quidditch\"/>\n"
+"\t\t\t<input type=\"hidden\" value=\"1\" name=\"_preferences.interests\"/>\n"
+"\t\t\tHerbology: <input name=\"preferences.interests\" type=\"checkbox\" "
+"value=\"Herbology\"/>\n"
+"\t\t\t<input type=\"hidden\" value=\"1\" name=\"_preferences.interests\"/>\n"
+"\t\t\tDefence Against the Dark Arts: <input name=\"preferences.interests\" "
+"type=\"checkbox\" value=\"Defence Against the Dark Arts\"/>\n"
+"\t\t\t<input type=\"hidden\" value=\"1\" name=\"_preferences.interests\"/>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:298
+msgid ""
+"You might not expect to see the additional hidden field after each "
+"checkbox.  When a checkbox in an HTML page is not checked, its value is not "
+"sent to the server as part of the HTTP request parameters once the form is "
+"submitted, so we need a workaround for this quirk in HTML for Spring form "
+"data binding to work. The `checkbox` tag follows the existing Spring "
+"convention of including a hidden parameter prefixed by an underscore (`_`) "
+"for each checkbox. By doing this, you are effectively telling Spring that "
+"\"`the checkbox was visible in the form, and I want my object to which the "
+"form data binds to reflect the state of the checkbox, no matter what.`\""
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:300
+#, no-wrap
+msgid "The `checkboxes` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:303
+msgid ""
+"This tag renders multiple HTML `input` tags with the `type` set to "
+"`checkbox`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:311
+msgid ""
+"This section build on the example from the previous `checkbox` tag "
+"section. Sometimes, you prefer not to have to list all the possible hobbies "
+"in your JSP page. You would rather provide a list at runtime of the "
+"available options and pass that in to the tag. That is the purpose of the "
+"`checkboxes` tag. You can pass in an `Array`, a `List`, or a `Map` that "
+"contains the available options in the `items` property. Typically, the bound "
+"property is a collection so that it can hold multiple values selected by the "
+"user. The following example shows a JSP that uses this tag:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:325
+#, no-wrap
+msgid ""
+"\t<form:form>\n"
+"\t\t<table>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Interests:</td>\n"
+"\t\t\t\t<td>\n"
+"\t\t\t\t\t<%-- Property is of an array or of type java.util.Collection "
+"--%>\n"
+"\t\t\t\t\t<form:checkboxes path=\"preferences.interests\" "
+"items=\"${interestList}\"/>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t</table>\n"
+"\t</form:form>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:332
+msgid ""
+"This example assumes that the `interestList` is a `List` available as a "
+"model attribute that contains strings of the values to be selected from. If "
+"you use a `Map`, the map entry key is used as the value, and the map entry's "
+"value is used as the label to be displayed. You can also use a custom object "
+"where you can provide the property names for the value by using `itemValue` "
+"and the label by using `itemLabel`."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:334
+#, no-wrap
+msgid "The `radiobutton` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:337
+msgid "This tag renders an HTML `input` element with the `type` set to `radio`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:340
+msgid ""
+"A typical usage pattern involves multiple tag instances bound to the same "
+"property but with different values, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:350
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>Sex:</td>\n"
+"\t\t<td>\n"
+"\t\t\tMale: <form:radiobutton path=\"sex\" value=\"M\"/> <br/>\n"
+"\t\t\tFemale: <form:radiobutton path=\"sex\" value=\"F\"/>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:353
+#, no-wrap
+msgid "The `radiobuttons` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:356
+msgid ""
+"This tag renders multiple HTML `input` elements with the `type` set to "
+"`radio`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:364
+msgid ""
+"As with the "
+"xref:web/webmvc-view/mvc-jsp.adoc#mvc-view-jsp-formtaglib-checkboxestag[`checkboxes` "
+"tag], you might want to pass in the available options as a runtime "
+"variable. For this usage, you can use the `radiobuttons` tag. You pass in an "
+"`Array`, a `List`, or a `Map` that contains the available options in the "
+"`items` property. If you use a `Map`, the map entry key is used as the value "
+"and the map entry's value are used as the label to be displayed.  You can "
+"also use a custom object where you can provide the property names for the "
+"value by using `itemValue` and the label by using `itemLabel`, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:371
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>Sex:</td>\n"
+"\t\t<td><form:radiobuttons path=\"sex\" items=\"${sexOptions}\"/></td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:374
+#, no-wrap
+msgid "The `password` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:377
+msgid ""
+"This tag renders an HTML `input` tag with the type set to `password` with "
+"the bound value."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:386
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>Password:</td>\n"
+"\t\t<td>\n"
+"\t\t\t<form:password path=\"password\"/>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:391
+msgid ""
+"Note that, by default, the password value is not shown. If you do want the "
+"password value to be shown, you can set the value of the `showPassword` "
+"attribute to `true`, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:400
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>Password:</td>\n"
+"\t\t<td>\n"
+"\t\t\t<form:password path=\"password\" value=\"^76525bvHGq\" "
+"showPassword=\"true\"/>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:403
+#, no-wrap
+msgid "The `select` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:407
+msgid ""
+"This tag renders an HTML 'select' element. It supports data binding to the "
+"selected option as well as the use of nested `option` and `options` tags."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:409
+msgid ""
+"Assume that a `User` has a list of skills. The corresponding HTML could be "
+"as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:416
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>Skills:</td>\n"
+"\t\t<td><form:select path=\"skills\" items=\"${skills}\"/></td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:420
+msgid ""
+"If the `User's` skill are in Herbology, the HTML source of the 'Skills' row "
+"could be as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:433
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>Skills:</td>\n"
+"\t\t<td>\n"
+"\t\t\t<select name=\"skills\" multiple=\"true\">\n"
+"\t\t\t\t<option value=\"Potions\">Potions</option>\n"
+"\t\t\t\t<option value=\"Herbology\" "
+"selected=\"selected\">Herbology</option>\n"
+"\t\t\t\t<option value=\"Quidditch\">Quidditch</option>\n"
+"\t\t\t</select>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:436
+#, no-wrap
+msgid "The `option` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:440
+msgid ""
+"This tag renders an HTML `option` element. It sets `selected`, based on the "
+"bound value. The following HTML shows typical output for it:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:454
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>House:</td>\n"
+"\t\t<td>\n"
+"\t\t\t<form:select path=\"house\">\n"
+"\t\t\t\t<form:option value=\"Gryffindor\"/>\n"
+"\t\t\t\t<form:option value=\"Hufflepuff\"/>\n"
+"\t\t\t\t<form:option value=\"Ravenclaw\"/>\n"
+"\t\t\t\t<form:option value=\"Slytherin\"/>\n"
+"\t\t\t</form:select>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:458
+msgid ""
+"If the `User's` house was in Gryffindor, the HTML source of the 'House' row "
+"would be as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:472
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>House:</td>\n"
+"\t\t<td>\n"
+"\t\t\t<select name=\"house\">\n"
+"\t\t\t\t<option value=\"Gryffindor\" "
+"selected=\"selected\">Gryffindor</option> <1>\n"
+"\t\t\t\t<option value=\"Hufflepuff\">Hufflepuff</option>\n"
+"\t\t\t\t<option value=\"Ravenclaw\">Ravenclaw</option>\n"
+"\t\t\t\t<option value=\"Slytherin\">Slytherin</option>\n"
+"\t\t\t</select>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:474
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:511
+msgid "Note the addition of a `selected` attribute."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:476
+#, no-wrap
+msgid "The `options` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:480
+msgid ""
+"This tag renders a list of HTML `option` elements. It sets the `selected` "
+"attribute, based on the bound value. The following HTML shows typical output "
+"for it:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:492
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>Country:</td>\n"
+"\t\t<td>\n"
+"\t\t\t<form:select path=\"country\">\n"
+"\t\t\t\t<form:option value=\"-\" label=\"--Please Select\"/>\n"
+"\t\t\t\t<form:options items=\"${countryList}\" itemValue=\"code\" "
+"itemLabel=\"name\"/>\n"
+"\t\t\t</form:select>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:495
+msgid ""
+"If the `User` lived in the UK, the HTML source of the 'Country' row would be "
+"as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:509
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>Country:</td>\n"
+"\t\t<td>\n"
+"\t\t\t<select name=\"country\">\n"
+"\t\t\t\t<option value=\"-\">--Please Select</option>\n"
+"\t\t\t\t<option value=\"AT\">Austria</option>\n"
+"\t\t\t\t<option value=\"UK\" selected=\"selected\">United Kingdom</option> "
+"<1>\n"
+"\t\t\t\t<option value=\"US\">United States</option>\n"
+"\t\t\t</select>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:516
+msgid ""
+"As the preceding example shows, the combined usage of an `option` tag with "
+"the `options` tag generates the same standard HTML but lets you explicitly "
+"specify a value in the JSP that is for display only (where it belongs), such "
+"as the default string in the example: \"-- Please Select\"."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:524
+msgid ""
+"The `items` attribute is typically populated with a collection or array of "
+"item objects.  `itemValue` and `itemLabel` refer to bean properties of those "
+"item objects, if specified. Otherwise, the item objects themselves are "
+"turned into strings. Alternatively, you can specify a `Map` of items, in "
+"which case the map keys are interpreted as option values and the map values "
+"correspond to option labels. If `itemValue` or `itemLabel` (or both)  happen "
+"to be specified as well, the item value property applies to the map key, and "
+"the item label property applies to the map value."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:526
+#, no-wrap
+msgid "The `textarea` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:529
+msgid ""
+"This tag renders an HTML `textarea` element. The following HTML shows "
+"typical output for it:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:537
+#, no-wrap
+msgid ""
+"\t<tr>\n"
+"\t\t<td>Notes:</td>\n"
+"\t\t<td><form:textarea path=\"notes\" rows=\"3\" cols=\"20\"/></td>\n"
+"\t\t<td><form:errors path=\"notes\"/></td>\n"
+"\t</tr>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:540
+#, no-wrap
+msgid "The `hidden` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:545
+msgid ""
+"This tag renders an HTML `input` tag with the `type` set to `hidden` with "
+"the bound value. To submit an unbound hidden value, use the HTML `input` tag "
+"with the `type` set to `hidden`.  The following HTML shows typical output "
+"for it:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:549
+#, no-wrap
+msgid "\t<form:hidden path=\"house\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:552
+msgid ""
+"If we choose to submit the `house` value as a hidden one, the HTML would be "
+"as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:556
+#, no-wrap
+msgid "\t<input name=\"house\" type=\"hidden\" value=\"Gryffindor\"/>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:560
+#, no-wrap
+msgid "The `errors` Tag"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:565
+msgid ""
+"This tag renders field errors in an HTML `span` element. It provides access "
+"to the errors created in your controller or those that were created by any "
+"validators associated with your controller."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:569
+msgid ""
+"Assume that we want to display all error messages for the `firstName` and "
+"`lastName` fields once we submit the form. We have a validator for instances "
+"of the `User` class called `UserValidator`, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:577
+#, no-wrap
+msgid "\tpublic class UserValidator implements Validator {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:581
+#, no-wrap
+msgid ""
+"\t\tpublic boolean supports(Class candidate) {\n"
+"\t\t\treturn User.class.isAssignableFrom(candidate);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:587
+#, no-wrap
+msgid ""
+"\t\tpublic void validate(Object obj, Errors errors) {\n"
+"\t\t\tValidationUtils.rejectIfEmptyOrWhitespace(errors, \"firstName\", "
+"\"required\", \"Field is required.\");\n"
+"\t\t\tValidationUtils.rejectIfEmptyOrWhitespace(errors, \"lastName\", "
+"\"required\", \"Field is required.\");\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:594
+#, no-wrap
+msgid "\tclass UserValidator : Validator {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:598
+#, no-wrap
+msgid ""
+"\t\toverride fun supports(candidate: Class<*>): Boolean {\n"
+"\t\t\treturn User::class.java.isAssignableFrom(candidate)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:604
+#, no-wrap
+msgid ""
+"\t\toverride fun validate(obj: Any, errors: Errors) {\n"
+"\t\t\tValidationUtils.rejectIfEmptyOrWhitespace(errors, \"firstName\", "
+"\"required\", \"Field is required.\")\n"
+"\t\t\tValidationUtils.rejectIfEmptyOrWhitespace(errors, \"lastName\", "
+"\"required\", \"Field is required.\")\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:608
+msgid "The `form.jsp` could be as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:619
+#, no-wrap
+msgid ""
+"\t<form:form>\n"
+"\t\t<table>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>First Name:</td>\n"
+"\t\t\t\t<td><form:input path=\"firstName\"/></td>\n"
+"\t\t\t\t<%-- Show errors for firstName field --%>\n"
+"\t\t\t\t<td><form:errors path=\"firstName\"/></td>\n"
+"\t\t\t</tr>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:633
+#, no-wrap
+msgid ""
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Last Name:</td>\n"
+"\t\t\t\t<td><form:input path=\"lastName\"/></td>\n"
+"\t\t\t\t<%-- Show errors for lastName field --%>\n"
+"\t\t\t\t<td><form:errors path=\"lastName\"/></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td colspan=\"3\">\n"
+"\t\t\t\t\t<input type=\"submit\" value=\"Save Changes\"/>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t</table>\n"
+"\t</form:form>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:637
+msgid ""
+"If we submit a form with empty values in the `firstName` and `lastName` "
+"fields, the HTML would be as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:648
+#, no-wrap
+msgid ""
+"\t<form method=\"POST\">\n"
+"\t\t<table>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>First Name:</td>\n"
+"\t\t\t\t<td><input name=\"firstName\" type=\"text\" value=\"\"/></td>\n"
+"\t\t\t\t<%-- Associated errors to firstName field displayed --%>\n"
+"\t\t\t\t<td><span name=\"firstName.errors\">Field is required.</span></td>\n"
+"\t\t\t</tr>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:662
+#, no-wrap
+msgid ""
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Last Name:</td>\n"
+"\t\t\t\t<td><input name=\"lastName\" type=\"text\" value=\"\"/></td>\n"
+"\t\t\t\t<%-- Associated errors to lastName field displayed --%>\n"
+"\t\t\t\t<td><span name=\"lastName.errors\">Field is required.</span></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td colspan=\"3\">\n"
+"\t\t\t\t\t<input type=\"submit\" value=\"Save Changes\"/>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t</table>\n"
+"\t</form>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:666
+msgid ""
+"What if we want to display the entire list of errors for a given page? The "
+"next example shows that the `errors` tag also supports some basic wildcard "
+"functionality."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:668
+msgid "`path=\"{asterisk}\"`: Displays all errors."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:669
+msgid ""
+"`path=\"lastName\"`: Displays all errors associated with the `lastName` "
+"field."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:670
+msgid "If `path` is omitted, only object errors are displayed."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:673
+msgid ""
+"The following example displays a list of errors at the top of the page, "
+"followed by field-specific errors next to the fields:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:696
+#, no-wrap
+msgid ""
+"\t<form:form>\n"
+"\t\t<form:errors path=\"*\" cssClass=\"errorBox\"/>\n"
+"\t\t<table>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>First Name:</td>\n"
+"\t\t\t\t<td><form:input path=\"firstName\"/></td>\n"
+"\t\t\t\t<td><form:errors path=\"firstName\"/></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Last Name:</td>\n"
+"\t\t\t\t<td><form:input path=\"lastName\"/></td>\n"
+"\t\t\t\t<td><form:errors path=\"lastName\"/></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td colspan=\"3\">\n"
+"\t\t\t\t\t<input type=\"submit\" value=\"Save Changes\"/>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t</table>\n"
+"\t</form:form>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:699
+msgid "The HTML would be as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:710
+#, no-wrap
+msgid ""
+"\t<form method=\"POST\">\n"
+"\t\t<span name=\"*.errors\" class=\"errorBox\">Field is required.<br/>Field "
+"is required.</span>\n"
+"\t\t<table>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>First Name:</td>\n"
+"\t\t\t\t<td><input name=\"firstName\" type=\"text\" value=\"\"/></td>\n"
+"\t\t\t\t<td><span name=\"firstName.errors\">Field is required.</span></td>\n"
+"\t\t\t</tr>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:723
+#, no-wrap
+msgid ""
+"\t\t\t<tr>\n"
+"\t\t\t\t<td>Last Name:</td>\n"
+"\t\t\t\t<td><input name=\"lastName\" type=\"text\" value=\"\"/></td>\n"
+"\t\t\t\t<td><span name=\"lastName.errors\">Field is required.</span></td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td colspan=\"3\">\n"
+"\t\t\t\t\t<input type=\"submit\" value=\"Save Changes\"/>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t</table>\n"
+"\t</form>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:729
+msgid ""
+"The `spring-form.tld` tag library descriptor (TLD) is included in the "
+"`spring-webmvc.jar`.  For a comprehensive reference on individual tags, "
+"browse the "
+"{spring-framework-api}/web/servlet/tags/form/package-summary.html#package.description[API "
+"reference] or see the tag library description."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:731
+#, no-wrap
+msgid "HTTP Method Conversion"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:747
+msgid ""
+"A key principle of REST is the use of the \"`Uniform Interface`\". This "
+"means that all resources (URLs) can be manipulated by using the same four "
+"HTTP methods: GET, PUT, POST, and DELETE. For each method, the HTTP "
+"specification defines the exact semantics. For instance, a GET should always "
+"be a safe operation, meaning that it has no side effects, and a PUT or "
+"DELETE should be idempotent, meaning that you can repeat these operations "
+"over and over again, but the end result should be the same. While HTTP "
+"defines these four methods, HTML only supports two: GET and "
+"POST. Fortunately, there are two possible workarounds: you can either use "
+"JavaScript to do your PUT or DELETE, or you can do a POST with the "
+"\"`real`\" method as an additional parameter (modeled as a hidden input "
+"field in an HTML form). Spring's `HiddenHttpMethodFilter` uses this latter "
+"trick. This filter is a plain Servlet filter and, therefore, it can be used "
+"in combination with any web framework (not just Spring MVC). Add this filter "
+"to your web.xml, and a POST with a hidden `method` parameter is converted "
+"into the corresponding HTTP method request."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:750
+msgid ""
+"To support HTTP method conversion, the Spring MVC form tag was updated to "
+"support setting the HTTP method. For example, the following snippet comes "
+"from the Pet Clinic sample:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:756
+#, no-wrap
+msgid ""
+"\t<form:form method=\"delete\">\n"
+"\t\t<p class=\"submit\"><input type=\"submit\" value=\"Delete Pet\"/></p>\n"
+"\t</form:form>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:761
+msgid ""
+"The preceding example performs an HTTP POST, with the \"`real`\" DELETE "
+"method hidden behind a request parameter. It is picked up by the "
+"`HiddenHttpMethodFilter`, which is defined in web.xml, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:768
+#, no-wrap
+msgid ""
+"\t<filter>\n"
+"\t\t<filter-name>httpMethodFilter</filter-name>\n"
+"\t\t<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>\n"
+"\t</filter>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:773
+#, no-wrap
+msgid ""
+"\t<filter-mapping>\n"
+"\t\t<filter-name>httpMethodFilter</filter-name>\n"
+"\t\t<servlet-name>petclinic</servlet-name>\n"
+"\t</filter-mapping>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:776
+msgid "The following example shows the corresponding `@Controller` method:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:788
+#, no-wrap
+msgid ""
+"\t@RequestMapping(method = RequestMethod.DELETE)\n"
+"\tpublic String deletePet(@PathVariable int ownerId, @PathVariable int "
+"petId) {\n"
+"\t\tthis.clinic.deletePet(petId);\n"
+"\t\treturn \"redirect:/owners/\" + ownerId;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:799
+#, no-wrap
+msgid ""
+"\t@RequestMapping(method = [RequestMethod.DELETE])\n"
+"\tfun deletePet(@PathVariable ownerId: Int, @PathVariable petId: Int): "
+"String {\n"
+"\t\tclinic.deletePet(petId)\n"
+"\t\treturn \"redirect:/owners/$ownerId\"\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:803
+#, no-wrap
+msgid "HTML5 Tags"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:807
+msgid ""
+"The Spring form tag library allows entering dynamic attributes, which means "
+"you can enter any HTML5 specific attributes."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jsp.adoc:811
+msgid ""
+"The form `input` tag supports entering a type attribute other than "
+"`text`. This is intended to allow rendering new HTML5 specific input types, "
+"such as `email`, `date`, `range`, and others. Note that entering "
+"`type='text'` is not required, since `text` is the default type."
+msgstr ""

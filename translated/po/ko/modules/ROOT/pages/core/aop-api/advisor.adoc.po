@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:40+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advisor.adoc:2
+#, no-wrap
+msgid "The Advisor API in Spring"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advisor.adoc:7
+msgid ""
+"In Spring, an Advisor is an aspect that contains only a single advice object "
+"associated with a pointcut expression."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advisor.adoc:12
+msgid ""
+"Apart from the special case of introductions, any advisor can be used with "
+"any advice.  `org.springframework.aop.support.DefaultPointcutAdvisor` is the "
+"most commonly used advisor class. It can be used with a `MethodInterceptor`, "
+"`BeforeAdvice`, or `ThrowsAdvice`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advisor.adoc:16
+msgid ""
+"It is possible to mix advisor and advice types in Spring in the same AOP "
+"proxy. For example, you could use an interception around advice, throws "
+"advice, and before advice in one proxy configuration. Spring automatically "
+"creates the necessary interceptor chain."
+msgstr ""

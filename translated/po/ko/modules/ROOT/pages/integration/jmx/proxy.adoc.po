@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jmx/proxy.adoc:2
+#, no-wrap
+msgid "Accessing MBeans through Proxies"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jmx/proxy.adoc:8
+msgid ""
+"Spring JMX lets you create proxies that re-route calls to MBeans that are "
+"registered in a local or remote `MBeanServer`. These proxies provide you "
+"with a standard Java interface, through which you can interact with your "
+"MBeans. The following code shows how to configure a proxy for an MBean "
+"running in a local `MBeanServer`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jmx/proxy.adoc:15
+#, no-wrap
+msgid ""
+"\t<bean id=\"proxy\" "
+"class=\"org.springframework.jmx.access.MBeanProxyFactoryBean\">\n"
+"\t\t<property name=\"objectName\" value=\"bean:name=testBean\"/>\n"
+"\t\t<property name=\"proxyInterface\" "
+"value=\"org.springframework.jmx.IJmxTestBean\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jmx/proxy.adoc:22
+msgid ""
+"In the preceding example, you can see that a proxy is created for the MBean "
+"registered under the `ObjectName` of `bean:name=testBean`. The set of "
+"interfaces that the proxy implements is controlled by the `proxyInterfaces` "
+"property, and the rules for mapping methods and properties on these "
+"interfaces to operations and attributes on the MBean are the same rules used "
+"by the `InterfaceBasedMBeanInfoAssembler`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jmx/proxy.adoc:27
+msgid ""
+"The `MBeanProxyFactoryBean` can create a proxy to any MBean that is "
+"accessible through an `MBeanServerConnection`. By default, the local "
+"`MBeanServer` is located and used, but you can override this and provide an "
+"`MBeanServerConnection` that points to a remote `MBeanServer` to cater for "
+"proxies that point to remote MBeans:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jmx/proxy.adoc:34
+#, no-wrap
+msgid ""
+"\t<bean id=\"clientConnector\"\n"
+"\t\t\tclass=\"org.springframework.jmx.support.MBeanServerConnectionFactoryBean\">\n"
+"\t\t<property name=\"serviceUrl\" "
+"value=\"service:jmx:rmi://remotehost:9875\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jmx/proxy.adoc:40
+#, no-wrap
+msgid ""
+"\t<bean id=\"proxy\" "
+"class=\"org.springframework.jmx.access.MBeanProxyFactoryBean\">\n"
+"\t\t<property name=\"objectName\" value=\"bean:name=testBean\"/>\n"
+"\t\t<property name=\"proxyInterface\" "
+"value=\"org.springframework.jmx.IJmxTestBean\"/>\n"
+"\t\t<property name=\"server\" ref=\"clientConnector\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jmx/proxy.adoc:46
+msgid ""
+"In the preceding example, we create an `MBeanServerConnection` that points "
+"to a remote machine that uses the `MBeanServerConnectionFactoryBean`. This "
+"`MBeanServerConnection` is then passed to the `MBeanProxyFactoryBean` "
+"through the `server` property. The proxy that is created forwards all "
+"invocations to the `MBeanServer` through this `MBeanServerConnection`."
+msgstr ""

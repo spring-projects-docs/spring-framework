@@ -1,0 +1,1878 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:2
+#, no-wrap
+msgid "RSocket"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:5
+msgid "This section describes Spring Framework's support for the RSocket protocol."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:8
+#, no-wrap
+msgid "Overview"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:13
+msgid ""
+"RSocket is an application protocol for multiplexed, duplex communication "
+"over TCP, WebSocket, and other byte stream transports, using one of the "
+"following interaction models:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:15
+msgid "`Request-Response` -- send one message and receive one back."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:16
+msgid "`Request-Stream` -- send one message and receive a stream of messages back."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:17
+msgid "`Channel` -- send streams of messages in both directions."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:18
+msgid "`Fire-and-Forget` -- send a one-way message."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:23
+msgid ""
+"Once the initial connection is made, the \"client\" vs \"server\" "
+"distinction is lost as both sides become symmetrical and each side can "
+"initiate one of the above interactions.  This is why in the protocol calls "
+"the participating sides \"requester\" and \"responder\" while the above "
+"interactions are called \"request streams\" or simply \"requests\"."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:25
+msgid "These are the key features and benefits of the RSocket protocol:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:31
+msgid ""
+"{reactive-streams-site}/[Reactive Streams] semantics across network boundary "
+"-- for streaming requests such as `Request-Stream` and `Channel`, back "
+"pressure signals travel between requester and responder, allowing a "
+"requester to slow down a responder at the source, hence reducing reliance on "
+"network layer congestion control, and the need for buffering at the network "
+"level or at any level."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:34
+msgid ""
+"Request throttling -- this feature is named \"Leasing\" after the `LEASE` "
+"frame that can be sent from each end to limit the total number of requests "
+"allowed by other end for a given time. Leases are renewed periodically."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:38
+msgid ""
+"Session resumption -- this is designed for loss of connectivity and requires "
+"some state to be maintained. The state management is transparent for "
+"applications, and works well in combination with back pressure which can "
+"stop a producer when possible and reduce the amount of state required."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:39
+msgid "Fragmentation and re-assembly of large messages."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:40
+msgid "Keepalive (heartbeats)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:46
+msgid ""
+"RSocket has {rsocket-github-org}[implementations] in multiple languages. The "
+"{rsocket-java}[Java library] is built on {reactor-site}/[Project Reactor], "
+"and {reactor-github-org}/reactor-netty[Reactor Netty] for the "
+"transport. That means signals from Reactive Streams Publishers in your "
+"application propagate transparently through RSocket across the network."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:48
+#, no-wrap
+msgid "The Protocol"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:55
+msgid ""
+"One of the benefits of RSocket is that it has well defined behavior on the "
+"wire and an easy to read {rsocket-site}/about/protocol[specification] along "
+"with some protocol {rsocket-protocol-extensions}[extensions]. Therefore it "
+"is a good idea to read the spec, independent of language implementations and "
+"higher level framework APIs. This section provides a succinct overview to "
+"establish some context."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:57
+#, no-wrap
+msgid "**Connecting**\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:61
+msgid ""
+"Initially a client connects to a server via some low level streaming "
+"transport such as TCP or WebSocket and sends a `SETUP` frame to the server "
+"to set parameters for the connection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:66
+msgid ""
+"The server may reject the `SETUP` frame, but generally after it is sent (for "
+"the client)  and received (for the server), both sides can begin to make "
+"requests, unless `SETUP` indicates use of leasing semantics to limit the "
+"number of requests, in which case both sides must wait for a `LEASE` frame "
+"from the other end to permit making requests."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:68
+#, no-wrap
+msgid "**Making Requests**\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:72
+msgid ""
+"Once a connection is established, both sides may initiate a request through "
+"one of the frames `REQUEST_RESPONSE`, `REQUEST_STREAM`, `REQUEST_CHANNEL`, "
+"or `REQUEST_FNF`. Each of those frames carries one message from the "
+"requester to the responder."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:76
+msgid ""
+"The responder may then return `PAYLOAD` frames with response messages, and "
+"in the case of `REQUEST_CHANNEL` the requester may also send `PAYLOAD` "
+"frames with more request messages."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:81
+msgid ""
+"When a request involves a stream of messages such as `Request-Stream` and "
+"`Channel`, the responder must respect demand signals from the "
+"requester. Demand is expressed as a number of messages. Initial demand is "
+"specified in `REQUEST_STREAM` and `REQUEST_CHANNEL` frames. Subsequent "
+"demand is signaled via `REQUEST_N` frames."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:84
+msgid ""
+"Each side may also send metadata notifications, via the `METADATA_PUSH` "
+"frame, that do not pertain to any individual request but rather to the "
+"connection as a whole."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:86
+#, no-wrap
+msgid "**Message Format**\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:90
+msgid ""
+"RSocket messages contain data and metadata. Metadata can be used to send a "
+"route, a security token, etc. Data and metadata can be formatted "
+"differently. Mime types for each are declared in the `SETUP` frame and apply "
+"to all requests on a given connection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:94
+msgid ""
+"While all messages can have metadata, typically metadata such as a route are "
+"per-request and therefore only included in the first message on a request, "
+"i.e. with one of the frames `REQUEST_RESPONSE`, `REQUEST_STREAM`, "
+"`REQUEST_CHANNEL`, or `REQUEST_FNF`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:96
+msgid "Protocol extensions define common metadata formats for use in applications:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:99
+msgid ""
+"{rsocket-protocol-extensions}/CompositeMetadata.md[Composite Metadata]-- "
+"multiple, independently formatted metadata entries."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:100
+msgid ""
+"{rsocket-protocol-extensions}/Routing.md[Routing] -- the route for a "
+"request."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:102
+#, no-wrap
+msgid "Java Implementation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:110
+msgid ""
+"The {rsocket-java}[Java implementation] for RSocket is built on "
+"{reactor-site}/[Project Reactor]. The transports for TCP and WebSocket are "
+"built on {reactor-github-org}/reactor-netty[Reactor Netty]. As a Reactive "
+"Streams library, Reactor simplifies the job of implementing the "
+"protocol. For applications it is a natural fit to use `Flux` and `Mono` with "
+"declarative operators and transparent back pressure support."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:114
+msgid ""
+"The API in RSocket Java is intentionally minimal and basic. It focuses on "
+"protocol features and leaves the application programming model (for example, "
+"RPC codegen vs other) as a higher level, independent concern."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:122
+msgid ""
+"The main contract "
+"{rsocket-java-code}/rsocket-core/src/main/java/io/rsocket/RSocket.java[io.rsocket.RSocket] "
+"models the four request interaction types with `Mono` representing a promise "
+"for a single message, `Flux` a stream of messages, and `io.rsocket.Payload` "
+"the actual message with access to data and metadata as byte buffers. The "
+"`RSocket` contract is used symmetrically. For requesting, the application is "
+"given an `RSocket` to perform requests with. For responding, the application "
+"implements `RSocket` to handle requests."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:128
+msgid ""
+"This is not meant to be a thorough introduction. For the most part, Spring "
+"applications will not have to use its API directly. However it may be "
+"important to see or experiment with RSocket independent of Spring. The "
+"RSocket Java repository contains a number of "
+"{rsocket-java-code}/rsocket-examples[sample apps] that demonstrate its API "
+"and protocol features."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:130
+#, no-wrap
+msgid "Spring Support"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:133
+msgid "The `spring-messaging` module contains the following:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:136
+msgid ""
+"xref:rsocket.adoc#rsocket-requester[RSocketRequester] -- fluent API to make "
+"requests through an `io.rsocket.RSocket` with data and metadata "
+"encoding/decoding."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:138
+msgid ""
+"xref:rsocket.adoc#rsocket-annot-responders[Annotated Responders] -- "
+"`@MessageMapping` and `@RSocketExchange` annotated handler methods for "
+"responding."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:140
+msgid ""
+"xref:rsocket.adoc#rsocket-interface[RSocket Interface] -- RSocket service "
+"declaration as Java interface with `@RSocketExchange` methods, for use as "
+"requester or responder."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:144
+msgid ""
+"The `spring-web` module contains `Encoder` and `Decoder` implementations "
+"such as Jackson CBOR/JSON, and Protobuf that RSocket applications will "
+"likely need. It also contains the `PathPatternParser` that can be plugged in "
+"for efficient route matching."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:151
+msgid ""
+"Spring Boot 2.2 supports standing up an RSocket server over TCP or "
+"WebSocket, including the option to expose RSocket over WebSocket in a "
+"WebFlux server. There is also client support and auto-configuration for an "
+"`RSocketRequester.Builder` and `RSocketStrategies`.  See the "
+"{spring-boot-docs}/messaging.html#messaging.rsocket[RSocket section] in the "
+"Spring Boot reference for more details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:153
+msgid "Spring Security 5.2 provides RSocket support."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:156
+msgid ""
+"Spring Integration 5.2 provides inbound and outbound gateways to interact "
+"with RSocket clients and servers. See the Spring Integration Reference "
+"Manual for more details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:158
+msgid "Spring Cloud Gateway supports RSocket connections."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:161
+#, no-wrap
+msgid "RSocketRequester"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:166
+msgid ""
+"`RSocketRequester` provides a fluent API to perform RSocket requests, "
+"accepting and returning objects for data and metadata instead of low level "
+"data buffers. It can be used symmetrically, to make requests from clients "
+"and to make requests from servers."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:168
+#, no-wrap
+msgid "Client Requester"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:174
+msgid ""
+"To obtain an `RSocketRequester` on the client side is to connect to a server "
+"which involves sending an RSocket `SETUP` frame with connection "
+"settings. `RSocketRequester` provides a builder that helps to prepare an "
+"`io.rsocket.core.RSocketConnector` including connection settings for the "
+"`SETUP` frame."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:176
+msgid "This is the most basic way to connect with default settings:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:179
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:235
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:278
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:325
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:370
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:407
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:450
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:502
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:527
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:583
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:619
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:667
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:730
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:856
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:947
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:973
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1005
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:184
+#, no-wrap
+msgid ""
+"\tRSocketRequester requester = RSocketRequester.builder().tcp(\"localhost\", "
+"7000);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:187
+#, no-wrap
+msgid ""
+"\tURI url = URI.create(\"https://example.org:8080/rsocket\");\n"
+"\tRSocketRequester requester = RSocketRequester.builder().webSocket(url);\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:189
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:249
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:298
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:337
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:381
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:424
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:465
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:510
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:541
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:599
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:632
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:692
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:744
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:875
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:955
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:986
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1017
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:194
+#, no-wrap
+msgid "\tval requester = RSocketRequester.builder().tcp(\"localhost\", 7000)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:197
+#, no-wrap
+msgid ""
+"\tURI url = URI.create(\"https://example.org:8080/rsocket\");\n"
+"\tval requester = RSocketRequester.builder().webSocket(url)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:202
+msgid ""
+"The above does not connect immediately. When requests are made, a shared "
+"connection is established transparently and used."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:204
+#, no-wrap
+msgid "Connection Setup"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:207
+msgid ""
+"`RSocketRequester.Builder` provides the following to customize the initial "
+"`SETUP` frame:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:209
+msgid "`dataMimeType(MimeType)` -- set the mime type for data on the connection."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:210
+msgid ""
+"`metadataMimeType(MimeType)` -- set the mime type for metadata on the "
+"connection."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:211
+msgid "`setupData(Object)` -- data to include in the `SETUP`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:212
+msgid ""
+"`setupRoute(String, Object...)` -- route in the metadata to include in the "
+"`SETUP`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:213
+msgid ""
+"`setupMetadata(Object, MimeType)` -- other metadata to include in the "
+"`SETUP`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:218
+msgid ""
+"For data, the default mime type is derived from the first configured "
+"`Decoder`. For metadata, the default mime type is "
+"{rsocket-protocol-extensions}/CompositeMetadata.md[composite metadata] which "
+"allows multiple metadata value and mime type pairs per request. Typically "
+"both don't need to be changed."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:223
+msgid ""
+"Data and metadata in the `SETUP` frame is optional. On the server side, "
+"xref:rsocket.adoc#rsocket-annot-connectmapping[@ConnectMapping] methods can "
+"be used to handle the start of a connection and the content of the `SETUP` "
+"frame. Metadata may be used for connection level security."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:225
+#, no-wrap
+msgid "Strategies"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:232
+msgid ""
+"`RSocketRequester.Builder` accepts `RSocketStrategies` to configure the "
+"requester.  You'll need to use this to provide encoders and decoders for "
+"(de)-serialization of data and metadata values. By default only the basic "
+"codecs from `spring-core` for `String`, `byte[]`, and `ByteBuffer` are "
+"registered. Adding `spring-web` provides access to more that can be "
+"registered as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:243
+#, no-wrap
+msgid ""
+"\tRSocketStrategies strategies = RSocketStrategies.builder()\n"
+"\t\t.encoders(encoders -> encoders.add(new JacksonCborEncoder()))\n"
+"\t\t.decoders(decoders -> decoders.add(new JacksonCborDecoder()))\n"
+"\t\t.build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:247
+#, no-wrap
+msgid ""
+"\tRSocketRequester requester = RSocketRequester.builder()\n"
+"\t\t.rsocketStrategies(strategies)\n"
+"\t\t.tcp(\"localhost\", 7000);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:257
+#, no-wrap
+msgid ""
+"\tval strategies = RSocketStrategies.builder()\n"
+"\t\t\t.encoders { it.add(JacksonCborEncoder()) }\n"
+"\t\t\t.decoders { it.add(JacksonCborDecoder()) }\n"
+"\t\t\t.build()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:261
+#, no-wrap
+msgid ""
+"\tval requester = RSocketRequester.builder()\n"
+"\t\t\t.rsocketStrategies(strategies)\n"
+"\t\t\t.tcp(\"localhost\", 7000)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:266
+msgid ""
+"`RSocketStrategies` is designed for re-use. In some scenarios, for example, "
+"client and server in the same application, it may be preferable to declare "
+"it in Spring configuration."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:268
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:715
+#, no-wrap
+msgid "Client Responders"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:272
+msgid ""
+"`RSocketRequester.Builder` can be used to configure responders to requests "
+"from the server."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:275
+msgid ""
+"You can use annotated handlers for client-side responding based on the same "
+"infrastructure that's used on a server, but registered programmatically as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:285
+#, no-wrap
+msgid ""
+"\tRSocketStrategies strategies = RSocketStrategies.builder()\n"
+"\t\t.routeMatcher(new PathPatternRouteMatcher())  // <1>\n"
+"\t\t.build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:288
+#, no-wrap
+msgid ""
+"\tSocketAcceptor responder =\n"
+"\t\tRSocketMessageHandler.responder(strategies, new ClientHandler()); // "
+"<2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:292
+#, no-wrap
+msgid ""
+"\tRSocketRequester requester = RSocketRequester.builder()\n"
+"\t\t.rsocketConnector(connector -> connector.acceptor(responder)) // <3>\n"
+"\t\t.tcp(\"localhost\", 7000);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:295
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:315
+msgid ""
+"Use `PathPatternRouteMatcher`, if `spring-web` is present, for efficient "
+"route matching."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:296
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:316
+msgid ""
+"Create a responder from a class with `@MessageMapping` and/or "
+"`@ConnectMapping` methods."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:297
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:317
+msgid "Register the responder."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:305
+#, no-wrap
+msgid ""
+"\tval strategies = RSocketStrategies.builder()\n"
+"\t\t\t.routeMatcher(PathPatternRouteMatcher())  // <1>\n"
+"\t\t\t.build()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:308
+#, no-wrap
+msgid ""
+"\tval responder =\n"
+"\t\tRSocketMessageHandler.responder(strategies, new ClientHandler()); // "
+"<2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:312
+#, no-wrap
+msgid ""
+"\tval requester = RSocketRequester.builder()\n"
+"\t\t\t.rsocketConnector { it.acceptor(responder) } // <3>\n"
+"\t\t\t.tcp(\"localhost\", 7000)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:322
+msgid ""
+"Note the above is only a shortcut designed for programmatic registration of "
+"client responders. For alternative scenarios, where client responders are in "
+"Spring configuration, you can still declare `RSocketMessageHandler` as a "
+"Spring bean and then apply as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:331
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:625
+#, no-wrap
+msgid ""
+"\tApplicationContext context = ... ;\n"
+"\tRSocketMessageHandler handler = "
+"context.getBean(RSocketMessageHandler.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:335
+#, no-wrap
+msgid ""
+"\tRSocketRequester requester = RSocketRequester.builder()\n"
+"\t\t.rsocketConnector(connector -> "
+"connector.acceptor(handler.responder()))\n"
+"\t\t.tcp(\"localhost\", 7000);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:342
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:637
+#, no-wrap
+msgid "\timport org.springframework.beans.factory.getBean\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:345
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:640
+#, no-wrap
+msgid ""
+"\tval context: ApplicationContext = ...\n"
+"\tval handler = context.getBean<RSocketMessageHandler>()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:349
+#, no-wrap
+msgid ""
+"\tval requester = RSocketRequester.builder()\n"
+"\t\t\t.rsocketConnector { it.acceptor(handler.responder()) }\n"
+"\t\t\t.tcp(\"localhost\", 7000)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:357
+msgid ""
+"For the above you may also need to use `setHandlerPredicate` in "
+"`RSocketMessageHandler` to switch to a different strategy for detecting "
+"client responders, for example, based on a custom annotation such as "
+"`@RSocketClientResponder` vs the default `@Controller`. This is necessary in "
+"scenarios with client and server, or multiple clients in the same "
+"application."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:359
+msgid ""
+"See also xref:rsocket.adoc#rsocket-annot-responders[Annotated Responders], "
+"for more on the programming model."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:361
+#, no-wrap
+msgid "Advanced"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:367
+msgid ""
+"`RSocketRequesterBuilder` provides a callback to expose the underlying "
+"`io.rsocket.core.RSocketConnector` for further configuration options for "
+"keepalive intervals, session resumption, interceptors, and more. You can "
+"configure options at that level as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:379
+#, no-wrap
+msgid ""
+"\tRSocketRequester requester = RSocketRequester.builder()\n"
+"\t\t.rsocketConnector(connector -> {\n"
+"\t\t\t// ...\n"
+"\t\t})\n"
+"\t\t.tcp(\"localhost\", 7000);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:390
+#, no-wrap
+msgid ""
+"\tval requester = RSocketRequester.builder()\n"
+"\t\t\t.rsocketConnector {\n"
+"\t\t\t\t//...\n"
+"\t\t\t}\n"
+"\t\t\t.tcp(\"localhost\", 7000)\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:394
+#, no-wrap
+msgid "Server Requester"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:398
+msgid ""
+"To make requests from a server to connected clients is a matter of obtaining "
+"the requester for the connected client from the server."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:404
+msgid ""
+"In xref:rsocket.adoc#rsocket-annot-responders[Annotated Responders], "
+"`@ConnectMapping` and `@MessageMapping` methods support an "
+"`RSocketRequester` argument. Use it to access the requester for the "
+"connection. Keep in mind that `@ConnectMapping` methods are essentially "
+"handlers of the `SETUP` frame which must be handled before requests can "
+"begin. Therefore, requests at the very start must be decoupled from "
+"handling. For example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:420
+#, no-wrap
+msgid ""
+"\t@ConnectMapping\n"
+"\tMono<Void> handle(RSocketRequester requester) {\n"
+"\t\trequester.route(\"status\").data(\"5\")\n"
+"\t\t\t.retrieveFlux(StatusReport.class)\n"
+"\t\t\t.subscribe(bar -> { // <1>\n"
+"\t\t\t\t// ...\n"
+"\t\t\t});\n"
+"\t\treturn ... // <2>\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:422
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:439
+msgid "Start the request asynchronously, independent from handling."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:423
+msgid "Perform handling and return completion `Mono<Void>`."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:437
+#, no-wrap
+msgid ""
+"\t@ConnectMapping\n"
+"\tsuspend fun handle(requester: RSocketRequester) {\n"
+"\t\tGlobalScope.launch {\n"
+"\t\t\trequester.route(\"status\").data(\"5\").retrieveFlow<StatusReport>().collect "
+"{ // <1>\n"
+"\t\t\t\t// ...\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t\t/// ... <2>\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:440
+msgid "Perform handling in the suspending function."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:443
+#, no-wrap
+msgid "Requests"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:447
+msgid ""
+"Once you have a xref:rsocket.adoc#rsocket-requester-client[client] or "
+"xref:rsocket.adoc#rsocket-requester-server[server] requester, you can make "
+"requests as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:455
+#, no-wrap
+msgid "\tViewBox viewBox = ... ;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:459
+#, no-wrap
+msgid ""
+"\tFlux<AirportLocation> locations = "
+"requester.route(\"locate.radars.within\") // <1>\n"
+"\t\t\t.data(viewBox) // <2>\n"
+"\t\t\t.retrieveFlux(AirportLocation.class); // <3>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:462
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:476
+msgid "Specify a route to include in the metadata of the request message."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:463
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:477
+msgid "Provide data for the request message."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:464
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:478
+msgid "Declare the expected response."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:470
+#, no-wrap
+msgid "\tval viewBox: ViewBox = ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:474
+#, no-wrap
+msgid ""
+"\tval locations = requester.route(\"locate.radars.within\") // <1>\n"
+"\t\t\t.data(viewBox) // <2>\n"
+"\t\t\t.retrieveFlow<AirportLocation>() // <3>\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:485
+msgid ""
+"The interaction type is determined implicitly from the cardinality of the "
+"input and output. The above example is a `Request-Stream` because one value "
+"is sent and a stream of values is received. For the most part you don't need "
+"to think about this as long as the choice of input and output matches an "
+"RSocket interaction type and the types of input and output expected by the "
+"responder. The only example of an invalid combination is many-to-one."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:491
+msgid ""
+"The `data(Object)` method also accepts any Reactive Streams `Publisher`, "
+"including `Flux` and `Mono`, as well as any other producer of value(s) that "
+"is registered in the `ReactiveAdapterRegistry`. For a multi-value "
+"`Publisher` such as `Flux` which produces the same types of values, consider "
+"using one of the overloaded `data` methods to avoid having type checks and "
+"`Encoder` lookup on every element:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:496
+#, no-wrap
+msgid ""
+"data(Object producer, Class<?> elementClass);\n"
+"data(Object producer, ParameterizedTypeReference<?> elementTypeRef);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:499
+msgid ""
+"The `data(Object)` step is optional. Skip it for requests that don't send "
+"data:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:508
+#, no-wrap
+msgid ""
+"\tMono<AirportLocation> location = requester.route(\"find.radar.EWR\"))\n"
+"\t\t.retrieveMono(AirportLocation.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:515
+#, no-wrap
+msgid "\timport org.springframework.messaging.rsocket.retrieveAndAwait\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:518
+#, no-wrap
+msgid ""
+"\tval location = requester.route(\"find.radar.EWR\")\n"
+"\t\t.retrieveAndAwait<AirportLocation>()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:524
+msgid ""
+"Extra metadata values can be added if using "
+"{rsocket-protocol-extensions}/CompositeMetadata.md[composite metadata] (the "
+"default) and if the values are supported by a registered `Encoder`. For "
+"example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:534
+#, no-wrap
+msgid ""
+"\tString securityToken = ... ;\n"
+"\tViewBox viewBox = ... ;\n"
+"\tMimeType mimeType = "
+"MimeType.valueOf(\"message/x.rsocket.authentication.bearer.v0\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:539
+#, no-wrap
+msgid ""
+"\tFlux<AirportLocation> locations = "
+"requester.route(\"locate.radars.within\")\n"
+"\t\t\t.metadata(securityToken, mimeType)\n"
+"\t\t\t.data(viewBox)\n"
+"\t\t\t.retrieveFlux(AirportLocation.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:546
+#, no-wrap
+msgid "\timport org.springframework.messaging.rsocket.retrieveFlow\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:548
+#, no-wrap
+msgid "\tval requester: RSocketRequester = ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:552
+#, no-wrap
+msgid ""
+"\tval securityToken: String = ...\n"
+"\tval viewBox: ViewBox = ...\n"
+"\tval mimeType = "
+"MimeType.valueOf(\"message/x.rsocket.authentication.bearer.v0\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:557
+#, no-wrap
+msgid ""
+"\tval locations = requester.route(\"locate.radars.within\")\n"
+"\t\t\t.metadata(securityToken, mimeType)\n"
+"\t\t\t.data(viewBox)\n"
+"\t\t\t.retrieveFlow<AirportLocation>()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:562
+msgid ""
+"For `Fire-and-Forget` use the `send()` method that returns "
+"`Mono<Void>`. Note that the `Mono` indicates only that the message was "
+"successfully sent, and not that it was handled."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:564
+msgid ""
+"For `Metadata-Push` use the `sendMetadata()` method with a `Mono<Void>` "
+"return value."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:567
+#, no-wrap
+msgid "Annotated Responders"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:573
+msgid ""
+"RSocket responders can be implemented as `@MessageMapping` and "
+"`@ConnectMapping` methods.  `@MessageMapping` methods handle individual "
+"requests while `@ConnectMapping` methods handle connection-level events "
+"(setup and metadata push). Annotated responders are supported symmetrically, "
+"for responding from the server side and for responding from the client side."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:575
+#, no-wrap
+msgid "Server Responders"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:580
+msgid ""
+"To use annotated responders on the server side, add `RSocketMessageHandler` "
+"to your Spring configuration to detect `@Controller` beans with "
+"`@MessageMapping` and `@ConnectMapping` methods:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:589
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:673
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tstatic class ServerConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:597
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic RSocketMessageHandler rsocketMessageHandler() {\n"
+"\t\t\tRSocketMessageHandler handler = new RSocketMessageHandler();\n"
+"\t\t\thandler.routeMatcher(new PathPatternRouteMatcher());\n"
+"\t\t\treturn handler;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:605
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:698
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass ServerConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:611
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun rsocketMessageHandler() = RSocketMessageHandler().apply {\n"
+"\t\t\trouteMatcher = PathPatternRouteMatcher()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:616
+msgid ""
+"Then start an RSocket server through the Java RSocket API and plug the "
+"`RSocketMessageHandler` for the responder as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:630
+#, no-wrap
+msgid ""
+"\tCloseableChannel server =\n"
+"\t\tRSocketServer.create(handler.responder())\n"
+"\t\t\t.bind(TcpServerTransport.create(\"localhost\", 7000))\n"
+"\t\t\t.block();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:644
+#, no-wrap
+msgid ""
+"\tval server = RSocketServer.create(handler.responder())\n"
+"\t\t\t.bind(TcpServerTransport.create(\"localhost\", 7000))\n"
+"\t\t\t.awaitSingle()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:652
+msgid ""
+"`RSocketMessageHandler` supports "
+"{rsocket-protocol-extensions}/CompositeMetadata.md[composite] and "
+"{rsocket-protocol-extensions}/Routing.md[routing] metadata by default. You "
+"can set its xref:rsocket.adoc#rsocket-metadata-extractor[MetadataExtractor] "
+"if you need to switch to a different mime type or register additional "
+"metadata mime types."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:655
+msgid ""
+"You'll need to set the `Encoder` and `Decoder` instances required for "
+"metadata and data formats to support. You'll likely need the `spring-web` "
+"module for codec implementations."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:661
+msgid ""
+"By default `SimpleRouteMatcher` is used for matching routes via "
+"`AntPathMatcher`.  We recommend plugging in the `PathPatternRouteMatcher` "
+"from `spring-web` for efficient route matching. RSocket routes can be "
+"hierarchical but are not URL paths.  Both route matchers are configured to "
+"use \".\" as separator by default and there is no URL decoding as with HTTP "
+"URLs."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:664
+msgid ""
+"`RSocketMessageHandler` can be configured via `RSocketStrategies` which may "
+"be useful if you need to share configuration between a client and a server "
+"in the same process:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:680
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic RSocketMessageHandler rsocketMessageHandler() {\n"
+"\t\t\tRSocketMessageHandler handler = new RSocketMessageHandler();\n"
+"\t\t\thandler.setRSocketStrategies(rsocketStrategies());\n"
+"\t\t\treturn handler;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:690
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic RSocketStrategies rsocketStrategies() {\n"
+"\t\t\treturn RSocketStrategies.builder()\n"
+"\t\t\t\t.encoders(encoders -> encoders.add(new JacksonCborEncoder()))\n"
+"\t\t\t\t.decoders(decoders -> decoders.add(new JacksonCborDecoder()))\n"
+"\t\t\t\t.routeMatcher(new PathPatternRouteMatcher())\n"
+"\t\t\t\t.build();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:703
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun rsocketMessageHandler() = RSocketMessageHandler().apply {\n"
+"\t\t\trSocketStrategies = rsocketStrategies()\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:711
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun rsocketStrategies() = RSocketStrategies.builder()\n"
+"\t\t\t\t.encoders { it.add(JacksonCborEncoder()) }\n"
+"\t\t\t\t.decoders { it.add(JacksonCborDecoder()) }\n"
+"\t\t\t\t.routeMatcher(PathPatternRouteMatcher())\n"
+"\t\t\t\t.build()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:720
+msgid ""
+"Annotated responders on the client side need to be configured in the "
+"`RSocketRequester.Builder`. For details, see "
+"xref:rsocket.adoc#rsocket-requester-client-responder[Client Responders]."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:722
+#, no-wrap
+msgid "@MessageMapping"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:727
+msgid ""
+"Once xref:rsocket.adoc#rsocket-annot-responders-server[server] or "
+"xref:rsocket.adoc#rsocket-annot-responders-client[client] responder "
+"configuration is in place, `@MessageMapping` methods can be used as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:736
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\tpublic class RadarsController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:742
+#, no-wrap
+msgid ""
+"\t\t@MessageMapping(\"locate.radars.within\")\n"
+"\t\tpublic Flux<AirportLocation> radars(MapRequest request) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:750
+#, no-wrap
+msgid ""
+"@Controller\n"
+"class RadarsController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:756
+#, no-wrap
+msgid ""
+"\t@MessageMapping(\"locate.radars.within\")\n"
+"\tfun radars(request: MapRequest): Flow<AirportLocation> {\n"
+"\t\t// ...\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:762
+msgid ""
+"The above `@MessageMapping` method responds to a Request-Stream interaction "
+"having the route \"locate.radars.within\". It supports a flexible method "
+"signature with the option to use the following method arguments:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:788
+#, no-wrap
+msgid ""
+"| Method Argument\n"
+"| Description\n"
+"\n"
+"| `@Payload`\n"
+"| The payload of the request. This can be a concrete value of asynchronous "
+"types like\n"
+"  `Mono` or `Flux`.\n"
+"\n"
+"  *Note:* Use of the annotation is optional. A method argument that is not a "
+"simple type\n"
+"  and is not any of the other supported arguments, is assumed to be the "
+"expected payload.\n"
+"\n"
+"| `RSocketRequester`\n"
+"| Requester for making requests to the remote end.\n"
+"\n"
+"| `@DestinationVariable`\n"
+"| Value extracted from the route based on variables in the mapping pattern, "
+"for example,\n"
+"  pass:q[`@MessageMapping(\"find.radar.{id}\")`].\n"
+"\n"
+"| `@Header`\n"
+"| Metadata value registered for extraction as described in "
+"xref:rsocket.adoc#rsocket-metadata-extractor[MetadataExtractor].\n"
+"\n"
+"| `@Headers Map<String, Object>`\n"
+"| All metadata values registered for extraction as described in "
+"xref:rsocket.adoc#rsocket-metadata-extractor[MetadataExtractor].\n"
+"\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:793
+msgid ""
+"The return value is expected to be one or more Objects to be serialized as "
+"response payloads. That can be asynchronous types like `Mono` or `Flux`, a "
+"concrete value, or either `void` or a no-value asynchronous type such as "
+"`Mono<Void>`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:797
+msgid ""
+"The RSocket interaction type that an `@MessageMapping` method supports is "
+"determined from the cardinality of the input (i.e. `@Payload` argument) and "
+"of the output, where cardinality means the following:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:814
+#, no-wrap
+msgid ""
+"| Cardinality\n"
+"| Description\n"
+"\n"
+"| 1\n"
+"| Either an explicit value, or a single-value asynchronous type such as "
+"`Mono<T>`.\n"
+"\n"
+"| Many\n"
+"| A multi-value asynchronous type such as `Flux<T>`.\n"
+"\n"
+"| 0\n"
+"| For input this means the method does not have an `@Payload` argument.\n"
+"\n"
+"  For output this is `void` or a no-value asynchronous type such as "
+"`Mono<Void>`.\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:818
+msgid ""
+"The table below shows all input and output cardinality combinations and the "
+"corresponding interaction type(s):"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:842
+#, no-wrap
+msgid ""
+"| Input Cardinality\n"
+"| Output Cardinality\n"
+"| Interaction Types\n"
+"\n"
+"| 0, 1\n"
+"| 0\n"
+"| Fire-and-Forget, Request-Response\n"
+"\n"
+"| 0, 1\n"
+"| 1\n"
+"| Request-Response\n"
+"\n"
+"| 0, 1\n"
+"| Many\n"
+"| Request-Stream\n"
+"\n"
+"| Many\n"
+"| 0, 1, Many\n"
+"| Request-Channel\n"
+"\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:845
+#, no-wrap
+msgid "@RSocketExchange"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:851
+msgid ""
+"As an alternative to `@MessageMapping`, you can also handle requests with "
+"`@RSocketExchange` methods. Such methods are declared on an "
+"xref:rsocket-interface[RSocket Interface] and can be used as a requester via "
+"`RSocketServiceProxyFactory` or implemented by a responder."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:853
+msgid "For example, to handle requests as a responder:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:861
+#, no-wrap
+msgid "\tpublic interface RadarsService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:865
+#, no-wrap
+msgid ""
+"\t\t@RSocketExchange(\"locate.radars.within\")\n"
+"\t\tFlux<AirportLocation> radars(MapRequest request);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:868
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\tpublic class RadarsController implements RadarsService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:873
+#, no-wrap
+msgid ""
+"\t\tpublic Flux<AirportLocation> radars(MapRequest request) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:880
+#, no-wrap
+msgid "\tinterface RadarsService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:884
+#, no-wrap
+msgid ""
+"\t\t@RSocketExchange(\"locate.radars.within\")\n"
+"\t\tfun radars(request: MapRequest): Flow<AirportLocation>\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:887
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\tclass RadarsController : RadarsService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:892
+#, no-wrap
+msgid ""
+"\t\toverride fun radars(request: MapRequest): Flow<AirportLocation> {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:902
+msgid ""
+"There some differences between `@RSocketExhange` and `@MessageMapping` since "
+"the former needs to remain suitable for requester and responder use. For "
+"example, while `@MessageMapping` can be declared to handle any number of "
+"routes and each route can be a pattern, `@RSocketExchange` must be declared "
+"with a single, concrete route. There are also small differences in the "
+"supported method parameters related to metadata, see "
+"xref:rsocket-annot-messagemapping[@MessageMapping] and "
+"xref:rsocket-interface[RSocket Interface] for a list of supported "
+"parameters."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:905
+msgid ""
+"`@RSocketExchange` can be used at the type level to specify a common prefix "
+"for all routes for a given RSocket service interface."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:907
+#, no-wrap
+msgid "@ConnectMapping"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:912
+msgid ""
+"`@ConnectMapping` handles the `SETUP` frame at the start of an RSocket "
+"connection, and any subsequent metadata push notifications through the "
+"`METADATA_PUSH` frame, i.e.  `metadataPush(Payload)` in "
+"`io.rsocket.RSocket`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:918
+msgid ""
+"`@ConnectMapping` methods support the same arguments as "
+"xref:rsocket.adoc#rsocket-annot-messagemapping[@MessageMapping] but based on "
+"metadata and data from the `SETUP` and `METADATA_PUSH` "
+"frames. `@ConnectMapping` can have a pattern to narrow handling to specific "
+"connections that have a route in the metadata, or if no patterns are "
+"declared then all connections match."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:924
+msgid ""
+"`@ConnectMapping` methods cannot return data and must be declared with "
+"`void` or `Mono<Void>` as the return value. If handling returns an error for "
+"a new connection then the connection is rejected. Handling must not be held "
+"up to make requests to the `RSocketRequester` for the connection. See "
+"xref:rsocket.adoc#rsocket-requester-server[Server Requester] for details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:927
+#, no-wrap
+msgid "MetadataExtractor"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:934
+msgid ""
+"Responders must interpret metadata.  "
+"{rsocket-protocol-extensions}/CompositeMetadata.md[Composite metadata] "
+"allows independently formatted metadata values (for example, for routing, "
+"security, tracing) each with its own mime type. Applications need a way to "
+"configure metadata mime types to support, and a way to access extracted "
+"values."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:938
+msgid ""
+"`MetadataExtractor` is a contract to take serialized metadata and return "
+"decoded name-value pairs that can then be accessed like headers by name, for "
+"example via `@Header` in annotated handler methods."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:944
+msgid ""
+"`DefaultMetadataExtractor` can be given `Decoder` instances to decode "
+"metadata. Out of the box it has built-in support for "
+"{rsocket-protocol-extensions}/Routing.md[\"message/x.rsocket.routing.v0\"] "
+"which it decodes to `String` and saves under the \"route\" key. For any "
+"other mime type you'll need to provide a `Decoder` and register the mime "
+"type as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:953
+#, no-wrap
+msgid ""
+"\tDefaultMetadataExtractor extractor = new "
+"DefaultMetadataExtractor(metadataDecoders);\n"
+"\textractor.metadataToExtract(fooMimeType, Foo.class, \"foo\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:960
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:991
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1022
+#, no-wrap
+msgid "\timport org.springframework.messaging.rsocket.metadataToExtract\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:963
+#, no-wrap
+msgid ""
+"\tval extractor = DefaultMetadataExtractor(metadataDecoders)\n"
+"\textractor.metadataToExtract<Foo>(fooMimeType, \"foo\")\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:970
+msgid ""
+"Composite metadata works well to combine independent metadata "
+"values. However the requester might not support composite metadata, or may "
+"choose not to use it. For this, `DefaultMetadataExtractor` may needs custom "
+"logic to map the decoded value to the output map. Here is an example where "
+"JSON is used for metadata:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:984
+#, no-wrap
+msgid ""
+"\tDefaultMetadataExtractor extractor = new "
+"DefaultMetadataExtractor(metadataDecoders);\n"
+"\textractor.metadataToExtract(\n"
+"\t\tMimeType.valueOf(\"application/vnd.myapp.metadata+json\"),\n"
+"\t\tnew ParameterizedTypeReference<Map<String,String>>() {},\n"
+"\t\t(jsonMap, outputMap) -> {\n"
+"\t\t\toutputMap.putAll(jsonMap);\n"
+"\t\t});\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:996
+#, no-wrap
+msgid ""
+"\tval extractor = DefaultMetadataExtractor(metadataDecoders)\n"
+"\textractor.metadataToExtract<Map<String, "
+"String>>(MimeType.valueOf(\"application/vnd.myapp.metadata+json\")) { "
+"jsonMap, outputMap ->\n"
+"\t\toutputMap.putAll(jsonMap)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1002
+msgid ""
+"When configuring `MetadataExtractor` through `RSocketStrategies`, you can "
+"let `RSocketStrategies.Builder` create the extractor with the configured "
+"decoders, and simply use a callback to customize registrations as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1015
+#, no-wrap
+msgid ""
+"\tRSocketStrategies strategies = RSocketStrategies.builder()\n"
+"\t\t.metadataExtractorRegistry(registry -> {\n"
+"\t\t\tregistry.metadataToExtract(fooMimeType, Foo.class, \"foo\");\n"
+"\t\t\t// ...\n"
+"\t\t})\n"
+"\t\t.build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1029
+#, no-wrap
+msgid ""
+"\tval strategies = RSocketStrategies.builder()\n"
+"\t\t\t.metadataExtractorRegistry { registry: MetadataExtractorRegistry ->\n"
+"\t\t\t\tregistry.metadataToExtract<Foo>(fooMimeType, \"foo\")\n"
+"\t\t\t\t// ...\n"
+"\t\t\t}\n"
+"\t\t\t.build()\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1034
+#, no-wrap
+msgid "RSocket Interface"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1041
+msgid ""
+"The Spring Framework lets you define an RSocket service as a Java interface "
+"with `@RSocketExchange` methods. You can pass such an interface to "
+"`RSocketServiceProxyFactory` to create a proxy which performs requests "
+"through an xref:rsocket.adoc#rsocket-requester[RSocketRequester]. You can "
+"also implement the interface as a responder that handles requests."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1043
+msgid "Start by creating the interface with `@RSocketExchange` methods:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1047
+#, no-wrap
+msgid "\tinterface RadarService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1050
+#, no-wrap
+msgid ""
+"\t\t@RSocketExchange(\"radars\")\n"
+"\t\tFlux<AirportLocation> getRadars(@Payload MapRequest request);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1052
+#, no-wrap
+msgid "\t\t// more RSocket exchange methods...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1054
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1057
+msgid "Now you can create a proxy that performs requests when methods are called:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1062
+#, no-wrap
+msgid ""
+"\tRSocketRequester requester = ... ;\n"
+"\tRSocketServiceProxyFactory factory = "
+"RSocketServiceProxyFactory.builder(requester).build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1064
+#, no-wrap
+msgid "\tRadarService service = factory.createClient(RadarService.class);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1068
+msgid ""
+"You can also implement the interface to handle requests as a responder.  See "
+"xref:rsocket.adoc#rsocket-annot-rsocketexchange[Annotated Responders]."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1070
+#, no-wrap
+msgid "Method Parameters"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1074
+msgid ""
+"Annotated, RSocket exchange methods support flexible method signatures with "
+"the following method parameters:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1101
+#, no-wrap
+msgid ""
+"| Method argument | Description\n"
+"\n"
+"| `@DestinationVariable`\n"
+"| Add a route variable to pass to `RSocketRequester` along with the route "
+"from the\n"
+"  `@RSocketExchange` annotation in order to expand template placeholders in "
+"the route.\n"
+"  This variable can be a String or any Object, which is then formatted via "
+"`toString()`.\n"
+"\n"
+"| `@Payload`\n"
+"| Set the input payload(s) for the request. This can be a concrete value, or "
+"any producer\n"
+"  of values that can be adapted to a Reactive Streams `Publisher` via\n"
+"  `ReactiveAdapterRegistry`. A payload must be provided unless the "
+"`required` attribute\n"
+"  is set to `false`, or the parameter is marked optional as determined by\n"
+"  "
+"{spring-framework-api}/core/MethodParameter.html#isOptional()[`MethodParameter#isOptional`].\n"
+"\n"
+"| `Object`, if followed by `MimeType`\n"
+"| The value for a metadata entry in the input payload. This can be any "
+"`Object` as long\n"
+"  as the next argument is the metadata entry `MimeType`. The value can be a "
+"concrete\n"
+"  value or any producer of a single value that can be adapted to a Reactive "
+"Streams\n"
+"  `Publisher` via `ReactiveAdapterRegistry`.\n"
+"\n"
+"| `MimeType`\n"
+"| The `MimeType` for a metadata entry. The preceding method argument is "
+"expected to be\n"
+"  the metadata value.\n"
+"\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1104
+#, no-wrap
+msgid "Return Values"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1109
+msgid ""
+"Annotated, RSocket exchange methods support return values that are concrete "
+"value(s), or any producer of value(s) that can be adapted to a Reactive "
+"Streams `Publisher` via `ReactiveAdapterRegistry`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/rsocket.adoc:1114
+msgid ""
+"By default, the behavior of RSocket service methods with synchronous "
+"(blocking) method signature depends on response timeout settings of the "
+"underlying RSocket `ClientTransport` as well as RSocket keep-alive "
+"settings. `RSocketServiceProxyFactory.Builder` does expose a `blockTimeout` "
+"option that also lets you configure the maximum time to block for a "
+"response, but we recommend configuring timeout values at the RSocket level "
+"for more control."
+msgstr ""

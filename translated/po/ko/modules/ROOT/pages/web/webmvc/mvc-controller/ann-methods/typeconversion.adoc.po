@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/typeconversion.adoc:2
+#, no-wrap
+msgid "Type Conversion"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/typeconversion.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/controller/ann-methods/typeconversion.adoc[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/typeconversion.adoc:9
+msgid ""
+"Some annotated controller method arguments that represent `String`-based "
+"request input (such as `@RequestParam`, `@RequestHeader`, `@PathVariable`, "
+"`@MatrixVariable`, and `@CookieValue`)  can require type conversion if the "
+"argument is declared as something other than `String`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/typeconversion.adoc:15
+msgid ""
+"For such cases, type conversion is automatically applied based on the "
+"configured converters.  By default, simple types (`int`, `long`, `Date`, and "
+"others) are supported. You can customize type conversion through a "
+"`WebDataBinder` (see "
+"xref:web/webmvc/mvc-controller/ann-initbinder.adoc[`DataBinder`]) or by "
+"registering `Formatters` with the `FormattingConversionService`.  See "
+"xref:core/validation/format.adoc[Spring Field Formatting]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/typeconversion.adoc:21
+msgid ""
+"A practical issue in type conversion is the treatment of an empty String "
+"source value.  Such a value is treated as missing if it becomes `null` as a "
+"result of type conversion.  This can be the case for `Long`, `UUID`, and "
+"other target types. If you want to allow `null` to be injected, either use "
+"the `required` flag on the argument annotation, or declare the argument as "
+"`@Nullable`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/typeconversion.adoc:28
+msgid ""
+"As of 5.3, non-null arguments will be enforced even after type "
+"conversion. If your handler method intends to accept a null value as well, "
+"either declare your argument as `@Nullable` or mark it as `required=false` "
+"in the corresponding `@RequestParam`, etc. annotation. This is a best "
+"practice and the recommended solution for regressions encountered in a 5.3 "
+"upgrade."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/typeconversion.adoc:32
+msgid ""
+"Alternatively, you may specifically handle, for example, the resulting "
+"`MissingPathVariableException` in the case of a required `@PathVariable`. A "
+"null value after conversion will be treated like an empty original value, so "
+"the corresponding `Missing...Exception` variants will be thrown."
+msgstr ""

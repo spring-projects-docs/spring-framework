@@ -1,0 +1,316 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:40+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:2
+#, no-wrap
+msgid "Manipulating Advised Objects"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:8
+msgid ""
+"However you create AOP proxies, you can manipulate them BY using the "
+"`org.springframework.aop.framework.Advised` interface. Any AOP proxy can be "
+"cast to this interface, no matter which other interfaces it implements. This "
+"interface includes the following methods:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:11
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:91
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:16
+#, no-wrap
+msgid "\tAdvisor[] getAdvisors();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:18
+#, no-wrap
+msgid "\tvoid addAdvice(Advice advice) throws AopConfigException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:20
+#, no-wrap
+msgid "\tvoid addAdvice(int pos, Advice advice) throws AopConfigException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:22
+#, no-wrap
+msgid "\tvoid addAdvisor(Advisor advisor) throws AopConfigException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:24
+#, no-wrap
+msgid "\tvoid addAdvisor(int pos, Advisor advisor) throws AopConfigException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:26
+#, no-wrap
+msgid "\tint indexOf(Advisor advisor);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:28
+#, no-wrap
+msgid "\tboolean removeAdvisor(Advisor advisor) throws AopConfigException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:30
+#, no-wrap
+msgid "\tvoid removeAdvisor(int index) throws AopConfigException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:32
+#, no-wrap
+msgid "\tboolean replaceAdvisor(Advisor a, Advisor b) throws AopConfigException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:34
+#, no-wrap
+msgid "\tboolean isFrozen();\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:36
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:111
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:41
+#, no-wrap
+msgid "\tfun getAdvisors(): Array<Advisor>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:44
+#, no-wrap
+msgid ""
+"\t@Throws(AopConfigException::class)\n"
+"\tfun addAdvice(advice: Advice)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:47
+#, no-wrap
+msgid ""
+"\t@Throws(AopConfigException::class)\n"
+"\tfun addAdvice(pos: Int, advice: Advice)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:50
+#, no-wrap
+msgid ""
+"\t@Throws(AopConfigException::class)\n"
+"\tfun addAdvisor(advisor: Advisor)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:53
+#, no-wrap
+msgid ""
+"\t@Throws(AopConfigException::class)\n"
+"\tfun addAdvisor(pos: Int, advisor: Advisor)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:55
+#, no-wrap
+msgid "\tfun indexOf(advisor: Advisor): Int\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:58
+#, no-wrap
+msgid ""
+"\t@Throws(AopConfigException::class)\n"
+"\tfun removeAdvisor(advisor: Advisor): Boolean\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:61
+#, no-wrap
+msgid ""
+"\t@Throws(AopConfigException::class)\n"
+"\tfun removeAdvisor(index: Int)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:64
+#, no-wrap
+msgid ""
+"\t@Throws(AopConfigException::class)\n"
+"\tfun replaceAdvisor(a: Advisor, b: Advisor): Boolean\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:66
+#, no-wrap
+msgid "\tfun isFrozen(): Boolean\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:76
+msgid ""
+"The `getAdvisors()` method returns an `Advisor` for every advisor, "
+"interceptor, or other advice type that has been added to the factory. If you "
+"added an `Advisor`, the returned advisor at this index is the object that "
+"you added. If you added an interceptor or other advice type, Spring wrapped "
+"this in an advisor with a pointcut that always returns `true`. Thus, if you "
+"added a `MethodInterceptor`, the advisor returned for this index is a "
+"`DefaultPointcutAdvisor` that returns your `MethodInterceptor` and a "
+"pointcut that matches all classes and methods."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:80
+msgid ""
+"The `addAdvisor()` methods can be used to add any `Advisor`. Usually, the "
+"advisor holding pointcut and advice is the generic `DefaultPointcutAdvisor`, "
+"which you can use with any advice or pointcut (but not for introductions)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:85
+msgid ""
+"By default, it is possible to add or remove advisors or interceptors even "
+"once a proxy has been created. The only restriction is that it is impossible "
+"to add or remove an introduction advisor, as existing proxies from the "
+"factory do not show the interface change. (You can obtain a new proxy from "
+"the factory to avoid this problem.)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:88
+msgid ""
+"The following example shows casting an AOP proxy to the `Advised` interface "
+"and examining and manipulating its advice:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:99
+#, no-wrap
+msgid ""
+"\tAdvised advised = (Advised) myObject;\n"
+"\tAdvisor[] advisors = advised.getAdvisors();\n"
+"\tint oldAdvisorCount = advisors.length;\n"
+"\tSystem.out.println(oldAdvisorCount + \" advisors\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:104
+#, no-wrap
+msgid ""
+"\t// Add an advice like an interceptor without a pointcut\n"
+"\t// Will match all proxied methods\n"
+"\t// Can use for interceptors, before, after returning or throws advice\n"
+"\tadvised.addAdvice(new DebugInterceptor());\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:107
+#, no-wrap
+msgid ""
+"\t// Add selective advice using a pointcut\n"
+"\tadvised.addAdvisor(new DefaultPointcutAdvisor(mySpecialPointcut, "
+"myAdvice));\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:109
+#, no-wrap
+msgid ""
+"\tassertEquals(\"Added two advisors\", oldAdvisorCount + 2, "
+"advised.getAdvisors().length);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:119
+#, no-wrap
+msgid ""
+"\tval advised = myObject as Advised\n"
+"\tval advisors = advised.advisors\n"
+"\tval oldAdvisorCount = advisors.size\n"
+"\tprintln(\"$oldAdvisorCount advisors\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:124
+#, no-wrap
+msgid ""
+"\t// Add an advice like an interceptor without a pointcut\n"
+"\t// Will match all proxied methods\n"
+"\t// Can use for interceptors, before, after returning or throws advice\n"
+"\tadvised.addAdvice(DebugInterceptor())\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:127
+#, no-wrap
+msgid ""
+"\t// Add selective advice using a pointcut\n"
+"\tadvised.addAdvisor(DefaultPointcutAdvisor(mySpecialPointcut, myAdvice))\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:129
+#, no-wrap
+msgid ""
+"\tassertEquals(\"Added two advisors\", oldAdvisorCount + 2, "
+"advised.advisors.size)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:139
+msgid ""
+"It is questionable whether it is advisable (no pun intended) to modify "
+"advice on a business object in production, although there are, no doubt, "
+"legitimate usage cases.  However, it can be very useful in development (for "
+"example, in tests). We have sometimes found it very useful to be able to add "
+"test code in the form of an interceptor or other advice, getting inside a "
+"method invocation that we want to test. (For example, the advice can get "
+"inside a transaction created for that method, perhaps to run SQL to check "
+"that a database was correctly updated, before marking the transaction for "
+"roll back.)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advised.adoc:144
+msgid ""
+"Depending on how you created the proxy, you can usually set a `frozen` "
+"flag. In that case, the `Advised` `isFrozen()` method returns `true`, and "
+"any attempts to modify advice through addition or removal results in an "
+"`AopConfigException`. The ability to freeze the state of an advised object "
+"is useful in some cases (for example, to prevent calling code removing a "
+"security interceptor)."
+msgstr ""

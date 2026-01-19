@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:2
+#, no-wrap
+msgid "Enable STOMP"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:7
+msgid ""
+"STOMP over WebSocket support is available in the `spring-messaging` and "
+"`spring-websocket` modules. Once you have those dependencies, you can expose "
+"a STOMP endpoint over WebSocket, as the following example shows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:15
+msgid ""
+"For the built-in simple broker, the `/topic` and `/queue` prefixes do not "
+"have any special meaning. They are merely a convention to differentiate "
+"between pub-sub versus point-to-point messaging (that is, many subscribers "
+"versus one consumer). When you use an external broker, check the STOMP page "
+"of the broker to understand what kind of STOMP destinations and prefixes it "
+"supports."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:19
+msgid ""
+"To connect from a browser, for STOMP, you can use "
+"https://github.com/stomp-js/stompjs[`stomp-js/stompjs`] which is the most "
+"actively maintained JavaScript library."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:21
+msgid "The following example code is based on it:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:30
+#, no-wrap
+msgid ""
+"\tconst stompClient = new StompJs.Client({\n"
+"\t\tbrokerURL: 'ws://domain.com/portfolio',\n"
+"\t\tonConnect: () => {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t});\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:37
+msgid ""
+"Alternatively, if you connect through SockJS, you can enable the "
+"xref:web/websocket/fallback.adoc[SockJS Fallback] on server-side with "
+"`registry.addEndpoint(\"/portfolio\").withSockJS()` and on JavaScript side, "
+"by following "
+"https://stomp-js.github.io/guide/stompjs/rx-stomp/using-stomp-with-sockjs.html[those "
+"instructions]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:42
+msgid ""
+"Note that `stompClient` in the preceding example does not need to specify "
+"`login` and `passcode` headers. Even if it did, they would be ignored (or, "
+"rather, overridden) on the server side. See "
+"xref:web/websocket/stomp/handle-broker-relay-configure.adoc[Connecting to a "
+"Broker] and xref:web/websocket/stomp/authentication.adoc[Authentication] for "
+"more information on authentication."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:44
+msgid "For more example code see:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:47
+msgid ""
+"{spring-site-guides}/gs/messaging-stomp-websocket/[Using WebSocket to build "
+"an interactive web application] -- a getting started guide."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/enable.adoc:48
+msgid ""
+"https://github.com/rstoyanchev/spring-websocket-portfolio[Stock Portfolio] "
+"-- a sample application."
+msgstr ""

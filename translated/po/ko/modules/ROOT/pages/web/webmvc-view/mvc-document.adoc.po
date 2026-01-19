@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:2
+#, no-wrap
+msgid "PDF and Excel"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:6
+msgid ""
+"Spring offers ways to return output other than HTML, including PDF and Excel "
+"spreadsheets.  This section describes how to use those features."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:10
+msgid ""
+"As of Spring Framework 7.0, view classes in the "
+"`org.springframework.web.servlet.view.document` package are "
+"deprecated. Instead, libraries can adapt this existing code to provide "
+"support with their own `*View` types.  As an alternative, applications can "
+"perform direct rendering in web handlers."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:12
+#, no-wrap
+msgid "Introduction to Document Views"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:20
+msgid ""
+"An HTML page is not always the best way for the user to view the model "
+"output, and Spring makes it simple to generate a PDF document or an Excel "
+"spreadsheet dynamically from the model data. The document is the view and is "
+"streamed from the server with the correct content type, to (hopefully) "
+"enable the client PC to run their spreadsheet or PDF viewer application in "
+"response."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:23
+msgid ""
+"In order to use Excel views, you need to add the Apache POI library to your "
+"classpath.  For PDF generation, you need to add (preferably) the OpenPDF "
+"library."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:28
+msgid ""
+"You should use the latest versions of the underlying document-generation "
+"libraries, if possible. In particular, we strongly recommend OpenPDF (for "
+"example, OpenPDF 1.2.12)  instead of the outdated original iText 2.1.7, "
+"since OpenPDF is actively maintained and fixes an important vulnerability "
+"for untrusted PDF content."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:31
+#, no-wrap
+msgid "PDF Views"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:36
+msgid ""
+"A simple PDF view for a word list could extend "
+"`org.springframework.web.servlet.view.document.AbstractPdfView` and "
+"implement the `buildPdfDocument()` method, as the following example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:39
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:44
+#, no-wrap
+msgid "\tpublic class PdfWordList extends AbstractPdfView {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:47
+#, no-wrap
+msgid ""
+"\t\tprotected void buildPdfDocument(Map<String, Object> model, Document doc, "
+"PdfWriter writer,\n"
+"\t\t\t\tHttpServletRequest request, HttpServletResponse response) throws "
+"Exception {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:54
+#, no-wrap
+msgid ""
+"\t\t\tList<String> words = (List<String>) model.get(\"wordList\");\n"
+"\t\t\tfor (String word : words) {\n"
+"\t\t\t\tdoc.add(new Paragraph(word));\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:56
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:61
+#, no-wrap
+msgid "\tclass PdfWordList : AbstractPdfView() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:64
+#, no-wrap
+msgid ""
+"\t\toverride fun buildPdfDocument(model: Map<String, Any>, doc: Document, "
+"writer: PdfWriter,\n"
+"\t\t\t\trequest: HttpServletRequest, response: HttpServletResponse) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:71
+#, no-wrap
+msgid ""
+"\t\t\tval words = model[\"wordList\"] as List<String>\n"
+"\t\t\tfor (word in words) {\n"
+"\t\t\t\tdoc.add(Paragraph(word))\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:76
+msgid ""
+"A controller can return such a view either from an external view definition "
+"(referencing it by name) or as a `View` instance from the handler method."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:79
+#, no-wrap
+msgid "Excel Views"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:85
+msgid ""
+"Since Spring Framework 4.2, "
+"`org.springframework.web.servlet.view.document.AbstractXlsView` is provided "
+"as a base class for Excel views. It is based on Apache POI, with specialized "
+"subclasses (`AbstractXlsxView` and `AbstractXlsxStreamingView`) that "
+"supersede the outdated `AbstractExcelView` class."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-document.adoc:88
+msgid ""
+"The programming model is similar to `AbstractPdfView`, with "
+"`buildExcelDocument()` as the central template method and controllers being "
+"able to return such a view from an external definition (by name) or as a "
+"`View` instance from the handler method."
+msgstr ""

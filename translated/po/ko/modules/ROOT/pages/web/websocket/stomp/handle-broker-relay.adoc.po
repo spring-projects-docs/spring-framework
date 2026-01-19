@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay.adoc:2
+#, no-wrap
+msgid "External Broker"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay.adoc:9
+msgid ""
+"The simple broker is great for getting started but supports only a subset of "
+"STOMP commands (it does not support acks, receipts, and some other "
+"features), relies on a simple message-sending loop, and is not suitable for "
+"clustering.  As an alternative, you can upgrade your applications to use a "
+"full-featured message broker."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay.adoc:15
+msgid ""
+"See the STOMP documentation for your message broker of choice (such as "
+"https://www.rabbitmq.com/stomp.html[RabbitMQ], "
+"https://activemq.apache.org/stomp.html[ActiveMQ], and others), install the "
+"broker, and run it with STOMP support enabled. Then you can enable the STOMP "
+"broker relay (instead of the simple broker) in the Spring configuration."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay.adoc:17
+msgid "The following example configuration enables a full-featured broker:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay.adoc:27
+msgid ""
+"The STOMP broker relay in the preceding configuration is a Spring "
+"{spring-framework-api}/messaging/MessageHandler.html[`MessageHandler`] that "
+"handles messages by forwarding them to an external message broker.  To do "
+"so, it establishes TCP connections to the broker, forwards all messages to "
+"it, and then forwards all messages received from the broker to clients "
+"through their WebSocket sessions. Essentially, it acts as a \"`relay`\" that "
+"forwards messages in both directions."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay.adoc:30
+msgid ""
+"Add `io.projectreactor.netty:reactor-netty` and `io.netty:netty-all` "
+"dependencies to your project for TCP connection management."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay.adoc:34
+msgid ""
+"Furthermore, application components (such as HTTP request handling methods, "
+"business services, and others) can also send messages to the broker relay, "
+"as described in xref:web/websocket/stomp/handle-send.adoc[Sending Messages], "
+"to broadcast messages to subscribed WebSocket clients."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay.adoc:35
+msgid ""
+"In effect, the broker relay enables robust and scalable message "
+"broadcasting."
+msgstr ""

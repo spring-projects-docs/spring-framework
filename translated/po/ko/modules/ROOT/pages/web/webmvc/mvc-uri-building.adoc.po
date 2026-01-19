@@ -1,0 +1,489 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:2
+#, no-wrap
+msgid "URI Links"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/uri-building.adoc[See equivalent in the Reactive "
+"stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:7
+msgid ""
+"This section describes various options available in the Spring Framework to "
+"work with URI's."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:12
+#, no-wrap
+msgid "Relative Servlet Requests"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:16
+msgid ""
+"You can use `ServletUriComponentsBuilder` to create URIs relative to the "
+"current request, as the following example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:19
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:50
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:84
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:127
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:162
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:196
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:239
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:278
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:24
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:55
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:89
+#, no-wrap
+msgid "\tHttpServletRequest request = ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:26
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:39
+#, no-wrap
+msgid "\t// Re-uses scheme, host, port, path, and query string...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:30
+#, no-wrap
+msgid ""
+"\tURI uri = ServletUriComponentsBuilder.fromRequest(request)\n"
+"\t\t\t.replaceQueryParam(\"accountId\", \"{id}\")\n"
+"\t\t\t.build(\"123\");\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:32
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:64
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:98
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:142
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:172
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:206
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:250
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:290
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:37
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:69
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:103
+#, no-wrap
+msgid "\tval request: HttpServletRequest = ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:43
+#, no-wrap
+msgid ""
+"\tval uri = ServletUriComponentsBuilder.fromRequest(request)\n"
+"\t\t\t.replaceQueryParam(\"accountId\", \"{id}\")\n"
+"\t\t\t.build(\"123\")\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:47
+msgid ""
+"You can create URIs relative to the context path, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:57
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:71
+#, no-wrap
+msgid "\t// Re-uses scheme, host, port, and context path...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:62
+#, no-wrap
+msgid ""
+"\tURI uri = ServletUriComponentsBuilder.fromContextPath(request)\n"
+"\t\t\t.path(\"/accounts\")\n"
+"\t\t\t.build()\n"
+"\t\t\t.toUri();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:76
+#, no-wrap
+msgid ""
+"\tval uri = ServletUriComponentsBuilder.fromContextPath(request)\n"
+"\t\t\t.path(\"/accounts\")\n"
+"\t\t\t.build()\n"
+"\t\t\t.toUri()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:81
+msgid ""
+"You can create URIs relative to a Servlet (for example, `/main/{asterisk}`), "
+"as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:91
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:105
+#, no-wrap
+msgid ""
+"\t// Re-uses scheme, host, port, context path, and Servlet mapping "
+"prefix...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:96
+#, no-wrap
+msgid ""
+"\tURI uri = ServletUriComponentsBuilder.fromServletMapping(request)\n"
+"\t\t\t.path(\"/accounts\")\n"
+"\t\t\t.build()\n"
+"\t\t\t.toUri();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:110
+#, no-wrap
+msgid ""
+"\tval uri = ServletUriComponentsBuilder.fromServletMapping(request)\n"
+"\t\t\t.path(\"/accounts\")\n"
+"\t\t\t.build()\n"
+"\t\t\t.toUri()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:117
+msgid ""
+"As of 5.1, `ServletUriComponentsBuilder` ignores information from the "
+"`Forwarded` and `X-Forwarded-*` headers, which specify the client-originated "
+"address. Consider using the "
+"xref:web/webmvc/filters.adoc#filters-forwarded-headers[`ForwardedHeaderFilter`] "
+"to extract and use or to discard such headers."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:120
+#, no-wrap
+msgid "Links to Controllers"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:124
+msgid ""
+"Spring MVC provides a mechanism to prepare links to controller methods. For "
+"example, the following MVC controller allows for link creation:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:134
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\t@RequestMapping(\"/hotels/{hotel}\")\n"
+"\tpublic class BookingController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:140
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(\"/bookings/{booking}\")\n"
+"\t\tpublic ModelAndView getBooking(@PathVariable Long booking) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:149
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\t@RequestMapping(\"/hotels/{hotel}\")\n"
+"\tclass BookingController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:155
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(\"/bookings/{booking}\")\n"
+"\t\tfun getBooking(@PathVariable booking: Long): ModelAndView {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:159
+msgid ""
+"You can prepare a link by referring to the method by name, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:168
+#, no-wrap
+msgid ""
+"\tUriComponents uriComponents = MvcUriComponentsBuilder\n"
+"\t\t.fromMethodName(BookingController.class, \"getBooking\", "
+"21).buildAndExpand(42);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:170
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:204
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:248
+#, no-wrap
+msgid "\tURI uri = uriComponents.encode().toUri();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:178
+#, no-wrap
+msgid ""
+"\tval uriComponents = MvcUriComponentsBuilder\n"
+"\t\t.fromMethodName(BookingController::class.java, \"getBooking\", "
+"21).buildAndExpand(42)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:180
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:214
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:259
+#, no-wrap
+msgid "\tval uri = uriComponents.encode().toUri()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:189
+msgid ""
+"In the preceding example, we provide actual method argument values (in this "
+"case, the long value: `21`)  to be used as a path variable and inserted into "
+"the URL. Furthermore, we provide the value, `42`, to fill in any remaining "
+"URI variables, such as the `hotel` variable inherited from the type-level "
+"request mapping. If the method had more arguments, we could supply null for "
+"arguments not needed for the URL. In general, only `@PathVariable` and "
+"`@RequestParam` arguments are relevant for constructing the URL."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:193
+msgid ""
+"There are additional ways to use `MvcUriComponentsBuilder`. For example, you "
+"can use a technique akin to mock testing through proxies to avoid referring "
+"to the controller method by name, as the following example shows (the "
+"example assumes static import of `MvcUriComponentsBuilder.on`):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:202
+#, no-wrap
+msgid ""
+"\tUriComponents uriComponents = MvcUriComponentsBuilder\n"
+"\t\t.fromMethodCall(on(BookingController.class).getBooking(21)).buildAndExpand(42);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:212
+#, no-wrap
+msgid ""
+"\tval uriComponents = MvcUriComponentsBuilder\n"
+"\t\t.fromMethodCall(on(BookingController::class.java).getBooking(21)).buildAndExpand(42)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:223
+msgid ""
+"Controller method signatures are limited in their design when they are "
+"supposed to be usable for link creation with `fromMethodCall`. Aside from "
+"needing a proper parameter signature, there is a technical limitation on the "
+"return type (namely, generating a runtime proxy for link builder "
+"invocations), so the return type must not be `final`. In particular, the "
+"common `String` return type for view names does not work here. You should "
+"use `ModelAndView` or even plain `Object` (with a `String` return value) "
+"instead."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:231
+msgid ""
+"The earlier examples use static methods in "
+"`MvcUriComponentsBuilder`. Internally, they rely on "
+"`ServletUriComponentsBuilder` to prepare a base URL from the scheme, host, "
+"port, context path, and servlet path of the current request. This works well "
+"in most cases.  However, sometimes, it can be insufficient. For example, you "
+"may be outside the context of a request (such as a batch process that "
+"prepares links) or perhaps you need to insert a path prefix (such as a "
+"locale prefix that was removed from the request path and needs to be "
+"re-inserted into links)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:236
+msgid ""
+"For such cases, you can use the static `fromXxx` overloaded methods that "
+"accept a `UriComponentsBuilder` to use a base URL. Alternatively, you can "
+"create an instance of `MvcUriComponentsBuilder` with a base URL and then use "
+"the instance-based `withXxx` methods. For example, the following listing "
+"uses `withMethodCall`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:246
+#, no-wrap
+msgid ""
+"\tUriComponentsBuilder base = "
+"ServletUriComponentsBuilder.fromCurrentContextPath().path(\"/en\");\n"
+"\tMvcUriComponentsBuilder builder = "
+"MvcUriComponentsBuilder.relativeTo(base);\n"
+"\tbuilder.withMethodCall(on(BookingController.class).getBooking(21)).buildAndExpand(42);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:257
+#, no-wrap
+msgid ""
+"\tval base = "
+"ServletUriComponentsBuilder.fromCurrentContextPath().path(\"/en\")\n"
+"\tval builder = MvcUriComponentsBuilder.relativeTo(base)\n"
+"\tbuilder.withMethodCall(on(BookingController::class.java).getBooking(21)).buildAndExpand(42)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:266
+msgid ""
+"As of 5.1, `MvcUriComponentsBuilder` ignores information from the "
+"`Forwarded` and `X-Forwarded-*` headers, which specify the client-originated "
+"address. Consider using the "
+"xref:web/webmvc/filters.adoc#filters-forwarded-headers[ForwardedHeaderFilter] "
+"to extract and use or to discard such headers."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:269
+#, no-wrap
+msgid "Links in Views"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:273
+msgid ""
+"In views such as Thymeleaf, FreeMarker, or JSP, you can build links to "
+"annotated controllers by referring to the implicitly or explicitly assigned "
+"name for each request mapping."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:275
+msgid "Consider the following example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:284
+#, no-wrap
+msgid ""
+"\t@RequestMapping(\"/people/{id}/addresses\")\n"
+"\tpublic class PersonAddressController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:288
+#, no-wrap
+msgid ""
+"\t\t@RequestMapping(\"/{country}\")\n"
+"\t\tpublic HttpEntity<PersonAddress> getAddress(@PathVariable String "
+"country) { ... }\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:296
+#, no-wrap
+msgid ""
+"\t@RequestMapping(\"/people/{id}/addresses\")\n"
+"\tclass PersonAddressController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:300
+#, no-wrap
+msgid ""
+"\t\t@RequestMapping(\"/{country}\")\n"
+"\t\tfun getAddress(@PathVariable country: String): HttpEntity<PersonAddress> "
+"{ ... }\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:304
+msgid ""
+"Given the preceding controller, you can prepare a link from a JSP, as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:310
+#, no-wrap
+msgid ""
+"<%@ taglib uri=\"http://www.springframework.org/tags\" prefix=\"s\" %>\n"
+"...\n"
+"<a "
+"href=\"${s:mvcUrl('PAC#getAddress').arg(0,'US').buildAndExpand('123')}\">Get "
+"Address</a>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:315
+msgid ""
+"The preceding example relies on the `mvcUrl` function declared in the Spring "
+"tag library (that is, META-INF/spring.tld), but it is easy to define your "
+"own function or prepare a similar one for other templating technologies."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-uri-building.adoc:321
+msgid ""
+"Here is how this works. On startup, every `@RequestMapping` is assigned a "
+"default name through `HandlerMethodMappingNamingStrategy`, whose default "
+"implementation uses the capital letters of the class and the method name "
+"(for example, the `getThing` method in `ThingController` becomes "
+"\"TC#getThing\"). If there is a name clash, you can use "
+"`@RequestMapping(name=\"..\")` to assign an explicit name or implement your "
+"own `HandlerMethodMappingNamingStrategy`."
+msgstr ""

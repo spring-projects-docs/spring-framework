@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/vs-streaming-response.adoc:2
+#, no-wrap
+msgid "Streaming Responses"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/vs-streaming-response.adoc:11
+msgid ""
+"You can use `WebTestClient` to test "
+"xref:testing/webtestclient.adoc#webtestclient-stream[streaming responses] "
+"such as Server-Sent Events. However, `MockMvcWebTestClient` doesn't support "
+"infinite streams because there is no way to cancel the server stream from "
+"the client side.  To test infinite streams, you'll need to "
+"xref:testing/webtestclient.adoc#webtestclient-server-config[bind to] a "
+"running server, or when using Spring Boot, "
+"{spring-boot-docs-ref}/testing/spring-boot-applications.html#testing.spring-boot-applications.with-running-server[test "
+"with a running server]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/vs-streaming-response.adoc:14
+msgid ""
+"`MockMvcWebTestClient` does support asynchronous responses, and even "
+"streaming responses.  The limitation is that it can't influence the server "
+"to stop, and therefore the server must finish writing the response on its "
+"own."
+msgstr ""

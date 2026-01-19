@@ -1,0 +1,799 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:40+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:2
+#, no-wrap
+msgid "Fine-tuning Annotation-based Autowiring with Qualifiers"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:6
+msgid ""
+"`@Primary` and `@Fallback` are effective ways to use autowiring by type with "
+"several instances when one primary (or non-fallback) candidate can be "
+"determined."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:11
+msgid ""
+"When you need more control over the selection process, you can use Spring's "
+"`@Qualifier` annotation. You can associate qualifier values with specific "
+"arguments, narrowing the set of type matches so that a specific bean is "
+"chosen for each argument. In the simplest case, this can be a plain "
+"descriptive value, as shown in the following example:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:15
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:51
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:199
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:230
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:323
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:352
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:407
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:439
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:465
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:20
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:56
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:235
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:357
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:470
+#, no-wrap
+msgid "\tpublic class MovieRecommender {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:24
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@Qualifier(\"main\")\n"
+"\t\tprivate MovieCatalog movieCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:27
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:41
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:70
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:91
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:249
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:270
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:364
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:489
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:515
+#, no-wrap
+msgid ""
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:29
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:72
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:212
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:251
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:334
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:367
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:422
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:448
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:491
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:34
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:77
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:256
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:496
+#, no-wrap
+msgid "\tclass MovieRecommender {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:38
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@Qualifier(\"main\")\n"
+"\t\tprivate lateinit var movieCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:47
+msgid ""
+"You can also specify the `@Qualifier` annotation on individual constructor "
+"arguments or method parameters, as shown in the following example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:58
+#, no-wrap
+msgid "\t\tprivate final MovieCatalog movieCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:60
+#, no-wrap
+msgid "\t\tprivate final CustomerPreferenceDao customerPreferenceDao;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:67
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void prepare(@Qualifier(\"main\") MovieCatalog movieCatalog,\n"
+"\t\t\t\tCustomerPreferenceDao customerPreferenceDao) {\n"
+"\t\t\tthis.movieCatalog = movieCatalog;\n"
+"\t\t\tthis.customerPreferenceDao = customerPreferenceDao;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:79
+#, no-wrap
+msgid "\t\tprivate lateinit var movieCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:81
+#, no-wrap
+msgid "\t\tprivate lateinit var customerPreferenceDao: CustomerPreferenceDao\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:88
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tfun prepare(@Qualifier(\"main\") movieCatalog: MovieCatalog,\n"
+"\t\t\t\t\tcustomerPreferenceDao: CustomerPreferenceDao) {\n"
+"\t\t\tthis.movieCatalog = movieCatalog\n"
+"\t\t\tthis.customerPreferenceDao = customerPreferenceDao\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:96
+msgid "The following example shows corresponding bean definitions."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:108
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:292
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:537
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:context=\"http://www.springframework.org/schema/context\"\n"
+"\t\txsi:schemaLocation=\"http://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/context\n"
+"\t\t\thttps://www.springframework.org/schema/context/spring-context.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:110
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:294
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:539
+#, no-wrap
+msgid "\t\t<context:annotation-config/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:113
+#, no-wrap
+msgid ""
+"\t\t<bean class=\"example.SimpleMovieCatalog\">\n"
+"\t\t\t<qualifier value=\"main\"/> <1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:116
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:122
+#, no-wrap
+msgid ""
+"\t\t\t<!-- inject any dependencies required by this bean -->\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:119
+#, no-wrap
+msgid ""
+"\t\t<bean class=\"example.SimpleMovieCatalog\">\n"
+"\t\t\t<qualifier value=\"action\"/> <2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:124
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:306
+#, no-wrap
+msgid "\t\t<bean id=\"movieRecommender\" class=\"example.MovieRecommender\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:126
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:308
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:569
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:129
+msgid ""
+"The bean with the `main` qualifier value is wired with the constructor "
+"argument that is qualified with the same value."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:131
+msgid ""
+"The bean with the `action` qualifier value is wired with the constructor "
+"argument that is qualified with the same value."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:143
+msgid ""
+"For a fallback match, the bean name is considered a default qualifier "
+"value. Thus, you can define the bean with an `id` of `main` instead of the "
+"nested qualifier element, leading to the same matching result. However, "
+"although you can use this convention to refer to specific beans by name, "
+"`@Autowired` is fundamentally about type-driven injection with optional "
+"semantic qualifiers. This means that qualifier values, even with the bean "
+"name fallback, always have narrowing semantics within the set of type "
+"matches. They do not semantically express a reference to a unique bean "
+"`id`. Good qualifier values are `main` or `EMEA` or `persistent`, expressing "
+"characteristics of a specific component that are independent from the bean "
+"`id`, which may be auto-generated in case of an anonymous bean definition "
+"such as the one in the preceding example."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:150
+msgid ""
+"Qualifiers also apply to typed collections, as discussed earlier -- for "
+"example, to `Set<MovieCatalog>`. In this case, all matching beans, according "
+"to the declared qualifiers, are injected as a collection. This implies that "
+"qualifiers do not have to be unique. Rather, they constitute filtering "
+"criteria. For example, you can define multiple `MovieCatalog` beans with the "
+"same qualifier value \"`action`\", all of which are injected into a "
+"`Set<MovieCatalog>` annotated with `@Qualifier(\"action\")`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:159
+msgid ""
+"Letting qualifier values select against target bean names, within the "
+"type-matching candidates, does not require a `@Qualifier` annotation at the "
+"injection point.  If there is no other resolution indicator (such as a "
+"qualifier or a primary marker), for a non-unique dependency situation, "
+"Spring matches the injection point name (that is, the field name or "
+"parameter name) against the target bean names and chooses the same-named "
+"candidate, if any (either by bean name or by associated alias)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:165
+msgid ""
+"Since version 6.1, this requires the `-parameters` Java compiler flag to be "
+"present.  As of 6.2, the container applies fast shortcut resolution for bean "
+"name matches, bypassing the full type matching algorithm when the parameter "
+"name matches the bean name and no type, qualifier or primary conditions "
+"override the match. It is therefore recommendable for your parameter names "
+"to match the target bean names."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:173
+msgid ""
+"As an alternative for injection by name, consider the JSR-250 `@Resource` "
+"annotation which is semantically defined to identify a specific target "
+"component by its unique name, with the declared type being irrelevant for "
+"the matching process. `@Autowired` has rather different semantics: after "
+"selecting candidate beans by type, the specified `String` qualifier value is "
+"considered within those type-selected candidates only (for example, matching "
+"an `account` qualifier against beans marked with the same qualifier label)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:181
+msgid ""
+"For beans that are themselves defined as a collection, `Map`, or array type, "
+"`@Resource` is a fine solution, referring to the specific collection or "
+"array bean by unique name.  That said, you can match collection, `Map`, and "
+"array types through Spring's `@Autowired` type matching algorithm as well, "
+"as long as the element type information is preserved in `@Bean` return type "
+"signatures or collection inheritance hierarchies.  In this case, you can use "
+"qualifier values to select among same-typed collections, as outlined in the "
+"previous paragraph."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:186
+msgid ""
+"`@Autowired` also considers self references for injection (that is, "
+"references back to the bean that is currently injected). See "
+"xref:core/beans/annotation-config/autowired.adoc#beans-autowired-annotation-self-injection[Self "
+"Injection] for details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:192
+msgid ""
+"`@Autowired` applies to fields, constructors, and multi-argument methods, "
+"allowing for narrowing through qualifier annotations at the parameter "
+"level. In contrast, `@Resource` is supported only for fields and bean "
+"property setter methods with a single argument.  As a consequence, you "
+"should stick with qualifiers if your injection target is a constructor or a "
+"multi-argument method."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:195
+msgid ""
+"You can create your own custom qualifier annotations. To do so, define an "
+"annotation and provide the `@Qualifier` annotation within your definition, "
+"as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:207
+#, no-wrap
+msgid ""
+"\t@Target({ElementType.FIELD, ElementType.PARAMETER})\n"
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t@Qualifier\n"
+"\tpublic @interface Genre {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:210
+#, no-wrap
+msgid ""
+"\t\tString value();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:220
+#, no-wrap
+msgid ""
+"\t@Target(AnnotationTarget.FIELD, AnnotationTarget.VALUE_PARAMETER)\n"
+"\t@Retention(AnnotationRetention.RUNTIME)\n"
+"\t@Qualifier\n"
+"\tannotation class Genre(val value: String)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:226
+msgid ""
+"Then you can provide the custom qualifier on autowired fields and "
+"parameters, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:239
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@Genre(\"Action\")\n"
+"\t\tprivate MovieCatalog actionCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:241
+#, no-wrap
+msgid "\t\tprivate MovieCatalog comedyCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:246
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void setComedyCatalog(@Genre(\"Comedy\") MovieCatalog "
+"comedyCatalog) {\n"
+"\t\t\tthis.comedyCatalog = comedyCatalog;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:260
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@Genre(\"Action\")\n"
+"\t\tprivate lateinit var actionCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:262
+#, no-wrap
+msgid "\t\tprivate lateinit var comedyCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:267
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tfun setComedyCatalog(@Genre(\"Comedy\") comedyCatalog: MovieCatalog) {\n"
+"\t\t\tthis.comedyCatalog = comedyCatalog\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:280
+msgid ""
+"Next, you can provide the information for the candidate bean "
+"definitions. You can add `<qualifier/>` tags as sub-elements of the "
+"`<bean/>` tag and then specify the `type` and `value` to match your custom "
+"qualifier annotations. The type is matched against the fully-qualified class "
+"name of the annotation. Alternately, as a convenience if no risk of "
+"conflicting names exists, you can use the short class name. The following "
+"example demonstrates both approaches:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:299
+#, no-wrap
+msgid ""
+"\t\t<bean class=\"example.SimpleMovieCatalog\">\n"
+"\t\t\t<qualifier type=\"Genre\" value=\"Action\"/>\n"
+"\t\t\t<!-- inject any dependencies required by this bean -->\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:304
+#, no-wrap
+msgid ""
+"\t\t<bean class=\"example.SimpleMovieCatalog\">\n"
+"\t\t\t<qualifier type=\"example.Genre\" value=\"Comedy\"/>\n"
+"\t\t\t<!-- inject any dependencies required by this bean -->\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:313
+msgid ""
+"In xref:core/beans/classpath-scanning.adoc[Classpath Scanning and Managed "
+"Components], you can see an annotation-based alternative to providing the "
+"qualifier metadata in XML. Specifically, see "
+"xref:core/beans/classpath-scanning.adoc#beans-scanning-qualifiers[Providing "
+"Qualifier Metadata with Annotations]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:319
+msgid ""
+"In some cases, using an annotation without a value may suffice. This can be "
+"useful when the annotation serves a more generic purpose and can be applied "
+"across several different types of dependencies. For example, you may provide "
+"an offline catalog that can be searched when no Internet connection is "
+"available. First, define the simple annotation, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:332
+#, no-wrap
+msgid ""
+"\t@Target({ElementType.FIELD, ElementType.PARAMETER})\n"
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t@Qualifier\n"
+"\tpublic @interface Offline {\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:342
+#, no-wrap
+msgid ""
+"\t@Target(AnnotationTarget.FIELD, AnnotationTarget.VALUE_PARAMETER)\n"
+"\t@Retention(AnnotationRetention.RUNTIME)\n"
+"\t@Qualifier\n"
+"\tannotation class Offline\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:348
+msgid ""
+"Then add the annotation to the field or property to be autowired, as shown "
+"in the following example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:361
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@Offline // <1>\n"
+"\t\tprivate MovieCatalog offlineCatalog;\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:366
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:381
+msgid "This line adds the `@Offline` annotation."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:372
+#, no-wrap
+msgid "class MovieRecommender {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:376
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\t@Offline // <1>\n"
+"\tprivate lateinit var offlineCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:379
+#, no-wrap
+msgid ""
+"\t// ...\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:385
+msgid ""
+"Now the bean definition only needs a qualifier `type`, as shown in the "
+"following example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:393
+#, no-wrap
+msgid ""
+"\t<bean class=\"example.SimpleMovieCatalog\">\n"
+"\t\t<qualifier type=\"Offline\"/> <1>\n"
+"\t\t<!-- inject any dependencies required by this bean -->\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:395
+msgid "This element specifies the qualifier."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:403
+msgid ""
+"You can also define custom qualifier annotations that accept named "
+"attributes in addition to or instead of the simple `value` attribute. If "
+"multiple attribute values are then specified on a field or parameter to be "
+"autowired, a bean definition must match all such attribute values to be "
+"considered an autowire candidate. As an example, consider the following "
+"annotation definition:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:415
+#, no-wrap
+msgid ""
+"\t@Target({ElementType.FIELD, ElementType.PARAMETER})\n"
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t@Qualifier\n"
+"\tpublic @interface MovieQualifier {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:417
+#, no-wrap
+msgid "\t\tString genre();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:420
+#, no-wrap
+msgid ""
+"\t\tFormat format();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:430
+#, no-wrap
+msgid ""
+"\t@Target(AnnotationTarget.FIELD, AnnotationTarget.VALUE_PARAMETER)\n"
+"\t@Retention(AnnotationRetention.RUNTIME)\n"
+"\t@Qualifier\n"
+"\tannotation class MovieQualifier(val genre: String, val format: Format)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:435
+msgid "In this case `Format` is an enum, defined as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:446
+#, no-wrap
+msgid ""
+"\tpublic enum Format {\n"
+"\t\tVHS, DVD, BLURAY\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:455
+#, no-wrap
+msgid ""
+"\tenum class Format {\n"
+"\t\tVHS, DVD, BLURAY\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:461
+msgid ""
+"The fields to be autowired are annotated with the custom qualifier and "
+"include values for both attributes: `genre` and `format`, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:474
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@MovieQualifier(format=Format.VHS, genre=\"Action\")\n"
+"\t\tprivate MovieCatalog actionVhsCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:478
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@MovieQualifier(format=Format.VHS, genre=\"Comedy\")\n"
+"\t\tprivate MovieCatalog comedyVhsCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:482
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@MovieQualifier(format=Format.DVD, genre=\"Action\")\n"
+"\t\tprivate MovieCatalog actionDvdCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:486
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@MovieQualifier(format=Format.BLURAY, genre=\"Comedy\")\n"
+"\t\tprivate MovieCatalog comedyBluRayCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:500
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@MovieQualifier(format = Format.VHS, genre = \"Action\")\n"
+"\t\tprivate lateinit var actionVhsCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:504
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@MovieQualifier(format = Format.VHS, genre = \"Comedy\")\n"
+"\t\tprivate lateinit var comedyVhsCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:508
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@MovieQualifier(format = Format.DVD, genre = \"Action\")\n"
+"\t\tprivate lateinit var actionDvdCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:512
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\t@MovieQualifier(format = Format.BLURAY, genre = \"Comedy\")\n"
+"\t\tprivate lateinit var comedyBluRayCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:525
+msgid ""
+"Finally, the bean definitions should contain matching qualifier values. This "
+"example also demonstrates that you can use bean meta attributes instead of "
+"the `<qualifier/>` elements. If available, the `<qualifier/>` element and "
+"its attributes take precedence, but the autowiring mechanism falls back on "
+"the values provided within the `<meta/>` tags if no such qualifier is "
+"present, as in the last two bean definitions in the following example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:547
+#, no-wrap
+msgid ""
+"\t\t<bean class=\"example.SimpleMovieCatalog\">\n"
+"\t\t\t<qualifier type=\"MovieQualifier\">\n"
+"\t\t\t\t<attribute key=\"format\" value=\"VHS\"/>\n"
+"\t\t\t\t<attribute key=\"genre\" value=\"Action\"/>\n"
+"\t\t\t</qualifier>\n"
+"\t\t\t<!-- inject any dependencies required by this bean -->\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:555
+#, no-wrap
+msgid ""
+"\t\t<bean class=\"example.SimpleMovieCatalog\">\n"
+"\t\t\t<qualifier type=\"MovieQualifier\">\n"
+"\t\t\t\t<attribute key=\"format\" value=\"VHS\"/>\n"
+"\t\t\t\t<attribute key=\"genre\" value=\"Comedy\"/>\n"
+"\t\t\t</qualifier>\n"
+"\t\t\t<!-- inject any dependencies required by this bean -->\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:561
+#, no-wrap
+msgid ""
+"\t\t<bean class=\"example.SimpleMovieCatalog\">\n"
+"\t\t\t<meta key=\"format\" value=\"DVD\"/>\n"
+"\t\t\t<meta key=\"genre\" value=\"Action\"/>\n"
+"\t\t\t<!-- inject any dependencies required by this bean -->\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired-qualifiers.adoc:567
+#, no-wrap
+msgid ""
+"\t\t<bean class=\"example.SimpleMovieCatalog\">\n"
+"\t\t\t<meta key=\"format\" value=\"BLURAY\"/>\n"
+"\t\t\t<meta key=\"genre\" value=\"Comedy\"/>\n"
+"\t\t\t<!-- inject any dependencies required by this bean -->\n"
+"\t\t</bean>\n"
+msgstr ""

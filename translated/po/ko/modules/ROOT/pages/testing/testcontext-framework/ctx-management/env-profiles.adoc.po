@@ -1,0 +1,772 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:2
+#, no-wrap
+msgid "Context Configuration with Environment Profiles"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:9
+msgid ""
+"The Spring Framework has first-class support for the notion of environments "
+"and profiles (AKA \"bean definition profiles\"), and integration tests can "
+"be configured to activate particular bean definition profiles for various "
+"testing scenarios. This is achieved by annotating a test class with the "
+"`@ActiveProfiles` annotation and supplying a list of profiles that should be "
+"activated when loading the `ApplicationContext` for the test."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:13
+msgid ""
+"You can use `@ActiveProfiles` with any implementation of the "
+"`SmartContextLoader` SPI, but `@ActiveProfiles` is not supported with "
+"implementations of the older `ContextLoader` SPI."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:15
+msgid "Consider two examples with XML configuration and `@Configuration` classes:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:24
+#, no-wrap
+msgid ""
+"\t<!-- app-config.xml -->\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:jdbc=\"http://www.springframework.org/schema/jdbc\"\n"
+"\t\txmlns:jee=\"http://www.springframework.org/schema/jee\"\n"
+"\t\txsi:schemaLocation=\"...\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:30
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"transferService\"\n"
+"\t\t\t\tclass=\"com.bank.service.internal.DefaultTransferService\">\n"
+"\t\t\t<constructor-arg ref=\"accountRepository\"/>\n"
+"\t\t\t<constructor-arg ref=\"feePolicy\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:35
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"accountRepository\"\n"
+"\t\t\t\tclass=\"com.bank.repository.internal.JdbcAccountRepository\">\n"
+"\t\t\t<constructor-arg ref=\"dataSource\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:38
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"feePolicy\"\n"
+"\t\t\tclass=\"com.bank.service.internal.ZeroFeePolicy\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:47
+#, no-wrap
+msgid ""
+"\t\t<beans profile=\"dev\">\n"
+"\t\t\t<jdbc:embedded-database id=\"dataSource\">\n"
+"\t\t\t\t<jdbc:script\n"
+"\t\t\t\t\tlocation=\"classpath:com/bank/config/sql/schema.sql\"/>\n"
+"\t\t\t\t<jdbc:script\n"
+"\t\t\t\t\tlocation=\"classpath:com/bank/config/sql/test-data.sql\"/>\n"
+"\t\t\t</jdbc:embedded-database>\n"
+"\t\t</beans>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:51
+#, no-wrap
+msgid ""
+"\t\t<beans profile=\"production\">\n"
+"\t\t\t<jee:jndi-lookup id=\"dataSource\" "
+"jndi-name=\"java:comp/env/jdbc/datasource\"/>\n"
+"\t\t</beans>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:58
+#, no-wrap
+msgid ""
+"\t\t<beans profile=\"default\">\n"
+"\t\t\t<jdbc:embedded-database id=\"dataSource\">\n"
+"\t\t\t\t<jdbc:script\n"
+"\t\t\t\t\tlocation=\"classpath:com/bank/config/sql/schema.sql\"/>\n"
+"\t\t\t</jdbc:embedded-database>\n"
+"\t\t</beans>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:60
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:64
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:129
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:170
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:205
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:244
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:300
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:374
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:405
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:445
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:487
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:516
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:73
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t// ApplicationContext will be loaded from \"classpath:/app-config.xml\"\n"
+"\t@ContextConfiguration(\"/app-config.xml\")\n"
+"\t@ActiveProfiles(\"dev\")\n"
+"\tclass TransferServiceTest {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:76
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:314
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:414
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tTransferService transferService;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:82
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:320
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:420
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tvoid testTransferService() {\n"
+"\t\t\t// test the transferService\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:84
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:148
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:186
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:223
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:270
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:322
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:388
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:422
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:456
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:500
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:531
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:93
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t// ApplicationContext will be loaded from \"classpath:/app-config.xml\"\n"
+"\t@ContextConfiguration(\"/app-config.xml\")\n"
+"\t@ActiveProfiles(\"dev\")\n"
+"\tclass TransferServiceTest {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:96
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:336
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:431
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var transferService: TransferService\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:102
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:342
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:437
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tfun testTransferService() {\n"
+"\t\t\t// test the transferService\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:111
+msgid ""
+"When `TransferServiceTest` is run, its `ApplicationContext` is loaded from "
+"the `app-config.xml` configuration file in the root of the classpath. If you "
+"inspect `app-config.xml`, you can see that the `accountRepository` bean has "
+"a dependency on a `dataSource` bean. However, `dataSource` is not defined as "
+"a top-level bean. Instead, `dataSource` is defined three times: in the "
+"`production` profile, in the `dev` profile, and in the `default` profile."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:117
+msgid ""
+"By annotating `TransferServiceTest` with `@ActiveProfiles(\"dev\")`, we "
+"instruct the Spring TestContext Framework to load the `ApplicationContext` "
+"with the active profiles set to `{\"dev\"}`. As a result, an embedded "
+"database is created and populated with test data, and the "
+"`accountRepository` bean is wired with a reference to the development "
+"`DataSource`.  That is likely what we want in an integration test."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:123
+msgid ""
+"It is sometimes useful to assign beans to a `default` profile. Beans within "
+"the default profile are included only when no other profile is specifically "
+"activated. You can use this to define \"`fallback`\" beans to be used in the "
+"application's default state. For example, you may explicitly provide a data "
+"source for `dev` and `production` profiles, but define an in-memory data "
+"source as a default when neither of these is active."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:126
+msgid ""
+"The following code listings demonstrate how to implement the same "
+"configuration and integration test with `@Configuration` classes instead of "
+"XML:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:136
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"dev\")\n"
+"\tpublic class StandaloneDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:146
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic DataSource dataSource() {\n"
+"\t\t\treturn new EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t.addScript(\"classpath:com/bank/config/sql/schema.sql\")\n"
+"\t\t\t\t.addScript(\"classpath:com/bank/config/sql/test-data.sql\")\n"
+"\t\t\t\t.build();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:155
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"dev\")\n"
+"\tclass StandaloneDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:165
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\treturn EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t\t.addScript(\"classpath:com/bank/config/sql/schema.sql\")\n"
+"\t\t\t\t\t.addScript(\"classpath:com/bank/config/sql/test-data.sql\")\n"
+"\t\t\t\t\t.build()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:177
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"production\")\n"
+"\tpublic class JndiDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:184
+#, no-wrap
+msgid ""
+"\t\t@Bean(destroyMethod=\"\")\n"
+"\t\tpublic DataSource dataSource() throws Exception {\n"
+"\t\t\tContext ctx = new InitialContext();\n"
+"\t\t\treturn (DataSource) ctx.lookup(\"java:comp/env/jdbc/datasource\");\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:193
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"production\")\n"
+"\tclass JndiDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:200
+#, no-wrap
+msgid ""
+"\t\t@Bean(destroyMethod = \"\")\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\tval ctx = InitialContext()\n"
+"\t\t\treturn ctx.lookup(\"java:comp/env/jdbc/datasource\") as DataSource\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:212
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"default\")\n"
+"\tpublic class DefaultDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:221
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic DataSource dataSource() {\n"
+"\t\t\treturn new EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t.addScript(\"classpath:com/bank/config/sql/schema.sql\")\n"
+"\t\t\t\t.build();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:230
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"default\")\n"
+"\tclass DefaultDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:239
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\treturn EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t\t.addScript(\"classpath:com/bank/config/sql/schema.sql\")\n"
+"\t\t\t\t\t.build()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:250
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class TransferServiceConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:252
+#, no-wrap
+msgid "\t\t@Autowired DataSource dataSource;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:257
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic TransferService transferService() {\n"
+"\t\t\treturn new DefaultTransferService(accountRepository(), feePolicy());\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:262
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic AccountRepository accountRepository() {\n"
+"\t\t\treturn new JdbcAccountRepository(dataSource);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:268
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic FeePolicy feePolicy() {\n"
+"\t\t\treturn new ZeroFeePolicy();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:276
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass TransferServiceConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:279
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var dataSource: DataSource\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:284
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun transferService(): TransferService {\n"
+"\t\t\treturn DefaultTransferService(accountRepository(), feePolicy())\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:289
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun accountRepository(): AccountRepository {\n"
+"\t\t\treturn JdbcAccountRepository(dataSource)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:295
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun feePolicy(): FeePolicy {\n"
+"\t\t\treturn ZeroFeePolicy()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:311
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig({\n"
+"\t\t\tTransferServiceConfig.class,\n"
+"\t\t\tStandaloneDataConfig.class,\n"
+"\t\t\tJndiDataConfig.class,\n"
+"\t\t\tDefaultDataConfig.class})\n"
+"\t@ActiveProfiles(\"dev\")\n"
+"\tclass TransferServiceTest {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:333
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(\n"
+"\t\t\tTransferServiceConfig::class,\n"
+"\t\t\tStandaloneDataConfig::class,\n"
+"\t\t\tJndiDataConfig::class,\n"
+"\t\t\tDefaultDataConfig::class)\n"
+"\t@ActiveProfiles(\"dev\")\n"
+"\tclass TransferServiceTest {\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:347
+msgid ""
+"In this variation, we have split the XML configuration into four independent "
+"`@Configuration` classes:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:350
+msgid ""
+"`TransferServiceConfig`: Acquires a `dataSource` through dependency "
+"injection by using `@Autowired`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:352
+msgid ""
+"`StandaloneDataConfig`: Defines a `dataSource` for an embedded database "
+"suitable for developer tests."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:354
+msgid ""
+"`JndiDataConfig`: Defines a `dataSource` that is retrieved from JNDI in a "
+"production environment."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:356
+msgid ""
+"`DefaultDataConfig`: Defines a `dataSource` for a default embedded database, "
+"in case no profile is active."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:361
+msgid ""
+"As with the XML-based configuration example, we still annotate "
+"`TransferServiceTest` with `@ActiveProfiles(\"dev\")`, but this time we "
+"specify all four configuration classes by using the `@ContextConfiguration` "
+"annotation. The body of the test class itself remains completely unchanged."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:368
+msgid ""
+"It is often the case that a single set of profiles is used across multiple "
+"test classes within a given project. Thus, to avoid duplicate declarations "
+"of the `@ActiveProfiles` annotation, you can declare `@ActiveProfiles` once "
+"on a base class, and subclasses automatically inherit the `@ActiveProfiles` "
+"configuration from the base class. In the following example, the declaration "
+"of `@ActiveProfiles` (as well as other annotations)  has been moved to an "
+"abstract superclass, `AbstractIntegrationTest`:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:371
+msgid ""
+"Test configuration may also be inherited from enclosing classes. See "
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit-jupiter-nested-test-configuration[`@Nested` "
+"test class configuration] for details."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:386
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig({\n"
+"\t\t\tTransferServiceConfig.class,\n"
+"\t\t\tStandaloneDataConfig.class,\n"
+"\t\t\tJndiDataConfig.class,\n"
+"\t\t\tDefaultDataConfig.class})\n"
+"\t@ActiveProfiles(\"dev\")\n"
+"\tabstract class AbstractIntegrationTest {\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:400
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(\n"
+"\t\t\tTransferServiceConfig::class,\n"
+"\t\t\tStandaloneDataConfig::class,\n"
+"\t\t\tJndiDataConfig::class,\n"
+"\t\t\tDefaultDataConfig::class)\n"
+"\t@ActiveProfiles(\"dev\")\n"
+"\tabstract class AbstractIntegrationTest {\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:411
+#, no-wrap
+msgid ""
+"\t// \"dev\" profile inherited from superclass\n"
+"\tclass TransferServiceTest extends AbstractIntegrationTest {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:428
+#, no-wrap
+msgid ""
+"\t// \"dev\" profile inherited from superclass\n"
+"\tclass TransferServiceTest : AbstractIntegrationTest() {\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:442
+msgid ""
+"`@ActiveProfiles` also supports an `inheritProfiles` attribute that can be "
+"used to disable the inheritance of active profiles, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:454
+#, no-wrap
+msgid ""
+"\t// \"dev\" profile overridden with \"production\"\n"
+"\t@ActiveProfiles(profiles = \"production\", inheritProfiles = false)\n"
+"\tclass ProductionTransferServiceTest extends AbstractIntegrationTest {\n"
+"\t\t// test body\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:465
+#, no-wrap
+msgid ""
+"\t// \"dev\" profile overridden with \"production\"\n"
+"\t@ActiveProfiles(\"production\", inheritProfiles = false)\n"
+"\tclass ProductionTransferServiceTest : AbstractIntegrationTest() {\n"
+"\t\t// test body\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:471
+msgid ""
+"Furthermore, it is sometimes necessary to resolve active profiles for tests "
+"programmatically instead of declaratively -- for example, based on:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:473
+msgid "The current operating system."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:474
+msgid "Whether tests are being run on a continuous integration build server."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:475
+msgid "The presence of certain environment variables."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:476
+msgid "The presence of custom class-level annotations."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:477
+msgid "Other concerns."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:484
+msgid ""
+"To resolve active bean definition profiles programmatically, you can "
+"implement a custom `ActiveProfilesResolver` and register it by using the "
+"`resolver` attribute of `@ActiveProfiles`. For further information, see the "
+"corresponding "
+"{spring-framework-api}/test/context/ActiveProfilesResolver.html[javadoc].  "
+"The following example demonstrates how to implement and register a custom "
+"`OperatingSystemActiveProfilesResolver`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:498
+#, no-wrap
+msgid ""
+"\t// \"dev\" profile overridden programmatically via a custom resolver\n"
+"\t@ActiveProfiles(\n"
+"\t\t\tresolver = OperatingSystemActiveProfilesResolver.class,\n"
+"\t\t\tinheritProfiles = false)\n"
+"\tclass TransferServiceTest extends AbstractIntegrationTest {\n"
+"\t\t// test body\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:511
+#, no-wrap
+msgid ""
+"\t// \"dev\" profile overridden programmatically via a custom resolver\n"
+"\t@ActiveProfiles(\n"
+"\t\t\tresolver = OperatingSystemActiveProfilesResolver::class,\n"
+"\t\t\tinheritProfiles = false)\n"
+"\tclass TransferServiceTest : AbstractIntegrationTest() {\n"
+"\t\t// test body\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:521
+#, no-wrap
+msgid ""
+"\tpublic class OperatingSystemActiveProfilesResolver implements "
+"ActiveProfilesResolver {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:529
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic String[] resolve(Class<?> testClass) {\n"
+"\t\t\tString profile = ...;\n"
+"\t\t\t// determine the value of profile based on the operating system\n"
+"\t\t\treturn new String[] {profile};\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:536
+#, no-wrap
+msgid "\tclass OperatingSystemActiveProfilesResolver : ActiveProfilesResolver {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/env-profiles.adoc:543
+#, no-wrap
+msgid ""
+"\t\toverride fun resolve(testClass: Class<*>): Array<String> {\n"
+"\t\t\tval profile: String = ...\n"
+"\t\t\t// determine the value of profile based on the operating system\n"
+"\t\t\treturn arrayOf(profile)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""

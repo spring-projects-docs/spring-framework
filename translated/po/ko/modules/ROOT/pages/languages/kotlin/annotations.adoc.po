@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/languages/kotlin/annotations.adoc:2
+#, no-wrap
+msgid "Annotations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/languages/kotlin/annotations.adoc:9
+msgid ""
+"The Spring Framework also takes advantage of "
+"{kotlin-docs}/null-safety.html[Kotlin null-safety] to determine if an HTTP "
+"parameter is required without having to explicitly define the `required` "
+"attribute. That means `@RequestParam name: String?` is treated as not "
+"required and, conversely, `@RequestParam name: String` is treated as being "
+"required.  This feature is also supported on the Spring Messaging `@Header` "
+"annotation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/languages/kotlin/annotations.adoc:12
+msgid ""
+"In a similar fashion, Spring bean injection with `@Autowired`, `@Bean`, or "
+"`@Inject` uses this information to determine if a bean is required or not."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/languages/kotlin/annotations.adoc:16
+msgid ""
+"For example, `@Autowired lateinit var thing: Thing` implies that a bean of "
+"type `Thing` must be registered in the application context, while "
+"`@Autowired lateinit var thing: Thing?` does not raise an error if such a "
+"bean does not exist."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/languages/kotlin/annotations.adoc:20
+msgid ""
+"Following the same principle, `@Bean fun play(toy: Toy, car: Car?) = "
+"Baz(toy, car)` implies that a bean of type `Toy` must be registered in the "
+"application context, while a bean of type `Car` may or may not exist. The "
+"same behavior applies to autowired constructor parameters."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/languages/kotlin/annotations.adoc:25
+msgid ""
+"If you use bean validation on classes with properties or a primary "
+"constructor with parameters, you may need to use "
+"{kotlin-docs}/annotations.html#annotation-use-site-targets[annotation "
+"use-site targets], such as `@field:NotNull` or `@get:Size(min=5, max=15)`, "
+"as described in {stackoverflow-site}/a/35853200/1092077[this Stack Overflow "
+"response]."
+msgstr ""

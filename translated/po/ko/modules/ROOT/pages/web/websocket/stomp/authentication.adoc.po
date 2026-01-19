@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication.adoc:2
+#, no-wrap
+msgid "Authentication"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication.adoc:7
+msgid ""
+"Every STOMP over WebSocket messaging session begins with an HTTP request.  "
+"That can be a request to upgrade to WebSockets (that is, a WebSocket "
+"handshake)  or, in the case of SockJS fallbacks, a series of SockJS HTTP "
+"transport requests."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication.adoc:13
+msgid ""
+"Many web applications already have authentication and authorization in place "
+"to secure HTTP requests. Typically, a user is authenticated through Spring "
+"Security by using some mechanism such as a login page, HTTP basic "
+"authentication, or another way.  The security context for the authenticated "
+"user is saved in the HTTP session and is associated with subsequent requests "
+"in the same cookie-based session."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication.adoc:19
+msgid ""
+"Therefore, for a WebSocket handshake or for SockJS HTTP transport requests, "
+"typically, there is already an authenticated user accessible through "
+"`HttpServletRequest#getUserPrincipal()`. Spring automatically associates "
+"that user with a WebSocket or SockJS session created for them and, "
+"subsequently, with all STOMP messages transported over that session through "
+"a user header."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication.adoc:26
+msgid ""
+"In short, a typical web application needs to do nothing beyond what it "
+"already does for security. The user is authenticated at the HTTP request "
+"level with a security context that is maintained through a cookie-based HTTP "
+"session (which is then associated with WebSocket or SockJS sessions created "
+"for that user) and results in a user header being stamped on every `Message` "
+"flowing through the application."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication.adoc:31
+msgid ""
+"The STOMP protocol does have `login` and `passcode` headers on the `CONNECT` "
+"frame.  Those were originally designed for and are needed for STOMP over "
+"TCP. However, for STOMP over WebSocket, by default, Spring ignores "
+"authentication headers at the STOMP protocol level, and assumes that the "
+"user is already authenticated at the HTTP transport level.  The expectation "
+"is that the WebSocket or SockJS session contain the authenticated user."
+msgstr ""

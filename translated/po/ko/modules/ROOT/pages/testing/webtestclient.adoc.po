@@ -1,0 +1,1051 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:2
+#, no-wrap
+msgid "WebTestClient"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:9
+msgid ""
+"`WebTestClient` is an HTTP client designed for testing server "
+"applications. It wraps Spring's xref:web/webflux-webclient.adoc[WebClient] "
+"and uses it to perform requests but exposes a testing facade for verifying "
+"responses. `WebTestClient` can be used to perform end-to-end HTTP tests. It "
+"can also be used to test Spring MVC and Spring WebFlux applications without "
+"a running server via mock server request and response objects."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:12
+#, no-wrap
+msgid "Setup"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:16
+msgid ""
+"To set up a `WebTestClient` you need to choose a server setup to bind "
+"to. This can be one of several mock server setup choices or a connection to "
+"a live server."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:18
+#, no-wrap
+msgid "Bind to Controller"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:22
+msgid ""
+"This setup allows you to test specific controller(s) via mock request and "
+"response objects, without a running server."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:27
+msgid ""
+"For WebFlux applications, use the following which loads infrastructure "
+"equivalent to the "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-framework-config[WebFlux "
+"Java config], registers the given controller(s), and creates a "
+"xref:web/webflux/reactive-spring.adoc#webflux-web-handler-api[WebHandler "
+"chain] to handle requests:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:30
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:54
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:84
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:130
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:196
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:223
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:249
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:298
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:328
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:365
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:393
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:426
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:465
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:493
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:526
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:553
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:589
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:619
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:659
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:689
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:732
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:771
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:36
+#, no-wrap
+msgid ""
+"\tWebTestClient client =\n"
+"\t\t\tWebTestClient.bindToController(new TestController()).build();\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:38
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:62
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:103
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:157
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:204
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:230
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:260
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:309
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:341
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:375
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:408
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:437
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:476
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:503
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:537
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:565
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:601
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:633
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:671
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:703
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:749
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:780
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:43
+#, no-wrap
+msgid "\tval client = WebTestClient.bindToController(TestController()).build()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:51
+msgid ""
+"For Spring MVC, use the following which delegates to the "
+"{spring-framework-api}/test/web/servlet/setup/StandaloneMockMvcBuilder.html[StandaloneMockMvcBuilder] "
+"to load infrastructure equivalent to the "
+"xref:web/webmvc/mvc-config.adoc[WebMvc Java config], registers the given "
+"controller(s), and creates an instance of xref:testing/mockmvc.adoc[MockMvc] "
+"to handle requests:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:60
+#, no-wrap
+msgid ""
+"\tWebTestClient client =\n"
+"\t\t\tMockMvcWebTestClient.bindToController(new TestController()).build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:67
+#, no-wrap
+msgid ""
+"\tval client = "
+"MockMvcWebTestClient.bindToController(TestController()).build()\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:71
+#, no-wrap
+msgid "Bind to `ApplicationContext`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:76
+msgid ""
+"This setup allows you to load Spring configuration with Spring MVC or Spring "
+"WebFlux infrastructure and controller declarations and use it to handle "
+"requests via mock request and response objects, without a running server."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:81
+msgid ""
+"For WebFlux, use the following where the Spring `ApplicationContext` is "
+"passed to "
+"{spring-framework-api}/web/server/adapter/WebHttpHandlerBuilder.html#applicationContext(org.springframework.context.ApplicationContext)[WebHttpHandlerBuilder] "
+"to create the "
+"xref:web/webflux/reactive-spring.adoc#webflux-web-handler-api[WebHandler "
+"chain] to handle requests:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:90
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(WebConfig.class) // <1>\n"
+"\tclass MyTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:92
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:146
+#, no-wrap
+msgid "\t\tWebTestClient client;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:98
+#, no-wrap
+msgid ""
+"\t\t@BeforeEach\n"
+"\t\tvoid setUp(ApplicationContext context) {  // <2>\n"
+"\t\t\tclient = WebTestClient.bindToApplicationContext(context).build(); // "
+"<3>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:100
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:119
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:154
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:181
+msgid "Specify the configuration to load"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:101
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:120
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:155
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:182
+msgid "Inject the configuration"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:102
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:121
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:156
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:183
+msgid "Create the `WebTestClient`"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:109
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(WebConfig::class) // <1>\n"
+"\tclass MyTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:111
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:173
+#, no-wrap
+msgid "\t\tlateinit var client: WebTestClient\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:117
+#, no-wrap
+msgid ""
+"\t\t@BeforeEach\n"
+"\t\tfun setUp(context: ApplicationContext) { // <2>\n"
+"\t\t\tclient = WebTestClient.bindToApplicationContext(context).build() // "
+"<3>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:127
+msgid ""
+"For Spring MVC, use the following where the Spring `ApplicationContext` is "
+"passed to "
+"{spring-framework-api}/test/web/servlet/setup/MockMvcBuilders.html#webAppContextSetup(org.springframework.web.context.WebApplicationContext)[MockMvcBuilders.webAppContextSetup] "
+"to create a xref:testing/mockmvc.adoc[MockMvc] instance to handle requests:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:141
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:168
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t@WebAppConfiguration(\"classpath:META-INF/web-resources\") // <1>\n"
+"\t@ContextHierarchy({\n"
+"\t\t@ContextConfiguration(classes = RootConfig.class),\n"
+"\t\t@ContextConfiguration(classes = WebConfig.class)\n"
+"\t})\n"
+"\tclass MyTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:144
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tWebApplicationContext wac; // <2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:152
+#, no-wrap
+msgid ""
+"\t\t@BeforeEach\n"
+"\t\tvoid setUp() {\n"
+"\t\t\tclient = "
+"MockMvcWebTestClient.bindToApplicationContext(this.wac).build(); // <3>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:171
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var wac: WebApplicationContext; // <2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:179
+#, no-wrap
+msgid ""
+"\t\t@BeforeEach\n"
+"\t\tfun setUp() { // <2>\n"
+"\t\t\tclient = MockMvcWebTestClient.bindToApplicationContext(wac).build() // "
+"<3>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:186
+#, no-wrap
+msgid "Bind to Router Function"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:190
+msgid ""
+"This setup allows you to test xref:web/webflux-functional.adoc[functional "
+"endpoints] via mock request and response objects, without a running server."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:193
+msgid ""
+"For WebFlux, use the following which delegates to "
+"`RouterFunctions.toWebHandler` to create a server setup to handle requests:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:202
+#, no-wrap
+msgid ""
+"\tRouterFunction<?> route = ...\n"
+"\tclient = WebTestClient.bindToRouterFunction(route).build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:210
+#, no-wrap
+msgid ""
+"\tval route: RouterFunction<*> = ...\n"
+"\tval client = WebTestClient.bindToRouterFunction(route).build()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:215
+msgid ""
+"For Spring MVC there are currently no options to test "
+"xref:web/webmvc-functional.adoc[WebMvc functional endpoints]."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:217
+#, no-wrap
+msgid "Bind to Server"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:220
+msgid ""
+"This setup connects to a running server to perform full, end-to-end HTTP "
+"tests:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:228
+#, no-wrap
+msgid ""
+"\tclient = "
+"WebTestClient.bindToServer().baseUrl(\"http://localhost:8080\").build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:235
+#, no-wrap
+msgid ""
+"\tclient = "
+"WebTestClient.bindToServer().baseUrl(\"http://localhost:8080\").build()\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:239
+#, no-wrap
+msgid "Client Config"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:246
+msgid ""
+"In addition to the server setup options described earlier, you can also "
+"configure client options, including base URL, default headers, client "
+"filters, and others. These options are readily available following "
+"`bindToServer()`. For all other configuration options, you need to use "
+"`configureClient()` to transition from server to client configuration, as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:258
+#, no-wrap
+msgid ""
+"\tclient = WebTestClient.bindToController(new TestController())\n"
+"\t\t\t.configureClient()\n"
+"\t\t\t.baseUrl(\"/test\")\n"
+"\t\t\t.apiVersionInserter(ApiVersionInserter.fromHeader(\"API-Version\").build())\n"
+"\t\t\t.build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:269
+#, no-wrap
+msgid ""
+"\tclient = WebTestClient.bindToController(TestController())\n"
+"\t\t\t.configureClient()\n"
+"\t\t\t.baseUrl(\"/test\")\n"
+"\t\t\t.apiVersionInserter(ApiVersionInserter.fromHeader(\"API-Version\").build())\n"
+"\t\t\t.build()\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:276
+#, no-wrap
+msgid "Writing Tests"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:281
+msgid ""
+"xref:web/webflux-webclient.adoc[WebClient] and `WebTestClient` have the same "
+"API up to the point of the call to `exchange()`. After that, `WebTestClient` "
+"provides two alternative ways to verify the response:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:283
+msgid ""
+"xref:webtestclient-workflow[Built-in Assertions] extend the request workflow "
+"with a chain of expectations"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:284
+msgid ""
+"xref:webtestclient-assertj[AssertJ Integration] to verify the response via "
+"`assertThat()` statements"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:288
+msgid ""
+"See the xref:web/webflux-webclient/client-body.adoc[WebClient] documentation "
+"for examples on how to prepare a request with any content including form "
+"data, multipart data, and more."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:292
+#, no-wrap
+msgid "Built-in Assertions"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:295
+msgid "To assert the response status and headers, use the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:307
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons/1\")\n"
+"\t\t.accept(MediaType.APPLICATION_JSON)\n"
+"\t\t.exchange()\n"
+"\t\t.expectStatus().isOk()\n"
+"\t\t.expectHeader().contentType(MediaType.APPLICATION_JSON);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:318
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons/1\")\n"
+"\t\t.accept(MediaType.APPLICATION_JSON)\n"
+"\t\t.exchange()\n"
+"\t\t.expectStatus().isOk()\n"
+"\t\t.expectHeader().contentType(MediaType.APPLICATION_JSON)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:325
+msgid ""
+"If you would like for all expectations to be asserted even if one of them "
+"fails, you can use `expectAll(..)` instead of multiple chained `expect*(..)` "
+"calls. This feature is similar to the _soft assertions_ support in AssertJ "
+"and the `assertAll()` support in JUnit Jupiter."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:339
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons/1\")\n"
+"\t\t.accept(MediaType.APPLICATION_JSON)\n"
+"\t\t.exchange()\n"
+"\t\t.expectAll(\n"
+"\t\t\tspec -> spec.expectStatus().isOk(),\n"
+"\t\t\tspec -> spec.expectHeader().contentType(MediaType.APPLICATION_JSON)\n"
+"\t\t);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:352
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons/1\")\n"
+"\t\t.accept(MediaType.APPLICATION_JSON)\n"
+"\t\t.exchange()\n"
+"\t\t.expectAll(\n"
+"\t\t\t{ spec -> spec.expectStatus().isOk() },\n"
+"\t\t\t{ spec -> spec.expectHeader().contentType(MediaType.APPLICATION_JSON) "
+"}\n"
+"\t\t)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:356
+msgid ""
+"You can then choose to decode the response body through one of the "
+"following:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:358
+msgid "`expectBody(Class<T>)`: Decode to single object."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:359
+msgid "`expectBodyList(Class<T>)`: Decode and collect objects to `List<T>`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:360
+msgid ""
+"`expectBody()`: Decode to `byte[]` for "
+"xref:testing/webtestclient.adoc#webtestclient-json[JSON Content] or an empty "
+"body."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:362
+msgid "And perform assertions on the resulting higher level Object(s):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:373
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.expectBodyList(Person.class).hasSize(3).contains(person);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:380
+#, no-wrap
+msgid "\timport org.springframework.test.web.reactive.server.expectBodyList\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:385
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.expectBodyList<Person>().hasSize(3).contains(person)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:390
+msgid ""
+"If the built-in assertions are insufficient, you can consume the object "
+"instead and perform any other assertions:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:398
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:442
+#, no-wrap
+msgid "\timport org.springframework.test.web.reactive.server.expectBody\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:406
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons/1\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.expectBody(Person.class)\n"
+"\t\t\t.consumeWith(result -> {\n"
+"\t\t\t\t// custom assertions (for example, AssertJ)...\n"
+"\t\t\t});\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:419
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons/1\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.expectBody<Person>()\n"
+"\t\t\t.consumeWith {\n"
+"\t\t\t\t// custom assertions (for example, AssertJ)...\n"
+"\t\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:423
+msgid "Or you can exit the workflow and obtain an `EntityExchangeResult`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:435
+#, no-wrap
+msgid ""
+"\tEntityExchangeResult<Person> result = client.get().uri(\"/persons/1\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.expectBody(Person.class)\n"
+"\t\t\t.returnResult();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:448
+#, no-wrap
+msgid ""
+"\tval result = client.get().uri(\"/persons/1\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk\n"
+"\t\t\t.expectBody<Person>()\n"
+"\t\t\t.returnResult()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:455
+msgid ""
+"When you need to decode to a target type with generics, look for the "
+"overloaded methods that accept "
+"{spring-framework-api}/core/ParameterizedTypeReference.html[`ParameterizedTypeReference`] "
+"instead of `Class<T>`."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:459
+#, no-wrap
+msgid "No Content"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:462
+msgid ""
+"If the response is not expected to have content, you can assert that as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:474
+#, no-wrap
+msgid ""
+"\tclient.post().uri(\"/persons\")\n"
+"\t\t\t.body(personMono, Person.class)\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isCreated()\n"
+"\t\t\t.expectBody().isEmpty();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:485
+#, no-wrap
+msgid ""
+"\tclient.post().uri(\"/persons\")\n"
+"\t\t\t.bodyValue(person)\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isCreated()\n"
+"\t\t\t.expectBody().isEmpty()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:490
+msgid ""
+"If you want to ignore the response content, the following releases the "
+"content without any assertions:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:501
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons/123\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isNotFound()\n"
+"\t\t\t.expectBody(Void.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:511
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons/123\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isNotFound\n"
+"\t\t\t.expectBody<Unit>()\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:517
+#, no-wrap
+msgid "JSON Content"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:521
+msgid ""
+"You can use `expectBody()` without a target type to perform assertions on "
+"the raw content rather than through higher level Object(s)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:523
+msgid ""
+"To verify the full JSON content with "
+"https://jsonassert.skyscreamer.org[JSONAssert]:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:535
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:546
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons/1\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.expectBody()\n"
+"\t\t\t.json(\"{\\\"name\\\":\\\"Jane\\\"}\")\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:550
+msgid "To verify JSON content with https://github.com/jayway/JsonPath[JSONPath]:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:563
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.expectBody()\n"
+"\t\t\t.jsonPath(\"$[0].name\").isEqualTo(\"Jane\")\n"
+"\t\t\t.jsonPath(\"$[1].name\").isEqualTo(\"Jason\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:575
+#, no-wrap
+msgid ""
+"\tclient.get().uri(\"/persons\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.expectBody()\n"
+"\t\t\t.jsonPath(\"$[0].name\").isEqualTo(\"Jane\")\n"
+"\t\t\t.jsonPath(\"$[1].name\").isEqualTo(\"Jason\")\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:581
+#, no-wrap
+msgid "Streaming Responses"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:586
+msgid ""
+"To test potentially infinite streams such as `\"text/event-stream\"` or "
+"`\"application/x-ndjson\"`, start by verifying the response status and "
+"headers, and then obtain a `FluxExchangeResult`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:598
+#, no-wrap
+msgid ""
+"\tFluxExchangeResult<MyEvent> result = client.get().uri(\"/events\")\n"
+"\t\t\t.accept(TEXT_EVENT_STREAM)\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.returnResult(MyEvent.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:606
+#, no-wrap
+msgid "\timport org.springframework.test.web.reactive.server.returnResult\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:612
+#, no-wrap
+msgid ""
+"\tval result = client.get().uri(\"/events\")\n"
+"\t\t\t.accept(TEXT_EVENT_STREAM)\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.returnResult<MyEvent>()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:616
+msgid ""
+"Now you're ready to consume the response stream with `StepVerifier` from "
+"`reactor-test`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:624
+#, no-wrap
+msgid "\tFlux<Event> eventFlux = result.getResponseBody();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:631
+#, no-wrap
+msgid ""
+"\tStepVerifier.create(eventFlux)\n"
+"\t\t\t.expectNext(person)\n"
+"\t\t\t.expectNextCount(4)\n"
+"\t\t\t.consumeNextWith(p -> ...)\n"
+"\t\t\t.thenCancel()\n"
+"\t\t\t.verify();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:638
+#, no-wrap
+msgid "\tval eventFlux = result.getResponseBody()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:645
+#, no-wrap
+msgid ""
+"\tStepVerifier.create(eventFlux)\n"
+"\t\t\t.expectNext(person)\n"
+"\t\t\t.expectNextCount(4)\n"
+"\t\t\t.consumeNextWith { p -> ... }\n"
+"\t\t\t.thenCancel()\n"
+"\t\t\t.verify()\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:651
+#, no-wrap
+msgid "AssertJ Integration"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:656
+msgid ""
+"`WebTestClientResponse` is the main entry point for the AssertJ "
+"integration.  It is an `AssertProvider` that wraps the `ResponseSpec` of an "
+"exchange in order to enable use of `assertThat()` statements. For example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:664
+#, no-wrap
+msgid "\tResponseSpec spec = client.get().uri(\"/persons\").exchange();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:669
+#, no-wrap
+msgid ""
+"\tWebTestClientResponse response = WebTestClientResponse.from(spec);\n"
+"\tassertThat(response).hasStatusOk();\n"
+"\tassertThat(response).hasContentTypeCompatibleWith(MediaType.TEXT_PLAIN);\n"
+"\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:676
+#, no-wrap
+msgid "\tval spec = client.get().uri(\"/persons\").exchange()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:681
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:715
+#, no-wrap
+msgid ""
+"\tval response = WebTestClientResponse.from(spec)\n"
+"\tassertThat(response).hasStatusOk()\n"
+"\tassertThat(response).hasContentTypeCompatibleWith(MediaType.TEXT_PLAIN)\n"
+"\t// ...\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:686
+msgid ""
+"You can also use the built-in workflow first, and then obtain an "
+"`ExchangeResult` to wrap and continue with AssertJ. For example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:696
+#, no-wrap
+msgid ""
+"\tExchangeResult result = client.get().uri(\"/persons\").exchange()\n"
+"\t\t\t. // ...\n"
+"\t\t\t.returnResult();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:701
+#, no-wrap
+msgid ""
+"\tWebTestClientResponse response = WebTestClientResponse.from(result);\n"
+"\tassertThat(response).hasStatusOk();\n"
+"\tassertThat(response).hasContentTypeCompatibleWith(MediaType.TEXT_PLAIN);\n"
+"\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:710
+#, no-wrap
+msgid ""
+"\tval result = client.get().uri(\"/persons\").exchange()\n"
+"\t\t\t. // ...\n"
+"\t\t\t.returnResult()\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:721
+#, no-wrap
+msgid "MockMvc Assertions"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:725
+msgid ""
+"`WebTestClient` is an HTTP client and as such it can only verify what is in "
+"the client response including status, headers, and body."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:729
+msgid ""
+"When testing a Spring MVC application with a MockMvc server setup, you have "
+"the extra choice to perform further assertions on the server response. To do "
+"that start by obtaining an `ExchangeResult` after asserting the body:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:742
+#, no-wrap
+msgid ""
+"\t// For a response with a body\n"
+"\tEntityExchangeResult<Person> result = client.get().uri(\"/persons/1\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.expectBody(Person.class)\n"
+"\t\t\t.returnResult();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:747
+#, no-wrap
+msgid ""
+"\t// For a response without a body\n"
+"\tEntityExchangeResult<Void> result = client.get().uri(\"/path\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectBody().isEmpty();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:759
+#, no-wrap
+msgid ""
+"\t// For a response with a body\n"
+"\tval result = client.get().uri(\"/persons/1\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectStatus().isOk()\n"
+"\t\t\t.expectBody<Person>()\n"
+"\t\t\t.returnResult()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:764
+#, no-wrap
+msgid ""
+"\t// For a response without a body\n"
+"\tval result = client.get().uri(\"/path\")\n"
+"\t\t\t.exchange()\n"
+"\t\t\t.expectBody().isEmpty()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:768
+msgid "Then switch to MockMvc server response assertions:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:778
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/webtestclient.adoc:787
+#, no-wrap
+msgid ""
+"\tMockMvcWebTestClient.resultActionsFor(result)\n"
+"\t\t\t.andExpect(model().attribute(\"integer\", 3))\n"
+"\t\t\t.andExpect(model().attribute(\"string\", \"a string value\"));\n"
+msgstr ""

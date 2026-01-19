@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:3
+#, no-wrap
+msgid "Spring Framework Documentation"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:6
+#, no-wrap
+msgid "xref:overview.adoc[Overview] "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:8
+msgid "History, Design Philosophy, Feedback, Getting Started."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:8
+#, no-wrap
+msgid "xref:core.adoc[Core] "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:10
+msgid ""
+"IoC Container, Events, Resources, i18n, Validation, Data Binding, Type "
+"Conversion, SpEL, AOP, AOT."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:10
+#, no-wrap
+msgid "xref:testing.adoc[Testing] "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:12
+msgid "Mock Objects, TestContext Framework, Spring MVC Test, WebTestClient."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:12
+#, no-wrap
+msgid "xref:data-access.adoc[Data Access] "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:14
+msgid "Transactions, DAO Support, JDBC, R2DBC, O/R Mapping, XML Marshalling."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:14
+#, no-wrap
+msgid "xref:web.adoc[Web Servlet] "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:16
+msgid "Spring MVC, WebSocket, SockJS, STOMP Messaging."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:16
+#, no-wrap
+msgid "xref:web-reactive.adoc[Web Reactive] "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:18
+msgid "Spring WebFlux, WebClient, WebSocket, RSocket."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:18
+#, no-wrap
+msgid "xref:integration.adoc[Integration] "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:20
+msgid ""
+"REST Clients, JMS, JCA, JMX, Email, Tasks, Scheduling, Caching, "
+"Observability, JVM Checkpoint Restore."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:20
+#, no-wrap
+msgid "xref:languages.adoc[Languages] "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:21
+msgid "Kotlin, Groovy, Dynamic Languages."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:21
+#, no-wrap
+msgid "xref:appendix.adoc[Appendix] "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:22
+msgid "Spring properties."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:22
+#, no-wrap
+msgid "{spring-framework-wiki}[Wiki] "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:24
+msgid ""
+"What's New, Upgrade Notes, Supported Versions, additional cross-version "
+"information."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:31
+msgid ""
+"Rod Johnson, Juergen Hoeller, Keith Donald, Colin Sampaleanu, Rob Harrop, "
+"Thomas Risberg, Alef Arendsen, Darren Davison, Dmitriy Kopylenko, Mark "
+"Pollack, Thierry Templier, Erwin Vervaet, Portia Tung, Ben Hale, Adrian "
+"Colyer, John Lewis, Costin Leau, Mark Fisher, Sam Brannen, Ramnivas Laddad, "
+"Arjen Poutsma, Chris Beams, Tareq Abedrabbo, Andy Clement, Dave Syer, Oliver "
+"Gierke, Rossen Stoyanchev, Phillip Webb, Rob Winch, Brian Clozel, Stephane "
+"Nicoll, Sebastien Deleuze, Jay Bryant, Mark Paluch"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/index.adoc:34
+msgid ""
+"Copies of this document may be made for your own use and for distribution to "
+"others, provided that you do not charge any fee for such copies and further "
+"provided that each copy contains the Copyright Notice, whether distributed "
+"in print or electronically."
+msgstr ""

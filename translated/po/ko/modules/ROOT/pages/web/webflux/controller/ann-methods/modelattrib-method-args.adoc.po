@@ -1,0 +1,354 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:2
+#, no-wrap
+msgid "`@ModelAttribute`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-methods/modelattrib-method-args.adoc[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:8
+msgid ""
+"The `@ModelAttribute` method parameter annotation binds form data, query "
+"parameters, URI path variables, and request headers onto a model object. For "
+"example:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:11
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:59
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:98
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:133
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:173
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:17
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/owners/{ownerId}/pets/{petId}/edit\")\n"
+"\tpublic String processSubmit(@ModelAttribute Pet pet) { } // <1>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:19
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:28
+msgid "Bind to an instance of `Pet`."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:20
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:72
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:112
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:149
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:187
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:26
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/owners/{ownerId}/pets/{petId}/edit\")\n"
+"\tfun processSubmit(@ModelAttribute pet: Pet): String { } // <1>\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:33
+msgid ""
+"Form data and query parameters take precedence over URI variables and "
+"headers, which are included only if they don't override request parameters "
+"with the same name. Dashes are stripped from header names."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:35
+msgid "The `Pet` instance may be:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:38
+msgid ""
+"Accessed from the model where it could have been added by a "
+"xref:web/webflux/controller/ann-modelattrib-methods.adoc[`Model`]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:40
+msgid ""
+"Accessed from the HTTP session if the model attribute was listed in the "
+"class-level "
+"xref:web/webflux/controller/ann-methods/sessionattributes.adoc[`@SessionAttributes`]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:41
+msgid "Instantiated through a default constructor."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:44
+msgid ""
+"Instantiated through a \"`primary constructor`\" with arguments that match "
+"to Servlet request parameters. Argument names are determined through "
+"runtime-retained parameter names in the bytecode."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:53
+msgid ""
+"By default, both constructor and property "
+"xref:core/validation/data-binding.adoc[data binding] are applied. However, "
+"model object design requires careful consideration, and for security reasons "
+"it is recommended either to use an object tailored specifically for web "
+"binding, or to apply constructor binding only. If property binding must "
+"still be used, then _allowedFields_ patterns should be set to limit which "
+"properties can be set. For further details on this and example "
+"configuration, see "
+"xref:web/webflux/controller/ann-initbinder.adoc#webflux-ann-initbinder-model-design[model "
+"design]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:56
+msgid ""
+"When using constructor binding, you can customize request parameter names "
+"through an `@BindParam` annotation. For example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:64
+#, no-wrap
+msgid "\tclass Account {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:66
+#, no-wrap
+msgid "\t\tprivate final String firstName;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:71
+#, no-wrap
+msgid ""
+"\t\tpublic Account(@BindParam(\"first-name\") String firstName) {\n"
+"\t\t\tthis.firstName = firstName;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:77
+#, no-wrap
+msgid "\tclass Account(@BindParam(\"first-name\") val firstName: String)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:83
+msgid ""
+"The `@BindParam` may also be placed on the fields that correspond to "
+"constructor parameters. While `@BindParam` is supported out of the box, you "
+"can also use a different annotation by setting a `DataBinder.NameResolver` "
+"on `DataBinder`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:87
+msgid ""
+"Constructor binding supports `List`, `Map`, and array arguments either "
+"converted from a single string, for example, comma-separated list, or based "
+"on indexed keys such as `accounts[2].name` or `account[KEY].name`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:91
+msgid ""
+"WebFlux, unlike Spring MVC, supports reactive types in the model, for "
+"example, `Mono<Account>`.  You can declare a `@ModelAttribute` argument with "
+"or without a reactive type wrapper, and it will be resolved accordingly to "
+"the actual value."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:95
+msgid ""
+"If data binding results in errors, by default a `WebExchangeBindException` "
+"is raised, but you can also add a `BindingResult` argument immediately next "
+"to the `@ModelAttribute` in order to handle such errors in the controller "
+"method. For example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:109
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/owners/{ownerId}/pets/{petId}/edit\")\n"
+"\tpublic String processSubmit(@ModelAttribute(\"pet\") Pet pet, "
+"BindingResult result) { <1>\n"
+"\t\tif (result.hasErrors()) {\n"
+"\t\t\treturn \"petForm\";\n"
+"\t\t}\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:111
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:125
+msgid "Adding a `BindingResult`."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:123
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/owners/{ownerId}/pets/{petId}/edit\")\n"
+"\tfun processSubmit(@ModelAttribute(\"pet\") pet: Pet, result: "
+"BindingResult): String { // <1>\n"
+"\t\tif (result.hasErrors()) {\n"
+"\t\t\treturn \"petForm\"\n"
+"\t\t}\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:130
+msgid ""
+"To use a `BindingResult` argument, you must declare the `@ModelAttribute` "
+"argument before it without a reactive type wrapper. If you want to use the "
+"reactive, you can handle errors directly through it. For example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:147
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/owners/{ownerId}/pets/{petId}/edit\")\n"
+"\tpublic Mono<String> processSubmit(@Valid @ModelAttribute(\"pet\") "
+"Mono<Pet> petMono) {\n"
+"\t\treturn petMono\n"
+"\t\t\t.flatMap(pet -> {\n"
+"\t\t\t\t// ...\n"
+"\t\t\t})\n"
+"\t\t\t.onErrorResume(ex -> {\n"
+"\t\t\t\t// ...\n"
+"\t\t\t});\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:163
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/owners/{ownerId}/pets/{petId}/edit\")\n"
+"\tfun processSubmit(@Valid @ModelAttribute(\"pet\") petMono: Mono<Pet>): "
+"Mono<String> {\n"
+"\t\treturn petMono\n"
+"\t\t\t\t.flatMap { pet ->\n"
+"\t\t\t\t\t// ...\n"
+"\t\t\t\t}\n"
+"\t\t\t\t.onErrorResume{ ex ->\n"
+"\t\t\t\t\t// ...\n"
+"\t\t\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:170
+msgid ""
+"You can automatically apply validation after data binding by adding the "
+"`jakarta.validation.Valid` annotation or Spring's `@Validated` annotation "
+"(see xref:core/validation/beanvalidation.adoc[Bean Validation] and "
+"xref:web/webmvc/mvc-config/validation.adoc[Spring validation]). For example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:184
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/owners/{ownerId}/pets/{petId}/edit\")\n"
+"\tpublic String processSubmit(@Valid @ModelAttribute(\"pet\") Pet pet, "
+"BindingResult result) { // <1>\n"
+"\t\tif (result.hasErrors()) {\n"
+"\t\t\treturn \"petForm\";\n"
+"\t\t}\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:186
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:200
+msgid "Using `@Valid` on a model attribute argument."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:198
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/owners/{ownerId}/pets/{petId}/edit\")\n"
+"\tfun processSubmit(@Valid @ModelAttribute(\"pet\") pet: Pet, result: "
+"BindingResult): String { // <1>\n"
+"\t\tif (result.hasErrors()) {\n"
+"\t\t\treturn \"petForm\"\n"
+"\t\t}\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:205
+msgid ""
+"If method validation applies because other parameters have `@Constraint` "
+"annotations, then `HandlerMethodValidationException` would be raised "
+"instead. See the section on controller method "
+"xref:web/webmvc/mvc-controller/ann-validation.adoc[Validation]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:210
+msgid ""
+"Using `@ModelAttribute` is optional. By default, any argument that is not a "
+"simple value type as determined by "
+"{spring-framework-api}/beans/BeanUtils.html#isSimpleProperty(java.lang.Class)[BeanUtils#isSimpleProperty] "
+"_AND_ that is not resolved by any other argument resolver is treated as an "
+"implicit `@ModelAttribute`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/modelattrib-method-args.adoc:214
+msgid ""
+"When compiling to a native image with GraalVM, the implicit "
+"`@ModelAttribute` support described above does not allow proper "
+"ahead-of-time inference of related data binding reflection hints. As a "
+"consequence, it is recommended to explicitly annotate method parameters with "
+"`@ModelAttribute` for use in a GraalVM native image."
+msgstr ""

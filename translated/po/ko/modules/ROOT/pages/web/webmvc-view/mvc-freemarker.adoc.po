@@ -1,0 +1,677 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:2
+#, no-wrap
+msgid "FreeMarker"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:5
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-view-freemarker[See equivalent "
+"in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:9
+msgid ""
+"https://freemarker.apache.org/[Apache FreeMarker] is a template engine for "
+"generating any kind of text output from HTML to email and others. The Spring "
+"Framework has built-in integration for using Spring MVC with FreeMarker "
+"templates."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:12
+#, no-wrap
+msgid "View Configuration"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:14
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-view-freemarker-contextconfig[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:16
+msgid ""
+"The following example shows how to configure FreeMarker as a view "
+"technology:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:23
+msgid ""
+"Your templates need to be stored in the directory specified by the "
+"`FreeMarkerConfigurer` shown in the preceding example. Given the preceding "
+"configuration, if your controller returns a view name of `welcome`, the "
+"resolver looks for the `/WEB-INF/freemarker/welcome.ftl` template."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:26
+#, no-wrap
+msgid "FreeMarker Configuration"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:28
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-views-freemarker[See equivalent "
+"in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:34
+msgid ""
+"You can pass FreeMarker 'Settings' and 'SharedVariables' directly to the "
+"FreeMarker `Configuration` object (which is managed by Spring) by setting "
+"the appropriate bean properties on the `FreeMarkerConfigurer` bean. The "
+"`freemarkerSettings` property requires a `java.util.Properties` object, and "
+"the `freemarkerVariables` property requires a `java.util.Map`. The following "
+"example shows how to use a `FreeMarkerConfigurer`:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:39
+msgid ""
+"See the FreeMarker documentation for details of settings and variables as "
+"they apply to the `Configuration` object."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:42
+#, no-wrap
+msgid "Form Handling"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:44
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-view-freemarker-forms[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:50
+msgid ""
+"Spring provides a tag library for use in JSPs that contains, among others, a "
+"`<spring:bind/>` element. This element primarily lets forms display values "
+"from form-backing objects and show the results of failed validations from a "
+"`Validator` in the web or business tier. Spring also has support for the "
+"same functionality in FreeMarker, with additional convenience macros for "
+"generating form input elements themselves."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:52
+#, no-wrap
+msgid "The Bind Macros"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:54
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-view-bind-macros[See equivalent "
+"in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:57
+msgid ""
+"A standard set of macros are maintained within the `spring-webmvc.jar` file "
+"for FreeMarker, so they are always available to a suitably configured "
+"application."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:64
+msgid ""
+"Some of the macros defined in the Spring templating libraries are considered "
+"internal (private), but no such scoping exists in the macro definitions, "
+"making all macros visible to calling code and user templates. The following "
+"sections concentrate only on the macros you need to directly call from "
+"within your templates. If you wish to view the macro code directly, the file "
+"is called `spring.ftl` and is in the "
+"`org.springframework.web.servlet.view.freemarker` package."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:66
+#, no-wrap
+msgid "Simple Binding"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:72
+msgid ""
+"In your HTML forms based on FreeMarker templates that act as a form view for "
+"a Spring MVC controller, you can use code similar to the next example to "
+"bind to field values and display error messages for each input field in "
+"similar fashion to the JSP equivalent. The following example shows a "
+"`personForm` view:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:93
+#, no-wrap
+msgid ""
+"\t<!-- FreeMarker macros have to be imported into a namespace.\n"
+"\t\tWe strongly recommend sticking to 'spring'. -->\n"
+"\t<#import \"/spring.ftl\" as spring/>\n"
+"\t<html>\n"
+"\t\t...\n"
+"\t\t<form action=\"\" method=\"POST\">\n"
+"\t\t\tName:\n"
+"\t\t\t<@spring.bind \"personForm.name\"/>\n"
+"\t\t\t<input type=\"text\"\n"
+"\t\t\t\tname=\"${spring.status.expression}\"\n"
+"\t\t\t\tvalue=\"${spring.status.value?html}\"/><br />\n"
+"\t\t\t<#list spring.status.errorMessages as error> <b>${error}</b> <br /> "
+"</#list>\n"
+"\t\t\t<br />\n"
+"\t\t\t...\n"
+"\t\t\t<input type=\"submit\" value=\"submit\"/>\n"
+"\t\t</form>\n"
+"\t\t...\n"
+"\t</html>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:101
+msgid ""
+"`<@spring.bind>` requires a 'path' argument, which consists of the name of "
+"your command object (it is 'command', unless you changed it in your "
+"controller configuration) followed by a period and the name of the field on "
+"the command object to which you wish to bind. You can also use nested "
+"fields, such as `command.address.street`. The `bind` macro assumes the "
+"default HTML escaping behavior specified by the `ServletContext` parameter "
+"`defaultHtmlEscape` in `web.xml`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:107
+msgid ""
+"An alternative form of the macro called `<@spring.bindEscaped>` takes a "
+"second argument that explicitly specifies whether HTML escaping should be "
+"used in the status error messages or values. You can set it to `true` or "
+"`false` as required. Additional form handling macros simplify the use of "
+"HTML escaping, and you should use these macros wherever possible. They are "
+"explained in the next section."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:109
+#, no-wrap
+msgid "Input Macros"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:115
+msgid ""
+"Additional convenience macros for FreeMarker simplify both binding and form "
+"generation (including validation error display). It is never necessary to "
+"use these macros to generate form input fields, and you can mix and match "
+"them with simple HTML or direct calls to the Spring bind macros that we "
+"highlighted previously."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:118
+msgid ""
+"The following table of available macros shows the FreeMarker Template (FTL) "
+"definitions and the parameter list that each takes:"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:120
+#, no-wrap
+msgid "Table of macro definitions"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:167
+#, no-wrap
+msgid ""
+"| macro | FTL definition\n"
+"\n"
+"| `message` (output a string from a resource bundle based on the code "
+"parameter)\n"
+"| <@spring.message code/>\n"
+"\n"
+"| `messageText` (output a string from a resource bundle based on the code "
+"parameter,\n"
+"  falling back to the value of the default parameter)\n"
+"| <@spring.messageText code, text/>\n"
+"\n"
+"| `url` (prefix a relative URL with the application's context root)\n"
+"| <@spring.url relativeUrl/>\n"
+"\n"
+"| `formInput` (standard input field for gathering user input)\n"
+"| <@spring.formInput path, attributes, fieldType/>\n"
+"\n"
+"| `formHiddenInput` (hidden input field for submitting non-user input)\n"
+"| <@spring.formHiddenInput path, attributes/>\n"
+"\n"
+"| `formPasswordInput` (standard input field for gathering passwords. Note "
+"that no\n"
+"  value is ever populated in fields of this type.)\n"
+"| <@spring.formPasswordInput path, attributes/>\n"
+"\n"
+"| `formTextarea` (large text field for gathering long, freeform text "
+"input)\n"
+"| <@spring.formTextarea path, attributes/>\n"
+"\n"
+"| `formSingleSelect` (drop down box of options that let a single required "
+"value be\n"
+"  selected)\n"
+"| <@spring.formSingleSelect path, options, attributes/>\n"
+"\n"
+"| `formMultiSelect` (a list box of options that let the user select 0 or "
+"more values)\n"
+"| <@spring.formMultiSelect path, options, attributes/>\n"
+"\n"
+"| `formRadioButtons` (a set of radio buttons that let a single selection be "
+"made\n"
+"  from the available choices)\n"
+"| <@spring.formRadioButtons path, options separator, attributes/>\n"
+"\n"
+"| `formCheckboxes` (a set of checkboxes that let 0 or more values be "
+"selected)\n"
+"| <@spring.formCheckboxes path, options, separator, attributes/>\n"
+"\n"
+"| `formCheckbox` (a single checkbox)\n"
+"| <@spring.formCheckbox path, attributes/>\n"
+"\n"
+"| `showErrors` (simplify display of validation errors for the bound field)\n"
+"| <@spring.showErrors separator, classOrStyle/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:172
+msgid ""
+"In FreeMarker templates, `formHiddenInput` and `formPasswordInput` are not "
+"actually required, as you can use the normal `formInput` macro, specifying "
+"`hidden` or `password` as the value for the `fieldType` parameter."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:174
+msgid "The parameters to any of the above macros have consistent meanings:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:176
+msgid "`path`: The name of the field to bind to (for example, \"command.name\")"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:185
+msgid ""
+"`options`: A `Map` of all the available values that can be selected from in "
+"the input field. The keys to the map represent the values that are POSTed "
+"back from the form and bound to the command object. Map objects stored "
+"against the keys are the labels displayed on the form to the user and may be "
+"different from the corresponding values posted back by the form. Usually, "
+"such a map is supplied as reference data by the controller. You can use any "
+"`Map` implementation, depending on required behavior.  For strictly sorted "
+"maps, you can use a `SortedMap` (such as a `TreeMap`) with a suitable "
+"`Comparator` and, for arbitrary Maps that should return values in insertion "
+"order, use a `LinkedHashMap` or a `LinkedMap` from `commons-collections`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:188
+msgid ""
+"`separator`: Where multiple options are available as discreet elements "
+"(radio buttons or checkboxes), the sequence of characters used to separate "
+"each one in the list (such as `<br>`)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:192
+msgid ""
+"`attributes`: An additional string of arbitrary tags or text to be included "
+"within the HTML tag itself. This string is echoed literally by the "
+"macro. For example, in a `textarea` field, you may supply attributes (such "
+"as 'rows=\"5\" cols=\"60\"'), or you could pass style information such as "
+"'style=\"border:1px solid silver\"'."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:195
+msgid ""
+"`classOrStyle`: For the `showErrors` macro, the name of the CSS class that "
+"the `span` element that wraps each error uses. If no information is supplied "
+"(or the value is empty), the errors are wrapped in `<b></b>` tags."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:197
+msgid "The following sections outline examples of the macros."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:199
+#, no-wrap
+msgid "Input Fields"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:206
+msgid ""
+"The `formInput` macro takes the `path` parameter (`command.name`) and an "
+"additional `attributes` parameter (which is empty in the upcoming "
+"example). The macro, along with all other form generation macros, performs "
+"an implicit Spring bind on the path parameter. The binding remains valid "
+"until a new bind occurs, so the `showErrors` macro does not need to pass the "
+"path parameter again -- it operates on the field for which a binding was "
+"last created."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:212
+msgid ""
+"The `showErrors` macro takes a separator parameter (the characters that are "
+"used to separate multiple errors on a given field) and also accepts a second "
+"parameter -- this time, a class name or style attribute. Note that "
+"FreeMarker can specify default values for the attributes parameter. The "
+"following example shows how to use the `formInput` and `showErrors` macros:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:217
+#, no-wrap
+msgid ""
+"\t<@spring.formInput \"command.name\"/>\n"
+"\t<@spring.showErrors \"<br>\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:222
+msgid ""
+"The next example shows the output of the form fragment, generating the name "
+"field and displaying a validation error after the form was submitted with no "
+"value in the field. Validation occurs through Spring's Validation framework."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:224
+msgid "The generated HTML resembles the following example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:233
+#, no-wrap
+msgid ""
+"\tName:\n"
+"\t<input type=\"text\" name=\"name\" value=\"\">\n"
+"\t<br>\n"
+"\t\t<b>required</b>\n"
+"\t<br>\n"
+"\t<br>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:238
+msgid ""
+"The `formTextarea` macro works the same way as the `formInput` macro and "
+"accepts the same parameter list. Commonly, the second parameter "
+"(`attributes`) is used to pass style information or `rows` and `cols` "
+"attributes for the `textarea`."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:240
+#, no-wrap
+msgid "Selection Fields"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:244
+msgid ""
+"You can use four selection field macros to generate common UI value "
+"selection inputs in your HTML forms:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:246
+msgid "`formSingleSelect`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:247
+msgid "`formMultiSelect`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:248
+msgid "`formRadioButtons`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:249
+msgid "`formCheckboxes`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:253
+msgid ""
+"Each of the four macros accepts a `Map` of options that contains the value "
+"for the form field and the label that corresponds to that value. The value "
+"and the label can be the same."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:258
+msgid ""
+"The next example is for radio buttons in FTL. The form-backing object "
+"specifies a default value of 'London' for this field, so no validation is "
+"necessary. When the form is rendered, the entire list of cities to choose "
+"from is supplied as reference data in the model under the name "
+"'cityMap'. The following listing shows the example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:264
+#, no-wrap
+msgid ""
+"\t...\n"
+"\tTown:\n"
+"\t<@spring.formRadioButtons \"command.address.town\", cityMap, "
+"\"\"/><br><br>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:272
+msgid ""
+"The preceding listing renders a line of radio buttons, one for each value in "
+"`cityMap`, and uses a separator of `\"\"`. No additional attributes are "
+"supplied (the last parameter to the macro is missing). The `cityMap` uses "
+"the same `String` for each key-value pair in the map. The map's keys are "
+"what the form actually submits as `POST` request parameters. The map values "
+"are the labels that the user sees. In the preceding example, given a list of "
+"three well known cities and a default value in the form backing object, the "
+"HTML resembles the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:279
+#, no-wrap
+msgid ""
+"\tTown:\n"
+"\t<input type=\"radio\" name=\"address.town\" "
+"value=\"London\">London</input>\n"
+"\t<input type=\"radio\" name=\"address.town\" value=\"Paris\" "
+"checked=\"checked\">Paris</input>\n"
+"\t<input type=\"radio\" name=\"address.town\" value=\"New York\">New "
+"York</input>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:283
+msgid ""
+"If your application expects to handle cities by internal codes (for "
+"example), you can create the map of codes with suitable keys, as the "
+"following example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:286
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:295
+#, no-wrap
+msgid ""
+"\tprotected Map<String, ?> referenceData(HttpServletRequest request) throws "
+"Exception {\n"
+"\t\tMap<String, String> cityMap = new LinkedHashMap<>();\n"
+"\t\tcityMap.put(\"LDN\", \"London\");\n"
+"\t\tcityMap.put(\"PRS\", \"Paris\");\n"
+"\t\tcityMap.put(\"NYC\", \"New York\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:300
+#, no-wrap
+msgid ""
+"\t\tMap<String, Object> model = new HashMap<>();\n"
+"\t\tmodel.put(\"cityMap\", cityMap);\n"
+"\t\treturn model;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:302
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:314
+#, no-wrap
+msgid ""
+"\tprotected fun referenceData(request: HttpServletRequest): Map<String, *> "
+"{\n"
+"\t\tval cityMap = linkedMapOf(\n"
+"\t\t\t\t\"LDN\" to \"London\",\n"
+"\t\t\t\t\"PRS\" to \"Paris\",\n"
+"\t\t\t\t\"NYC\" to \"New York\"\n"
+"\t\t)\n"
+"\t\treturn hashMapOf(\"cityMap\" to cityMap)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:319
+msgid ""
+"The code now produces output where the radio values are the relevant codes, "
+"but the user still sees the more user-friendly city names, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:326
+#, no-wrap
+msgid ""
+"\tTown:\n"
+"\t<input type=\"radio\" name=\"address.town\" value=\"LDN\">London</input>\n"
+"\t<input type=\"radio\" name=\"address.town\" value=\"PRS\" "
+"checked=\"checked\">Paris</input>\n"
+"\t<input type=\"radio\" name=\"address.town\" value=\"NYC\">New "
+"York</input>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:329
+#, no-wrap
+msgid "HTML Escaping"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:338
+msgid ""
+"Default usage of the form macros described earlier results in HTML elements "
+"that are HTML 4.01 compliant and that use the default value for HTML "
+"escaping defined in your `web.xml` file, as used by Spring's bind "
+"support. To make the elements be XHTML compliant or to override the default "
+"HTML escaping value, you can specify two variables in your template (or in "
+"your model, where they are visible to your templates). The advantage of "
+"specifying them in the templates is that they can be changed to different "
+"values later in the template processing to provide different behavior for "
+"different fields in your form."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:341
+msgid ""
+"To switch to XHTML compliance for your tags, specify a value of `true` for a "
+"model or context variable named `xhtmlCompliant`, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:346
+#, no-wrap
+msgid ""
+"\t<#-- for FreeMarker -->\n"
+"\t<#assign xhtmlCompliant = true>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:350
+msgid ""
+"After processing this directive, any elements generated by the Spring macros "
+"are now XHTML compliant."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:352
+msgid ""
+"In similar fashion, you can specify HTML escaping per field, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:356
+#, no-wrap
+msgid "\t<#-- until this point, default HTML escaping is used -->\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:360
+#, no-wrap
+msgid ""
+"\t<#assign htmlEscape = true>\n"
+"\t<#-- next field will use HTML escaping -->\n"
+"\t<@spring.formInput \"command.name\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-freemarker.adoc:363
+#, no-wrap
+msgid ""
+"\t<#assign htmlEscape = false in spring>\n"
+"\t<#-- all future fields will be bound with HTML escaping off -->\n"
+msgstr ""

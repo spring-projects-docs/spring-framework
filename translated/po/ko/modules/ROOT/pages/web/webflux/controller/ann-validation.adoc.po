@@ -1,0 +1,269 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:2
+#, no-wrap
+msgid "Validation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-validation.adoc[See equivalent "
+"in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:9
+msgid ""
+"Spring WebFlux has built-in xref:core/validation/validator.adoc[Validation] "
+"for `@RequestMapping` methods, including "
+"xref:core/validation/beanvalidation.adoc[Java Bean Validation].  Validation "
+"may be applied at one of two levels:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:19
+msgid ""
+"Java Bean Validation is applied individually to an "
+"xref:web/webflux/controller/ann-methods/modelattrib-method-args.adoc[@ModelAttribute], "
+"xref:web/webflux/controller/ann-methods/requestbody.adoc[@RequestBody], and "
+"xref:web/webflux/controller/ann-methods/multipart-forms.adoc[@RequestPart] "
+"method parameter annotated with `@jakarta.validation.Valid` or Spring's "
+"`@Validated` so long as it is a command object rather than a container such "
+"as `Map` or `Collection`, it does not have `Errors` or `BindingResult` "
+"immediately after in the method signature, and does not otherwise require "
+"method validation (see next). `WebExchangeBindException` is the exception "
+"raised when validating a method parameter individually."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:27
+msgid ""
+"Java Bean Validation is applied to the method when `@Constraint` annotations "
+"such as `@Min`, `@NotBlank` and others are declared directly on method "
+"parameters, or on the method for the return value, and it supersedes any "
+"validation that would be applied otherwise to a method parameter "
+"individually because method validation covers both method parameter "
+"constraints and nested constraints via `@Valid`.  "
+"`HandlerMethodValidationException` is the exception raised validation is "
+"applied to the method."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:33
+msgid ""
+"Applications must handle both `WebExchangeBindException` and "
+"`HandlerMethodValidationException` as either may be raised depending on the "
+"controller method signature. The two exceptions, however are designed to be "
+"very similar, and can be handled with almost identical code. The main "
+"difference is that the former is for a single object while the latter is for "
+"a list of method parameters."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:39
+msgid ""
+"`@Valid` is not a constraint annotation, but rather for nested constraints "
+"within an Object. Therefore, by itself `@Valid` does not lead to method "
+"validation. `@NotNull` on the other hand is a constraint, and adding it to "
+"an `@Valid` parameter leads to method validation. For nullability "
+"specifically, you may also use the `required` flag of `@RequestBody` or "
+"`@ModelAttribute`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:44
+msgid ""
+"Method validation may be used in combination with `Errors` or "
+"`BindingResult` method parameters. However, the controller method is called "
+"only if all validation errors are on method parameters with an `Errors` "
+"immediately after. If there are validation errors on any other method "
+"parameter then `HandlerMethodValidationException` is raised."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:49
+msgid ""
+"You can configure a `Validator` globally through the "
+"xref:web/webflux/config.adoc#webflux-config-validation[WebFlux config], or "
+"locally through an "
+"xref:web/webflux/controller/ann-initbinder.adoc[@InitBinder] method in an "
+"`@Controller` or `@ControllerAdvice`. You can also use multiple validators."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:55
+msgid ""
+"If a controller has a class level `@Validated`, then "
+"xref:core/validation/beanvalidation.adoc#validation-beanvalidation-spring-method[method "
+"validation is applied] through an AOP proxy. In order to take advantage of "
+"the Spring MVC built-in support for method validation added in Spring "
+"Framework 6.1, you need to remove the class level `@Validated` annotation "
+"from the controller."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:60
+msgid ""
+"The xref:web/webflux/ann-rest-exceptions.adoc[Error Responses] section "
+"provides further details on how `WebExchangeBindException` and "
+"`HandlerMethodValidationException` are handled, and also how their rendering "
+"can be customized through a `MessageSource` and locale and language specific "
+"resource bundles."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:67
+msgid ""
+"For further custom handling of method validation errors, you can extend "
+"`ResponseEntityExceptionHandler` or use an `@ExceptionHandler` method in a "
+"controller or in a `@ControllerAdvice`, and handle "
+"`HandlerMethodValidationException` directly.  The exception contains a list "
+"of ``ParameterValidationResult``s that group validation errors by method "
+"parameter. You can either iterate over those, or provide a visitor with "
+"callback methods by controller method parameter type:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:70
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:75
+#, no-wrap
+msgid "\tHandlerMethodValidationException ex = ... ;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:77
+#, no-wrap
+msgid "\tex.visitResults(new HandlerMethodValidationException.Visitor() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:82
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void requestHeader(RequestHeader requestHeader, "
+"ParameterValidationResult result) {\n"
+"\t\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:87
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void requestParam(@Nullable RequestParam requestParam, "
+"ParameterValidationResult result) {\n"
+"\t\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:90
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void modelAttribute(@Nullable ModelAttribute modelAttribute, "
+"ParameterErrors errors) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:92
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:122
+#, no-wrap
+msgid "\t\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:98
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void other(ParameterValidationResult result) {\n"
+"\t\t\t\t// ...\n"
+"\t\t}\n"
+"\t});\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:100
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:106
+#, no-wrap
+msgid ""
+"\t// HandlerMethodValidationException\n"
+"\tval ex\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:108
+#, no-wrap
+msgid "\tex.visitResults(object : HandlerMethodValidationException.Visitor {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:112
+#, no-wrap
+msgid ""
+"\t\toverride fun requestHeader(requestHeader: RequestHeader, result: "
+"ParameterValidationResult) {\n"
+"\t\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:116
+#, no-wrap
+msgid ""
+"\t\toverride fun requestParam(requestParam: RequestParam?, result: "
+"ParameterValidationResult) {\n"
+"\t\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:120
+#, no-wrap
+msgid ""
+"\t\toverride fun modelAttribute(modelAttribute: ModelAttribute?, errors: "
+"ParameterErrors) {\n"
+"\t\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-validation.adoc:127
+#, no-wrap
+msgid ""
+"\t\toverride fun other(result: ParameterValidationResult) {\n"
+"\t\t\t\t// ...\n"
+"\t\t}\n"
+"\t})\n"
+msgstr ""

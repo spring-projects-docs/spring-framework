@@ -1,0 +1,1605 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:40+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:2
+#, no-wrap
+msgid "Schema-based AOP Support"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:10
+msgid ""
+"If you prefer an XML-based format, Spring also offers support for defining "
+"aspects using the `aop` namespace tags. The exact same pointcut expressions "
+"and advice kinds as when using the @AspectJ style are supported. Hence, in "
+"this section we focus on that syntax and refer the reader to the discussion "
+"in the previous section (xref:core/aop/ataspectj.adoc[@AspectJ support]) for "
+"an understanding of writing pointcut expressions and the binding of advice "
+"parameters."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:13
+msgid ""
+"To use the aop namespace tags described in this section, you need to import "
+"the `spring-aop` schema, as described in "
+"xref:core/appendix/xsd-schemas.adoc[XML Schema-based configuration]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:15
+msgid ""
+"See xref:core/appendix/xsd-schemas.adoc#aop[the AOP schema] for how to "
+"import the tags in the `aop` namespace."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:20
+msgid ""
+"Within your Spring configurations, all aspect and advisor elements must be "
+"placed within an `<aop:config>` element (you can have more than one "
+"`<aop:config>` element in an application context configuration). An "
+"`<aop:config>` element can contain pointcut, advisor, and aspect elements "
+"(note that these must be declared in that order)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:27
+msgid ""
+"The `<aop:config>` style of configuration makes heavy use of Spring's "
+"xref:core/aop-api/autoproxy.adoc[auto-proxying] mechanism. This can cause "
+"issues (such as advice not being woven) if you already use explicit "
+"auto-proxying through the use of `BeanNameAutoProxyCreator` or something "
+"similar. The recommended usage pattern is to use either only the "
+"`<aop:config>` style or only the `AutoProxyCreator` style and never mix "
+"them."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:30
+#, no-wrap
+msgid "Declaring an Aspect"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:35
+msgid ""
+"When you use the schema support, an aspect is a regular Java object defined "
+"as a bean in your Spring application context. The state and behavior are "
+"captured in the fields and methods of the object, and the pointcut and "
+"advice information are captured in the XML."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:38
+msgid ""
+"You can declare an aspect by using the `<aop:aspect>` element, and reference "
+"the backing bean by using the `ref` attribute, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:46
+#, no-wrap
+msgid ""
+"\t<aop:config>\n"
+"\t\t<aop:aspect id=\"myAspect\" ref=\"aBean\">\n"
+"\t\t\t...\n"
+"\t\t</aop:aspect>\n"
+"\t</aop:config>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:50
+#, no-wrap
+msgid ""
+"\t<bean id=\"aBean\" class=\"...\">\n"
+"\t\t...\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:54
+msgid ""
+"The bean that backs the aspect (`aBean` in this case) can of course be "
+"configured and dependency injected just like any other Spring bean."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:57
+#, no-wrap
+msgid "Declaring a Pointcut"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:61
+msgid ""
+"You can declare a _named pointcut_ inside an `<aop:config>` element, letting "
+"the pointcut definition be shared across several aspects and advisors."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:64
+msgid ""
+"A pointcut that represents the execution of any business service in the "
+"service layer can be defined as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:68
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:83
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:97
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:116
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:162
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:775
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:916
+#, no-wrap
+msgid "\t<aop:config>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:71
+#, no-wrap
+msgid ""
+"\t\t<aop:pointcut id=\"businessService\"\n"
+"\t\t\texpression=\"execution(* com.xyz.service.*.*(..))\" />\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:73
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:88
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:107
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:128
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:174
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:784
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:929
+#, no-wrap
+msgid "\t</aop:config>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:79
+msgid ""
+"Note that the pointcut expression itself uses the same AspectJ pointcut "
+"expression language as described in xref:core/aop/ataspectj.adoc[@AspectJ "
+"support]. If you use the schema based declaration style, you can also refer "
+"to _named pointcuts_ defined in `@Aspect` types within the pointcut "
+"expression. Thus, another way of defining the above pointcut would be as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:86
+#, no-wrap
+msgid ""
+"\t\t<aop:pointcut id=\"businessService\"\n"
+"\t\t\texpression=\"com.xyz.CommonPointcuts.businessService()\" /> <1>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:90
+msgid ""
+"References the `businessService` named pointcut defined in "
+"xref:core/aop/ataspectj/pointcuts.adoc#aop-common-pointcuts[Sharing Named "
+"Pointcut Definitions]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:93
+msgid ""
+"Declaring a pointcut _inside_ an aspect is very similar to declaring a "
+"top-level pointcut, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:99
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:118
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:164
+#, no-wrap
+msgid "\t\t<aop:aspect id=\"myAspect\" ref=\"aBean\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:102
+#, no-wrap
+msgid ""
+"\t\t\t<aop:pointcut id=\"businessService\"\n"
+"\t\t\t\texpression=\"execution(* com.xyz.service.*.*(..))\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:105
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:126
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:172
+#, no-wrap
+msgid ""
+"\t\t\t...\n"
+"\t\t</aop:aspect>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:112
+msgid ""
+"In much the same way as an @AspectJ aspect, pointcuts declared by using the "
+"schema based definition style can collect join point context. For example, "
+"the following pointcut collects the `this` object as the join point context "
+"and passes it to the advice:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:121
+#, no-wrap
+msgid ""
+"\t\t\t<aop:pointcut id=\"businessService\"\n"
+"\t\t\t\texpression=\"execution(* com.xyz.service.*.*(..)) &amp;&amp; "
+"this(service)\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:123
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:169
+#, no-wrap
+msgid "\t\t\t<aop:before pointcut-ref=\"businessService\" method=\"monitor\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:132
+msgid ""
+"The advice must be declared to receive the collected join point context by "
+"including parameters of the matching names, as follows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:135
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:277
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:334
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:413
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:469
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:515
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:604
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:707
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:735
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:820
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:944
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:142
+#, no-wrap
+msgid ""
+"\tpublic void monitor(Object service) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:144
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:284
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:341
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:425
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:488
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:539
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:618
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:716
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:742
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:860
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:954
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:151
+#, no-wrap
+msgid ""
+"\tfun monitor(service: Any) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:158
+msgid ""
+"When combining pointcut sub-expressions, `+&amp;&amp;+` is awkward within an "
+"XML document, so you can use the `and`, `or`, and `not` keywords in place of "
+"`+&amp;&amp;+`, `||`, and `!`, respectively. For example, the previous "
+"pointcut can be better written as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:167
+#, no-wrap
+msgid ""
+"\t\t\t<aop:pointcut id=\"businessService\"\n"
+"\t\t\t\texpression=\"execution(* com.xyz.service.*.*(..)) and "
+"this(service)\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:179
+msgid ""
+"Note that pointcuts defined in this way are referred to by their XML `id` "
+"and cannot be used as named pointcuts to form composite pointcuts. The named "
+"pointcut support in the schema-based definition style is thus more limited "
+"than that offered by the @AspectJ style."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:182
+#, no-wrap
+msgid "Declaring Advice"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:186
+msgid ""
+"The schema-based AOP support uses the same five kinds of advice as the "
+"@AspectJ style, and they have exactly the same semantics."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:188
+#, no-wrap
+msgid "Before Advice"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:192
+msgid ""
+"Before advice runs before a matched method execution. It is declared inside "
+"an `<aop:aspect>` by using the `<aop:before>` element, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:196
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:219
+#, no-wrap
+msgid "\t<aop:aspect id=\"beforeExample\" ref=\"aBean\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:200
+#, no-wrap
+msgid ""
+"\t\t<aop:before\n"
+"\t\t\tpointcut-ref=\"dataAccessOperation\"\n"
+"\t\t\tmethod=\"doAccessCheck\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:202
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:225
+#, no-wrap
+msgid "\t\t...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:204
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:227
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:701
+#, no-wrap
+msgid "\t</aop:aspect>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:208
+msgid ""
+"In the example above, `dataAccessOperation` is the `id` of a _named "
+"pointcut_ defined at the top (`<aop:config>`) level (see "
+"xref:core/aop/schema.adoc#aop-schema-pointcuts[Declaring a Pointcut])."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:212
+msgid ""
+"As we noted in the discussion of the @AspectJ style, using _named pointcuts_ "
+"can significantly improve the readability of your code. See "
+"xref:core/aop/ataspectj/pointcuts.adoc#aop-common-pointcuts[Sharing Named "
+"Pointcut Definitions] for details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:215
+msgid ""
+"To define the pointcut inline instead, replace the `pointcut-ref` attribute "
+"with a `pointcut` attribute, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:223
+#, no-wrap
+msgid ""
+"\t\t<aop:before\n"
+"\t\t\tpointcut=\"execution(* com.xyz.dao.*.*(..))\"\n"
+"\t\t\tmethod=\"doAccessCheck\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:234
+msgid ""
+"The `method` attribute identifies a method (`doAccessCheck`) that provides "
+"the body of the advice. This method must be defined for the bean referenced "
+"by the aspect element that contains the advice. Before a data access "
+"operation is performed (a method execution join point matched by the "
+"pointcut expression), the `doAccessCheck` method on the aspect bean is "
+"invoked."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:236
+#, no-wrap
+msgid "After Returning Advice"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:241
+msgid ""
+"After returning advice runs when a matched method execution completes "
+"normally. It is declared inside an `<aop:aspect>` in the same way as before "
+"advice. The following example shows how to declare it:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:245
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:261
+#, no-wrap
+msgid "\t<aop:aspect id=\"afterReturningExample\" ref=\"aBean\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:249
+#, no-wrap
+msgid ""
+"\t\t<aop:after-returning\n"
+"\t\t\tpointcut=\"execution(* com.xyz.dao.*.*(..))\"\n"
+"\t\t\tmethod=\"doAccessCheck\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:252
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:269
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:309
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:326
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:365
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:406
+#, no-wrap
+msgid ""
+"\t\t...\n"
+"\t</aop:aspect>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:257
+msgid ""
+"As in the @AspectJ style, you can get the return value within the advice "
+"body.  To do so, use the `returning` attribute to specify the name of the "
+"parameter to which the return value should be passed, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:266
+#, no-wrap
+msgid ""
+"\t\t<aop:after-returning\n"
+"\t\t\tpointcut=\"execution(* com.xyz.dao.*.*(..))\"\n"
+"\t\t\treturning=\"retVal\"\n"
+"\t\t\tmethod=\"doAccessCheck\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:274
+msgid ""
+"The `doAccessCheck` method must declare a parameter named `retVal`. The type "
+"of this parameter constrains matching in the same way as described for "
+"`@AfterReturning`. For example, you can declare the method signature as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:282
+#, no-wrap
+msgid "\tpublic void doAccessCheck(Object retVal) {...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:289
+#, no-wrap
+msgid "\tfun doAccessCheck(retVal: Any) {...\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:293
+#, no-wrap
+msgid "After Throwing Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:298
+msgid ""
+"After throwing advice runs when a matched method execution exits by throwing "
+"an exception. It is declared inside an `<aop:aspect>` by using the "
+"`after-throwing` element, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:302
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:318
+#, no-wrap
+msgid "\t<aop:aspect id=\"afterThrowingExample\" ref=\"aBean\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:306
+#, no-wrap
+msgid ""
+"\t\t<aop:after-throwing\n"
+"\t\t\tpointcut=\"execution(* com.xyz.dao.*.*(..))\"\n"
+"\t\t\tmethod=\"doRecoveryActions\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:314
+msgid ""
+"As in the @AspectJ style, you can get the thrown exception within the advice "
+"body.  To do so, use the `throwing` attribute to specify the name of the "
+"parameter to which the exception should be passed as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:323
+#, no-wrap
+msgid ""
+"\t\t<aop:after-throwing\n"
+"\t\t\tpointcut=\"execution(* com.xyz.dao.*.*(..))\"\n"
+"\t\t\tthrowing=\"dataAccessEx\"\n"
+"\t\t\tmethod=\"doRecoveryActions\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:331
+msgid ""
+"The `doRecoveryActions` method must declare a parameter named "
+"`dataAccessEx`.  The type of this parameter constrains matching in the same "
+"way as described for `@AfterThrowing`. For example, the method signature may "
+"be declared as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:339
+#, no-wrap
+msgid "\tpublic void doRecoveryActions(DataAccessException dataAccessEx) {...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:346
+#, no-wrap
+msgid "\tfun doRecoveryActions(dataAccessEx: DataAccessException) {...\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:350
+#, no-wrap
+msgid "After (Finally) Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:354
+msgid ""
+"After (finally) advice runs no matter how a matched method execution exits.  "
+"You can declare it by using the `after` element, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:358
+#, no-wrap
+msgid "\t<aop:aspect id=\"afterFinallyExample\" ref=\"aBean\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:362
+#, no-wrap
+msgid ""
+"\t\t<aop:after\n"
+"\t\t\tpointcut=\"execution(* com.xyz.dao.*.*(..))\"\n"
+"\t\t\tmethod=\"doReleaseLock\"/>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:368
+#, no-wrap
+msgid "Around Advice"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:375
+msgid ""
+"The last kind of advice is _around_ advice. Around advice runs \"around\" a "
+"matched method's execution. It has the opportunity to do work both before "
+"and after the method runs and to determine when, how, and even if the method "
+"actually gets to run at all.  Around advice is often used if you need to "
+"share state before and after a method execution in a thread-safe manner – "
+"for example, starting and stopping a timer."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:379
+msgid "Always use the least powerful form of advice that meets your requirements."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:381
+msgid ""
+"For example, do not use _around_ advice if _before_ advice is sufficient for "
+"your needs."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:393
+msgid ""
+"You can declare around advice by using the `aop:around` element. The advice "
+"method should declare `Object` as its return type, and the first parameter "
+"of the method must be of type `ProceedingJoinPoint`. Within the body of the "
+"advice method, you must invoke `proceed()` on the `ProceedingJoinPoint` in "
+"order for the underlying method to run.  Invoking `proceed()` without "
+"arguments will result in the caller's original arguments being supplied to "
+"the underlying method when it is invoked. For advanced use cases, there is "
+"an overloaded variant of the `proceed()` method which accepts an array of "
+"arguments (`Object[]`). The values in the array will be used as the "
+"arguments to the underlying method when it is invoked. See "
+"xref:core/aop/ataspectj/advice.adoc#aop-ataspectj-around-advice[Around "
+"Advice] for notes on calling `proceed` with an `Object[]`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:395
+msgid "The following example shows how to declare around advice in XML:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:399
+#, no-wrap
+msgid "\t<aop:aspect id=\"aroundExample\" ref=\"aBean\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:403
+#, no-wrap
+msgid ""
+"\t\t<aop:around\n"
+"\t\t\tpointcut=\"execution(* com.xyz.service.*.*(..))\"\n"
+"\t\t\tmethod=\"doBasicProfiling\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:410
+msgid ""
+"The implementation of the `doBasicProfiling` advice can be exactly the same "
+"as in the @AspectJ example (minus the annotation, of course), as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:423
+#, no-wrap
+msgid ""
+"\tpublic Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable "
+"{\n"
+"\t\t// start stopwatch\n"
+"\t\tObject retVal = pjp.proceed();\n"
+"\t\t// stop stopwatch\n"
+"\t\treturn retVal;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:435
+#, no-wrap
+msgid ""
+"\tfun doBasicProfiling(pjp: ProceedingJoinPoint): Any? {\n"
+"\t\t// start stopwatch\n"
+"\t\tval retVal = pjp.proceed()\n"
+"\t\t// stop stopwatch\n"
+"\t\treturn pjp.proceed()\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:439
+#, no-wrap
+msgid "Advice Parameters"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:451
+msgid ""
+"The schema-based declaration style supports fully typed advice in the same "
+"way as described for the @AspectJ support -- by matching pointcut parameters "
+"by name against advice method parameters. See "
+"xref:core/aop/ataspectj/advice.adoc#aop-ataspectj-advice-params[Advice "
+"Parameters] for details.  If you wish to explicitly specify argument names "
+"for the advice methods (not relying on the detection strategies previously "
+"described), you can do so by using the `arg-names` attribute of the advice "
+"element, which is treated in the same manner as the `argNames` attribute in "
+"an advice annotation (as described in "
+"xref:core/aop/ataspectj/advice.adoc#aop-ataspectj-advice-params-names[Determining "
+"Argument Names]).  The following example shows how to specify an argument "
+"name in XML:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:458
+#, no-wrap
+msgid ""
+"\t<aop:before\n"
+"\t\tpointcut=\"com.xyz.Pointcuts.publicMethod() and @annotation(auditable)\" "
+"<1>\n"
+"\t\tmethod=\"audit\"\n"
+"\t\targ-names=\"auditable\" />\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:461
+msgid ""
+"References the `publicMethod` named pointcut defined in "
+"xref:core/aop/ataspectj/pointcuts.adoc#aop-pointcuts-combining[Combining "
+"Pointcut Expressions]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:463
+msgid "The `arg-names` attribute accepts a comma-delimited list of parameter names."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:466
+msgid ""
+"The following slightly more involved example of the XSD-based approach shows "
+"some around advice used in conjunction with a number of strongly typed "
+"parameters:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:474
+#, no-wrap
+msgid "\tpackage com.xyz.service;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:476
+#, no-wrap
+msgid "\tpublic interface PersonService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:479
+#, no-wrap
+msgid ""
+"\t\tPerson getPerson(String personName, int age);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:481
+#, no-wrap
+msgid "\tpublic class DefaultPersonService implements PersonService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:486
+#, no-wrap
+msgid ""
+"\t\tpublic Person getPerson(String name, int age) {\n"
+"\t\t\treturn new Person(name, age);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:493
+#, no-wrap
+msgid "\tpackage com.xyz.service\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:495
+#, no-wrap
+msgid "\tinterface PersonService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:498
+#, no-wrap
+msgid ""
+"\t\tfun getPerson(personName: String, age: Int): Person\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:500
+#, no-wrap
+msgid "\tclass DefaultPersonService : PersonService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:505
+#, no-wrap
+msgid ""
+"\t\tfun getPerson(name: String, age: Int): Person {\n"
+"\t\t\treturn Person(name, age)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:512
+msgid ""
+"Next up is the aspect. Notice the fact that the `profile(..)` method accepts "
+"a number of strongly-typed parameters, the first of which happens to be the "
+"join point used to proceed with the method call. The presence of this "
+"parameter is an indication that the `profile(..)` is to be used as `around` "
+"advice, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:520
+#, no-wrap
+msgid "\tpackage com.xyz;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:523
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.ProceedingJoinPoint;\n"
+"\timport org.springframework.util.StopWatch;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:525
+#, no-wrap
+msgid "\tpublic class SimpleProfiler {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:537
+#, no-wrap
+msgid ""
+"\t\tpublic Object profile(ProceedingJoinPoint call, String name, int age) "
+"throws Throwable {\n"
+"\t\t\tStopWatch clock = new StopWatch(\"Profiling for '\" + name + \"' and "
+"'\" + age + \"'\");\n"
+"\t\t\ttry {\n"
+"\t\t\t\tclock.start(call.toShortString());\n"
+"\t\t\t\treturn call.proceed();\n"
+"\t\t\t} finally {\n"
+"\t\t\t\tclock.stop();\n"
+"\t\t\t\tSystem.out.println(clock.prettyPrint());\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:544
+#, no-wrap
+msgid "\tpackage com.xyz\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:547
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.ProceedingJoinPoint\n"
+"\timport org.springframework.util.StopWatch\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:549
+#, no-wrap
+msgid "\tclass SimpleProfiler {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:561
+#, no-wrap
+msgid ""
+"\t\tfun profile(call: ProceedingJoinPoint, name: String, age: Int): Any? {\n"
+"\t\t\tval clock = StopWatch(\"Profiling for '$name' and '$age'\")\n"
+"\t\t\ttry {\n"
+"\t\t\t\tclock.start(call.toShortString())\n"
+"\t\t\t\treturn call.proceed()\n"
+"\t\t\t} finally {\n"
+"\t\t\t\tclock.stop()\n"
+"\t\t\t\tprintln(clock.prettyPrint())\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:566
+msgid ""
+"Finally, the following example XML configuration effects the execution of "
+"the preceding advice for a particular join point:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:577
+#, no-wrap
+msgid ""
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:aop=\"http://www.springframework.org/schema/aop\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/aop\n"
+"\t\t\thttps://www.springframework.org/schema/aop/spring-aop.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:580
+#, no-wrap
+msgid ""
+"\t\t<!-- this is the object that will be proxied by Spring's AOP "
+"infrastructure -->\n"
+"\t\t<bean id=\"personService\" "
+"class=\"com.xyz.service.DefaultPersonService\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:583
+#, no-wrap
+msgid ""
+"\t\t<!-- this is the actual advice itself -->\n"
+"\t\t<bean id=\"profiler\" class=\"com.xyz.SimpleProfiler\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:586
+#, no-wrap
+msgid ""
+"\t\t<aop:config>\n"
+"\t\t\t<aop:aspect ref=\"profiler\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:590
+#, no-wrap
+msgid ""
+"\t\t\t\t<aop:pointcut id=\"theExecutionOfSomePersonServiceMethod\"\n"
+"\t\t\t\t\texpression=\"execution(* "
+"com.xyz.service.PersonService.getPerson(String,int))\n"
+"\t\t\t\t\tand args(name, age)\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:593
+#, no-wrap
+msgid ""
+"\t\t\t\t<aop:around pointcut-ref=\"theExecutionOfSomePersonServiceMethod\"\n"
+"\t\t\t\t\tmethod=\"profile\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:596
+#, no-wrap
+msgid ""
+"\t\t\t</aop:aspect>\n"
+"\t\t</aop:config>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:598
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:601
+msgid "Consider the following driver script:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:609
+#, no-wrap
+msgid "\tpublic class Boot {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:616
+#, no-wrap
+msgid ""
+"\t\tpublic static void main(String[] args) {\n"
+"\t\t\tApplicationContext ctx = new "
+"ClassPathXmlApplicationContext(\"beans.xml\");\n"
+"\t\t\tPersonService person = ctx.getBean(PersonService.class);\n"
+"\t\t\tperson.getPerson(\"Pengo\", 12);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:627
+#, no-wrap
+msgid ""
+"\tfun main() {\n"
+"\t\tval ctx = ClassPathXmlApplicationContext(\"beans.xml\")\n"
+"\t\tval person = ctx.getBean(PersonService.class)\n"
+"\t\tperson.getPerson(\"Pengo\", 12)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:631
+msgid ""
+"With such a `Boot` class, we would get output similar to the following on "
+"standard output:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:635
+#, no-wrap
+msgid "StopWatch 'Profiling for 'Pengo' and '12': running time (millis) = 0\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:637
+#, no-wrap
+msgid "ms     %     Task name\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:639
+#, no-wrap
+msgid "00000  ?  execution(getFoo)\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:642
+#, no-wrap
+msgid "Advice Ordering"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:650
+msgid ""
+"When multiple pieces of advice need to run at the same join point (executing "
+"method)  the ordering rules are as described in "
+"xref:core/aop/ataspectj/advice.adoc#aop-ataspectj-advice-ordering[Advice "
+"Ordering]. The precedence between aspects is determined via the `order` "
+"attribute in the `<aop:aspect>` element or by either adding the `@Order` "
+"annotation to the bean that backs the aspect or by having the bean implement "
+"the `Ordered` interface."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:658
+msgid ""
+"In contrast to the precedence rules for advice methods defined in the same "
+"`@Aspect` class, when two pieces of advice defined in the same "
+"`<aop:aspect>` element both need to run at the same join point, the "
+"precedence is determined by the order in which the advice elements are "
+"declared within the enclosing `<aop:aspect>` element, from highest to lowest "
+"precedence."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:663
+msgid ""
+"For example, given an `around` advice and a `before` advice defined in the "
+"same `<aop:aspect>` element that apply to the same join point, to ensure "
+"that the `around` advice has higher precedence than the `before` advice, the "
+"`<aop:around>` element must be declared before the `<aop:before>` element."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:669
+msgid ""
+"As a general rule of thumb, if you find that you have multiple pieces of "
+"advice defined in the same `<aop:aspect>` element that apply to the same "
+"join point, consider collapsing such advice methods into one advice method "
+"per join point in each `<aop:aspect>` element or refactor the pieces of "
+"advice into separate `<aop:aspect>` elements that you can order at the "
+"aspect level."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:673
+#, no-wrap
+msgid "Introductions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:678
+msgid ""
+"Introductions (known as inter-type declarations in AspectJ) let an aspect "
+"declare that advised objects implement a given interface and provide an "
+"implementation of that interface on behalf of those objects."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:685
+msgid ""
+"You can make an introduction by using the `aop:declare-parents` element "
+"inside an `aop:aspect`.  You can use the `aop:declare-parents` element to "
+"declare that matching types have a new parent (hence the name).  For "
+"example, given an interface named `UsageTracked` and an implementation of "
+"that interface named `DefaultUsageTracked`, the following aspect declares "
+"that all implementors of service interfaces also implement the "
+"`UsageTracked` interface. (In order to expose statistics through JMX for "
+"example.)"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:689
+#, no-wrap
+msgid "\t<aop:aspect id=\"usageTrackerAspect\" ref=\"usageTracking\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:694
+#, no-wrap
+msgid ""
+"\t\t<aop:declare-parents\n"
+"\t\t\ttypes-matching=\"com.xyz.service.*+\"\n"
+"\t\t\timplement-interface=\"com.xyz.service.tracking.UsageTracked\"\n"
+"\t\t\tdefault-impl=\"com.xyz.service.tracking.DefaultUsageTracked\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:699
+#, no-wrap
+msgid ""
+"\t\t<aop:before\n"
+"\t\t\tpointcut=\"execution(* com.xyz..service.*.*(..))\n"
+"\t\t\t\tand this(usageTracked)\"\n"
+"\t\t\t\tmethod=\"recordUsage\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:704
+msgid ""
+"The class that backs the `usageTracking` bean would then contain the "
+"following method:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:714
+#, no-wrap
+msgid ""
+"\tpublic void recordUsage(UsageTracked usageTracked) {\n"
+"\t\tusageTracked.incrementUseCount();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:723
+#, no-wrap
+msgid ""
+"\tfun recordUsage(usageTracked: UsageTracked) {\n"
+"\t\tusageTracked.incrementUseCount()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:732
+msgid ""
+"The interface to be implemented is determined by the `implement-interface` "
+"attribute. The value of the `types-matching` attribute is an AspectJ type "
+"pattern. Any bean of a matching type implements the `UsageTracked` "
+"interface. Note that, in the before advice of the preceding example, service "
+"beans can be directly used as implementations of the `UsageTracked` "
+"interface. To access a bean programmatically, you could write the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:740
+#, no-wrap
+msgid ""
+"\tUsageTracked usageTracked = context.getBean(\"myService\", "
+"UsageTracked.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:747
+#, no-wrap
+msgid "\tval usageTracked = context.getBean(\"myService\", UsageTracked.class)\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:752
+#, no-wrap
+msgid "Aspect Instantiation Models"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:756
+msgid ""
+"The only supported instantiation model for schema-defined aspects is the "
+"singleton model. Other instantiation models may be supported in future "
+"releases."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:759
+#, no-wrap
+msgid "Advisors"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:767
+msgid ""
+"The concept of \"advisors\" comes from the AOP support defined in Spring and "
+"does not have a direct equivalent in AspectJ. An advisor is like a small "
+"self-contained aspect that has a single piece of advice. The advice itself "
+"is represented by a bean and must implement one of the advice interfaces "
+"described in xref:core/aop-api/advice.adoc#aop-api-advice-types[Advice Types "
+"in Spring].  Advisors can take advantage of AspectJ pointcut expressions."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:771
+msgid ""
+"Spring supports the advisor concept with the `<aop:advisor>` element. You "
+"most commonly see it used in conjunction with transactional advice, which "
+"also has its own namespace support in Spring. The following example shows an "
+"advisor:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:778
+#, no-wrap
+msgid ""
+"\t\t<aop:pointcut id=\"businessService\"\n"
+"\t\t\texpression=\"execution(* com.xyz.service.*.*(..))\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:782
+#, no-wrap
+msgid ""
+"\t\t<aop:advisor\n"
+"\t\t\tpointcut-ref=\"businessService\"\n"
+"\t\t\tadvice-ref=\"tx-advice\" />\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:790
+#, no-wrap
+msgid ""
+"\t<tx:advice id=\"tx-advice\">\n"
+"\t\t<tx:attributes>\n"
+"\t\t\t<tx:method name=\"*\" propagation=\"REQUIRED\"/>\n"
+"\t\t</tx:attributes>\n"
+"\t</tx:advice>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:794
+msgid ""
+"As well as the `pointcut-ref` attribute used in the preceding example, you "
+"can also use the `pointcut` attribute to define a pointcut expression "
+"inline."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:797
+msgid ""
+"To define the precedence of an advisor so that the advice can participate in "
+"ordering, use the `order` attribute to define the `Ordered` value of the "
+"advisor."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:800
+#, no-wrap
+msgid "An AOP Schema Example"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:804
+msgid ""
+"This section shows how the concurrent locking failure retry example from "
+"xref:core/aop/ataspectj/example.adoc[An AOP Example] looks when rewritten "
+"with the schema support."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:813
+msgid ""
+"The execution of business services can sometimes fail due to concurrency "
+"issues (for example, a deadlock loser). If the operation is retried, it is "
+"likely to succeed on the next try. For business services where it is "
+"appropriate to retry in such conditions (idempotent operations that do not "
+"need to go back to the user for conflict resolution), we want to "
+"transparently retry the operation to avoid the client seeing a "
+"`PessimisticLockingFailureException`. This is a requirement that clearly "
+"cuts across multiple services in the service layer and, hence, is ideal for "
+"implementing through an aspect."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:817
+msgid ""
+"Because we want to retry the operation, we need to use around advice so that "
+"we can call `proceed` multiple times. The following listing shows the basic "
+"aspect implementation (which is a regular Java class that uses the schema "
+"support):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:825
+#, no-wrap
+msgid "\tpublic class ConcurrentOperationExecutor implements Ordered {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:827
+#, no-wrap
+msgid "\t\tprivate static final int DEFAULT_MAX_RETRIES = 2;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:830
+#, no-wrap
+msgid ""
+"\t\tprivate int maxRetries = DEFAULT_MAX_RETRIES;\n"
+"\t\tprivate int order = 1;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:834
+#, no-wrap
+msgid ""
+"\t\tpublic void setMaxRetries(int maxRetries) {\n"
+"\t\t\tthis.maxRetries = maxRetries;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:838
+#, no-wrap
+msgid ""
+"\t\tpublic int getOrder() {\n"
+"\t\t\treturn this.order;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:842
+#, no-wrap
+msgid ""
+"\t\tpublic void setOrder(int order) {\n"
+"\t\t\tthis.order = order;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:858
+#, no-wrap
+msgid ""
+"\t\tpublic Object doConcurrentOperation(ProceedingJoinPoint pjp) throws "
+"Throwable {\n"
+"\t\t\tint numAttempts = 0;\n"
+"\t\t\tPessimisticLockingFailureException lockFailureException;\n"
+"\t\t\tdo {\n"
+"\t\t\t\tnumAttempts++;\n"
+"\t\t\t\ttry {\n"
+"\t\t\t\t\treturn pjp.proceed();\n"
+"\t\t\t\t}\n"
+"\t\t\t\tcatch(PessimisticLockingFailureException ex) {\n"
+"\t\t\t\t\tlockFailureException = ex;\n"
+"\t\t\t\t}\n"
+"\t\t\t} while(numAttempts <= this.maxRetries);\n"
+"\t\t\tthrow lockFailureException;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:865
+#, no-wrap
+msgid "\tclass ConcurrentOperationExecutor : Ordered {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:867
+#, no-wrap
+msgid "\t\tprivate val DEFAULT_MAX_RETRIES = 2\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:870
+#, no-wrap
+msgid ""
+"\t\tprivate var maxRetries = DEFAULT_MAX_RETRIES\n"
+"\t\tprivate var order = 1\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:874
+#, no-wrap
+msgid ""
+"\t\tfun setMaxRetries(maxRetries: Int) {\n"
+"\t\t\tthis.maxRetries = maxRetries\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:878
+#, no-wrap
+msgid ""
+"\t\toverride fun getOrder(): Int {\n"
+"\t\t\treturn this.order\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:882
+#, no-wrap
+msgid ""
+"\t\tfun setOrder(order: Int) {\n"
+"\t\t\tthis.order = order\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:893
+#, no-wrap
+msgid ""
+"\t\tfun doConcurrentOperation(pjp: ProceedingJoinPoint): Any? {\n"
+"\t\t\tvar numAttempts = 0\n"
+"\t\t\tvar lockFailureException: PessimisticLockingFailureException\n"
+"\t\t\tdo {\n"
+"\t\t\t\tnumAttempts++\n"
+"\t\t\t\ttry {\n"
+"\t\t\t\t\treturn pjp.proceed()\n"
+"\t\t\t\t} catch (ex: PessimisticLockingFailureException) {\n"
+"\t\t\t\t\tlockFailureException = ex\n"
+"\t\t\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:898
+#, no-wrap
+msgid ""
+"\t\t\t} while (numAttempts <= this.maxRetries)\n"
+"\t\t\tthrow lockFailureException\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:907
+msgid ""
+"Note that the aspect implements the `Ordered` interface so that we can set "
+"the precedence of the aspect higher than the transaction advice (we want a "
+"fresh transaction each time we retry). The `maxRetries` and `order` "
+"properties are both configured by Spring. The main action happens in the "
+"`doConcurrentOperation` around advice method. We try to proceed. If we fail "
+"with a `PessimisticLockingFailureException`, we try again, unless we have "
+"exhausted all of our retry attempts."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:910
+msgid ""
+"This class is identical to the one used in the @AspectJ example, but with "
+"the annotations removed."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:912
+msgid "The corresponding Spring configuration is as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:918
+#, no-wrap
+msgid ""
+"\t\t<aop:aspect id=\"concurrentOperationRetry\" "
+"ref=\"concurrentOperationExecutor\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:921
+#, no-wrap
+msgid ""
+"\t\t\t<aop:pointcut id=\"idempotentOperation\"\n"
+"\t\t\t\texpression=\"execution(* com.xyz.service.*.*(..))\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:925
+#, no-wrap
+msgid ""
+"\t\t\t<aop:around\n"
+"\t\t\t\tpointcut-ref=\"idempotentOperation\"\n"
+"\t\t\t\tmethod=\"doConcurrentOperation\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:927
+#, no-wrap
+msgid "\t\t</aop:aspect>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:935
+#, no-wrap
+msgid ""
+"\t<bean id=\"concurrentOperationExecutor\"\n"
+"\t\tclass=\"com.xyz.service.impl.ConcurrentOperationExecutor\">\n"
+"\t\t\t<property name=\"maxRetries\" value=\"3\"/>\n"
+"\t\t\t<property name=\"order\" value=\"100\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:941
+msgid ""
+"Notice that, for the time being, we assume that all business services are "
+"idempotent. If this is not the case, we can refine the aspect so that it "
+"retries only genuinely idempotent operations, by introducing an `Idempotent` "
+"annotation and using the annotation to annotate the implementation of "
+"service operations, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:952
+#, no-wrap
+msgid ""
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t// marker annotation\n"
+"\tpublic @interface Idempotent {\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:961
+#, no-wrap
+msgid ""
+"\t@Retention(AnnotationRetention.RUNTIME)\n"
+"\t// marker annotation\n"
+"\tannotation class Idempotent\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:967
+msgid ""
+"The change to the aspect to retry only idempotent operations involves "
+"refining the pointcut expression so that only `@Idempotent` operations "
+"match, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop/schema.adoc:973
+#, no-wrap
+msgid ""
+"\t<aop:pointcut id=\"idempotentOperation\"\n"
+"\t\t\texpression=\"execution(* com.xyz.service.*.*(..)) and\n"
+"\t\t\t@annotation(com.xyz.service.Idempotent)\"/>\n"
+msgstr ""

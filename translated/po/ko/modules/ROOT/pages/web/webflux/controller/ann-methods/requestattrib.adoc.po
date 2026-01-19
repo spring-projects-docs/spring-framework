@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestattrib.adoc:2
+#, no-wrap
+msgid "`@RequestAttribute`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestattrib.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-methods/requestattrib.adoc[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestattrib.adoc:9
+msgid ""
+"Similarly to `@SessionAttribute`, you can use the `@RequestAttribute` "
+"annotation to access pre-existing request attributes created earlier (for "
+"example, by a `WebFilter`), as the following example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestattrib.adoc:12
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestattrib.adoc:20
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/\")\n"
+"\tpublic String handle(@RequestAttribute Client client) { <1>\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestattrib.adoc:22
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestattrib.adoc:33
+msgid "Using `@RequestAttribute`."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestattrib.adoc:23
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestattrib.adoc:31
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/\")\n"
+"\tfun handle(@RequestAttribute client: Client): String { // <1>\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""

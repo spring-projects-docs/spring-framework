@@ -1,0 +1,702 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:40+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:2
+#, no-wrap
+msgid "Using `@Autowired`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:8
+msgid ""
+"JSR 330's `@Inject` annotation can be used in place of Spring's `@Autowired` "
+"annotation in the examples included in this section. See "
+"xref:core/beans/standard-annotations.adoc[here] for more details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:11
+msgid ""
+"You can apply the `@Autowired` annotation to constructors, as the following "
+"example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:14
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:55
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:92
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:140
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:228
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:259
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:321
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:363
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:454
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:490
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:19
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:97
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:145
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:233
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:264
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:326
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:495
+#, no-wrap
+msgid "\tpublic class MovieRecommender {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:21
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:147
+#, no-wrap
+msgid "\t\tprivate final CustomerPreferenceDao customerPreferenceDao;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:26
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:155
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic MovieRecommender(CustomerPreferenceDao customerPreferenceDao) {\n"
+"\t\t\tthis.customerPreferenceDao = customerPreferenceDao;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:29
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:70
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:111
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:132
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:158
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:172
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:239
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:252
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:274
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:287
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:336
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:349
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:378
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:391
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:478
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:504
+#, no-wrap
+msgid ""
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:31
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:72
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:113
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:160
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:241
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:276
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:338
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:380
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:467
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:506
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:37
+#, no-wrap
+msgid ""
+"\tclass MovieRecommender @Autowired constructor(\n"
+"\t\tprivate val customerPreferenceDao: CustomerPreferenceDao)\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:48
+msgid ""
+"An `@Autowired` annotation on such a constructor is not necessary if the "
+"target bean defines only one constructor. However, if several constructors "
+"are available and there is no primary or default constructor, at least one "
+"of the constructors must be annotated with `@Autowired` in order to instruct "
+"the container which one to use. See the discussion on "
+"xref:core/beans/annotation-config/autowired.adoc#beans-autowired-annotation-constructor-resolution[constructor "
+"resolution] for details."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:52
+msgid ""
+"You can apply the `@Autowired` annotation to _traditional_ setter methods, "
+"as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:60
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:368
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:440
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:459
+#, no-wrap
+msgid "\tpublic class SimpleMovieLister {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:62
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:370
+#, no-wrap
+msgid "\t\tprivate MovieFinder movieFinder;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:67
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void setMovieFinder(MovieFinder movieFinder) {\n"
+"\t\t\tthis.movieFinder = movieFinder;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:77
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:385
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:472
+#, no-wrap
+msgid "\tclass SimpleMovieLister {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:80
+#, no-wrap
+msgid ""
+"\t\t@set:Autowired\n"
+"\t\tlateinit var movieFinder: MovieFinder\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:82
+#, no-wrap
+msgid "\t\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:84
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:89
+msgid ""
+"You can apply `@Autowired` to methods with arbitrary names and multiple "
+"arguments, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:99
+#, no-wrap
+msgid "\t\tprivate MovieCatalog movieCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:101
+#, no-wrap
+msgid "\t\tprivate CustomerPreferenceDao customerPreferenceDao;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:108
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void prepare(MovieCatalog movieCatalog,\n"
+"\t\t\t\tCustomerPreferenceDao customerPreferenceDao) {\n"
+"\t\t\tthis.movieCatalog = movieCatalog;\n"
+"\t\t\tthis.customerPreferenceDao = customerPreferenceDao;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:118
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:246
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:281
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:343
+#, no-wrap
+msgid "\tclass MovieRecommender {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:120
+#, no-wrap
+msgid "\t\tprivate lateinit var movieCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:122
+#, no-wrap
+msgid "\t\tprivate lateinit var customerPreferenceDao: CustomerPreferenceDao\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:129
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tfun prepare(movieCatalog: MovieCatalog,\n"
+"\t\t\t\t\tcustomerPreferenceDao: CustomerPreferenceDao) {\n"
+"\t\t\tthis.movieCatalog = movieCatalog\n"
+"\t\t\tthis.customerPreferenceDao = customerPreferenceDao\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:137
+msgid ""
+"You can apply `@Autowired` to fields as well and even mix it with "
+"constructors, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:150
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate MovieCatalog movieCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:166
+#, no-wrap
+msgid ""
+"\tclass MovieRecommender @Autowired constructor(\n"
+"\t\tprivate val customerPreferenceDao: CustomerPreferenceDao) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:169
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate lateinit var movieCatalog: MovieCatalog\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:181
+msgid ""
+"Make sure that your target components (for example, `MovieCatalog` or "
+"`CustomerPreferenceDao`)  are consistently declared by the type that you use "
+"for your `@Autowired`-annotated injection points. Otherwise, injection may "
+"fail due to a \"no type match found\" error at runtime."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:188
+msgid ""
+"For XML-defined beans or component classes found via classpath scanning, the "
+"container usually knows the concrete type up front. However, for `@Bean` "
+"factory methods, you need to make sure that the declared return type is "
+"sufficiently expressive. For components that implement several interfaces or "
+"for components potentially referred to by their implementation type, declare "
+"the most specific return type on your factory method (at least as specific "
+"as required by the injection points referring to your bean)."
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:190
+#, no-wrap
+msgid "[[beans-autowired-annotation-self-injection]]Self Injection"
+msgstr ""
+
+#. type: delimited block *
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:194
+msgid ""
+"`@Autowired` also considers self references for injection (that is, "
+"references back to the bean that is currently injected)."
+msgstr ""
+
+#. type: delimited block *
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:199
+msgid ""
+"Note, however, that self injection is a fallback mechanism. Regular "
+"dependencies on other components always have precedence. In that sense, self "
+"references do not participate in regular autowiring candidate selection and "
+"are therefore in particular never primary. On the contrary, they always end "
+"up as lowest precedence."
+msgstr ""
+
+#. type: delimited block *
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:204
+msgid ""
+"In practice, you should use self references as a last resort only – for "
+"example, for calling other methods on the same instance through the bean's "
+"transactional proxy. As an alternative, consider factoring out the affected "
+"methods to a separate delegate bean in such a scenario."
+msgstr ""
+
+#. type: delimited block *
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:207
+msgid ""
+"Another alternative is to use `@Resource`, which may obtain a proxy back to "
+"the current bean by its unique name."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:218
+msgid ""
+"Trying to inject the results from `@Bean` methods in the same "
+"`@Configuration` class is effectively a self-reference scenario as "
+"well. Either lazily resolve such references in the method signature where it "
+"is actually needed (as opposed to an autowired field in the configuration "
+"class) or declare the affected `@Bean` methods as `static`, decoupling them "
+"from the containing configuration class instance and its lifecycle.  "
+"Otherwise, such beans are only considered in the fallback phase, with "
+"matching beans on other configuration classes selected as primary candidates "
+"instead (if available)."
+msgstr ""
+
+#. type: delimited block *
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:225
+msgid ""
+"You can also instruct Spring to provide all beans of a particular type from "
+"the `ApplicationContext` by adding the `@Autowired` annotation to a field or "
+"method that expects an array of that type, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:236
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate MovieCatalog[] movieCatalogs;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:249
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate lateinit var movieCatalogs: Array<MovieCatalog>\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:256
+msgid "The same applies for typed collections, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:266
+#, no-wrap
+msgid "\t\tprivate Set<MovieCatalog> movieCatalogs;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:271
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void setMovieCatalogs(Set<MovieCatalog> movieCatalogs) {\n"
+"\t\t\tthis.movieCatalogs = movieCatalogs;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:284
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var movieCatalogs: Set<MovieCatalog>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:297
+msgid ""
+"Your target beans can implement the `org.springframework.core.Ordered` "
+"interface or use the `@Order` or standard `@Priority` annotation if you want "
+"items in the array or list to be sorted in a specific order. Otherwise, "
+"their order follows the registration order of the corresponding target bean "
+"definitions in the container."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:303
+msgid ""
+"You can declare the `@Order` annotation at the target class level and on "
+"`@Bean` methods, potentially for individual bean definitions (in case of "
+"multiple definitions that use the same bean class). `@Order` values may "
+"influence priorities at injection points, but be aware that they do not "
+"influence singleton startup order, which is an orthogonal concern determined "
+"by dependency relationships and `@DependsOn` declarations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:309
+msgid ""
+"Note that `@Order` annotations on configuration classes just influence the "
+"evaluation order within the overall set of configuration classes on "
+"startup. Such configuration-level order values do not affect the contained "
+"`@Bean` methods at all. For bean-level ordering, each `@Bean` method needs "
+"to have its own `@Order` annotation which applies within a set of multiple "
+"matches for the specific bean type (as returned by the factory method)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:313
+msgid ""
+"Note that the standard `jakarta.annotation.Priority` annotation is not "
+"available at the `@Bean` level, since it cannot be declared on methods. Its "
+"semantics can be modeled through `@Order` values in combination with "
+"`@Primary` on a single bean for each type."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:318
+msgid ""
+"Even typed `Map` instances can be autowired as long as the expected key type "
+"is `String`.  The map values are all beans of the expected type, and the "
+"keys are the corresponding bean names, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:328
+#, no-wrap
+msgid "\t\tprivate Map<String, MovieCatalog> movieCatalogs;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:333
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void setMovieCatalogs(Map<String, MovieCatalog> movieCatalogs) "
+"{\n"
+"\t\t\tthis.movieCatalogs = movieCatalogs;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:346
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var movieCatalogs: Map<String, MovieCatalog>\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:355
+msgid ""
+"By default, autowiring fails when no matching candidate beans are available "
+"for a given injection point. In the case of a declared array, collection, or "
+"map, at least one matching element is expected."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:360
+msgid ""
+"The default behavior is to treat annotated methods and fields as indicating "
+"required dependencies. You can change this behavior as demonstrated in the "
+"following example, enabling the framework to skip a non-satisfiable "
+"injection point through marking it as non-required (i.e., by setting the "
+"`required` attribute in `@Autowired` to `false`):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:375
+#, no-wrap
+msgid ""
+"\t\t@Autowired(required = false)\n"
+"\t\tpublic void setMovieFinder(MovieFinder movieFinder) {\n"
+"\t\t\tthis.movieFinder = movieFinder;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:388
+#, no-wrap
+msgid ""
+"\t\t@Autowired(required = false)\n"
+"\t\tvar movieFinder: MovieFinder? = null\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:399
+msgid ""
+"A non-required method will not be called at all if its dependency (or one of "
+"its dependencies, in case of multiple arguments) is not available. A "
+"non-required field will not get populated at all in such cases, leaving its "
+"default value in place."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:404
+msgid ""
+"In other words, setting the `required` attribute to `false` indicates that "
+"the corresponding property is _optional_ for autowiring purposes, and the "
+"property will be ignored if it cannot be autowired. This allows properties "
+"to be assigned default values that can be optionally overridden via "
+"dependency injection."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:416
+msgid ""
+"Injected constructor and factory method arguments are a special case since "
+"the `required` attribute in `@Autowired` has a somewhat different meaning "
+"due to Spring's constructor resolution algorithm that may potentially deal "
+"with multiple constructors. Constructor and factory method arguments are "
+"effectively required by default but with a few special rules in a "
+"single-constructor scenario, such as multi-element injection points (arrays, "
+"collections, maps) resolving to empty instances if no matching beans are "
+"available. This allows for a common implementation pattern where all "
+"dependencies can be declared in a unique multi-argument constructor — for "
+"example, declared as a single public constructor without an `@Autowired` "
+"annotation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:432
+msgid ""
+"Only one constructor of any given bean class may declare `@Autowired` with "
+"the `required` attribute set to `true`, indicating _the_ constructor to "
+"autowire when used as a Spring bean. As a consequence, if the `required` "
+"attribute is left at its default value `true`, only a single constructor may "
+"be annotated with `@Autowired`. If multiple constructors declare the "
+"annotation, they will all have to declare `required=false` in order to be "
+"considered as candidates for autowiring (analogous to `autowire=constructor` "
+"in XML).  The constructor with the greatest number of dependencies that can "
+"be satisfied by matching beans in the Spring container will be chosen. If "
+"none of the candidates can be satisfied, then a primary/default constructor "
+"(if present) will be used. Similarly, if a class declares multiple "
+"constructors but none of them is annotated with `@Autowired`, then a "
+"primary/default constructor (if present) will be used. If a class only "
+"declares a single constructor to begin with, it will always be used, even if "
+"not annotated. Note that an annotated constructor does not have to be "
+"public."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:436
+msgid ""
+"Alternatively, you can express the non-required nature of a particular "
+"dependency through Java's `java.util.Optional`, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:446
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void setMovieFinder(Optional<MovieFinder> movieFinder) {\n"
+"\t\t\t...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:451
+msgid ""
+"You can also use a parameter-level `@Nullable` annotation (of any kind in "
+"any package -- for example, `org.jspecify.annotations.Nullable` from "
+"JSpecify) or just leverage Kotlin's built-in null-safety support:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:465
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void setMovieFinder(@Nullable MovieFinder movieFinder) {\n"
+"\t\t\t...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:475
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tvar movieFinder: MovieFinder? = null\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:487
+msgid ""
+"You can also use `@Autowired` for interfaces that are well-known resolvable "
+"dependencies: `BeanFactory`, `ApplicationContext`, `Environment`, "
+"`ResourceLoader`, `ApplicationEventPublisher`, and `MessageSource`. These "
+"interfaces and their extended interfaces, such as "
+"`ConfigurableApplicationContext` or `ResourcePatternResolver`, are "
+"automatically resolved, with no special setup necessary. The following "
+"example autowires an `ApplicationContext` object:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:498
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate ApplicationContext context;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:501
+#, no-wrap
+msgid ""
+"\t\tpublic MovieRecommender() {\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:511
+#, no-wrap
+msgid "class MovieRecommender {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:514
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tlateinit var context: ApplicationContext\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:517
+#, no-wrap
+msgid ""
+"\t// ...\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:525
+msgid ""
+"The `@Autowired`, `@Inject`, `@Value`, and `@Resource` annotations are "
+"handled by Spring `BeanPostProcessor` implementations. This means that you "
+"cannot apply these annotations within your own `BeanPostProcessor` or "
+"`BeanFactoryPostProcessor` types (if any)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/autowired.adoc:527
+msgid ""
+"These types must be 'wired up' explicitly by using XML or a Spring `@Bean` "
+"method."
+msgstr ""

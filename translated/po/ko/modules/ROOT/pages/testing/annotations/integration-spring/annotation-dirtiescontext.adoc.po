@@ -1,0 +1,338 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:2
+#, no-wrap
+msgid "`@DirtiesContext`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:11
+msgid ""
+"`@DirtiesContext` indicates that the underlying Spring `ApplicationContext` "
+"has been dirtied during the execution of a test (that is, the test modified "
+"or corrupted it in some manner -- for example, by changing the state of a "
+"singleton bean) and should be closed. When an application context is marked "
+"as dirty, it is removed from the testing framework's cache and closed. As a "
+"consequence, the underlying Spring container is rebuilt for any subsequent "
+"test that requires a context with the same configuration metadata."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:20
+msgid ""
+"You can use `@DirtiesContext` as both a class-level and a method-level "
+"annotation within the same test class or test class hierarchy. In such "
+"scenarios, the `ApplicationContext` is marked as dirty before or after any "
+"such annotated method as well as before or after the current test class, "
+"depending on the configured `methodMode` and `classMode`. When "
+"`@DirtiesContext` is declared at both the class level and the method level, "
+"the configured modes from both annotations will be honored. For example, if "
+"the class mode is set to `BEFORE_EACH_TEST_METHOD` and the method mode is "
+"set to `AFTER_METHOD`, the context will be marked as dirty both before and "
+"after the given test method."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:23
+msgid ""
+"The following examples explain when the context would be dirtied for various "
+"configuration scenarios:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:26
+msgid ""
+"Before the current test class, when declared on a class with class mode set "
+"to `BEFORE_CLASS`."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:29
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:57
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:86
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:115
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:144
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:174
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:212
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:37
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:48
+#, no-wrap
+msgid ""
+"\t@DirtiesContext(classMode = BEFORE_CLASS) // <1>\n"
+"\tclass FreshContextTests {\n"
+"\t\t// some tests that require a new Spring container\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:39
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:50
+msgid "Dirty the context before the current test class."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:40
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:68
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:97
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:126
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:156
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:186
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:235
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:54
+msgid ""
+"After the current test class, when declared on a class with class mode set "
+"to `AFTER_CLASS` (i.e., the default class mode)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:65
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:76
+#, no-wrap
+msgid ""
+"\t@DirtiesContext // <1>\n"
+"\tclass ContextDirtyingTests {\n"
+"\t\t// some tests that result in the Spring container being dirtied\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:67
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:78
+msgid "Dirty the context after the current test class."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:83
+msgid ""
+"Before each test method in the current test class, when declared on a class "
+"with class mode set to `BEFORE_EACH_TEST_METHOD.`"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:94
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:105
+#, no-wrap
+msgid ""
+"\t@DirtiesContext(classMode = BEFORE_EACH_TEST_METHOD) // <1>\n"
+"\tclass FreshContextTests {\n"
+"\t\t// some tests that require a new Spring container\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:96
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:107
+msgid "Dirty the context before each test method."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:112
+msgid ""
+"After each test method in the current test class, when declared on a class "
+"with class mode set to `AFTER_EACH_TEST_METHOD.`"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:123
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:134
+#, no-wrap
+msgid ""
+"\t@DirtiesContext(classMode = AFTER_EACH_TEST_METHOD) // <1>\n"
+"\tclass ContextDirtyingTests {\n"
+"\t\t// some tests that result in the Spring container being dirtied\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:125
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:136
+msgid "Dirty the context after each test method."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:141
+msgid ""
+"Before the current test, when declared on a method with the method mode set "
+"to `BEFORE_METHOD`."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:153
+#, no-wrap
+msgid ""
+"\t@DirtiesContext(methodMode = BEFORE_METHOD) // <1>\n"
+"\t@Test\n"
+"\tvoid testProcessWhichRequiresFreshAppCtx() {\n"
+"\t\t// some logic that requires a new Spring container\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:155
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:167
+msgid "Dirty the context before the current test method."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:165
+#, no-wrap
+msgid ""
+"\t@DirtiesContext(methodMode = BEFORE_METHOD) // <1>\n"
+"\t@Test\n"
+"\tfun testProcessWhichRequiresFreshAppCtx() {\n"
+"\t\t// some logic that requires a new Spring container\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:171
+msgid ""
+"After the current test, when declared on a method with the method mode set "
+"to `AFTER_METHOD` (i.e., the default method mode)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:183
+#, no-wrap
+msgid ""
+"\t@DirtiesContext // <1>\n"
+"\t@Test\n"
+"\tvoid testProcessWhichDirtiesAppCtx() {\n"
+"\t\t// some logic that results in the Spring container being dirtied\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:185
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:197
+msgid "Dirty the context after the current test method."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:195
+#, no-wrap
+msgid ""
+"\t@DirtiesContext // <1>\n"
+"\t@Test\n"
+"\tfun testProcessWhichDirtiesAppCtx() {\n"
+"\t\t// some logic that results in the Spring container being dirtied\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:209
+msgid ""
+"If you use `@DirtiesContext` in a test whose context is configured as part "
+"of a context hierarchy with `@ContextHierarchy`, you can use the "
+"`hierarchyMode` flag to control how the context cache is cleared. By "
+"default, an exhaustive algorithm is used to clear the context cache, "
+"including not only the current level but also all other context hierarchies "
+"that share an ancestor context common to the current test. All "
+"`ApplicationContext` instances that reside in a sub-hierarchy of the common "
+"ancestor context are removed from the context cache and closed. If the "
+"exhaustive algorithm is overkill for a particular use case, you can specify "
+"the simpler current level algorithm, as the following example shows."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:223
+#, no-wrap
+msgid ""
+"\t@ContextHierarchy({\n"
+"\t\t@ContextConfiguration(\"/parent-config.xml\"),\n"
+"\t\t@ContextConfiguration(\"/child-config.xml\")\n"
+"\t})\n"
+"\tclass BaseTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:225
+#, no-wrap
+msgid "\tclass ExtendedTests extends BaseTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:232
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\t@DirtiesContext(hierarchyMode = CURRENT_LEVEL) // <1>\n"
+"\t\tvoid test() {\n"
+"\t\t\t// some logic that results in the child context being dirtied\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:234
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:256
+msgid "Use the current-level algorithm."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:245
+#, no-wrap
+msgid ""
+"\t@ContextHierarchy(\n"
+"\t\tContextConfiguration(\"/parent-config.xml\"),\n"
+"\t\tContextConfiguration(\"/child-config.xml\"))\n"
+"\topen class BaseTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:247
+#, no-wrap
+msgid "\tclass ExtendedTests : BaseTests() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:254
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\t@DirtiesContext(hierarchyMode = CURRENT_LEVEL) // <1>\n"
+"\t\tfun test() {\n"
+"\t\t\t// some logic that results in the child context being dirtied\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-dirtiescontext.adoc:261
+msgid ""
+"For further details regarding the `EXHAUSTIVE` and `CURRENT_LEVEL` "
+"algorithms, see the "
+"{spring-framework-api}/test/annotation/DirtiesContext.HierarchyMode.html[`DirtiesContext.HierarchyMode`] "
+"javadoc."
+msgstr ""

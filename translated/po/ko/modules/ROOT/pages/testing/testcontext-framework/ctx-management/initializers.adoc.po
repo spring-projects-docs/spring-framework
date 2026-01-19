@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:2
+#, no-wrap
+msgid "Context Configuration with Context Initializers"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:15
+msgid ""
+"To configure an `ApplicationContext` for your tests by using context "
+"initializers, annotate your test class with `@ContextConfiguration` and "
+"configure the `initializers` attribute with an array that contains "
+"references to classes that implement `ApplicationContextInitializer`. The "
+"declared context initializers are then used to initialize the "
+"`ConfigurableApplicationContext` that is loaded for your tests. Note that "
+"the concrete `ConfigurableApplicationContext` type supported by each "
+"declared initializer must be compatible with the type of "
+"`ApplicationContext` created by the `SmartContextLoader` in use (typically a "
+"`GenericApplicationContext`). Furthermore, the order in which the "
+"initializers are invoked depends on whether they implement Spring's "
+"`Ordered` interface or are annotated with Spring's `@Order` annotation or "
+"the standard `@Priority` annotation. The following example shows how to use "
+"initializers:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:18
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:60
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:31
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t// ApplicationContext will be loaded from TestConfig\n"
+"\t// and initialized by TestAppCtxInitializer\n"
+"\t@ContextConfiguration(\n"
+"\t\tclasses = TestConfig.class,\n"
+"\t\tinitializers = TestAppCtxInitializer.class) // <1>\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:33
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:49
+msgid "Specifying configuration by using a configuration class and an initializer."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:34
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:74
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:47
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t// ApplicationContext will be loaded from TestConfig\n"
+"\t// and initialized by TestAppCtxInitializer\n"
+"\t@ContextConfiguration(\n"
+"\t\t\tclasses = [TestConfig::class],\n"
+"\t\t\tinitializers = [TestAppCtxInitializer::class]) // <1>\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:57
+msgid ""
+"You can also omit the declaration of XML configuration files, Groovy "
+"scripts, or component classes in `@ContextConfiguration` entirely and "
+"instead declare only `ApplicationContextInitializer` classes, which are then "
+"responsible for registering beans in the context -- for example, by "
+"programmatically loading bean definitions from XML files or configuration "
+"classes. The following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:71
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t// ApplicationContext will be initialized by EntireAppInitializer\n"
+"\t// which presumably registers beans in the context\n"
+"\t@ContextConfiguration(initializers = EntireAppInitializer.class) <1>\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:73
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:87
+msgid "Specifying configuration by using only an initializer."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/initializers.adoc:85
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t// ApplicationContext will be initialized by EntireAppInitializer\n"
+"\t// which presumably registers beans in the context\n"
+"\t@ContextConfiguration(initializers = [EntireAppInitializer::class]) // "
+"<1>\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""

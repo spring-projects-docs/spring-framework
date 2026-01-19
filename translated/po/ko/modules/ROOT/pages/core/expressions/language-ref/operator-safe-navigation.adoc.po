@@ -1,0 +1,844 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:2
+#, no-wrap
+msgid "Safe Navigation Operator"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:10
+msgid ""
+"The safe navigation operator (`?.`) is used to avoid a "
+"`NullPointerException` and comes from the "
+"https://www.groovy-lang.org/operators.html#_safe_navigation_operator[Groovy] "
+"language. Typically, when you have a reference to an object, you might need "
+"to verify that it is not `null` before accessing methods or properties of "
+"the object. To avoid this, the safe navigation operator returns `null` for "
+"the particular null-safe operation instead of throwing an exception."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:16
+msgid ""
+"When the safe navigation operator evaluates to `null` for a particular "
+"null-safe operation within a compound expression, the remainder of the "
+"compound expression will still be evaluated."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:18
+msgid ""
+"See <<expressions-operator-safe-navigation-compound-expressions>> for "
+"details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:21
+#, no-wrap
+msgid "Safe Property and Method Access"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:25
+msgid ""
+"The following example shows how to use the safe navigation operator for "
+"property access (`?.`)."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:28
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:101
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:162
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:210
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:260
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:310
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:424
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:34
+#, no-wrap
+msgid ""
+"\tExpressionParser parser = new SpelExpressionParser();\n"
+"\tEvaluationContext context = "
+"SimpleEvaluationContext.forReadOnlyDataBinding().build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:37
+#, no-wrap
+msgid ""
+"\tInventor tesla = new Inventor(\"Nikola Tesla\", \"Serbian\");\n"
+"\ttesla.setPlaceOfBirth(new PlaceOfBirth(\"Smiljan\"));\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:41
+#, no-wrap
+msgid ""
+"\t// evaluates to \"Smiljan\"\n"
+"\tString city = parser.parseExpression(\"placeOfBirth?.city\") // <1>\n"
+"\t\t\t.getValue(context, tesla, String.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:43
+#, no-wrap
+msgid "\ttesla.setPlaceOfBirth(null);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:47
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw NullPointerException\n"
+"\tcity = parser.parseExpression(\"placeOfBirth?.city\") // <2>\n"
+"\t\t\t.getValue(context, tesla, String.class);\t\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:49
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:72
+msgid "Use safe navigation operator on non-null `placeOfBirth` property"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:50
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:73
+msgid "Use safe navigation operator on null `placeOfBirth` property"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:51
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:122
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:183
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:232
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:282
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:331
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:445
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:57
+#, no-wrap
+msgid ""
+"\tval parser = SpelExpressionParser()\n"
+"\tval context = SimpleEvaluationContext.forReadOnlyDataBinding().build()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:60
+#, no-wrap
+msgid ""
+"\tval tesla = Inventor(\"Nikola Tesla\", \"Serbian\")\n"
+"\ttesla.setPlaceOfBirth(PlaceOfBirth(\"Smiljan\"))\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:64
+#, no-wrap
+msgid ""
+"\t// evaluates to \"Smiljan\"\n"
+"\tvar city = parser.parseExpression(\"placeOfBirth?.city\") // <1>\n"
+"\t\t\t.getValue(context, tesla, String::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:66
+#, no-wrap
+msgid "\ttesla.setPlaceOfBirth(null)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:70
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw NullPointerException\n"
+"\tcity = parser.parseExpression(\"placeOfBirth?.city\") // <2>\n"
+"\t\t\t.getValue(context, tesla, String::class.java)\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:78
+msgid ""
+"The safe navigation operator also applies to method invocations on an "
+"object."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:82
+msgid ""
+"For example, the expression `#calculator?.max(4, 2)` evaluates to `null` if "
+"the `#calculator` variable has not been configured in the "
+"context. Otherwise, the `max(int, int)` method will be invoked on the "
+"`#calculator`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:85
+#, no-wrap
+msgid "Safe Index Access"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:89
+msgid ""
+"Since Spring Framework 6.2, the Spring Expression Language supports safe "
+"navigation for indexing into the following types of structures."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:91
+msgid ""
+"xref:core/expressions/language-ref/properties-arrays.adoc#expressions-indexing-arrays-and-collections[arrays "
+"and collections]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:92
+msgid "xref:core/expressions/language-ref/properties-arrays.adoc#expressions-indexing-strings[strings]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:93
+msgid "xref:core/expressions/language-ref/properties-arrays.adoc#expressions-indexing-maps[maps]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:94
+msgid "xref:core/expressions/language-ref/properties-arrays.adoc#expressions-indexing-objects[objects]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:95
+msgid "xref:core/expressions/language-ref/properties-arrays.adoc#expressions-indexing-custom[custom]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:98
+msgid ""
+"The following example shows how to use the safe navigation operator for "
+"indexing into a list (`?.[]`)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:108
+#, no-wrap
+msgid ""
+"\tExpressionParser parser = new SpelExpressionParser();\n"
+"\tIEEE society = new IEEE();\n"
+"\tEvaluationContext context = new StandardEvaluationContext(society);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:112
+#, no-wrap
+msgid ""
+"\t// evaluates to Inventor(\"Nikola Tesla\")\n"
+"\tInventor inventor = parser.parseExpression(\"members?.[0]\") // <1>\n"
+"\t\t\t.getValue(context, Inventor.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:114
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:176
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:225
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:275
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:323
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:438
+#, no-wrap
+msgid "\tsociety.members = null;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:118
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw an exception\n"
+"\tinventor = parser.parseExpression(\"members?.[0]\") // <2>\n"
+"\t\t\t.getValue(context, Inventor.class);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:120
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:141
+msgid "Use null-safe index operator on a non-null `members` list"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:121
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:142
+msgid "Use null-safe index operator on a null `members` list"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:129
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:338
+#, no-wrap
+msgid ""
+"\tval parser = SpelExpressionParser()\n"
+"\tval society = IEEE()\n"
+"\tval context = StandardEvaluationContext(society)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:133
+#, no-wrap
+msgid ""
+"\t// evaluates to Inventor(\"Nikola Tesla\")\n"
+"\tvar inventor = parser.parseExpression(\"members?.[0]\") // <1>\n"
+"\t\t\t.getValue(context, Inventor::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:135
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:197
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:247
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:297
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:344
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:459
+#, no-wrap
+msgid "\tsociety.members = null\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:139
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw an exception\n"
+"\tinventor = parser.parseExpression(\"members?.[0]\") // <2>\n"
+"\t\t\t.getValue(context, Inventor::class.java)\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:145
+#, no-wrap
+msgid "Safe Collection Selection and Projection"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:151
+msgid ""
+"The Spring Expression Language supports safe navigation for "
+"xref:core/expressions/language-ref/collection-selection.adoc[collection "
+"selection] and "
+"xref:core/expressions/language-ref/collection-projection.adoc[collection "
+"projection] via the following operators."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:153
+msgid "null-safe selection: `?.?`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:154
+msgid "null-safe select first: `?.^`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:155
+msgid "null-safe select last: `?.$`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:156
+msgid "null-safe projection: `?.!`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:159
+msgid ""
+"The following example shows how to use the safe navigation operator for "
+"collection selection (`?.?`)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:170
+#, no-wrap
+msgid ""
+"\tExpressionParser parser = new SpelExpressionParser();\n"
+"\tIEEE society = new IEEE();\n"
+"\tStandardEvaluationContext context = new "
+"StandardEvaluationContext(society);\n"
+"\tString expression = \"members?.?[nationality == 'Serbian']\"; // <1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:174
+#, no-wrap
+msgid ""
+"\t// evaluates to [Inventor(\"Nikola Tesla\")]\n"
+"\tList<Inventor> list = (List<Inventor>) "
+"parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:180
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw a NullPointerException\n"
+"\tlist = (List<Inventor>) parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:182
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:203
+msgid "Use null-safe selection operator on potentially null `members` list"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:191
+#, no-wrap
+msgid ""
+"\tval parser = SpelExpressionParser()\n"
+"\tval society = IEEE()\n"
+"\tval context = StandardEvaluationContext(society)\n"
+"\tval expression = \"members?.?[nationality == 'Serbian']\" // <1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:195
+#, no-wrap
+msgid ""
+"\t// evaluates to [Inventor(\"Nikola Tesla\")]\n"
+"\tvar list = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context) as List<Inventor>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:201
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw a NullPointerException\n"
+"\tlist = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context) as List<Inventor>\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:207
+msgid ""
+"The following example shows how to use the \"null-safe select first\" "
+"operator for collections (`?.^`)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:219
+#, no-wrap
+msgid ""
+"\tExpressionParser parser = new SpelExpressionParser();\n"
+"\tIEEE society = new IEEE();\n"
+"\tStandardEvaluationContext context = new "
+"StandardEvaluationContext(society);\n"
+"\tString expression =\n"
+"\t\t\"members?.^[nationality == 'Serbian' || nationality == 'Idvor']\"; // "
+"<1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:223
+#, no-wrap
+msgid ""
+"\t// evaluates to Inventor(\"Nikola Tesla\")\n"
+"\tInventor inventor = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, Inventor.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:229
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:279
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw a NullPointerException\n"
+"\tinventor = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, Inventor.class);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:231
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:253
+msgid "Use \"null-safe select first\" operator on potentially null `members` list"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:241
+#, no-wrap
+msgid ""
+"\tval parser = SpelExpressionParser()\n"
+"\tval society = IEEE()\n"
+"\tval context = StandardEvaluationContext(society)\n"
+"\tval expression =\n"
+"\t\t\"members?.^[nationality == 'Serbian' || nationality == 'Idvor']\" // "
+"<1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:245
+#, no-wrap
+msgid ""
+"\t// evaluates to Inventor(\"Nikola Tesla\")\n"
+"\tvar inventor = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, Inventor::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:251
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:301
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw a NullPointerException\n"
+"\tinventor = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, Inventor::class.java)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:257
+msgid ""
+"The following example shows how to use the \"null-safe select last\" "
+"operator for collections (`?.$`)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:269
+#, no-wrap
+msgid ""
+"\tExpressionParser parser = new SpelExpressionParser();\n"
+"\tIEEE society = new IEEE();\n"
+"\tStandardEvaluationContext context = new "
+"StandardEvaluationContext(society);\n"
+"\tString expression =\n"
+"\t\t\"members?.$[nationality == 'Serbian' || nationality == 'Idvor']\"; // "
+"<1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:273
+#, no-wrap
+msgid ""
+"\t// evaluates to Inventor(\"Pupin\")\n"
+"\tInventor inventor = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, Inventor.class);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:281
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:303
+msgid "Use \"null-safe select last\" operator on potentially null `members` list"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:291
+#, no-wrap
+msgid ""
+"\tval parser = SpelExpressionParser()\n"
+"\tval society = IEEE()\n"
+"\tval context = StandardEvaluationContext(society)\n"
+"\tval expression =\n"
+"\t\t\"members?.$[nationality == 'Serbian' || nationality == 'Idvor']\" // "
+"<1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:295
+#, no-wrap
+msgid ""
+"\t// evaluates to Inventor(\"Pupin\")\n"
+"\tvar inventor = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, Inventor::class.java)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:307
+msgid ""
+"The following example shows how to use the safe navigation operator for "
+"collection projection (`?.!`)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:317
+#, no-wrap
+msgid ""
+"\tExpressionParser parser = new SpelExpressionParser();\n"
+"\tIEEE society = new IEEE();\n"
+"\tStandardEvaluationContext context = new "
+"StandardEvaluationContext(society);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:321
+#, no-wrap
+msgid ""
+"\t// evaluates to [\"Smiljan\", \"Idvor\"]\n"
+"\tList placesOfBirth = "
+"parser.parseExpression(\"members?.![placeOfBirth.city]\") // <1>\n"
+"\t\t\t.getValue(context, List.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:327
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw a NullPointerException\n"
+"\tplacesOfBirth = parser.parseExpression(\"members?.![placeOfBirth.city]\") "
+"// <2>\n"
+"\t\t\t.getValue(context, List.class);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:329
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:350
+msgid "Use null-safe projection operator on non-null `members` list"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:330
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:351
+msgid "Use null-safe projection operator on null `members` list"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:342
+#, no-wrap
+msgid ""
+"\t// evaluates to [\"Smiljan\", \"Idvor\"]\n"
+"\tvar placesOfBirth = "
+"parser.parseExpression(\"members?.![placeOfBirth.city]\") // <1>\n"
+"\t\t\t.getValue(context, List::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:348
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw a NullPointerException\n"
+"\tplacesOfBirth = parser.parseExpression(\"members?.![placeOfBirth.city]\") "
+"// <2>\n"
+"\t\t\t.getValue(context, List::class.java)\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:354
+#, no-wrap
+msgid "Null-safe Operations on `Optional`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:358
+msgid ""
+"As of Spring Framework 7.0, null-safe operations are supported on instances "
+"of `java.util.Optional` with transparent unwrapping semantics."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:364
+msgid ""
+"Specifically, when a null-safe operator is applied to an _empty_ `Optional`, "
+"it will be treated as if the `Optional` were `null`, and the subsequent "
+"operation will evaluate to `null`. However, if a null-safe operator is "
+"applied to a non-empty `Optional`, the subsequent operation will be applied "
+"to the object contained in the `Optional`, thereby effectively unwrapping "
+"the `Optional`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:369
+msgid ""
+"For example, if `user` is of type `Optional<User>`, the expression "
+"`user?.name` will evaluate to `null` if `user` is either `null` or an "
+"_empty_ `Optional` and will otherwise evaluate to the `name` of the `user`, "
+"effectively `user.get().getName()` or `user.get().name` for property or "
+"field access, respectively."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:377
+msgid ""
+"Invocations of methods defined in the `Optional` API are still supported on "
+"an _empty_ `Optional`. For example, if `name` is of type `Optional<String>`, "
+"the expression `name?.orElse('Unknown')` will evaluate to `\"Unknown\"` if "
+"`name` is an empty `Optional` and will otherwise evaluate to the `String` "
+"contained in the `Optional` if `name` is a non-empty `Optional`, effectively "
+"`name.get()`."
+msgstr ""
+
+#.  NOTE: &#8288; is the Unicode Character 'WORD JOINER', which prevents undesired line wraps.
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:386
+msgid ""
+"Similarly, if `names` is of type `Optional<List<String>>`, the expression "
+"`names?.?&#8288;[#this.length > 5]` will evaluate to `null` if `names` is "
+"`null` or an _empty_ `Optional` and will otherwise evaluate to a sequence "
+"containing the names whose lengths are greater than 5, effectively "
+"`names.get().stream().filter(s -> s.length() > 5).toList()`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:389
+msgid ""
+"The same semantics apply to all of the null-safe operators mentioned "
+"previously in this chapter."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:391
+msgid ""
+"For further details and examples, consult the javadoc for the following "
+"operators."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:393
+msgid "{spring-framework-api}/expression/spel/ast/PropertyOrFieldReference.html[`PropertyOrFieldReference`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:394
+msgid "{spring-framework-api}/expression/spel/ast/MethodReference.html[`MethodReference`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:395
+msgid "{spring-framework-api}/expression/spel/ast/Indexer.html[`Indexer`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:396
+msgid "{spring-framework-api}/expression/spel/ast/Selection.html[`Selection`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:397
+msgid "{spring-framework-api}/expression/spel/ast/Projection.html[`Projection`]"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:399
+#, no-wrap
+msgid "Null-safe Operations in Compound Expressions"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:406
+msgid ""
+"As mentioned at the beginning of this section, when the safe navigation "
+"operator evaluates to `null` for a particular null-safe operation within a "
+"compound expression, the remainder of the compound expression will still be "
+"evaluated. This means that the safe navigation operator must be applied "
+"throughout a compound expression in order to avoid any unwanted "
+"`NullPointerException`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:414
+msgid ""
+"Given the expression `#person?.address.city`, if `#person` is `null` the "
+"safe navigation operator (`?.`) ensures that no exception will be thrown "
+"when attempting to access the `address` property of `#person`. However, "
+"since `#person?.address` evaluates to `null`, a `NullPointerException` will "
+"be thrown when attempting to access the `city` property of `null`. To "
+"address that, you can apply null-safe navigation throughout the compound "
+"expression as in `#person?.address?.city`. That expression will safely "
+"evaluate to `null` if either `#person` or `#person?.address` evaluates to "
+"`null`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:421
+msgid ""
+"The following example demonstrates how to use the \"null-safe select first\" "
+"operator (`?.^`) on a collection combined with null-safe property access "
+"(`?.`) within a compound expression. If `members` is `null`, the result of "
+"the \"null-safe select first\" operator (`members?.^[nationality == "
+"'Serbian']`) evaluates to `null`, and the additional use of the safe "
+"navigation operator (`?.name`) ensures that the entire compound expression "
+"evaluates to `null` instead of throwing an exception."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:432
+#, no-wrap
+msgid ""
+"\tExpressionParser parser = new SpelExpressionParser();\n"
+"\tIEEE society = new IEEE();\n"
+"\tStandardEvaluationContext context = new "
+"StandardEvaluationContext(society);\n"
+"\tString expression = \"members?.^[nationality == 'Serbian']?.name\"; // "
+"<1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:436
+#, no-wrap
+msgid ""
+"\t// evaluates to \"Nikola Tesla\"\n"
+"\tString name = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, String.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:442
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw a NullPointerException\n"
+"\tname = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, String.class);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:444
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:465
+msgid ""
+"Use \"null-safe select first\" and null-safe property access operators "
+"within compound expression."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:453
+#, no-wrap
+msgid ""
+"\tval parser = SpelExpressionParser()\n"
+"\tval society = IEEE()\n"
+"\tval context = StandardEvaluationContext(society)\n"
+"\tval expression = \"members?.^[nationality == 'Serbian']?.name\" // <1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:457
+#, no-wrap
+msgid ""
+"\t// evaluates to \"Nikola Tesla\"\n"
+"\tString name = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, String::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-safe-navigation.adoc:463
+#, no-wrap
+msgid ""
+"\t// evaluates to null - does not throw a NullPointerException\n"
+"\tname = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, String::class.java)\n"
+msgstr ""

@@ -1,0 +1,35 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/authorization.adoc:2
+#, no-wrap
+msgid "Authorization"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/authorization.adoc:10
+msgid ""
+"Spring Security provides "
+"{docs-spring-security}/servlet/integrations/websocket.html#websocket-authorization[WebSocket "
+"sub-protocol authorization] that uses a `ChannelInterceptor` to authorize "
+"messages based on the user header in them.  Also, Spring Session provides "
+"{docs-spring-session}/web-socket.html[WebSocket integration] that ensures "
+"the user's HTTP session does not expire while the WebSocket session is still "
+"active."
+msgstr ""

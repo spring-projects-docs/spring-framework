@@ -1,0 +1,372 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:2
+#, no-wrap
+msgid "`TestExecutionListener` Configuration"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:6
+msgid ""
+"Spring provides the following `TestExecutionListener` implementations that "
+"are registered by default, exactly in the following order:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:9
+msgid ""
+"`ServletTestExecutionListener`: Configures Servlet API mocks for a "
+"`WebApplicationContext`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:11
+msgid ""
+"`DirtiesContextBeforeModesTestExecutionListener`: Handles the "
+"`@DirtiesContext` annotation for \"before\" modes."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:13
+msgid ""
+"`ApplicationEventsTestExecutionListener`: Provides support for "
+"xref:testing/testcontext-framework/application-events.adoc[`ApplicationEvents`]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:15
+msgid ""
+"`BeanOverrideTestExecutionListener`: Provides support for "
+"xref:testing/testcontext-framework/bean-overriding.adoc[]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:17
+msgid ""
+"`DependencyInjectionTestExecutionListener`: Provides dependency injection "
+"for the test instance."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:19
+msgid ""
+"`MicrometerObservationRegistryTestExecutionListener`: Provides support for "
+"Micrometer's `ObservationRegistry`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:21
+msgid ""
+"`DirtiesContextTestExecutionListener`: Handles the `@DirtiesContext` "
+"annotation for \"after\" modes."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:23
+msgid ""
+"`CommonCachesTestExecutionListener`: Clears resource caches in the test's "
+"`ApplicationContext` if necessary."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:25
+msgid ""
+"`TransactionalTestExecutionListener`: Provides transactional test execution "
+"with default rollback semantics."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:27
+msgid ""
+"`SqlScriptsTestExecutionListener`: Runs SQL scripts configured by using the "
+"`@Sql` annotation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:29
+msgid ""
+"`EventPublishingTestExecutionListener`: Publishes test execution events to "
+"the test's `ApplicationContext` (see "
+"xref:testing/testcontext-framework/test-execution-events.adoc[Test Execution "
+"Events])."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:30
+msgid ""
+"`MockitoResetTestExecutionListener`: Resets mocks as configured by "
+"`@MockitoBean` or `@MockitoSpyBean`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:33
+#, no-wrap
+msgid "Registering `TestExecutionListener` Implementations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:40
+msgid ""
+"You can register `TestExecutionListener` implementations explicitly for a "
+"test class, its subclasses, and its nested classes by using the "
+"`@TestExecutionListeners` annotation. See "
+"xref:testing/annotations.adoc[annotation support] and the javadoc for "
+"{spring-framework-api}/test/context/TestExecutionListeners.html[`@TestExecutionListeners`] "
+"for details and examples."
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:41
+#, no-wrap
+msgid "Switching to default `TestExecutionListener` implementations"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:47
+msgid ""
+"If you extend a class that is annotated with `@TestExecutionListeners` and "
+"you need to switch to using the default set of listeners, you can annotate "
+"your class with the following."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:50
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:124
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:192
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:62
+#, no-wrap
+msgid ""
+"\t// Switch to default listeners\n"
+"\t@TestExecutionListeners(\n"
+"\t\tlisteners = {},\n"
+"\t\tinheritListeners = false,\n"
+"\t\tmergeMode = MERGE_WITH_DEFAULTS)\n"
+"\tclass MyTest extends BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:64
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:143
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:206
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:76
+#, no-wrap
+msgid ""
+"\t// Switch to default listeners\n"
+"\t@TestExecutionListeners(\n"
+"\t\tlisteners = [],\n"
+"\t\tinheritListeners = false,\n"
+"\t\tmergeMode = MERGE_WITH_DEFAULTS)\n"
+"\tclass MyTest : BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:82
+#, no-wrap
+msgid "Automatic Discovery of Default `TestExecutionListener` Implementations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:89
+msgid ""
+"Registering `TestExecutionListener` implementations by using "
+"`@TestExecutionListeners` is suitable for custom listeners that are used in "
+"limited testing scenarios. However, it can become cumbersome if a custom "
+"listener needs to be used across an entire test suite. This issue is "
+"addressed through support for automatic discovery of default "
+"`TestExecutionListener` implementations through the `SpringFactoriesLoader` "
+"mechanism."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:96
+msgid ""
+"For example, the `spring-test` module declares all core default "
+"`TestExecutionListener` implementations under the "
+"`org.springframework.test.context.TestExecutionListener` key in its "
+"{spring-framework-code}/spring-test/src/main/resources/META-INF/spring.factories[`META-INF/spring.factories` "
+"properties file]. Third-party frameworks and developers can contribute their "
+"own `TestExecutionListener` implementations to the list of default listeners "
+"in the same manner through their own `spring.factories` files."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:99
+#, no-wrap
+msgid "Ordering `TestExecutionListener` Implementations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:112
+msgid ""
+"When the TestContext framework discovers default `TestExecutionListener` "
+"implementations through the "
+"xref:testing/testcontext-framework/tel-config.adoc#testcontext-tel-config-automatic-discovery[aforementioned] "
+"`SpringFactoriesLoader` mechanism, the instantiated listeners are sorted by "
+"using Spring's `AnnotationAwareOrderComparator`, which honors Spring's "
+"`Ordered` interface and `@Order` annotation for "
+"ordering. `AbstractTestExecutionListener` and all default "
+"`TestExecutionListener` implementations provided by Spring implement "
+"`Ordered` with appropriate values. Third-party frameworks and developers "
+"should therefore make sure that their default `TestExecutionListener` "
+"implementations are registered in the proper order by implementing `Ordered` "
+"or declaring `@Order`. See the javadoc for the `getOrder()` methods of the "
+"core default `TestExecutionListener` implementations for details on what "
+"values are assigned to each core listener."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:115
+#, no-wrap
+msgid "Merging `TestExecutionListener` Implementations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:121
+msgid ""
+"If a custom `TestExecutionListener` is registered via "
+"`@TestExecutionListeners`, the default listeners are not registered. In most "
+"common testing scenarios, this effectively forces the developer to manually "
+"declare all default listeners in addition to any custom listeners. The "
+"following listing demonstrates this style of configuration:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:141
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration\n"
+"\t@TestExecutionListeners({\n"
+"\t\tMyCustomTestExecutionListener.class,\n"
+"\t\tServletTestExecutionListener.class,\n"
+"\t\tDirtiesContextBeforeModesTestExecutionListener.class,\n"
+"\t\tDependencyInjectionTestExecutionListener.class,\n"
+"\t\tDirtiesContextTestExecutionListener.class,\n"
+"\t\tTransactionalTestExecutionListener.class,\n"
+"\t\tSqlScriptsTestExecutionListener.class\n"
+"\t})\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:160
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration\n"
+"\t@TestExecutionListeners(\n"
+"\t\tMyCustomTestExecutionListener::class,\n"
+"\t\tServletTestExecutionListener::class,\n"
+"\t\tDirtiesContextBeforeModesTestExecutionListener::class,\n"
+"\t\tDependencyInjectionTestExecutionListener::class,\n"
+"\t\tDirtiesContextTestExecutionListener::class,\n"
+"\t\tTransactionalTestExecutionListener::class,\n"
+"\t\tSqlScriptsTestExecutionListener::class\n"
+"\t)\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:171
+msgid ""
+"The challenge with this approach is that it requires that the developer know "
+"exactly which listeners are registered by default. Moreover, the set of "
+"default listeners can change from release to release -- for example, "
+"`SqlScriptsTestExecutionListener` was introduced in Spring Framework 4.1, "
+"and `DirtiesContextBeforeModesTestExecutionListener` was introduced in "
+"Spring Framework 4.2. Furthermore, third-party frameworks like Spring Boot "
+"and Spring Security register their own default `TestExecutionListener` "
+"implementations by using the aforementioned "
+"xref:testing/testcontext-framework/tel-config.adoc#testcontext-tel-config-automatic-discovery[automatic "
+"discovery mechanism]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:182
+msgid ""
+"To avoid having to be aware of and re-declare all default listeners, you can "
+"set the `mergeMode` attribute of `@TestExecutionListeners` to "
+"`MergeMode.MERGE_WITH_DEFAULTS`.  `MERGE_WITH_DEFAULTS` indicates that "
+"locally declared listeners should be merged with the default listeners. The "
+"merging algorithm ensures that duplicates are removed from the list and that "
+"the resulting set of merged listeners is sorted according to the semantics "
+"of `AnnotationAwareOrderComparator`, as described in "
+"xref:testing/testcontext-framework/tel-config.adoc#testcontext-tel-config-ordering[Ordering "
+"`TestExecutionListener` Implementations].  If a listener implements "
+"`Ordered` or is annotated with `@Order`, it can influence the position in "
+"which it is merged with the defaults. Otherwise, locally declared listeners "
+"are appended to the list of default listeners when merged."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:189
+msgid ""
+"For example, if the `MyCustomTestExecutionListener` class in the previous "
+"example configures its `order` value (for example, `500`) to be less than "
+"the order of the `ServletTestExecutionListener` (which happens to be "
+"`1000`), the `MyCustomTestExecutionListener` can then be automatically "
+"merged with the list of defaults in front of the "
+"`ServletTestExecutionListener`, and the previous example could be replaced "
+"with the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:204
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration\n"
+"\t@TestExecutionListeners(\n"
+"\t\tlisteners = MyCustomTestExecutionListener.class,\n"
+"\t\tmergeMode = MERGE_WITH_DEFAULTS\n"
+"\t)\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tel-config.adoc:218
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration\n"
+"\t@TestExecutionListeners(\n"
+"\t\t\tlisteners = [MyCustomTestExecutionListener::class],\n"
+"\t\t\tmergeMode = MERGE_WITH_DEFAULTS\n"
+"\t)\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""

@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:2
+#, no-wrap
+msgid "`@RequestHeader`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-methods/requestheader.adoc[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:8
+msgid ""
+"You can use the `@RequestHeader` annotation to bind a request header to a "
+"method argument in a controller."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:10
+msgid "The following example shows a request with headers:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:20
+#, no-wrap
+msgid ""
+"Host                    localhost:8080\n"
+"Accept                  "
+"text/html,application/xhtml+xml,application/xml;q=0.9\n"
+"Accept-Language         fr,en-gb;q=0.7,en;q=0.3\n"
+"Accept-Encoding         gzip,deflate\n"
+"Accept-Charset          ISO-8859-1,utf-8;q=0.7,*;q=0.7\n"
+"Keep-Alive              300\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:23
+msgid ""
+"The following example gets the value of the `Accept-Encoding` and "
+"`Keep-Alive` headers:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:26
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:36
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/demo\")\n"
+"\tpublic void handle(\n"
+"\t\t\t@RequestHeader(\"Accept-Encoding\") String encoding, // <1>\n"
+"\t\t\t@RequestHeader(\"Keep-Alive\") long keepAlive) { // <2>\n"
+"\t\t//...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:38
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:52
+msgid "Get the value of the `Accept-Encoding` header."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:39
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:53
+msgid "Get the value of the `Keep-Alive` header."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:40
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:50
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/demo\")\n"
+"\tfun handle(\n"
+"\t\t\t@RequestHeader(\"Accept-Encoding\") encoding: String, // <1>\n"
+"\t\t\t@RequestHeader(\"Keep-Alive\") keepAlive: Long) { // <2>\n"
+"\t\t//...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:57
+msgid ""
+"Type conversion is applied automatically if the target method parameter type "
+"is not `String`. See "
+"xref:web/webflux/controller/ann-methods/typeconversion.adoc[Type "
+"Conversion]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:61
+msgid ""
+"When a `@RequestHeader` annotation is used on a `Map<String, String>`, "
+"`MultiValueMap<String, String>`, or `HttpHeaders` argument, the map is "
+"populated with all header values."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestheader.adoc:65
+msgid ""
+"Built-in support is available for converting a comma-separated string into "
+"an array or collection of strings or other types known to the type "
+"conversion system. For example, a method parameter annotated with "
+"`@RequestHeader(\"Accept\")` may be of type `String` but also of `String[]` "
+"or `List<String>`."
+msgstr ""

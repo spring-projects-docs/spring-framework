@@ -1,0 +1,528 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:2
+#, no-wrap
+msgid "Context Hierarchies"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:15
+msgid ""
+"When writing integration tests that rely on a loaded Spring "
+"`ApplicationContext`, it is often sufficient to test against a single "
+"context. However, there are times when it is beneficial or even necessary to "
+"test against a hierarchy of `ApplicationContext` instances. For example, if "
+"you are developing a Spring MVC web application, you typically have a root "
+"`WebApplicationContext` loaded by Spring's `ContextLoaderListener` and a "
+"child `WebApplicationContext` loaded by Spring's `DispatcherServlet`. This "
+"results in a parent-child context hierarchy where shared components and "
+"infrastructure configuration are declared in the root context and consumed "
+"in the child context by web-specific components. Another use case can be "
+"found in Spring Batch applications, where you often have a parent context "
+"that provides configuration for shared batch infrastructure and a child "
+"context for the configuration of a specific batch job."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:24
+msgid ""
+"You can write integration tests that use context hierarchies by declaring "
+"context configuration with the `@ContextHierarchy` annotation, either on an "
+"individual test class or within a test class hierarchy. If a context "
+"hierarchy is declared on multiple classes within a test class hierarchy, you "
+"can also merge or override the context configuration for a specific, named "
+"level in the context hierarchy. When merging configuration for a given level "
+"in the hierarchy, the configuration resource type (that is, XML "
+"configuration files or component classes) must be consistent. Otherwise, it "
+"is perfectly acceptable to have different levels in a context hierarchy "
+"configured using different resource types."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:30
+msgid ""
+"If you use `@DirtiesContext` in a test whose context is configured as part "
+"of a context hierarchy, you can use the `hierarchyMode` flag to control how "
+"the context cache is cleared."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:34
+msgid ""
+"For further details, see the discussion of `@DirtiesContext` in "
+"xref:testing/annotations/integration-spring/annotation-dirtiescontext.adoc[Spring "
+"Testing Annotations] and the "
+"{spring-framework-api}/test/annotation/DirtiesContext.html[`@DirtiesContext`] "
+"javadoc."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:38
+msgid ""
+"The JUnit Jupiter based examples in this section show common configuration "
+"scenarios for integration tests that require the use of context hierarchies."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:40
+#, no-wrap
+msgid "**Single test class with context hierarchy**\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:48
+msgid ""
+"`ControllerIntegrationTests` represents a typical integration testing "
+"scenario for a Spring MVC web application by declaring a context hierarchy "
+"that consists of two levels, one for the root `WebApplicationContext` "
+"(loaded by using the `TestAppConfig` `@Configuration` class) and one for the "
+"dispatcher servlet `WebApplicationContext` (loaded by using the `WebConfig` "
+"`@Configuration` class). The `WebApplicationContext` that is autowired into "
+"the test instance is the one for the child context (that is, the lowest "
+"context in the hierarchy). The following listing shows this configuration "
+"scenario:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:51
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:107
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:158
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:204
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:263
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:316
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:62
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t@WebAppConfiguration\n"
+"\t@ContextHierarchy({\n"
+"\t\t@ContextConfiguration(classes = TestAppConfig.class),\n"
+"\t\t@ContextConfiguration(classes = WebConfig.class)\n"
+"\t})\n"
+"\tclass ControllerIntegrationTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:65
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tWebApplicationContext wac;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:68
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:86
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:279
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:296
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:335
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:355
+#, no-wrap
+msgid ""
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:70
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:123
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:175
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:224
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:281
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:337
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:80
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t@WebAppConfiguration\n"
+"\t@ContextHierarchy(\n"
+"\t\tContextConfiguration(classes = [TestAppConfig::class]),\n"
+"\t\tContextConfiguration(classes = [WebConfig::class]))\n"
+"\tclass ControllerIntegrationTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:83
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var wac: WebApplicationContext\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:91
+#, no-wrap
+msgid "**Class hierarchy with implicit parent context**\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:104
+msgid ""
+"The test classes in this example define a context hierarchy within a test "
+"class hierarchy. `AbstractWebTests` declares the configuration for a root "
+"`WebApplicationContext` in a Spring-powered web application. Note, however, "
+"that `AbstractWebTests` does not declare `@ContextHierarchy`. Consequently, "
+"subclasses of `AbstractWebTests` can optionally participate in a context "
+"hierarchy or follow the standard semantics for "
+"`@ContextConfiguration`. `SoapWebServiceTests` and `RestWebServiceTests` "
+"both extend `AbstractWebTests` and define a context hierarchy by using "
+"`@ContextHierarchy`. The result is that three application contexts are "
+"loaded (one for each declaration of `@ContextConfiguration`), and the "
+"application context loaded based on the configuration in `AbstractWebTests` "
+"is set as the parent context for each of the contexts loaded for the "
+"concrete subclasses. The following listing shows this configuration "
+"scenario:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:115
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t@WebAppConfiguration\n"
+"\t@ContextConfiguration(\"file:src/main/webapp/WEB-INF/applicationContext.xml\")\n"
+"\tpublic abstract class AbstractWebTests {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:118
+#, no-wrap
+msgid ""
+"\t@ContextHierarchy(@ContextConfiguration(\"/spring/soap-ws-config.xml\"))\n"
+"\tpublic class SoapWebServiceTests extends AbstractWebTests {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:121
+#, no-wrap
+msgid ""
+"\t@ContextHierarchy(@ContextConfiguration(\"/spring/rest-ws-config.xml\"))\n"
+"\tpublic class RestWebServiceTests extends AbstractWebTests {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:131
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t@WebAppConfiguration\n"
+"\t@ContextConfiguration(\"file:src/main/webapp/WEB-INF/applicationContext.xml\")\n"
+"\tabstract class AbstractWebTests\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:134
+#, no-wrap
+msgid ""
+"\t@ContextHierarchy(ContextConfiguration(\"/spring/soap-ws-config.xml\"))\n"
+"\tclass SoapWebServiceTests : AbstractWebTests()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:137
+#, no-wrap
+msgid ""
+"\t@ContextHierarchy(ContextConfiguration(\"/spring/rest-ws-config.xml\"))\n"
+"\tclass RestWebServiceTests : AbstractWebTests()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:143
+#, no-wrap
+msgid "**Class hierarchy with merged context hierarchy configuration**\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:155
+msgid ""
+"The classes in this example show the use of named hierarchy levels in order "
+"to merge the configuration for specific levels in a context "
+"hierarchy. `BaseTests` defines two levels in the hierarchy, `parent` and "
+"`child`. `ExtendedTests` extends `BaseTests` and instructs the Spring "
+"TestContext Framework to merge the context configuration for the `child` "
+"hierarchy level, by ensuring that the names declared in the `name` attribute "
+"in `@ContextConfiguration` are both `child`. The result is that three "
+"application contexts are loaded: one for `/app-config.xml`, one for "
+"`/user-config.xml`, and one for `{\"/user-config.xml\", "
+"\"/order-config.xml\"}`. As with the previous example, the application "
+"context loaded from `/app-config.xml` is set as the parent context for the "
+"contexts loaded from `/user-config.xml` and `{\"/user-config.xml\", "
+"\"/order-config.xml\"}`.  The following listing shows this configuration "
+"scenario:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:168
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:214
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t@ContextHierarchy({\n"
+"\t\t@ContextConfiguration(name = \"parent\", locations = "
+"\"/app-config.xml\"),\n"
+"\t\t@ContextConfiguration(name = \"child\", locations = "
+"\"/user-config.xml\")\n"
+"\t})\n"
+"\tclass BaseTests {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:173
+#, no-wrap
+msgid ""
+"\t@ContextHierarchy(\n"
+"\t\t@ContextConfiguration(name = \"child\", locations = "
+"\"/order-config.xml\")\n"
+"\t)\n"
+"\tclass ExtendedTests extends BaseTests {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:184
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:233
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t@ContextHierarchy(\n"
+"\t\tContextConfiguration(name = \"parent\", locations = "
+"[\"/app-config.xml\"]),\n"
+"\t\tContextConfiguration(name = \"child\", locations = "
+"[\"/user-config.xml\"]))\n"
+"\topen class BaseTests {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:189
+#, no-wrap
+msgid ""
+"\t@ContextHierarchy(\n"
+"\t\tContextConfiguration(name = \"child\", locations = "
+"[\"/order-config.xml\"])\n"
+"\t)\n"
+"\tclass ExtendedTests : BaseTests() {}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:194
+#, no-wrap
+msgid "**Class hierarchy with overridden context hierarchy configuration**\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:201
+msgid ""
+"In contrast to the previous example, this example demonstrates how to "
+"override the configuration for a given named level in a context hierarchy by "
+"setting the `inheritLocations` flag in `@ContextConfiguration` to "
+"`false`. Consequently, the application context for `ExtendedTests` is loaded "
+"only from `/test-user-config.xml` and has its parent set to the context "
+"loaded from `/app-config.xml`. The following listing shows this "
+"configuration scenario:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:222
+#, no-wrap
+msgid ""
+"\t@ContextHierarchy(\n"
+"\t\t@ContextConfiguration(\n"
+"\t\t\tname = \"child\",\n"
+"\t\t\tlocations = \"/test-user-config.xml\",\n"
+"\t\t\tinheritLocations = false\n"
+"\t))\n"
+"\tclass ExtendedTests extends BaseTests {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:241
+#, no-wrap
+msgid ""
+"\t@ContextHierarchy(\n"
+"\t\t\tContextConfiguration(\n"
+"\t\t\t\t\tname = \"child\",\n"
+"\t\t\t\t\tlocations = [\"/test-user-config.xml\"],\n"
+"\t\t\t\t\tinheritLocations = false\n"
+"\t\t\t))\n"
+"\tclass ExtendedTests : BaseTests() {}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:247
+#, no-wrap
+msgid "**Context hierarchies with bean overrides**\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:254
+msgid ""
+"When `@ContextHierarchy` is used in conjunction with "
+"xref:testing/testcontext-framework/bean-overriding.adoc[bean overrides] such "
+"as `@TestBean`, `@MockitoBean`, or `@MockitoSpyBean`, it may be desirable or "
+"necessary to have the override applied to a single level in the context "
+"hierarchy. To achieve that, the bean override must specify a context name "
+"that matches a name configured via the `name` attribute in "
+"`@ContextConfiguration`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:260
+msgid ""
+"The following test class configures the name of the second hierarchy level "
+"to be `\"user-config\"` and simultaneously specifies that the `UserService` "
+"should be wrapped in a Mockito spy in the context named "
+"`\"user-config\"`. Consequently, Spring will only attempt to create the spy "
+"in the `\"user-config\"` context and will not attempt to create the spy in "
+"the parent context."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:273
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t@ContextHierarchy({\n"
+"\t\t@ContextConfiguration(classes = AppConfig.class),\n"
+"\t\t@ContextConfiguration(classes = UserConfig.class, name = "
+"\"user-config\")\n"
+"\t})\n"
+"\tclass IntegrationTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:276
+#, no-wrap
+msgid ""
+"\t\t@MockitoSpyBean(contextName = \"user-config\")\n"
+"\t\tUserService userService;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:290
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t@ContextHierarchy(\n"
+"\t\tContextConfiguration(classes = [AppConfig::class]),\n"
+"\t\tContextConfiguration(classes = [UserConfig::class], name = "
+"\"user-config\"))\n"
+"\tclass IntegrationTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:293
+#, no-wrap
+msgid ""
+"\t\t@MockitoSpyBean(contextName = \"user-config\")\n"
+"\t\tlateinit var userService: UserService\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:306
+msgid ""
+"When applying bean overrides in different levels of the context hierarchy, "
+"you may need to have all of the bean override instances injected into the "
+"test class in order to interact with them — for example, to configure "
+"stubbing for mocks. However, `@Autowired` will always inject a matching bean "
+"found in the lowest level of the context hierarchy.  Thus, to inject bean "
+"override instances from specific levels in the context hierarchy, you need "
+"to annotate fields with appropriate bean override annotations and configure "
+"the name of the context level."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:313
+msgid ""
+"The following test class configures the names of the hierarchy levels to be "
+"`\"parent\"` and `\"child\"`. It also declares two `PropertyService` fields "
+"that are configured to create or replace `PropertyService` beans with "
+"Mockito mocks in the respective contexts, named `\"parent\"` and "
+"`\"child\"`. Consequently, the mock from the `\"parent\"` context will be "
+"injected into the `propertyServiceInParent` field, and the mock from the "
+"`\"child\"` context will be injected into the `propertyServiceInChild` "
+"field."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:326
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t@ContextHierarchy({\n"
+"\t\t@ContextConfiguration(classes = ParentConfig.class, name = "
+"\"parent\"),\n"
+"\t\t@ContextConfiguration(classes = ChildConfig.class, name = \"child\")\n"
+"\t})\n"
+"\tclass IntegrationTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:329
+#, no-wrap
+msgid ""
+"\t\t@MockitoBean(contextName = \"parent\")\n"
+"\t\tPropertyService propertyServiceInParent;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:332
+#, no-wrap
+msgid ""
+"\t\t@MockitoBean(contextName = \"child\")\n"
+"\t\tPropertyService propertyServiceInChild;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:346
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t@ContextHierarchy(\n"
+"\t\tContextConfiguration(classes = [ParentConfig::class], name = "
+"\"parent\"),\n"
+"\t\tContextConfiguration(classes = [ChildConfig::class], name = "
+"\"child\"))\n"
+"\tclass IntegrationTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:349
+#, no-wrap
+msgid ""
+"\t\t@MockitoBean(contextName = \"parent\")\n"
+"\t\tlateinit var propertyServiceInParent: PropertyService\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/hierarchies.adoc:352
+#, no-wrap
+msgid ""
+"\t\t@MockitoBean(contextName = \"child\")\n"
+"\t\tlateinit var propertyServiceInChild: PropertyService\n"
+msgstr ""

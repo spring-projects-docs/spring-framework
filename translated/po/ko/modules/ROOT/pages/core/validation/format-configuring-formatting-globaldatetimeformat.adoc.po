@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/validation/format-configuring-formatting-globaldatetimeformat.adoc:2
+#, no-wrap
+msgid "Configuring a Global Date and Time Format"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/validation/format-configuring-formatting-globaldatetimeformat.adoc:7
+msgid ""
+"By default, date and time fields not annotated with `@DateTimeFormat` are "
+"converted from strings by using the `DateFormat.SHORT` style. If you prefer, "
+"you can change this by defining your own global format."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/validation/format-configuring-formatting-globaldatetimeformat.adoc:10
+msgid ""
+"To do that, ensure that Spring does not register default "
+"formatters. Instead, register formatters manually with the help of:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/validation/format-configuring-formatting-globaldatetimeformat.adoc:12
+msgid "`org.springframework.format.datetime.standard.DateTimeFormatterRegistrar`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/validation/format-configuring-formatting-globaldatetimeformat.adoc:13
+msgid "`org.springframework.format.datetime.DateFormatterRegistrar`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/validation/format-configuring-formatting-globaldatetimeformat.adoc:15
+msgid ""
+"For example, the following configuration registers a global `yyyyMMdd` "
+"format:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/validation/format-configuring-formatting-globaldatetimeformat.adoc:21
+msgid ""
+"Note there are extra considerations when configuring date and time formats "
+"in web applications. Please see "
+"xref:web/webmvc/mvc-config/conversion.adoc[WebMVC Conversion and Formatting] "
+"or xref:web/webflux/config.adoc#webflux-config-conversion[WebFlux Conversion "
+"and Formatting]."
+msgstr ""

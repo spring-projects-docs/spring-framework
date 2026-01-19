@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/failure-threshold.adoc:2
+#, no-wrap
+msgid "Context Failure Threshold"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/failure-threshold.adoc:15
+msgid ""
+"As of Spring Framework 6.1, a context _failure threshold_ policy is in place "
+"which helps avoid repeated attempts to load a failing "
+"`ApplicationContext`. By default, the failure threshold is set to `1` which "
+"means that only one attempt will be made to load an `ApplicationContext` for "
+"a given context cache key (see "
+"xref:testing/testcontext-framework/ctx-management/caching.adoc[Context "
+"Caching]). Any subsequent attempt to load the `ApplicationContext` for the "
+"same context cache key will result in an immediate `IllegalStateException` "
+"with an error message which explains that the attempt was preemptively "
+"skipped. This behavior allows individual test classes and test suites to "
+"fail faster by avoiding repeated attempts to load an `ApplicationContext` "
+"that will never successfully load -- for example, due to a configuration "
+"error or a missing external resource that prevents the context from loading "
+"in the current environment."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/failure-threshold.adoc:20
+msgid ""
+"You can configure the context failure threshold from the command line or a "
+"build script by setting a JVM system property named "
+"`spring.test.context.failure.threshold` with a positive integer value. As an "
+"alternative, you can set the same property via the "
+"xref:appendix.adoc#appendix-spring-properties[`SpringProperties`] mechanism."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/failure-threshold.adoc:23
+msgid ""
+"If you wish to effectively disable the context failure threshold, you can "
+"set the property to a very large value. For example, from the command line "
+"you could set the system property via "
+"`-Dspring.test.context.failure.threshold=1000000`."
+msgstr ""

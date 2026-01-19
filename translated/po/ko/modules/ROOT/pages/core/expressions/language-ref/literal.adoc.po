@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:2
+#, no-wrap
+msgid "Literal Expressions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:5
+msgid "SpEL supports the following types of literal expressions."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:6
+#, no-wrap
+msgid "String "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:12
+msgid ""
+"Strings can be delimited by single quotation marks (`'`) or double quotation "
+"marks (`\"`). To include a single quotation mark within a string literal "
+"enclosed in single quotation marks, use two adjacent single quotation mark "
+"characters. Similarly, to include a double quotation mark within a string "
+"literal enclosed in double quotation marks, use two adjacent double "
+"quotation mark characters."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:12
+#, no-wrap
+msgid "Number "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:14
+msgid ""
+"Numbers support the use of the negative sign, exponential notation, and "
+"decimal points."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:15
+msgid "Integer: `int` or `long`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:16
+msgid "Hexadecimal: `int` or `long`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:17
+msgid "Real: `float` or `double`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:18
+msgid "By default, real numbers are parsed using `Double.parseDouble()`."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:18
+#, no-wrap
+msgid "Boolean "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:20
+msgid "`true` or `false`"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:20
+#, no-wrap
+msgid "Null "
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:22
+msgid "`null`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:27
+msgid ""
+"Due to the design and implementation of the Spring Expression Language, "
+"literal numbers are always stored internally as positive numbers."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:30
+msgid ""
+"For example, `-2` is stored internally as a positive `2` which is then "
+"negated while evaluating the expression (by calculating the value of `0 - "
+"2`)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:37
+msgid ""
+"This means that it is not possible to represent a negative literal number "
+"equal to the minimum value of that type of number in Java. For example, the "
+"minimum supported value for an `int` in Java is `Integer.MIN_VALUE` which "
+"has a value of `-2147483648`. However, if you include `-2147483648` in a "
+"SpEL expression, an exception will be thrown informing you that the value "
+"`2147483648` cannot be parsed as an `int` (because it exceeds the value of "
+"`Integer.MAX_VALUE` which is `2147483647`)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:42
+msgid ""
+"If you need to use the minimum value for a particular type of number within "
+"a SpEL expression, you can either reference the `MIN_VALUE` constant for the "
+"respective wrapper type (such as `Integer.MIN_VALUE`, `Long.MIN_VALUE`, "
+"etc.) or calculate the minimum value. For example, to use the minimum "
+"integer value:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:44
+msgid "`T(Integer).MIN_VALUE` -- requires a `StandardEvaluationContext`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:45
+msgid "`-2^31` -- can be used with any type of `EvaluationContext`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:51
+msgid ""
+"The following listing shows simple usage of literals. Typically, they are "
+"not used in isolation like this but, rather, as part of a more complex "
+"expression -- for example, using a literal on one side of a logical "
+"comparison operator or as an argument to a method."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:54
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:59
+#, no-wrap
+msgid "\tExpressionParser parser = new SpelExpressionParser();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:62
+#, no-wrap
+msgid ""
+"\t// evaluates to \"Hello World\"\n"
+"\tString helloWorld = (String) parser.parseExpression(\"'Hello "
+"World'\").getValue();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:65
+#, no-wrap
+msgid ""
+"\t// evaluates to \"Tony's Pizza\"\n"
+"\tString pizzaParlor = (String) parser.parseExpression(\"'Tony''s "
+"Pizza'\").getValue();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:67
+#, no-wrap
+msgid ""
+"\tdouble avogadrosNumber = (Double) "
+"parser.parseExpression(\"6.0221415E+23\").getValue();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:70
+#, no-wrap
+msgid ""
+"\t// evaluates to 2147483647\n"
+"\tint maxValue = (Integer) "
+"parser.parseExpression(\"0x7FFFFFFF\").getValue();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:72
+#, no-wrap
+msgid ""
+"\tboolean trueValue = (Boolean) "
+"parser.parseExpression(\"true\").getValue();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:74
+#, no-wrap
+msgid "\tObject nullValue = parser.parseExpression(\"null\").getValue();\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:76
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:81
+#, no-wrap
+msgid "\tval parser = SpelExpressionParser()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:84
+#, no-wrap
+msgid ""
+"\t// evaluates to \"Hello World\"\n"
+"\tval helloWorld = parser.parseExpression(\"'Hello World'\").value as "
+"String\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:87
+#, no-wrap
+msgid ""
+"\t// evaluates to \"Tony's Pizza\"\n"
+"\tval pizzaParlor = parser.parseExpression(\"'Tony''s Pizza'\").value as "
+"String\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:89
+#, no-wrap
+msgid ""
+"\tval avogadrosNumber = parser.parseExpression(\"6.0221415E+23\").value as "
+"Double\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:92
+#, no-wrap
+msgid ""
+"\t// evaluates to 2147483647\n"
+"\tval maxValue = parser.parseExpression(\"0x7FFFFFFF\").value as Int\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:94
+#, no-wrap
+msgid "\tval trueValue = parser.parseExpression(\"true\").value as Boolean\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/literal.adoc:96
+#, no-wrap
+msgid "\tval nullValue = parser.parseExpression(\"null\").value\n"
+msgstr ""

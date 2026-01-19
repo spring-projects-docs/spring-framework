@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:40+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/custom-autowire-configurer.adoc:2
+#, no-wrap
+msgid "Using `CustomAutowireConfigurer`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/custom-autowire-configurer.adoc:8
+msgid ""
+"{spring-framework-api}/beans/factory/annotation/CustomAutowireConfigurer.html[`CustomAutowireConfigurer`] "
+"is a `BeanFactoryPostProcessor` that lets you register your own custom "
+"qualifier annotation types, even if they are not annotated with Spring's "
+"`@Qualifier` annotation.  The following example shows how to use "
+"`CustomAutowireConfigurer`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/custom-autowire-configurer.adoc:19
+#, no-wrap
+msgid ""
+"\t<bean id=\"customAutowireConfigurer\"\n"
+"\t\t\tclass=\"org.springframework.beans.factory.annotation.CustomAutowireConfigurer\">\n"
+"\t\t<property name=\"customQualifierTypes\">\n"
+"\t\t\t<set>\n"
+"\t\t\t\t<value>example.CustomQualifier</value>\n"
+"\t\t\t</set>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/custom-autowire-configurer.adoc:22
+msgid "The `AutowireCandidateResolver` determines autowire candidates by:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/custom-autowire-configurer.adoc:24
+msgid "The `autowire-candidate` value of each bean definition"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/custom-autowire-configurer.adoc:25
+msgid ""
+"Any `default-autowire-candidates` patterns available on the `<beans/>` "
+"element"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/custom-autowire-configurer.adoc:27
+msgid ""
+"The presence of `@Qualifier` annotations and any custom annotations "
+"registered with the `CustomAutowireConfigurer`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/beans/annotation-config/custom-autowire-configurer.adoc:30
+msgid ""
+"When multiple beans qualify as autowire candidates, the determination of a "
+"\"`primary`\" is as follows: If exactly one bean definition among the "
+"candidates has a `primary` attribute set to `true`, it is selected."
+msgstr ""

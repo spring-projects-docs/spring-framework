@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/static-imports.adoc:2
+#, no-wrap
+msgid "Static Imports"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/static-imports.adoc:6
+msgid ""
+"When using MockMvc directly to perform requests, you'll need static imports "
+"for:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/static-imports.adoc:8
+msgid "`MockMvcBuilders.{asterisk}`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/static-imports.adoc:9
+msgid "`MockMvcRequestBuilders.{asterisk}`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/static-imports.adoc:10
+msgid "`MockMvcResultMatchers.{asterisk}`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/static-imports.adoc:11
+msgid "`MockMvcResultHandlers.{asterisk}`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/static-imports.adoc:14
+msgid ""
+"An easy way to remember that is search for `MockMvc*`. If using Eclipse be "
+"sure to also add the above as \"`favorite static members`\" in the Eclipse "
+"preferences."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/static-imports.adoc:16
+msgid ""
+"When using MockMvc through the "
+"xref:testing/webtestclient.adoc[WebTestClient] you do not need static "
+"imports.  The `WebTestClient` provides a fluent API without static imports."
+msgstr ""

@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:2
+#, no-wrap
+msgid "RSS and Atom"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:7
+msgid ""
+"As of Spring Framework 7.0, view classes in the "
+"`org.springframework.web.servlet.view.feed` package are deprecated. Instead, "
+"libraries can adapt this existing code to provide support with their own "
+"`*View` types.  As an alternative, applications can perform direct rendering "
+"in web handlers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:12
+msgid ""
+"Both `AbstractAtomFeedView` and `AbstractRssFeedView` inherit from the "
+"`AbstractFeedView` base class and are used to provide Atom and RSS Feed "
+"views, respectively. They are based on "
+"https://rometools.github.io/rome/[ROME] project and are located in the "
+"package `org.springframework.web.servlet.view.feed`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:16
+msgid ""
+"`AbstractAtomFeedView` requires you to implement the `buildFeedEntries()` "
+"method and optionally override the `buildFeedMetadata()` method (the default "
+"implementation is empty). The following example shows how to do so:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:19
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:62
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:24
+#, no-wrap
+msgid "\tpublic class SampleContentAtomView extends AbstractAtomFeedView {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:30
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tprotected void buildFeedMetadata(Map<String, Object> model,\n"
+"\t\t\t\tFeed feed, HttpServletRequest request) {\n"
+"\t\t\t// implementation omitted\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:37
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tprotected List<Entry> buildFeedEntries(Map<String, Object> model,\n"
+"\t\t\t\tHttpServletRequest request, HttpServletResponse response) throws "
+"Exception {\n"
+"\t\t\t// implementation omitted\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:39
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:82
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:44
+#, no-wrap
+msgid "\tclass SampleContentAtomView : AbstractAtomFeedView() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:49
+#, no-wrap
+msgid ""
+"\t\toverride fun buildFeedMetadata(model: Map<String, Any>,\n"
+"\t\t\t\tfeed: Feed, request: HttpServletRequest) {\n"
+"\t\t\t// implementation omitted\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:55
+#, no-wrap
+msgid ""
+"\t\toverride fun buildFeedEntries(model: Map<String, Any>,\n"
+"\t\t\t\trequest: HttpServletRequest, response: HttpServletResponse): "
+"List<Entry> {\n"
+"\t\t\t// implementation omitted\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:59
+msgid ""
+"Similar requirements apply for implementing `AbstractRssFeedView`, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:67
+#, no-wrap
+msgid "\tpublic class SampleContentRssView extends AbstractRssFeedView {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:73
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tprotected void buildFeedMetadata(Map<String, Object> model,\n"
+"\t\t\t\tChannel feed, HttpServletRequest request) {\n"
+"\t\t\t// implementation omitted\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:80
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tprotected List<Item> buildFeedItems(Map<String, Object> model,\n"
+"\t\t\t\tHttpServletRequest request, HttpServletResponse response) throws "
+"Exception {\n"
+"\t\t\t// implementation omitted\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:87
+#, no-wrap
+msgid "\tclass SampleContentRssView : AbstractRssFeedView() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:92
+#, no-wrap
+msgid ""
+"\t\toverride fun buildFeedMetadata(model: Map<String, Any>,\n"
+"\t\t\t\t\t\t\t\t\tfeed: Channel, request: HttpServletRequest) {\n"
+"\t\t\t// implementation omitted\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:98
+#, no-wrap
+msgid ""
+"\t\toverride fun buildFeedItems(model: Map<String, Any>,\n"
+"\t\t\t\trequest: HttpServletRequest, response: HttpServletResponse): "
+"List<Item> {\n"
+"\t\t\t// implementation omitted\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:105
+msgid ""
+"The `buildFeedItems()` and `buildFeedEntries()` methods pass in the HTTP "
+"request, in case you need to access the Locale. The HTTP response is passed "
+"in only for the setting of cookies or other HTTP headers. The feed is "
+"automatically written to the response object after the method returns."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-feeds.adoc:107
+msgid ""
+"For an example of creating an Atom view, see Alef Arendsen's Spring Team "
+"Blog "
+"{spring-site-blog}/2009/03/16/adding-an-atom-view-to-an-application-using-spring-s-rest-support[entry]."
+msgstr ""

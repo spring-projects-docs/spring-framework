@@ -1,0 +1,335 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:2
+#, no-wrap
+msgid "Annotated Controllers"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:7
+msgid ""
+"Applications can use annotated `@Controller` classes to handle messages from "
+"clients.  Such classes can declare `@MessageMapping`, `@SubscribeMapping`, "
+"and `@ExceptionHandler` methods, as described in the following topics:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:9
+msgid "xref:web/websocket/stomp/handle-annotations.adoc#websocket-stomp-message-mapping[`@MessageMapping`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:10
+msgid "xref:web/websocket/stomp/handle-annotations.adoc#websocket-stomp-subscribe-mapping[`@SubscribeMapping`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:11
+msgid "xref:web/websocket/stomp/handle-annotations.adoc#websocket-stomp-exception-handler[`@MessageExceptionHandler`]"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:14
+#, no-wrap
+msgid "`@MessageMapping`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:20
+msgid ""
+"You can use `@MessageMapping` to annotate methods that route messages based "
+"on their destination. It is supported at the method level as well as at the "
+"type level. At the type level, `@MessageMapping` is used to express shared "
+"mappings across all methods in a controller."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:26
+msgid ""
+"By default, the mapping values are Ant-style path patterns (for example "
+"`/thing*`, `/thing/**`), including support for template variables (for "
+"example, pass:q[`/thing/{id}`]). The values can be referenced through "
+"`@DestinationVariable` method arguments. Applications can also switch to a "
+"dot-separated destination convention for mappings, as explained in "
+"xref:web/websocket/stomp/destination-separator.adoc[Dots as Separators]."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:28
+#, no-wrap
+msgid "Supported Method Arguments"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:31
+msgid "The following table describes the method arguments:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:70
+#, no-wrap
+msgid ""
+"| Method argument | Description\n"
+"\n"
+"| `Message`\n"
+"| For access to the complete message.\n"
+"\n"
+"| `MessageHeaders`\n"
+"| For access to the headers within the `Message`.\n"
+"\n"
+"| `MessageHeaderAccessor`, `SimpMessageHeaderAccessor`, and "
+"`StompHeaderAccessor`\n"
+"| For access to the headers through typed accessor methods.\n"
+"\n"
+"| `@Payload`\n"
+"| For access to the payload of the message, converted (for example, from "
+"JSON) by a configured\n"
+"`MessageConverter`.\n"
+"\n"
+"The presence of this annotation is not required since it is, by default, "
+"assumed if no\n"
+"other argument is matched.\n"
+"\n"
+"You can annotate payload arguments with `@jakarta.validation.Valid` or "
+"Spring's `@Validated`,\n"
+"to have the payload arguments be automatically validated.\n"
+"\n"
+"| `@Header`\n"
+"| For access to a specific header value -- along with type conversion using "
+"an\n"
+"`org.springframework.core.convert.converter.Converter`, if necessary.\n"
+"\n"
+"| `@Headers`\n"
+"| For access to all headers in the message. This argument must be assignable "
+"to\n"
+"`java.util.Map`.\n"
+"\n"
+"| `@DestinationVariable`\n"
+"| For access to template variables extracted from the message destination.\n"
+"Values are converted to the declared method argument type as necessary.\n"
+"\n"
+"| `java.security.Principal`\n"
+"| Reflects the user logged in at the time of the WebSocket HTTP handshake.\n"
+"\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:73
+#, no-wrap
+msgid "Return Values"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:79
+msgid ""
+"By default, the return value from a `@MessageMapping` method is serialized "
+"to a payload through a matching `MessageConverter` and sent as a `Message` "
+"to the `brokerChannel`, from where it is broadcast to subscribers. The "
+"destination of the outbound message is the same as that of the inbound "
+"message but prefixed with `/topic`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:84
+msgid ""
+"You can use the `@SendTo` and `@SendToUser` annotations to customize the "
+"destination of the output message. `@SendTo` is used to customize the target "
+"destination or to specify multiple destinations. `@SendToUser` is used to "
+"direct the output message to only the user associated with the input "
+"message. See xref:web/websocket/stomp/user-destination.adoc[User "
+"Destinations]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:89
+msgid ""
+"You can use both `@SendTo` and `@SendToUser` at the same time on the same "
+"method, and both are supported at the class level, in which case they act as "
+"a default for methods in the class. However, keep in mind that any "
+"method-level `@SendTo` or `@SendToUser` annotations override any such "
+"annotations at the class level."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:92
+msgid ""
+"Messages can be handled asynchronously and a `@MessageMapping` method can "
+"return `ListenableFuture`, `CompletableFuture`, or `CompletionStage`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:98
+msgid ""
+"Note that `@SendTo` and `@SendToUser` are merely a convenience that amounts "
+"to using the `SimpMessagingTemplate` to send messages. If necessary, for "
+"more advanced scenarios, `@MessageMapping` methods can fall back on using "
+"the `SimpMessagingTemplate` directly.  This can be done instead of, or "
+"possibly in addition to, returning a value.  See "
+"xref:web/websocket/stomp/handle-send.adoc[Sending Messages]."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:101
+#, no-wrap
+msgid "`@SubscribeMapping`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:110
+msgid ""
+"`@SubscribeMapping` is similar to `@MessageMapping` but narrows the mapping "
+"to subscription messages only. It supports the same "
+"xref:web/websocket/stomp/handle-annotations.adoc#websocket-stomp-message-mapping[method "
+"arguments] as `@MessageMapping`. However for the return value, by default, a "
+"message is sent directly to the client (through `clientOutboundChannel`, in "
+"response to the subscription) and not to the broker (through "
+"`brokerChannel`, as a broadcast to matching subscriptions). Adding `@SendTo` "
+"or `@SendToUser` overrides this behavior and sends to the broker instead."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:119
+msgid ""
+"When is this useful? Assume that the broker is mapped to `/topic` and "
+"`/queue`, while application controllers are mapped to `/app`. In this setup, "
+"the broker stores all subscriptions to `/topic` and `/queue` that are "
+"intended for repeated broadcasts, and there is no need for the application "
+"to get involved. A client could also subscribe to some `/app` destination, "
+"and a controller could return a value in response to that subscription "
+"without involving the broker without storing or using the subscription again "
+"(effectively a one-time request-reply exchange). One use case for this is "
+"populating a UI with initial data on startup."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:127
+msgid ""
+"When is this not useful? Do not try to map broker and controllers to the "
+"same destination prefix unless you want both to independently process "
+"messages, including subscriptions, for some reason. Inbound messages are "
+"handled in parallel. There are no guarantees whether a broker or a "
+"controller processes a given message first. If the goal is to be notified "
+"when a subscription is stored and ready for broadcasts, a client should ask "
+"for a receipt if the server supports it (simple broker does not). For "
+"example, with the Java xref:web/websocket/stomp/client.adoc[STOMP client], "
+"you could do the following to add a receipt:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:132
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tprivate TaskScheduler messageBrokerTaskScheduler;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:135
+#, no-wrap
+msgid ""
+"\t// During initialization..\n"
+"\tstompClient.setTaskScheduler(this.messageBrokerTaskScheduler);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:144
+#, no-wrap
+msgid ""
+"\t// When subscribing..\n"
+"\tStompHeaders headers = new StompHeaders();\n"
+"\theaders.setDestination(\"/topic/...\");\n"
+"\theaders.setReceipt(\"r1\");\n"
+"\tFrameHandler handler = ...;\n"
+"\tstompSession.subscribe(headers, handler).addReceiptTask(receiptHeaders -> "
+"{\n"
+"\t\t// Subscription ready...\n"
+"\t});\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:149
+msgid ""
+"A server side option is xref:web/websocket/stomp/interceptors.adoc[to "
+"register] an `ExecutorChannelInterceptor` on the `brokerChannel` and "
+"implement the `afterMessageHandled` method that is invoked after messages, "
+"including subscriptions, have been handled."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:152
+#, no-wrap
+msgid "`@MessageExceptionHandler`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:158
+msgid ""
+"An application can use `@MessageExceptionHandler` methods to handle "
+"exceptions from `@MessageMapping` methods. You can declare exceptions in the "
+"annotation itself or through a method argument if you want to get access to "
+"the exception instance.  The following example declares an exception through "
+"a method argument:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:163
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\tpublic class MyController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:165
+#, no-wrap
+msgid "\t\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:172
+#, no-wrap
+msgid ""
+"\t\t@MessageExceptionHandler\n"
+"\t\tpublic ApplicationError handleException(MyException exception) {\n"
+"\t\t\t// ...\n"
+"\t\t\treturn appError;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:177
+msgid ""
+"`@MessageExceptionHandler` methods support flexible method signatures and "
+"support the same method argument types and return values as "
+"xref:web/websocket/stomp/handle-annotations.adoc#websocket-stomp-message-mapping[`@MessageMapping`] "
+"methods."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-annotations.adoc:182
+msgid ""
+"Typically, `@MessageExceptionHandler` methods apply within the `@Controller` "
+"class (or class hierarchy) in which they are declared. If you want such "
+"methods to apply more globally (across controllers), you can declare them in "
+"a class marked with `@ControllerAdvice`. This is comparable to the "
+"xref:web/webmvc/mvc-controller/ann-advice.adoc[similar support] available in "
+"Spring MVC."
+msgstr ""

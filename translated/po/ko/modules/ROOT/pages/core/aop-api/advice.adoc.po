@@ -1,0 +1,979 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:40+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:2
+#, no-wrap
+msgid "Advice API in Spring"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:5
+msgid "Now we can examine how Spring AOP handles advice."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:8
+#, no-wrap
+msgid "Advice Lifecycles"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:13
+msgid ""
+"Each advice is a Spring bean. An advice instance can be shared across all "
+"advised objects or be unique to each advised object. This corresponds to "
+"per-class or per-instance advice."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:17
+msgid ""
+"Per-class advice is used most often. It is appropriate for generic advice, "
+"such as transaction advisors. These do not depend on the state of the "
+"proxied object or add new state. They merely act on the method and "
+"arguments."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:20
+msgid ""
+"Per-instance advice is appropriate for introductions, to support mixins. In "
+"this case, the advice adds state to the proxied object."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:22
+msgid "You can use a mix of shared and per-instance advice in the same AOP proxy."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:25
+#, no-wrap
+msgid "Advice Types in Spring"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:29
+msgid ""
+"Spring provides several advice types and is extensible to support arbitrary "
+"advice types. This section describes the basic concepts and standard advice "
+"types."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:31
+#, no-wrap
+msgid "Interception Around Advice"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:34
+msgid "The most fundamental advice type in Spring is _interception around advice_."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:38
+msgid ""
+"Spring is compliant with the AOP Alliance interface for around advice that "
+"uses method interception. Classes that implement around advice should "
+"therefore implement the following `MethodInterceptor` interface from the "
+"`org.aopalliance.intercept` package:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:42
+#, no-wrap
+msgid "\tpublic interface MethodInterceptor extends Interceptor {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:45
+#, no-wrap
+msgid ""
+"\t\tObject invoke(MethodInvocation invocation) throws Throwable;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:51
+msgid ""
+"The `MethodInvocation` argument to the `invoke()` method exposes the method "
+"being invoked, the target join point, the AOP proxy, and the arguments to "
+"the method. The `invoke()` method should return the invocation's result: "
+"typically the return value of the join point."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:53
+msgid "The following example shows a simple `MethodInterceptor` implementation:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:56
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:132
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:190
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:221
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:252
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:318
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:411
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:471
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:545
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:61
+#, no-wrap
+msgid "\tpublic class DebugInterceptor implements MethodInterceptor {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:69
+#, no-wrap
+msgid ""
+"\t\tpublic Object invoke(MethodInvocation invocation) throws Throwable {\n"
+"\t\t\tSystem.out.println(\"Before: invocation=[\" + invocation + \"]\");\n"
+"\t\t\tObject result = invocation.proceed();\n"
+"\t\t\tSystem.out.println(\"Invocation returned\");\n"
+"\t\t\treturn result;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:71
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:150
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:202
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:233
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:268
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:337
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:422
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:500
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:557
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:76
+#, no-wrap
+msgid "\tclass DebugInterceptor : MethodInterceptor {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:84
+#, no-wrap
+msgid ""
+"\t\toverride fun invoke(invocation: MethodInvocation): Any {\n"
+"\t\t\tprintln(\"Before: invocation=[$invocation]\")\n"
+"\t\t\tval result = invocation.proceed()\n"
+"\t\t\tprintln(\"Invocation returned\")\n"
+"\t\t\treturn result\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:92
+msgid ""
+"Note the call to the `proceed()` method of `MethodInvocation`. This proceeds "
+"down the interceptor chain towards the join point. Most interceptors invoke "
+"this method and return its return value. However, a `MethodInterceptor`, "
+"like any around advice, can return a different value or throw an exception "
+"rather than invoke the proceed method.  However, you do not want to do this "
+"without good reason."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:100
+msgid ""
+"`MethodInterceptor` implementations offer interoperability with other AOP "
+"Alliance-compliant AOP implementations. The other advice types discussed in "
+"the remainder of this section implement common AOP concepts but in a "
+"Spring-specific way. While there is an advantage in using the most specific "
+"advice type, stick with `MethodInterceptor` around advice if you are likely "
+"to want to run the aspect in another AOP framework. Note that pointcuts are "
+"not currently interoperable between frameworks, and the AOP Alliance does "
+"not currently define pointcut interfaces."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:102
+#, no-wrap
+msgid "Before Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:106
+msgid ""
+"A simpler advice type is a _before advice_. This does not need a "
+"`MethodInvocation` object, since it is called only before entering the "
+"method."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:110
+msgid ""
+"The main advantage of a before advice is that there is no need to invoke the "
+"`proceed()` method and, therefore, no possibility of inadvertently failing "
+"to proceed down the interceptor chain."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:112
+msgid "The following listing shows the `MethodBeforeAdvice` interface:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:116
+#, no-wrap
+msgid "\tpublic interface MethodBeforeAdvice extends BeforeAdvice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:119
+#, no-wrap
+msgid ""
+"\t\tvoid before(Method m, Object[] args, Object target) throws Throwable;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:127
+msgid ""
+"Note that the return type is `void`. Before advice can insert custom "
+"behavior before the join point runs but cannot change the return value. If a "
+"before advice throws an exception, it stops further execution of the "
+"interceptor chain. The exception propagates back up the interceptor "
+"chain. If it is unchecked or on the signature of the invoked method, it is "
+"passed directly to the client. Otherwise, it is wrapped in an unchecked "
+"exception by the AOP proxy."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:129
+msgid ""
+"The following example shows a before advice in Spring, which counts all "
+"method invocations:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:137
+#, no-wrap
+msgid "\tpublic class CountingBeforeAdvice implements MethodBeforeAdvice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:139
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:325
+#, no-wrap
+msgid "\t\tprivate int count;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:143
+#, no-wrap
+msgid ""
+"\t\tpublic void before(Method m, Object[] args, Object target) throws "
+"Throwable {\n"
+"\t\t\t++count;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:148
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:335
+#, no-wrap
+msgid ""
+"\t\tpublic int getCount() {\n"
+"\t\t\treturn count;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:155
+#, no-wrap
+msgid "\tclass CountingBeforeAdvice : MethodBeforeAdvice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:157
+#, no-wrap
+msgid "\t\tvar count: Int = 0\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:162
+#, no-wrap
+msgid ""
+"\t\toverride fun before(m: Method, args: Array<Any>, target: Any?) {\n"
+"\t\t\t++count\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:166
+msgid "Before advice can be used with any pointcut."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:168
+#, no-wrap
+msgid "Throws Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:175
+msgid ""
+"_Throws advice_ is invoked after the return of the join point if the join "
+"point threw an exception. Spring offers typed throws advice. Note that this "
+"means that the `org.springframework.aop.ThrowsAdvice` interface does not "
+"contain any methods. It is a marker interface identifying that the given "
+"object implements one or more typed throws advice methods. These should be "
+"in the following form:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:179
+#, no-wrap
+msgid "\tafterThrowing([Method, args, target], subclassOfThrowable)\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:184
+msgid ""
+"Only the last argument is required. The method signatures may have either "
+"one or four arguments, depending on whether the advice method is interested "
+"in the method and arguments. The next two listings show classes that are "
+"examples of throws advice."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:187
+msgid ""
+"The following advice is invoked if a `RemoteException` is thrown (including "
+"subclasses of `RemoteException`):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:195
+#, no-wrap
+msgid "\tpublic class RemoteThrowsAdvice implements ThrowsAdvice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:200
+#, no-wrap
+msgid ""
+"\t\tpublic void afterThrowing(RemoteException ex) throws Throwable {\n"
+"\t\t\t// Do something with remote exception\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:207
+#, no-wrap
+msgid "\tclass RemoteThrowsAdvice : ThrowsAdvice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:212
+#, no-wrap
+msgid ""
+"\t\tfun afterThrowing(ex: RemoteException) {\n"
+"\t\t\t// Do something with remote exception\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:218
+msgid ""
+"Unlike the preceding advice, the next example declares four arguments, so "
+"that it has access to the invoked method, method arguments, and target "
+"object. The following advice is invoked if a `ServletException` is thrown:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:226
+#, no-wrap
+msgid "\tpublic class ServletThrowsAdviceWithArguments implements ThrowsAdvice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:231
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:266
+#, no-wrap
+msgid ""
+"\t\tpublic void afterThrowing(Method m, Object[] args, Object target, "
+"ServletException ex) {\n"
+"\t\t\t// Do something with all arguments\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:238
+#, no-wrap
+msgid "\tclass ServletThrowsAdviceWithArguments : ThrowsAdvice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:243
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:282
+#, no-wrap
+msgid ""
+"\t\tfun afterThrowing(m: Method, args: Array<Any>, target: Any, ex: "
+"ServletException) {\n"
+"\t\t\t// Do something with all arguments\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:249
+msgid ""
+"The final example illustrates how these two methods could be used in a "
+"single class that handles both `RemoteException` and `ServletException`. Any "
+"number of throws advice methods can be combined in a single class. The "
+"following listing shows the final example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:257
+#, no-wrap
+msgid "\tpublic static class CombinedThrowsAdvice implements ThrowsAdvice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:261
+#, no-wrap
+msgid ""
+"\t\tpublic void afterThrowing(RemoteException ex) throws Throwable {\n"
+"\t\t\t// Do something with remote exception\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:273
+#, no-wrap
+msgid "\tclass CombinedThrowsAdvice : ThrowsAdvice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:277
+#, no-wrap
+msgid ""
+"\t\tfun afterThrowing(ex: RemoteException) {\n"
+"\t\t\t// Do something with remote exception\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:292
+msgid ""
+"If a throws-advice method throws an exception itself, it overrides the "
+"original exception (that is, it changes the exception thrown to the "
+"user). The overriding exception is typically a RuntimeException, which is "
+"compatible with any method signature. However, if a throws-advice method "
+"throws a checked exception, it must match the declared exceptions of the "
+"target method and is, hence, to some degree coupled to specific target "
+"method signatures. _Do not throw an undeclared checked exception that is "
+"incompatible with the target method's signature!_"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:294
+msgid "Throws advice can be used with any pointcut."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:296
+#, no-wrap
+msgid "After Returning Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:300
+msgid ""
+"An _after returning advice_ in Spring must implement the "
+"`org.springframework.aop.AfterReturningAdvice` interface, which the "
+"following listing shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:304
+#, no-wrap
+msgid "\tpublic interface AfterReturningAdvice extends Advice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:308
+#, no-wrap
+msgid ""
+"\t\tvoid afterReturning(Object returnValue, Method m, Object[] args, Object "
+"target)\n"
+"\t\t\t\tthrows Throwable;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:312
+msgid ""
+"An after returning advice has access to the return value (which it cannot "
+"modify), the invoked method, the method's arguments, and the target."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:315
+msgid ""
+"The following after returning advice counts all successful method "
+"invocations that have not thrown exceptions:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:323
+#, no-wrap
+msgid ""
+"\tpublic class CountingAfterReturningAdvice implements AfterReturningAdvice "
+"{\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:330
+#, no-wrap
+msgid ""
+"\t\tpublic void afterReturning(Object returnValue, Method m, Object[] args, "
+"Object target)\n"
+"\t\t\t\tthrows Throwable {\n"
+"\t\t\t++count;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:342
+#, no-wrap
+msgid "\tclass CountingAfterReturningAdvice : AfterReturningAdvice {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:345
+#, no-wrap
+msgid ""
+"\t\tvar count: Int = 0\n"
+"\t\t\tprivate set\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:350
+#, no-wrap
+msgid ""
+"\t\toverride fun afterReturning(returnValue: Any?, m: Method, args: "
+"Array<Any>, target: Any?) {\n"
+"\t\t\t++count\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:355
+msgid ""
+"This advice does not change the execution path. If it throws an exception, "
+"it is thrown up the interceptor chain instead of the return value."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:357
+msgid "After returning advice can be used with any pointcut."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:359
+#, no-wrap
+msgid "Introduction Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:362
+msgid ""
+"Spring treats _introduction advice_ as a special kind of interception "
+"advice."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:365
+msgid ""
+"Introduction requires an `IntroductionAdvisor` and an "
+"`IntroductionInterceptor` that implement the following interface:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:369
+#, no-wrap
+msgid "\tpublic interface IntroductionInterceptor extends MethodInterceptor {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:372
+#, no-wrap
+msgid ""
+"\t\tboolean implementsInterface(Class intf);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:378
+msgid ""
+"The `invoke()` method inherited from the AOP Alliance `MethodInterceptor` "
+"interface must implement the introduction. That is, if the invoked method is "
+"on an introduced interface, the introduction interceptor is responsible for "
+"handling the method call -- it cannot invoke `proceed()`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:382
+msgid ""
+"Introduction advice cannot be used with any pointcut, as it applies only at "
+"the class, rather than the method, level. You can only use introduction "
+"advice with the `IntroductionAdvisor`, which has the following methods:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:386
+#, no-wrap
+msgid "\tpublic interface IntroductionAdvisor extends Advisor, IntroductionInfo {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:388
+#, no-wrap
+msgid "\t\tClassFilter getClassFilter();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:391
+#, no-wrap
+msgid ""
+"\t\tvoid validateInterfaces() throws IllegalArgumentException;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:393
+#, no-wrap
+msgid "\tpublic interface IntroductionInfo {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:396
+#, no-wrap
+msgid ""
+"\t\tClass<?>[] getInterfaces();\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:400
+msgid ""
+"There is no `MethodMatcher` and, hence, no `Pointcut` associated with "
+"introduction advice. Only class filtering is logical."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:402
+msgid ""
+"The `getInterfaces()` method returns the interfaces introduced by this "
+"advisor."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:405
+msgid ""
+"The `validateInterfaces()` method is used internally to see whether or not "
+"the introduced interfaces can be implemented by the configured "
+"`IntroductionInterceptor`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:408
+msgid ""
+"Consider an example from the Spring test suite and suppose we want to "
+"introduce the following interface to one or more objects:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:420
+#, no-wrap
+msgid ""
+"\tpublic interface Lockable {\n"
+"\t\tvoid lock();\n"
+"\t\tvoid unlock();\n"
+"\t\tboolean locked();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:431
+#, no-wrap
+msgid ""
+"\tinterface Lockable {\n"
+"\t\tfun lock()\n"
+"\t\tfun unlock()\n"
+"\t\tfun locked(): Boolean\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:439
+msgid ""
+"This illustrates a mixin. We want to be able to cast advised objects to "
+"`Lockable`, whatever their type and call lock and unlock methods. If we call "
+"the `lock()` method, we want all setter methods to throw a "
+"`LockedException`. Thus, we can add an aspect that provides the ability to "
+"make objects immutable without them having any knowledge of it: a good "
+"example of AOP."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:444
+msgid ""
+"First, we need an `IntroductionInterceptor` that does the heavy lifting. In "
+"this case, we extend the "
+"`org.springframework.aop.support.DelegatingIntroductionInterceptor` "
+"convenience class. We could implement `IntroductionInterceptor` directly, "
+"but using `DelegatingIntroductionInterceptor` is best for most cases."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:458
+msgid ""
+"The `DelegatingIntroductionInterceptor` is designed to delegate an "
+"introduction to an actual implementation of the introduced interfaces, "
+"concealing the use of interception to do so. You can set the delegate to any "
+"object using a constructor argument. The default delegate (when the "
+"no-argument constructor is used) is `this`. Thus, in the next example, the "
+"delegate is the `LockMixin` subclass of "
+"`DelegatingIntroductionInterceptor`.  Given a delegate (by default, itself), "
+"a `DelegatingIntroductionInterceptor` instance looks for all interfaces "
+"implemented by the delegate (other than `IntroductionInterceptor`) and "
+"supports introductions against any of them.  Subclasses such as `LockMixin` "
+"can call the `suppressInterface(Class intf)` method to suppress interfaces "
+"that should not be exposed. However, no matter how many interfaces an "
+"`IntroductionInterceptor` is prepared to support, the `IntroductionAdvisor` "
+"used controls which interfaces are actually exposed. An introduced interface "
+"conceals any implementation of the same interface by the target."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:463
+msgid ""
+"Thus, `LockMixin` extends `DelegatingIntroductionInterceptor` and implements "
+"`Lockable` itself. The superclass automatically picks up that `Lockable` can "
+"be supported for introduction, so we do not need to specify that. We could "
+"introduce any number of interfaces in this way."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:466
+msgid ""
+"Note the use of the `locked` instance variable. This effectively adds "
+"additional state to that held in the target object."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:468
+msgid "The following example shows the example `LockMixin` class:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:476
+#, no-wrap
+msgid ""
+"\tpublic class LockMixin extends DelegatingIntroductionInterceptor "
+"implements Lockable {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:478
+#, no-wrap
+msgid "\t\tprivate boolean locked;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:482
+#, no-wrap
+msgid ""
+"\t\tpublic void lock() {\n"
+"\t\t\tthis.locked = true;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:486
+#, no-wrap
+msgid ""
+"\t\tpublic void unlock() {\n"
+"\t\t\tthis.locked = false;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:490
+#, no-wrap
+msgid ""
+"\t\tpublic boolean locked() {\n"
+"\t\t\treturn this.locked;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:498
+#, no-wrap
+msgid ""
+"\t\tpublic Object invoke(MethodInvocation invocation) throws Throwable {\n"
+"\t\t\tif (locked() && invocation.getMethod().getName().indexOf(\"set\") == "
+"0) {\n"
+"\t\t\t\tthrow new LockedException();\n"
+"\t\t\t}\n"
+"\t\t\treturn super.invoke(invocation);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:505
+#, no-wrap
+msgid "\tclass LockMixin : DelegatingIntroductionInterceptor(), Lockable {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:507
+#, no-wrap
+msgid "\t\tprivate var locked: Boolean = false\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:511
+#, no-wrap
+msgid ""
+"\t\tfun lock() {\n"
+"\t\t\tthis.locked = true\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:515
+#, no-wrap
+msgid ""
+"\t\tfun unlock() {\n"
+"\t\t\tthis.locked = false\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:519
+#, no-wrap
+msgid ""
+"\t\tfun locked(): Boolean {\n"
+"\t\t\treturn this.locked\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:527
+#, no-wrap
+msgid ""
+"\t\toverride fun invoke(invocation: MethodInvocation): Any? {\n"
+"\t\t\tif (locked() && invocation.method.name.indexOf(\"set\") == 0) {\n"
+"\t\t\t\tthrow LockedException()\n"
+"\t\t\t}\n"
+"\t\t\treturn super.invoke(invocation)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:535
+msgid ""
+"Often, you need not override the `invoke()` method. The "
+"`DelegatingIntroductionInterceptor` implementation (which calls the "
+"`delegate` method if the method is introduced, otherwise proceeds towards "
+"the join point) usually suffices. In the present case, we need to add a "
+"check: no setter method can be invoked if in locked mode."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:542
+msgid ""
+"The required introduction only needs to hold a distinct `LockMixin` instance "
+"and specify the introduced interfaces (in this case, only `Lockable`). A "
+"more complex example might take a reference to the introduction interceptor "
+"(which would be defined as a prototype). In this case, there is no "
+"configuration relevant for a `LockMixin`, so we create it by using `new`.  "
+"The following example shows our `LockMixinAdvisor` class:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:550
+#, no-wrap
+msgid "\tpublic class LockMixinAdvisor extends DefaultIntroductionAdvisor {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:555
+#, no-wrap
+msgid ""
+"\t\tpublic LockMixinAdvisor() {\n"
+"\t\t\tsuper(new LockMixin(), Lockable.class);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:562
+#, no-wrap
+msgid ""
+"\tclass LockMixinAdvisor : DefaultIntroductionAdvisor(LockMixin(), "
+"Lockable::class.java)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:571
+msgid ""
+"We can apply this advisor very simply, because it requires no "
+"configuration. (However, it is impossible to use an "
+"`IntroductionInterceptor` without an `IntroductionAdvisor`.) As usual with "
+"introductions, the advisor must be per-instance, as it is stateful. We need "
+"a different instance of `LockMixinAdvisor`, and hence `LockMixin`, for each "
+"advised object. The advisor comprises part of the advised object's state."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/aop-api/advice.adoc:575
+msgid ""
+"We can apply this advisor programmatically by using the "
+"`Advised.addAdvisor()` method or (the recommended way) in XML configuration, "
+"as any other advisor. All proxy creation choices discussed below, including "
+"\"`auto proxy creators,`\" correctly handle introductions and stateful "
+"mixins."
+msgstr ""

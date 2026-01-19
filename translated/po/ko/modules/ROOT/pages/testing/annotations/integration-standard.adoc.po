@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:2
+#, no-wrap
+msgid "Standard Annotation Support"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:7
+msgid ""
+"The following annotations are supported with standard semantics for all "
+"configurations of the Spring TestContext Framework. Note that these "
+"annotations are not specific to tests and can be used anywhere in the Spring "
+"Framework."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:9
+msgid "`@Autowired`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:10
+msgid "`@Qualifier`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:11
+msgid "`@Value`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:12
+msgid "`@Resource` (jakarta.annotation) if JSR-250 is present"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:13
+msgid "`@ManagedBean` (jakarta.annotation) if JSR-250 is present"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:14
+msgid "`@Inject` (jakarta.inject) if JSR-330 is present"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:15
+msgid "`@Named` (jakarta.inject) if JSR-330 is present"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:16
+msgid "`@PersistenceContext` (jakarta.persistence) if JPA is present"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:17
+msgid "`@PersistenceUnit` (jakarta.persistence) if JPA is present"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:19
+msgid ""
+"`@Transactional` (org.springframework.transaction.annotation)  _with "
+"xref:testing/testcontext-framework/tx.adoc#testcontext-tx-attribute-support[limited "
+"attribute support]_"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:20
+#, no-wrap
+msgid "JSR-250 Lifecycle Annotations"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:26
+msgid ""
+"In the Spring TestContext Framework, you can use `@PostConstruct` and "
+"`@PreDestroy` with standard semantics on any application components "
+"configured in the `ApplicationContext`.  However, these lifecycle "
+"annotations have limited usage within an actual test class."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:34
+msgid ""
+"If a method within a test class is annotated with `@PostConstruct`, that "
+"method runs before any before methods of the underlying test framework (for "
+"example, methods annotated with JUnit Jupiter's `@BeforeEach`), and that "
+"applies for every test method in the test class. On the other hand, if a "
+"method within a test class is annotated with `@PreDestroy`, that method "
+"never runs. Therefore, within a test class, we recommend that you use test "
+"lifecycle callbacks from the underlying test framework instead of "
+"`@PostConstruct` and `@PreDestroy`."
+msgstr ""

@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/config.adoc:2
+#, no-wrap
+msgid "Web MVC Config"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/config.adoc:6
+msgid ""
+"[.small]#xref:web/webflux/dispatcher-handler.adoc#webflux-framework-config[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/config.adoc:12
+msgid ""
+"Applications can declare the infrastructure beans listed in "
+"xref:web/webmvc/mvc-servlet/special-bean-types.adoc[Special Bean Types] that "
+"are required to process requests. The `DispatcherServlet` checks the "
+"`WebApplicationContext` for each special bean. If there are no matching bean "
+"types, it falls back on the default types listed in "
+"{spring-framework-code}/spring-webmvc/src/main/resources/org/springframework/web/servlet/DispatcherServlet.properties[`DispatcherServlet.properties`]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/config.adoc:16
+msgid ""
+"In most cases, the xref:web/webmvc/mvc-config.adoc[MVC Config] is the best "
+"starting point. It declares the required beans in either Java or XML and "
+"provides a higher-level configuration callback API to customize it."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/config.adoc:19
+msgid ""
+"Spring Boot relies on the MVC Java configuration to configure Spring MVC and "
+"provides many extra convenient options."
+msgstr ""

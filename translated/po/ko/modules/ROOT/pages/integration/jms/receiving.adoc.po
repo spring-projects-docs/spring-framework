@@ -1,0 +1,328 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:2
+#, no-wrap
+msgid "Receiving a Message"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:5
+msgid "This describes how to receive messages with JMS in Spring."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:8
+#, no-wrap
+msgid "Synchronous Receipt"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:16
+msgid ""
+"While JMS is typically associated with asynchronous processing, you can "
+"consume messages synchronously. The `receive(..)` methods on `JmsTemplate` "
+"and `JmsClient` provide this functionality. During a synchronous receive, "
+"the calling thread blocks until a message becomes available. This can be a "
+"dangerous operation, since the calling thread can potentially be blocked "
+"indefinitely. The `receiveTimeout` property specifies how long the receiver "
+"should wait before giving up waiting for a message."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:19
+#, no-wrap
+msgid "Asynchronous Receipt: Message-Driven POJOs"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:25
+msgid ""
+"Spring also supports annotated-listener endpoints through the use of the "
+"`@JmsListener` annotation and provides open infrastructure to register "
+"endpoints programmatically.  This is, by far, the most convenient way to set "
+"up an asynchronous receiver.  See "
+"xref:integration/jms/annotated.adoc#jms-annotated-support[Enable Listener "
+"Endpoint Annotations] for more details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:32
+msgid ""
+"In a fashion similar to a Message-Driven Bean (MDB) in the EJB world, the "
+"Message-Driven POJO (MDP) acts as a receiver for JMS messages. The one "
+"restriction (but see "
+"xref:integration/jms/receiving.adoc#jms-receiving-async-message-listener-adapter[Using "
+"`MessageListenerAdapter`])  on an MDP is that it must implement the "
+"`jakarta.jms.MessageListener` interface.  Note that, if your POJO receives "
+"messages on multiple threads, it is important to ensure that your "
+"implementation is thread-safe."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:34
+msgid "The following example shows a simple implementation of an MDP:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:39
+msgid ""
+"Once you have implemented your `MessageListener`, it is time to create a "
+"message listener container."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:42
+msgid ""
+"The following example shows how to define and configure one of the message "
+"listener containers that ships with Spring (in this case, "
+"`DefaultMessageListenerContainer`):"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:48
+msgid ""
+"See the Spring javadoc of the various message listener containers (all of "
+"which implement "
+"{spring-framework-api}/jms/listener/MessageListenerContainer.html[MessageListenerContainer])  "
+"for a full description of the features supported by each implementation."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:51
+#, no-wrap
+msgid "Using the `SessionAwareMessageListener` Interface"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:57
+msgid ""
+"The `SessionAwareMessageListener` interface is a Spring-specific interface "
+"that provides a similar contract to the JMS `MessageListener` interface but "
+"also gives the message-handling method access to the JMS `Session` from "
+"which the `Message` was received.  The following listing shows the "
+"definition of the `SessionAwareMessageListener` interface:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:61
+#, no-wrap
+msgid "\tpackage org.springframework.jms.listener;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:63
+#, no-wrap
+msgid "\tpublic interface SessionAwareMessageListener {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:66
+#, no-wrap
+msgid ""
+"\t\tvoid onMessage(Message message, Session session) throws JMSException;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:77
+msgid ""
+"You can choose to have your MDPs implement this interface (in preference to "
+"the standard JMS `MessageListener` interface) if you want your MDPs to be "
+"able to respond to any received messages (by using the `Session` supplied in "
+"the `onMessage(Message, Session)` method). All of the message listener "
+"container implementations that ship with Spring have support for MDPs that "
+"implement either the `MessageListener` or `SessionAwareMessageListener` "
+"interface. Classes that implement the `SessionAwareMessageListener` come "
+"with the caveat that they are then tied to Spring through the interface. The "
+"choice of whether or not to use it is left entirely up to you as an "
+"application developer or architect."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:82
+msgid ""
+"Note that the `onMessage(..)` method of the `SessionAwareMessageListener` "
+"interface throws `JMSException`. In contrast to the standard JMS "
+"`MessageListener` interface, when using the `SessionAwareMessageListener` "
+"interface, it is the responsibility of the client code to handle any thrown "
+"exceptions."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:85
+#, no-wrap
+msgid "Using `MessageListenerAdapter`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:90
+msgid ""
+"The `MessageListenerAdapter` class is the final component in Spring's "
+"asynchronous messaging support. In a nutshell, it lets you expose almost any "
+"class as an MDP (though there are some constraints)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:92
+msgid "Consider the following interface definition:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:100
+msgid ""
+"Notice that, although the interface extends neither the `MessageListener` "
+"nor the `SessionAwareMessageListener` interface, you can still use it as an "
+"MDP by using the `MessageListenerAdapter` class. Notice also how the various "
+"message handling methods are strongly typed according to the contents of the "
+"various `Message` types that they can receive and handle."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:102
+msgid ""
+"Now consider the following implementation of the `MessageDelegate` "
+"interface:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:108
+msgid ""
+"In particular, note how the preceding implementation of the "
+"`MessageDelegate` interface (the `DefaultMessageDelegate` class) has no JMS "
+"dependencies at all. It truly is a POJO that we can make into an MDP through "
+"the following configuration:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:118
+msgid ""
+"The next example shows another MDP that can handle only receiving JMS "
+"`TextMessage` messages. Notice how the message handling method is actually "
+"called `receive` (the name of the message handling method in a "
+"`MessageListenerAdapter` defaults to `handleMessage`), but it is "
+"configurable (as you can see later in this section). Notice also how the "
+"`receive(..)` method is strongly typed to receive and respond only to JMS "
+"`TextMessage` messages.  The following listing shows the definition of the "
+"`TextMessageDelegate` interface:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:122
+msgid ""
+"The following listing shows a class that implements the "
+"`TextMessageDelegate` interface:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:126
+msgid ""
+"The configuration of the attendant `MessageListenerAdapter` would then be as "
+"follows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:134
+msgid ""
+"Note that, if the `messageListener` receives a JMS `Message` of a type other "
+"than `TextMessage`, an `IllegalStateException` is thrown (and subsequently "
+"swallowed). Another of the capabilities of the `MessageListenerAdapter` "
+"class is the ability to automatically send back a response `Message` if a "
+"handler method returns a non-void value. Consider the following interface "
+"and class:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:148
+msgid ""
+"If you use the `DefaultResponsiveTextMessageDelegate` in conjunction with a "
+"`MessageListenerAdapter`, any non-null value that is returned from the "
+"execution of the `'receive(..)'` method is (in the default configuration) "
+"converted into a `TextMessage`. The resulting `TextMessage` is then sent to "
+"the `Destination` (if one exists) defined in the JMS `Reply-To` property of "
+"the original `Message` or the default `Destination` set on the "
+"`MessageListenerAdapter` (if one has been configured).  If no `Destination` "
+"is found, an `InvalidDestinationException` is thrown (note that this "
+"exception is not swallowed and propagates up the call stack)."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:151
+#, no-wrap
+msgid "Processing Messages Within Transactions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:155
+msgid ""
+"Invoking a message listener within a transaction requires only "
+"reconfiguration of the listener container."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:164
+msgid ""
+"You can activate local resource transactions through the `sessionTransacted` "
+"flag on the listener container definition. Each message listener invocation "
+"then operates within an active JMS transaction, with message receipt rolled "
+"back in case of listener execution failure. Sending a response message "
+"(through `SessionAwareMessageListener`) is part of the same local "
+"transaction, but any other resource operations (such as database access) "
+"operate independently. This usually requires duplicate message detection in "
+"the listener implementation, to cover the case where database processing has "
+"committed but message processing failed to commit."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:166
+msgid "Consider the following bean definition:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:172
+msgid ""
+"To participate in an externally managed transaction, you need to configure a "
+"transaction manager and use a listener container that supports externally "
+"managed transactions (typically, `DefaultMessageListenerContainer`)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:180
+msgid ""
+"To configure a message listener container for XA transaction participation, "
+"you want to configure a `JtaTransactionManager` (which, by default, "
+"delegates to the Jakarta EE server's transaction subsystem). Note that the "
+"underlying JMS `ConnectionFactory` needs to be XA-capable and properly "
+"registered with your JTA transaction coordinator. (Check your Jakarta EE "
+"server's configuration of JNDI resources.) This lets message receipt as well "
+"as (for example) database access be part of the same transaction (with "
+"unified commit semantics, at the expense of XA transaction log overhead)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:182
+msgid "The following bean definition creates a transaction manager:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/integration/jms/receiving.adoc:187
+msgid ""
+"Then we need to add it to our earlier container configuration. The container "
+"takes care of the rest. The following example shows how to do so:"
+msgstr ""

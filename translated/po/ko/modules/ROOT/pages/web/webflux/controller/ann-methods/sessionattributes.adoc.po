@@ -1,0 +1,163 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:2
+#, no-wrap
+msgid "`@SessionAttributes`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-methods/sessionattributes.adoc[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:11
+msgid ""
+"`@SessionAttributes` is used to store model attributes in the `WebSession` "
+"between requests. It is a type-level annotation that declares session "
+"attributes used by a specific controller. This typically lists the names of "
+"model attributes or types of model attributes that should be transparently "
+"stored in the session for subsequent requests to access."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:13
+msgid "Consider the following example:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:16
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:48
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:25
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\t@SessionAttributes(\"pet\") <1>\n"
+"\tpublic class EditPetForm {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:27
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:39
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:70
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:93
+msgid "Using the `@SessionAttributes` annotation."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:28
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:72
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:37
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\t@SessionAttributes(\"pet\") // <1>\n"
+"\tclass EditPetForm {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:45
+msgid ""
+"On the first request, when a model attribute with the name, `pet`, is added "
+"to the model, it is automatically promoted to and saved in the "
+"`WebSession`. It remains there until another controller method uses a "
+"`SessionStatus` method argument to clear the storage, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:55
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\t@SessionAttributes(\"pet\") // <1>\n"
+"\tpublic class EditPetForm {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:57
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:81
+#, no-wrap
+msgid "\t\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:68
+#, no-wrap
+msgid ""
+"\t\t@PostMapping(\"/pets/{id}\")\n"
+"\t\tpublic String handle(Pet pet, BindingResult errors, SessionStatus "
+"status) { // <2>\n"
+"\t\t\tif (errors.hasErrors()) {\n"
+"\t\t\t\t// ...\n"
+"\t\t\t}\n"
+"\t\t\t\tstatus.setComplete();\n"
+"\t\t\t\t// ...\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:71
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:94
+msgid "Using a `SessionStatus` variable."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:79
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\t@SessionAttributes(\"pet\") // <1>\n"
+"\tclass EditPetForm {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/sessionattributes.adoc:91
+#, no-wrap
+msgid ""
+"\t\t@PostMapping(\"/pets/{id}\")\n"
+"\t\tfun handle(pet: Pet, errors: BindingResult, status: SessionStatus): "
+"String { // <2>\n"
+"\t\t\tif (errors.hasErrors()) {\n"
+"\t\t\t\t// ...\n"
+"\t\t\t}\n"
+"\t\t\tstatus.setComplete()\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""

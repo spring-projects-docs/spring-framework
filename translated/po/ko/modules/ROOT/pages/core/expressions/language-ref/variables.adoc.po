@@ -1,0 +1,352 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:2
+#, no-wrap
+msgid "Variables"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:6
+msgid ""
+"You can reference variables in an expression by using the `#variableName` "
+"syntax. Variables are set by using the `setVariable()` method in "
+"`EvaluationContext` implementations."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:11
+msgid ""
+"Variable names must begin with a letter (as defined below), an underscore, "
+"or a dollar sign."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:14
+msgid ""
+"Variable names must be composed of one or more of the following supported "
+"types of characters."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:16
+msgid ""
+"letter: any character for which `java.lang.Character.isLetter(char)` returns "
+"`true`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:18
+msgid ""
+"This includes letters such as `A` to `Z`, `a` to `z`, `ü`, `ñ`, and `é` as "
+"well as letters from other character sets such as Chinese, Japanese, "
+"Cyrillic, etc."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:19
+msgid "digit: `0` to `9`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:20
+msgid "underscore: `_`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:21
+msgid "dollar sign: `$`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:27
+msgid ""
+"When setting a variable or root context object in the `EvaluationContext`, "
+"it is advised that the type of the variable or root context object be "
+"`public`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:30
+msgid ""
+"Otherwise, certain types of SpEL expressions involving a variable or root "
+"context object with a non-public type may fail to evaluate or compile."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:37
+msgid ""
+"Since variables share a common namespace with "
+"xref:core/expressions/language-ref/functions.adoc[functions] in the "
+"evaluation context, care must be taken to ensure that variable names and "
+"functions names do not overlap."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:40
+msgid "The following example shows how to use variables."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:43
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:84
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:131
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:48
+#, no-wrap
+msgid "\tInventor tesla = new Inventor(\"Nikola Tesla\", \"Serbian\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:51
+#, no-wrap
+msgid ""
+"\tEvaluationContext context = "
+"SimpleEvaluationContext.forReadWriteDataBinding().build();\n"
+"\tcontext.setVariable(\"newName\", \"Mike Tesla\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:54
+#, no-wrap
+msgid ""
+"\tparser.parseExpression(\"name = #newName\").getValue(context, tesla);\n"
+"\tSystem.out.println(tesla.getName());  // \"Mike Tesla\"\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:56
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:104
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:155
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:61
+#, no-wrap
+msgid "\tval tesla = Inventor(\"Nikola Tesla\", \"Serbian\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:64
+#, no-wrap
+msgid ""
+"\tval context = SimpleEvaluationContext.forReadWriteDataBinding().build()\n"
+"\tcontext.setVariable(\"newName\", \"Mike Tesla\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:67
+#, no-wrap
+msgid ""
+"\tparser.parseExpression(\"name = #newName\").getValue(context, tesla)\n"
+"\tprintln(tesla.name)  // \"Mike Tesla\"\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:72
+#, no-wrap
+msgid "The `#this` and `#root` Variables"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:78
+msgid ""
+"The `#this` variable is always defined and refers to the current evaluation "
+"object (against which unqualified references are resolved). The `#root` "
+"variable is always defined and refers to the root context object. Although "
+"`#this` may vary as components of an expression are evaluated, `#root` "
+"always refers to the root."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:81
+msgid ""
+"The following example shows how to use the `#this` variable in conjunction "
+"with xref:core/expressions/language-ref/collection-selection.adoc[collection "
+"selection]."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:90
+#, no-wrap
+msgid ""
+"\t// Create a list of prime integers.\n"
+"\tList<Integer> primes = List.of(2, 3, 5, 7, 11, 13, 17);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:95
+#, no-wrap
+msgid ""
+"\t// Create parser and set variable 'primes' as the list of integers.\n"
+"\tExpressionParser parser = new SpelExpressionParser();\n"
+"\tEvaluationContext context = "
+"SimpleEvaluationContext.forReadWriteDataBinding().build();\n"
+"\tcontext.setVariable(\"primes\", primes);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:98
+#, no-wrap
+msgid ""
+"\t// Select all prime numbers > 10 from the list (using selection ?{...}).\n"
+"\tString expression = \"#primes.?[#this > 10]\";\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:102
+#, no-wrap
+msgid ""
+"\t// Evaluates to a list containing [11, 13, 17].\n"
+"\tList<Integer> primesGreaterThanTen =\n"
+"\t\t\tparser.parseExpression(expression).getValue(context, List.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:110
+#, no-wrap
+msgid ""
+"\t// Create a list of prime integers.\n"
+"\tval primes = listOf(2, 3, 5, 7, 11, 13, 17)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:115
+#, no-wrap
+msgid ""
+"\t// Create parser and set variable 'primes' as the list of integers.\n"
+"\tval parser = SpelExpressionParser()\n"
+"\tval context = SimpleEvaluationContext.forReadWriteDataBinding().build()\n"
+"\tcontext.setVariable(\"primes\", primes)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:118
+#, no-wrap
+msgid ""
+"\t// Select all prime numbers > 10 from the list (using selection ?{...}).\n"
+"\tval expression = \"#primes.?[#this > 10]\"\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:122
+#, no-wrap
+msgid ""
+"\t// Evaluates to a list containing [11, 13, 17].\n"
+"\tval primesGreaterThanTen = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context) as List<Int>\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:128
+msgid ""
+"The following example shows how to use the `#this` and `#root` variables "
+"together in conjunction with "
+"xref:core/expressions/language-ref/collection-projection.adoc[collection "
+"projection]."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:138
+#, no-wrap
+msgid ""
+"\t// Create parser and evaluation context.\n"
+"\tExpressionParser parser = new SpelExpressionParser();\n"
+"\tEvaluationContext context = "
+"SimpleEvaluationContext.forReadWriteDataBinding().build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:142
+#, no-wrap
+msgid ""
+"\t// Create an inventor to use as the root context object.\n"
+"\tInventor tesla = new Inventor(\"Nikola Tesla\");\n"
+"\ttesla.setInventions(\"Telephone repeater\", \"Tesla coil transformer\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:147
+#, no-wrap
+msgid ""
+"\t// Iterate over all inventions of the Inventor referenced as the #root\n"
+"\t// object, and generate a list of strings whose contents take the form\n"
+"\t// \"<inventor's name> invented the <invention>.\" (using projection "
+"!{...}).\n"
+"\tString expression = \"#root.inventions.![#root.name + ' invented the ' + "
+"#this + '.']\";\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:153
+#, no-wrap
+msgid ""
+"\t// Evaluates to a list containing:\n"
+"\t// \"Nikola Tesla invented the Telephone repeater.\"\n"
+"\t// \"Nikola Tesla invented the Tesla coil transformer.\"\n"
+"\tList<String> results = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, tesla, List.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:162
+#, no-wrap
+msgid ""
+"\t// Create parser and evaluation context.\n"
+"\tval parser = SpelExpressionParser()\n"
+"\tval context = SimpleEvaluationContext.forReadWriteDataBinding().build()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:166
+#, no-wrap
+msgid ""
+"\t// Create an inventor to use as the root context object.\n"
+"\tval tesla = Inventor(\"Nikola Tesla\")\n"
+"\ttesla.setInventions(\"Telephone repeater\", \"Tesla coil transformer\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:171
+#, no-wrap
+msgid ""
+"\t// Iterate over all inventions of the Inventor referenced as the #root\n"
+"\t// object, and generate a list of strings whose contents take the form\n"
+"\t// \"<inventor's name> invented the <invention>.\" (using projection "
+"!{...}).\n"
+"\tval expression = \"#root.inventions.![#root.name + ' invented the ' + "
+"#this + '.']\"\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/variables.adoc:177
+#, no-wrap
+msgid ""
+"\t// Evaluates to a list containing:\n"
+"\t// \"Nikola Tesla invented the Telephone repeater.\"\n"
+"\t// \"Nikola Tesla invented the Tesla coil transformer.\"\n"
+"\tval results = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(context, tesla, List::class.java)\n"
+msgstr ""

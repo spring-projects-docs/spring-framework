@@ -1,0 +1,1338 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-20 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:2
+#, no-wrap
+msgid "Operators"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:5
+msgid "The Spring Expression Language supports the following kinds of operators:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:7
+msgid ""
+"xref:core/expressions/language-ref/operators.adoc#expressions-operators-relational[Relational "
+"Operators]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:8
+msgid ""
+"xref:core/expressions/language-ref/operators.adoc#expressions-operators-logical[Logical "
+"Operators]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:9
+msgid ""
+"xref:core/expressions/language-ref/operators.adoc#expressions-operators-string[String "
+"Operators]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:10
+msgid ""
+"xref:core/expressions/language-ref/operators.adoc#expressions-operators-mathematical[Mathematical "
+"Operators]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:11
+msgid ""
+"xref:core/expressions/language-ref/operators.adoc#expressions-assignment[The "
+"Assignment Operator]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:12
+msgid ""
+"xref:core/expressions/language-ref/operators.adoc#expressions-operators-overloaded[Overloaded "
+"Operators]"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:16
+#, no-wrap
+msgid "Relational Operators"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:22
+msgid ""
+"The relational operators (equal, not equal, less than, less than or equal, "
+"greater than, and greater than or equal) are supported by using standard "
+"operator notation.  These operators work on `Number` types as well as types "
+"implementing `Comparable`.  The following listing shows a few examples of "
+"relational operators:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:25
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:90
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:196
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:278
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:359
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:502
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:577
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:31
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tboolean trueValue = parser.parseExpression(\"2 == "
+"2\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:34
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tboolean falseValue = parser.parseExpression(\"2 < "
+"-5.0\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:37
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tboolean trueValue = parser.parseExpression(\"'black' < "
+"'block'\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:40
+#, no-wrap
+msgid ""
+"\t// uses CustomValue:::compareTo\n"
+"\tboolean trueValue = parser.parseExpression(\"new CustomValue(1) < new "
+"CustomValue(2)\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:42
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:129
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:229
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:301
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:425
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:516
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:588
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:48
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tval trueValue = parser.parseExpression(\"2 == "
+"2\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:51
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tval falseValue = parser.parseExpression(\"2 < "
+"-5.0\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:54
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tval trueValue = parser.parseExpression(\"'black' < "
+"'block'\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:57
+#, no-wrap
+msgid ""
+"\t// uses CustomValue:::compareTo\n"
+"\tval trueValue = parser.parseExpression(\"new CustomValue(1) < new "
+"CustomValue(2)\").getValue(Boolean::class.java);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:66
+msgid ""
+"Greater-than and less-than comparisons against `null` follow a simple rule: "
+"`null` is treated as nothing (that is NOT as zero). As a consequence, any "
+"other value is always greater than `null` (`X > null` is always `true`) and "
+"no other value is ever less than nothing (`X < null` is always `false`)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:69
+msgid ""
+"If you prefer numeric comparisons instead, avoid number-based `null` "
+"comparisons in favor of comparisons against zero (for example, `X > 0` or `X "
+"< 0`)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:74
+msgid ""
+"Each symbolic operator can also be specified as a purely textual "
+"equivalent. This avoids problems where the symbols used have special meaning "
+"for the document type in which the expression is embedded (such as in an XML "
+"document). The textual equivalents are:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:76
+msgid "`lt` (`<`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:77
+msgid "`gt` (`>`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:78
+msgid "`le` (`\\<=`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:79
+msgid "`ge` (`>=`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:80
+msgid "`eq` (`==`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:81
+msgid "`ne` (`!=`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:83
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:191
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:348
+msgid "All of the textual operators are case-insensitive."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:87
+msgid ""
+"In addition to the standard relational operators, SpEL supports the "
+"`between`, `instanceof`, and regular expression-based `matches` "
+"operators. The following listing shows examples of all three:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:95
+#, no-wrap
+msgid "\tboolean result;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:99
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"1 between {1, 5}\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:103
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"1 between {10, 15}\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:107
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"'elephant' between {'aardvark', "
+"'zebra'}\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:111
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"'elephant' between {'aardvark', "
+"'cobra'}\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:115
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"123 instanceof T(Integer)\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:119
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"'xyz' instanceof T(Integer)\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:123
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"'5.00' matches "
+"'^-?\\\\d+(\\\\.\\\\d{2})?$'\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:127
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"'5.0067' matches "
+"'^-?\\\\d+(\\\\.\\\\d{2})?$'\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:136
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tvar result = parser.parseExpression(\n"
+"\t\t\t\"1 between {1, 5}\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:140
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"1 between {10, 15}\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:144
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"'elephant' between {'aardvark', "
+"'zebra'}\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:148
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"'elephant' between {'aardvark', "
+"'cobra'}\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:152
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"123 instanceof T(Integer)\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:156
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"'xyz' instanceof T(Integer)\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:160
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"'5.00' matches "
+"'^-?\\\\d+(\\\\.\\\\d{2})?$'\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:164
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tresult = parser.parseExpression(\n"
+"\t\t\t\"'5.0067' matches "
+"'^-?\\\\d+(\\\\.\\\\d{2})?$'\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:171
+msgid ""
+"The syntax for the `between` operator is `<input> between {<range_begin>, "
+"<range_end>}`, which is effectively a shortcut for `<input> >= <range_begin> "
+"&& <input> \\<= <range_end>}`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:174
+msgid ""
+"Consequently, `1 between {1, 5}` evaluates to `true`, while `1 between {5, "
+"1}` evaluates to `false`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:179
+msgid ""
+"Be careful with primitive types, as they are immediately boxed up to their "
+"wrapper types. For example, `1 instanceof T(int)` evaluates to `false`, "
+"while `1 instanceof T(Integer)` evaluates to `true`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:182
+#, no-wrap
+msgid "Logical Operators"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:185
+msgid "SpEL supports the following logical (`boolean`) operators:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:187
+msgid "`and` (`&&`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:188
+msgid "`or` (`||`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:189
+msgid "`not` (`!`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:193
+msgid "The following example shows how to use the logical operators:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:201
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:234
+#, no-wrap
+msgid "\t// -- AND --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:204
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tboolean falseValue = parser.parseExpression(\"true and "
+"false\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:208
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tString expression = \"isMember('Nikola Tesla') and isMember('Mihajlo "
+"Pupin')\";\n"
+"\tboolean trueValue = "
+"parser.parseExpression(expression).getValue(societyContext, "
+"Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:210
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:243
+#, no-wrap
+msgid "\t// -- OR --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:213
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tboolean trueValue = parser.parseExpression(\"true or "
+"false\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:217
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tString expression = \"isMember('Nikola Tesla') or isMember('Albert "
+"Einstein')\";\n"
+"\tboolean trueValue = "
+"parser.parseExpression(expression).getValue(societyContext, "
+"Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:219
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:252
+#, no-wrap
+msgid "\t// -- NOT --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:222
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tboolean falseValue = "
+"parser.parseExpression(\"!true\").getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:224
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:257
+#, no-wrap
+msgid "\t// -- AND and NOT --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:227
+#, no-wrap
+msgid ""
+"\tString expression = \"isMember('Nikola Tesla') and !isMember('Mihajlo "
+"Pupin')\";\n"
+"\tboolean falseValue = "
+"parser.parseExpression(expression).getValue(societyContext, "
+"Boolean.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:237
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tval falseValue = parser.parseExpression(\"true and "
+"false\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:241
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tval expression = \"isMember('Nikola Tesla') and isMember('Mihajlo "
+"Pupin')\"\n"
+"\tval trueValue = "
+"parser.parseExpression(expression).getValue(societyContext, "
+"Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:246
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tval trueValue = parser.parseExpression(\"true or "
+"false\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:250
+#, no-wrap
+msgid ""
+"\t// evaluates to true\n"
+"\tval expression = \"isMember('Nikola Tesla') or isMember('Albert "
+"Einstein')\"\n"
+"\tval trueValue = "
+"parser.parseExpression(expression).getValue(societyContext, "
+"Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:255
+#, no-wrap
+msgid ""
+"\t// evaluates to false\n"
+"\tval falseValue = "
+"parser.parseExpression(\"!true\").getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:260
+#, no-wrap
+msgid ""
+"\tval expression = \"isMember('Nikola Tesla') and !isMember('Mihajlo "
+"Pupin')\"\n"
+"\tval falseValue = "
+"parser.parseExpression(expression).getValue(societyContext, "
+"Boolean::class.java)\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:265
+#, no-wrap
+msgid "String Operators"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:268
+msgid "You can use the following operators on strings."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:270
+msgid "concatenation (`+`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:271
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:332
+msgid "subtraction (`-`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:272
+msgid "for use with a string containing a single character"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:273
+msgid "repeat (`*`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:275
+msgid "The following example shows the `String` operators in use:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:283
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:306
+#, no-wrap
+msgid "\t// -- Concatenation --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:287
+#, no-wrap
+msgid ""
+"\t// evaluates to \"hello world\"\n"
+"\tString helloWorld = parser.parseExpression(\"'hello' + ' ' + 'world'\")\n"
+"\t\t\t.getValue(String.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:289
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:312
+#, no-wrap
+msgid "\t// -- Character Subtraction --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:293
+#, no-wrap
+msgid ""
+"\t// evaluates to 'a'\n"
+"\tchar ch = parser.parseExpression(\"'d' - 3\")\n"
+"\t\t\t.getValue(char.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:295
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:318
+#, no-wrap
+msgid "\t// -- Repeat --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:299
+#, no-wrap
+msgid ""
+"\t// evaluates to \"abcabc\"\n"
+"\tString repeated = parser.parseExpression(\"'abc' * 2\")\n"
+"\t\t\t.getValue(String.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:310
+#, no-wrap
+msgid ""
+"\t// evaluates to \"hello world\"\n"
+"\tval helloWorld = parser.parseExpression(\"'hello' + ' ' + 'world'\")\n"
+"\t\t\t.getValue(String::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:316
+#, no-wrap
+msgid ""
+"\t// evaluates to 'a'\n"
+"\tval ch = parser.parseExpression(\"'d' - 3\")\n"
+"\t\t\t.getValue(Character::class.java);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:322
+#, no-wrap
+msgid ""
+"\t// evaluates to \"abcabc\"\n"
+"\tval repeated = parser.parseExpression(\"'abc' * 2\")\n"
+"\t\t\t.getValue(String::class.java);\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:326
+#, no-wrap
+msgid "Mathematical Operators"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:329
+msgid ""
+"You can use the following operators on numbers, and standard operator "
+"precedence is enforced."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:331
+msgid "addition (`+`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:333
+msgid "increment (`{pp}`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:334
+msgid "decrement (`--`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:335
+msgid "multiplication (`*`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:336
+msgid "division (`/`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:337
+msgid "modulus (`%`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:338
+msgid "exponential power (`^`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:343
+msgid ""
+"The division and modulus operators can also be specified as a purely textual "
+"equivalent.  This avoids problems where the symbols used have special "
+"meaning for the document type in which the expression is embedded (such as "
+"in an XML document). The textual equivalents are:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:345
+msgid "`div` (`/`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:346
+msgid "`mod` (`%`)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:353
+msgid ""
+"The increment and decrement operators can be used with either prefix "
+"(`{pp}A`, `--A`) or postfix (`A{pp}`, `A--`) notation with variables or "
+"properties that can be written to."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:356
+msgid "The following example shows the mathematical operators in use:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:365
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:508
+#, no-wrap
+msgid ""
+"\tInventor inventor = new Inventor();\n"
+"\tEvaluationContext context = "
+"SimpleEvaluationContext.forReadWriteDataBinding().build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:367
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:433
+#, no-wrap
+msgid "\t// -- Addition --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:369
+#, no-wrap
+msgid "\tint two = parser.parseExpression(\"1 + 1\").getValue(int.class);  // 2\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:371
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:437
+#, no-wrap
+msgid "\t// -- Subtraction --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:373
+#, no-wrap
+msgid "\tint four = parser.parseExpression(\"1 - -3\").getValue(int.class);  // 4\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:375
+#, no-wrap
+msgid ""
+"\tdouble d = parser.parseExpression(\"1000.00 - "
+"1e4\").getValue(double.class);  // -9000\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:377
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:443
+#, no-wrap
+msgid "\t// -- Increment --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:379
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:445
+#, no-wrap
+msgid "\t// The counter property in Inventor has an initial value of 0.\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:382
+#, no-wrap
+msgid ""
+"\t// evaluates to 2; counter is now 1\n"
+"\ttwo = parser.parseExpression(\"counter++ + 2\").getValue(context, "
+"inventor, int.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:385
+#, no-wrap
+msgid ""
+"\t// evaluates to 5; counter is now 2\n"
+"\tint five = parser.parseExpression(\"3 + ++counter\").getValue(context, "
+"inventor, int.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:387
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:453
+#, no-wrap
+msgid "\t// -- Decrement --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:389
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:455
+#, no-wrap
+msgid "\t// The counter property in Inventor has a value of 2.\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:392
+#, no-wrap
+msgid ""
+"\t// evaluates to 6; counter is now 1\n"
+"\tint six = parser.parseExpression(\"counter-- + 4\").getValue(context, "
+"inventor, int.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:395
+#, no-wrap
+msgid ""
+"\t// evaluates to 5; counter is now 0\n"
+"\tfive = parser.parseExpression(\"5 + --counter\").getValue(context, "
+"inventor, int.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:397
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:463
+#, no-wrap
+msgid "\t// -- Multiplication --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:399
+#, no-wrap
+msgid "\tsix = parser.parseExpression(\"-2 * -3\").getValue(int.class);  // 6\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:401
+#, no-wrap
+msgid ""
+"\tdouble twentyFour = parser.parseExpression(\"2.0 * 3e0 * "
+"4\").getValue(double.class);  // 24.0\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:403
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:469
+#, no-wrap
+msgid "\t// -- Division --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:405
+#, no-wrap
+msgid ""
+"\tint minusTwo = parser.parseExpression(\"6 / -3\").getValue(int.class);  // "
+"-2\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:407
+#, no-wrap
+msgid ""
+"\tdouble one = parser.parseExpression(\"8.0 / 4e0 / "
+"2\").getValue(double.class);  // 1.0\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:409
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:475
+#, no-wrap
+msgid "\t// -- Modulus --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:411
+#, no-wrap
+msgid "\tint three = parser.parseExpression(\"7 % 4\").getValue(int.class);  // 3\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:413
+#, no-wrap
+msgid ""
+"\tint oneInt = parser.parseExpression(\"8 / 5 % 2\").getValue(int.class);  "
+"// 1\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:415
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:481
+#, no-wrap
+msgid "\t// -- Exponential power --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:417
+#, no-wrap
+msgid ""
+"\tint maxInt = parser.parseExpression(\"(2^31) - 1\").getValue(int.class);  "
+"// Integer.MAX_VALUE\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:419
+#, no-wrap
+msgid ""
+"\tint minInt = parser.parseExpression(\"-2^31\").getValue(int.class);  // "
+"Integer.MIN_VALUE\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:421
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:487
+#, no-wrap
+msgid "\t// -- Operator precedence --\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:423
+#, no-wrap
+msgid ""
+"\tint minusTwentyOne = "
+"parser.parseExpression(\"1+2-3*8\").getValue(int.class);  // -21\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:431
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:522
+#, no-wrap
+msgid ""
+"\tval inventor = Inventor()\n"
+"\tval context = SimpleEvaluationContext.forReadWriteDataBinding().build()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:435
+#, no-wrap
+msgid ""
+"\tvar two = parser.parseExpression(\"1 + 1\").getValue(Int::class.java)  // "
+"2\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:439
+#, no-wrap
+msgid ""
+"\tval four = parser.parseExpression(\"1 - -3\").getValue(Int::class.java)  "
+"// 4\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:441
+#, no-wrap
+msgid ""
+"\tval d = parser.parseExpression(\"1000.00 - "
+"1e4\").getValue(Double::class.java)  // -9000\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:448
+#, no-wrap
+msgid ""
+"\t// evaluates to 2; counter is now 1\n"
+"\ttwo = parser.parseExpression(\"counter++ + 2\").getValue(context, "
+"inventor, Int::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:451
+#, no-wrap
+msgid ""
+"\t// evaluates to 5; counter is now 2\n"
+"\tvar five = parser.parseExpression(\"3 + ++counter\").getValue(context, "
+"inventor, Int::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:458
+#, no-wrap
+msgid ""
+"\t// evaluates to 6; counter is now 1\n"
+"\tvar six = parser.parseExpression(\"counter-- + 4\").getValue(context, "
+"inventor, Int::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:461
+#, no-wrap
+msgid ""
+"\t// evaluates to 5; counter is now 0\n"
+"\tfive = parser.parseExpression(\"5 + --counter\").getValue(context, "
+"inventor, Int::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:465
+#, no-wrap
+msgid ""
+"\tsix = parser.parseExpression(\"-2 * -3\").getValue(Int::class.java)  // "
+"6\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:467
+#, no-wrap
+msgid ""
+"\tval twentyFour = parser.parseExpression(\"2.0 * 3e0 * "
+"4\").getValue(Double::class.java)  // 24.0\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:471
+#, no-wrap
+msgid ""
+"\tval minusTwo = parser.parseExpression(\"6 / "
+"-3\").getValue(Int::class.java)  // -2\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:473
+#, no-wrap
+msgid ""
+"\tval one = parser.parseExpression(\"8.0 / 4e0 / "
+"2\").getValue(Double::class.java)  // 1.0\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:477
+#, no-wrap
+msgid ""
+"\tval three = parser.parseExpression(\"7 % 4\").getValue(Int::class.java)  "
+"// 3\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:479
+#, no-wrap
+msgid ""
+"\tval oneInt = parser.parseExpression(\"8 / 5 % "
+"2\").getValue(Int::class.java)  // 1\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:483
+#, no-wrap
+msgid ""
+"\tval maxInt = parser.parseExpression(\"(2^31) - "
+"1\").getValue(Int::class.java)  // Integer.MAX_VALUE\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:485
+#, no-wrap
+msgid ""
+"\tval minInt = parser.parseExpression(\"-2^31\").getValue(Int::class.java)  "
+"// Integer.MIN_VALUE\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:489
+#, no-wrap
+msgid ""
+"\tval minusTwentyOne = "
+"parser.parseExpression(\"1+2-3*8\").getValue(Int::class.java)  // -21\t\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:494
+#, no-wrap
+msgid "The Assignment Operator"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:499
+msgid ""
+"To set a property, use the assignment operator (`=`). This is typically done "
+"within a call to `setValue` but can also be done inside a call to "
+"`getValue`. The following listing shows both ways to use the assignment "
+"operator:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:510
+#, no-wrap
+msgid ""
+"\tparser.parseExpression(\"name\").setValue(context, inventor, \"Aleksandar "
+"Seovic\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:514
+#, no-wrap
+msgid ""
+"\t// alternatively\n"
+"\tString aleks = parser.parseExpression(\n"
+"\t\t\t\"name = 'Aleksandar Seovic'\").getValue(context, inventor, "
+"String.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:524
+#, no-wrap
+msgid ""
+"\tparser.parseExpression(\"name\").setValue(context, inventor, \"Aleksandar "
+"Seovic\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:528
+#, no-wrap
+msgid ""
+"\t// alternatively\n"
+"\tval aleks = parser.parseExpression(\n"
+"\t\t\t\"name = 'Aleksandar Seovic'\").getValue(context, inventor, "
+"String::class.java)\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:533
+#, no-wrap
+msgid "Overloaded Operators"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:539
+msgid ""
+"By default, the mathematical operations defined in SpEL's `Operation` enum "
+"(`ADD`, `SUBTRACT`, `DIVIDE`, `MULTIPLY`, `MODULUS`, and `POWER`) support "
+"simple types like numbers. By providing an implementation of "
+"`OperatorOverloader`, the expression language can support these operations "
+"on other types."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:543
+msgid ""
+"For example, if we want to overload the `ADD` operator to allow two lists to "
+"be concatenated using the `+` sign, we can implement a custom "
+"`OperatorOverloader` as follows."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:547
+#, no-wrap
+msgid "\tpubic class ListConcatenation implements OperatorOverloader {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:553
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic boolean overridesOperation(Operation operation, Object left, "
+"Object right) {\n"
+"\t\t\treturn (operation == Operation.ADD &&\n"
+"\t\t\t\t\tleft instanceof List && right instanceof List);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:559
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\t@SuppressWarnings(\"unchecked\")\n"
+"\t\tpublic Object operate(Operation operation, Object left, Object right) "
+"{\n"
+"\t\t\tif (operation == Operation.ADD &&\n"
+"\t\t\t\t\tleft instanceof List list1 && right instanceof List list2) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:569
+#, no-wrap
+msgid ""
+"\t\t\t\tList result = new ArrayList(list1);\n"
+"\t\t\t\tresult.addAll(list2);\n"
+"\t\t\t\treturn result;\n"
+"\t\t\t}\n"
+"\t\t\tthrow new UnsupportedOperationException(\n"
+"\t\t\t\t\"No overload for operation %s and operands [%s] and [%s]\"\n"
+"\t\t\t\t\t.formatted(operation, left, right));\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:574
+msgid ""
+"If we register `ListConcatenation` as the `OperatorOverloader` in a "
+"`StandardEvaluationContext`, we can then evaluate expressions like `{1, 2, "
+"3} + {4, 5}` as demonstrated in the following example."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:583
+#, no-wrap
+msgid ""
+"\tStandardEvaluationContext context = new StandardEvaluationContext();\n"
+"\tcontext.setOperatorOverloader(new ListConcatenation());\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:586
+#, no-wrap
+msgid ""
+"\t// evaluates to a new list: [1, 2, 3, 4, 5]\n"
+"\tparser.parseExpression(\"{1, 2, 3} + {2 + 2, 5}\").getValue(context, "
+"List.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:594
+#, no-wrap
+msgid ""
+"\tStandardEvaluationContext context = StandardEvaluationContext()\n"
+"\tcontext.setOperatorOverloader(ListConcatenation())\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:597
+#, no-wrap
+msgid ""
+"\t// evaluates to a new list: [1, 2, 3, 4, 5]\n"
+"\tparser.parseExpression(\"{1, 2, 3} + {2 + 2, 5}\").getValue(context, "
+"List::class.java)\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:604
+msgid ""
+"An `OperatorOverloader` does not change the default semantics for an "
+"operator. For example, `2 + 2` in the above example still evaluates to `4`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operators.adoc:611
+msgid ""
+"Any expression that uses an overloaded operator cannot be compiled. See "
+"xref:core/expressions/evaluation.adoc#expressions-compiler-limitations[Compiler "
+"Limitations] for details."
+msgstr ""
