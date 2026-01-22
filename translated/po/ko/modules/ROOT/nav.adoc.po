@@ -6,20 +6,21 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: 2026-01-22 15:54+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2026-01-22 16:14+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:2
 msgid "xref:overview.adoc[Overview]"
-msgstr ""
+msgstr "xref:overview.adoc[오버뷰]"
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:3
@@ -144,8 +145,8 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:27
 msgid ""
-"xref:core/beans/annotation-config/postconstruct-and-predestroy-annotations."
-"adoc[]"
+"xref:core/beans/annotation-config/postconstruct-and-predestroy-"
+"annotations.adoc[]"
 msgstr ""
 
 #. type: Plain text
@@ -251,8 +252,8 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:48
 msgid ""
-"xref:core/validation/format-configuring-formatting-globaldatetimeformat."
-"adoc[]"
+"xref:core/validation/format-configuring-formatting-"
+"globaldatetimeformat.adoc[]"
 msgstr ""
 
 #. type: Plain text
@@ -638,8 +639,8 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:125
 msgid ""
-"xref:data-access/transaction/declarative/applying-more-than-just-tx-advice."
-"adoc[]"
+"xref:data-access/transaction/declarative/applying-more-than-just-tx-"
+"advice.adoc[]"
 msgstr ""
 
 #. type: Plain text
@@ -1734,8 +1735,8 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:343
 msgid ""
-"xref:testing/testcontext-framework/ctx-management/dynamic-property-sources."
-"adoc[]"
+"xref:testing/testcontext-framework/ctx-management/dynamic-property-"
+"sources.adoc[]"
 msgstr ""
 
 #. type: Plain text
@@ -1974,22 +1975,22 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:390
 msgid ""
-"xref:testing/annotations/integration-spring/annotation-contextconfiguration."
-"adoc[]"
+"xref:testing/annotations/integration-spring/annotation-"
+"contextconfiguration.adoc[]"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:391
 msgid ""
-"xref:testing/annotations/integration-spring/annotation-webappconfiguration."
-"adoc[]"
+"xref:testing/annotations/integration-spring/annotation-"
+"webappconfiguration.adoc[]"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:392
 msgid ""
-"xref:testing/annotations/integration-spring/annotation-contexthierarchy."
-"adoc[]"
+"xref:testing/annotations/integration-spring/annotation-"
+"contexthierarchy.adoc[]"
 msgstr ""
 
 #. type: Plain text
@@ -2008,15 +2009,15 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:395
 msgid ""
-"xref:testing/annotations/integration-spring/annotation-testpropertysource."
-"adoc[]"
+"xref:testing/annotations/integration-spring/annotation-"
+"testpropertysource.adoc[]"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:396
 msgid ""
-"xref:testing/annotations/integration-spring/annotation-dynamicpropertysource."
-"adoc[]"
+"xref:testing/annotations/integration-spring/annotation-"
+"dynamicpropertysource.adoc[]"
 msgstr ""
 
 #. type: Plain text
@@ -2063,15 +2064,15 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:404
 msgid ""
-"xref:testing/annotations/integration-spring/annotation-beforetransaction."
-"adoc[]"
+"xref:testing/annotations/integration-spring/annotation-"
+"beforetransaction.adoc[]"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:405
 msgid ""
-"xref:testing/annotations/integration-spring/annotation-aftertransaction."
-"adoc[]"
+"xref:testing/annotations/integration-spring/annotation-"
+"aftertransaction.adoc[]"
 msgstr ""
 
 #. type: Plain text
@@ -2098,8 +2099,8 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:410
 msgid ""
-"xref:testing/annotations/integration-spring/annotation-disabledinaotmode."
-"adoc[]"
+"xref:testing/annotations/integration-spring/annotation-"
+"disabledinaotmode.adoc[]"
 msgstr ""
 
 #. type: Plain text
@@ -2355,8 +2356,8 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:461
 msgid ""
-"{spring-framework-docs-root}/{spring-version}/javadoc-api/[Java API,"
-"window=_blank, role=link-external]"
+"{spring-framework-docs-root}/{spring-version}/javadoc-api/[Java "
+"API,window=_blank, role=link-external]"
 msgstr ""
 
 #. type: Plain text

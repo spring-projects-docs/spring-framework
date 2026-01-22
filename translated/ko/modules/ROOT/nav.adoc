@@ -1,4 +1,4 @@
-* xref:overview.adoc[Overview]
+* xref:overview.adoc[오버뷰]
 * xref:core.adoc[]
 ** xref:core/beans.adoc[]
 *** xref:core/beans/introduction.adoc[]
