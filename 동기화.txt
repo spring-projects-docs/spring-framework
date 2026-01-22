@@ -1,0 +1,15 @@
+#git subtree add --prefix=origin spring v7.0.3 --squash
+
+# A 브랜치
+git checkout main
+cp translated/po/ko/modules/ROOT/nav.adoc.po tmp/nav.adoc.po 
+
+# B 브랜치
+git checkout v7.0.3
+#msgcat --use-first newFile oldFile -o targetFile
+msgcat --use-first tmp/nav.adoc.po translated/po/ko/modules/ROOT/nav.adoc.po -o final.po
+mv final.po translated/po/ko/modules/ROOT/nav.adoc.po
+rm tmp/*.po
+git add translated/po/ko/modules/ROOT/nav.adoc.po
+git commit -m "Sync .po from main branch safely using po4a"
+기존 번역은 유지되면서, B 브랜치 소스 기준으로 안전하게 업데이트됩니다.
