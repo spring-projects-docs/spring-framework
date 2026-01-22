@@ -1,5 +1,5 @@
 [[spring-core]]
-= Core Technologies
+= 핵심 기술
 
 This part of the reference documentation covers all the technologies that are absolutely integral to the Spring Framework.
 

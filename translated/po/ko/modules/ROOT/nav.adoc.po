@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2026-01-22 15:54+0900\n"
-"PO-Revision-Date: 2026-01-22 16:14+0900\n"
+"PO-Revision-Date: 2026-01-22 16:49+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ko\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:2
 msgid "xref:overview.adoc[Overview]"
-msgstr "xref:overview.adoc[오버뷰]"
+msgstr "xref:overview.adoc[개요]"
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:3
