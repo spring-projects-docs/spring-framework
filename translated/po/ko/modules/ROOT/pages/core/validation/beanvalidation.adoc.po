@@ -1,0 +1,811 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:2
+#, no-wrap
+msgid "Java Bean Validation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:6
+msgid ""
+"The Spring Framework provides support for the {bean-validation-site}[Java "
+"Bean Validation] API."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:9
+#, no-wrap
+msgid "Overview of Bean Validation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:15
+msgid ""
+"Bean Validation provides a common way of validation through constraint "
+"declaration and metadata for Java applications. To use it, you annotate "
+"domain model properties with declarative validation constraints which are "
+"then enforced by the runtime. There are built-in constraints, and you can "
+"also define your own custom constraints."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:17
+msgid ""
+"Consider the following example, which shows a simple `PersonForm` model with "
+"two properties:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:20
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:45
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:93
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:132
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:168
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:221
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:245
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:336
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:427
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:28
+#, no-wrap
+msgid ""
+"\tpublic class PersonForm {\n"
+"\t\tprivate String name;\n"
+"\t\tprivate int age;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:30
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:60
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:146
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:182
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:232
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:260
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:352
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:445
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:38
+#, no-wrap
+msgid ""
+"\tclass PersonForm(\n"
+"\t\t\tprivate val name: String,\n"
+"\t\t\tprivate val age: Int\n"
+"\t)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:42
+msgid "Bean Validation lets you declare constraints as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:50
+#, no-wrap
+msgid "\tpublic class PersonForm {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:54
+#, no-wrap
+msgid ""
+"\t\t@NotNull\n"
+"\t\t@Size(max=64)\n"
+"\t\tprivate String name;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:58
+#, no-wrap
+msgid ""
+"\t\t@Min(0)\n"
+"\t\tprivate int age;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:70
+#, no-wrap
+msgid ""
+"\tclass PersonForm(\n"
+"\t\t@get:NotNull @get:Size(max=64)\n"
+"\t\tprivate val name: String,\n"
+"\t\t@get:Min(0)\n"
+"\t\tprivate val age: Int\n"
+"\t)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:78
+msgid ""
+"A Bean Validation validator then validates instances of this class based on "
+"the declared constraints. See {bean-validation-site}[Bean Validation] for "
+"general information about the API. See the "
+"https://hibernate.org/validator/[Hibernate Validator] documentation for "
+"specific constraints. To learn how to set up a bean validation provider as a "
+"Spring bean, keep reading."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:81
+#, no-wrap
+msgid "Configuring a Bean Validation Provider"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:87
+msgid ""
+"Spring provides full support for the Bean Validation API including the "
+"bootstrapping of a Bean Validation provider as a Spring bean. This lets you "
+"inject a `jakarta.validation.ValidatorFactory` or "
+"`jakarta.validation.Validator` wherever validation is needed in your "
+"application."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:90
+msgid ""
+"You can use the `LocalValidatorFactoryBean` to configure a default Validator "
+"as a Spring bean, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:98
+#, no-wrap
+msgid ""
+"\timport "
+"org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:101
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:107
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic LocalValidatorFactoryBean validator() {\n"
+"\t\t\treturn new LocalValidatorFactoryBean();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:109
+#, no-wrap
+msgid "XML"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:115
+#, no-wrap
+msgid ""
+"\t<bean id=\"validator\"\n"
+"\t\tclass=\"org.springframework.validation.beanvalidation.LocalValidatorFactoryBean\"/>\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:121
+msgid ""
+"The basic configuration in the preceding example triggers bean validation to "
+"initialize by using its default bootstrap mechanism. A Bean Validation "
+"provider, such as the Hibernate Validator, is expected to be present in the "
+"classpath and is automatically detected."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:123
+#, no-wrap
+msgid "Inject Jakarta Validator"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:129
+msgid ""
+"`LocalValidatorFactoryBean` implements both "
+"`jakarta.validation.ValidatorFactory` and `jakarta.validation.Validator`, so "
+"you can inject a reference to the latter to apply validation logic if you "
+"prefer to work with the Bean Validation API directly, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:137
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:151
+#, no-wrap
+msgid "\timport jakarta.validation.Validator;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:140
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:176
+#, no-wrap
+msgid ""
+"\t@Service\n"
+"\tpublic class MyService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:144
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:180
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate Validator validator;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:154
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:190
+#, no-wrap
+msgid ""
+"\t@Service\n"
+"\tclass MyService(@Autowired private val validator: Validator)\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:158
+#, no-wrap
+msgid "Inject Spring Validator"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:163
+msgid ""
+"In addition to implementing `jakarta.validation.Validator`, "
+"`LocalValidatorFactoryBean` also adapts to "
+"`org.springframework.validation.Validator`, so you can inject a reference to "
+"the latter if your bean requires the Spring Validation API."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:165
+msgid "For example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:173
+#, no-wrap
+msgid "\timport org.springframework.validation.Validator;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:187
+#, no-wrap
+msgid "\timport org.springframework.validation.Validator\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:197
+msgid ""
+"When used as `org.springframework.validation.Validator`, "
+"`LocalValidatorFactoryBean` invokes the underlying "
+"`jakarta.validation.Validator`, and then adapts ``ConstraintViolation``s to "
+"``FieldError``s, and registers them with the `Errors` object passed into the "
+"`validate` method."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:199
+#, no-wrap
+msgid "Configure Custom Constraints"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:202
+msgid "Each bean validation constraint consists of two parts:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:204
+msgid ""
+"A `@Constraint` annotation that declares the constraint and its configurable "
+"properties."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:206
+msgid ""
+"An implementation of the `jakarta.validation.ConstraintValidator` interface "
+"that implements the constraint's behavior."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:211
+msgid ""
+"To associate a declaration with an implementation, each `@Constraint` "
+"annotation references a corresponding `ConstraintValidator` implementation "
+"class. At runtime, a `ConstraintValidatorFactory` instantiates the "
+"referenced implementation when the constraint annotation is encountered in "
+"your domain model."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:215
+msgid ""
+"By default, the `LocalValidatorFactoryBean` configures a "
+"`SpringConstraintValidatorFactory` that uses Spring to create "
+"`ConstraintValidator` instances. This lets your custom "
+"`ConstraintValidators` benefit from dependency injection like any other "
+"Spring bean."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:218
+msgid ""
+"The following example shows a custom `@Constraint` declaration followed by "
+"an associated `ConstraintValidator` implementation that uses Spring for "
+"dependency injection:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:230
+#, no-wrap
+msgid ""
+"\t@Target({ElementType.METHOD, ElementType.FIELD})\n"
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t@Constraint(validatedBy=MyConstraintValidator.class)\n"
+"\tpublic @interface MyConstraint {\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:240
+#, no-wrap
+msgid ""
+"\t@Target(AnnotationTarget.FUNCTION, AnnotationTarget.FIELD)\n"
+"\t@Retention(AnnotationRetention.RUNTIME)\n"
+"\t@Constraint(validatedBy = MyConstraintValidator::class)\n"
+"\tannotation class MyConstraint\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:250
+#, no-wrap
+msgid "\timport jakarta.validation.ConstraintValidator;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:252
+#, no-wrap
+msgid "\tpublic class MyConstraintValidator implements ConstraintValidator {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:255
+#, no-wrap
+msgid ""
+"\t\t@Autowired;\n"
+"\t\tprivate Foo aDependency;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:258
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:270
+#, no-wrap
+msgid ""
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:265
+#, no-wrap
+msgid "\timport jakarta.validation.ConstraintValidator\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:267
+#, no-wrap
+msgid ""
+"\tclass MyConstraintValidator(private val aDependency: Foo) : "
+"ConstraintValidator {\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:275
+msgid ""
+"As the preceding example shows, a `ConstraintValidator` implementation can "
+"have its dependencies `@Autowired` as any other Spring bean."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:278
+#, no-wrap
+msgid "Spring-driven Method Validation"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:282
+msgid ""
+"You can integrate the method validation feature of Bean Validation into a "
+"Spring context through a `MethodValidationPostProcessor` bean definition:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:290
+msgid ""
+"To be eligible for Spring-driven method validation, target classes need to "
+"be annotated with Spring's `@Validated` annotation, which can optionally "
+"also declare the validation groups to use. See "
+"{spring-framework-api}/validation/beanvalidation/MethodValidationPostProcessor.html[`MethodValidationPostProcessor`] "
+"for setup details with the Hibernate Validator and Bean Validation "
+"providers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:298
+msgid ""
+"Method validation relies on xref:core/aop/introduction-proxies.adoc[AOP "
+"Proxies] around the target classes, either JDK dynamic proxies for methods "
+"on interfaces or CGLIB proxies.  There are certain limitations with the use "
+"of proxies, some of which are described in "
+"xref:core/aop/proxying.adoc#aop-understanding-aop-proxies[Understanding AOP "
+"Proxies]. In addition remember to always use methods and accessors on "
+"proxied classes; direct field access will not work."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:306
+msgid ""
+"Spring MVC and WebFlux have built-in support for the same underlying method "
+"validation but without the need for AOP. Therefore, do check the rest of "
+"this section, and also see the Spring MVC "
+"xref:web/webmvc/mvc-controller/ann-validation.adoc[Validation] and "
+"xref:web/webmvc/mvc-ann-rest-exceptions.adoc[Error Responses] sections, and "
+"the WebFlux xref:web/webflux/controller/ann-validation.adoc[Validation] and "
+"xref:web/webflux/ann-rest-exceptions.adoc[Error Responses] sections."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:308
+#, no-wrap
+msgid "Method Validation Exceptions"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:314
+msgid ""
+"By default, `jakarta.validation.ConstraintViolationException` is raised with "
+"the set of ``ConstraintViolation``s returned by "
+"`jakarta.validation.Validator`. As an alternative, you can have "
+"`MethodValidationException` raised instead with ``ConstraintViolation``s "
+"adapted to `MessageSourceResolvable` errors. To enable set the following "
+"flag:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:324
+msgid ""
+"`MethodValidationException` contains a list of "
+"``ParameterValidationResult``s which group errors by method parameter, and "
+"each exposes a `MethodParameter`, the argument value, and a list of "
+"`MessageSourceResolvable` errors adapted from ``ConstraintViolation``s. For "
+"`@Valid` method parameters with cascaded violations on fields and "
+"properties, the `ParameterValidationResult` is `ParameterErrors` which "
+"implements `org.springframework.validation.Errors` and exposes validation "
+"errors as ``FieldError``s."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:326
+#, no-wrap
+msgid "Customizing Validation Errors"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:331
+msgid ""
+"The adapted `MessageSourceResolvable` errors can be turned into error "
+"messages to display to users through the configured `MessageSource` with "
+"locale and language specific resource bundles. This section provides an "
+"example for illustration."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:333
+msgid "Given the following class declarations:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:342
+#, no-wrap
+msgid ""
+"\trecord Person(@Size(min = 1, max = 10) String name) {\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:345
+#, no-wrap
+msgid ""
+"\t@Validated\n"
+"\tpublic class MyService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:350
+#, no-wrap
+msgid ""
+"\t\tvoid addStudent(@Valid Person person, @Max(2) int degrees) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:358
+#, no-wrap
+msgid ""
+"\t@JvmRecord\n"
+"\tinternal data class Person(@Size(min = 1, max = 10) val name: String)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:361
+#, no-wrap
+msgid ""
+"\t@Validated\n"
+"\tclass MyService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:366
+#, no-wrap
+msgid ""
+"\t\tfun addStudent(person: @Valid Person?, degrees: @Max(2) Int) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:370
+msgid ""
+"A `ConstraintViolation` on `Person.name()` is adapted to a `FieldError` with "
+"the following:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:372
+msgid ""
+"Error codes `\"Size.person.name\"`, `\"Size.name\"`, "
+"`\"Size.java.lang.String\"`, and `\"Size\"`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:373
+msgid ""
+"Message arguments `\"name\"`, `10`, and `1` (the field name and the "
+"constraint attributes)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:374
+msgid "Default message \"size must be between 1 and 10\""
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:380
+msgid ""
+"To customize the default message, you can add properties to "
+"xref:core/beans/context-introduction.adoc#context-functionality-messagesource[MessageSource] "
+"resource bundles using any of the above errors codes and message "
+"arguments. Note also that the message argument `\"name\"` is itself a "
+"`MessageSourceResolvable` with error codes `\"person.name\"` and `\"name\"` "
+"and can be customized too. For example:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:381
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:398
+#, no-wrap
+msgid "Properties"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:387
+#, no-wrap
+msgid ""
+"Size.person.name=Please, provide a {0} that is between {2} and {1} "
+"characters long\n"
+"person.name=username\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:391
+msgid ""
+"A `ConstraintViolation` on the `degrees` method parameter is adapted to a "
+"`MessageSourceResolvable` with the following:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:393
+msgid ""
+"Error codes `\"Max.myService#addStudent.degrees\"`, `\"Max.degrees\"`, "
+"`\"Max.int\"`, `\"Max\"`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:394
+msgid ""
+"Message arguments \"degrees\" and 2 (the field name and the constraint "
+"attribute)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:395
+msgid "Default message \"must be less than or equal to 2\""
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:397
+msgid "To customize the above default message, you can add a property such as:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:403
+#, no-wrap
+msgid "Max.degrees=You cannot provide more than {1} {0}\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:406
+#, no-wrap
+msgid "Additional Configuration Options"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:413
+msgid ""
+"The default `LocalValidatorFactoryBean` configuration suffices for most "
+"cases. There are a number of configuration options for various Bean "
+"Validation constructs, from message interpolation to traversal "
+"resolution. See the "
+"{spring-framework-api}/validation/beanvalidation/LocalValidatorFactoryBean.html[`LocalValidatorFactoryBean`] "
+"javadoc for more information on these options."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:416
+#, no-wrap
+msgid "Configuring a `DataBinder`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:421
+msgid ""
+"You can configure a `DataBinder` instance with a `Validator`. Once "
+"configured, you can invoke the `Validator` by calling "
+"`binder.validate()`. Any validation `Errors` are automatically added to the "
+"binder's `BindingResult`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:424
+msgid ""
+"The following example shows how to use a `DataBinder` programmatically to "
+"invoke validation logic after binding to a target object:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:434
+#, no-wrap
+msgid ""
+"\tFoo target = new Foo();\n"
+"\tDataBinder binder = new DataBinder(target);\n"
+"\tbinder.setValidator(new FooValidator());\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:437
+#, no-wrap
+msgid ""
+"\t// bind to the target object\n"
+"\tbinder.bind(propertyValues);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:440
+#, no-wrap
+msgid ""
+"\t// validate the target object\n"
+"\tbinder.validate();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:443
+#, no-wrap
+msgid ""
+"\t// get BindingResult that includes any validation errors\n"
+"\tBindingResult results = binder.getBindingResult();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:452
+#, no-wrap
+msgid ""
+"\tval target = Foo()\n"
+"\tval binder = DataBinder(target)\n"
+"\tbinder.validator = FooValidator()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:455
+#, no-wrap
+msgid ""
+"\t// bind to the target object\n"
+"\tbinder.bind(propertyValues)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:458
+#, no-wrap
+msgid ""
+"\t// validate the target object\n"
+"\tbinder.validate()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:461
+#, no-wrap
+msgid ""
+"\t// get BindingResult that includes any validation errors\n"
+"\tval results = binder.bindingResult\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:469
+msgid ""
+"You can also configure a `DataBinder` with multiple `Validator` instances "
+"through `dataBinder.addValidators` and `dataBinder.replaceValidators`. This "
+"is useful when combining globally configured bean validation with a Spring "
+"`Validator` configured locally on a DataBinder instance. See "
+"xref:web/webmvc/mvc-config/validation.adoc[Spring MVC Validation "
+"Configuration]."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:472
+#, no-wrap
+msgid "Spring MVC Validation"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/beanvalidation.adoc:474
+msgid ""
+"See xref:web/webmvc/mvc-config/validation.adoc[Validation] in the Spring MVC "
+"chapter."
+msgstr ""

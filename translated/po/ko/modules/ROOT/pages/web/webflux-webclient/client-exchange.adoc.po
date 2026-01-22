@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-exchange.adoc:2
+#, no-wrap
+msgid "Exchange"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-exchange.adoc:7
+msgid ""
+"The `exchangeToMono()` and `exchangeToFlux()` methods (or `awaitExchange { "
+"}` and `exchangeToFlow { }` in Kotlin)  are useful for more advanced cases "
+"that require more control, such as to decode the response differently "
+"depending on the response status:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-exchange.adoc:10
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-exchange.adoc:26
+#, no-wrap
+msgid ""
+"\tMono<Person> entityMono = client.get()\n"
+"\t\t\t.uri(\"/persons/1\")\n"
+"\t\t\t.accept(MediaType.APPLICATION_JSON)\n"
+"\t\t\t.exchangeToMono(response -> {\n"
+"\t\t\t\tif (response.statusCode().equals(HttpStatus.OK)) {\n"
+"\t\t\t\t\treturn response.bodyToMono(Person.class);\n"
+"\t\t\t\t}\n"
+"\t\t\t\telse {\n"
+"\t\t\t\t\t// Turn to error\n"
+"\t\t\t\t\treturn response.createError();\n"
+"\t\t\t\t}\n"
+"\t\t\t});\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-exchange.adoc:28
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-exchange.adoc:43
+#, no-wrap
+msgid ""
+"val entity = client.get()\n"
+"  .uri(\"/persons/1\")\n"
+"  .accept(MediaType.APPLICATION_JSON)\n"
+"  .awaitExchange {\n"
+"\t\tif (response.statusCode() == HttpStatus.OK) {\n"
+"\t\t\t return response.awaitBody<Person>()\n"
+"\t\t}\n"
+"\t\telse {\n"
+"\t\t\t throw response.createExceptionAndAwait()\n"
+"\t\t}\n"
+"  }\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-exchange.adoc:49
+msgid ""
+"When using the above, after the returned `Mono` or `Flux` completes, the "
+"response body is checked and if not consumed it is released to prevent "
+"memory and connection leaks.  Therefore the response cannot be decoded "
+"further downstream. It is up to the provided function to declare how to "
+"decode the response if needed."
+msgstr ""

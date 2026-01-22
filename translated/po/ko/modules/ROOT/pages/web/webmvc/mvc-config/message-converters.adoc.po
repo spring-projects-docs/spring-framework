@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/message-converters.adoc:2
+#, no-wrap
+msgid "Message Converters"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/message-converters.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/config.adoc#webflux-config-message-codecs[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/message-converters.adoc:8
+msgid ""
+"You can configure the `HttpMessageConverter` instances to use by overriding "
+"{spring-framework-api}/web/servlet/config/annotation/WebMvcConfigurer.html#configureMessageConverters(org.springframework.http.converter.HttpMessageConverters.Builder)[`configureMessageConverters()`]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/message-converters.adoc:11
+msgid ""
+"The following example configures custom Jackson JSON and XML converters with "
+"customized mappers instead of the default ones:"
+msgstr ""

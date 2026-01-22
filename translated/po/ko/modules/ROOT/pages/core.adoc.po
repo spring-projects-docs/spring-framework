@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core.adoc:2
+#, no-wrap
+msgid "Core Technologies"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core.adoc:6
+msgid ""
+"This part of the reference documentation covers all the technologies that "
+"are absolutely integral to the Spring Framework."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core.adoc:13
+msgid ""
+"Foremost amongst these is the Spring Framework's Inversion of Control (IoC) "
+"container.  A thorough treatment of the Spring Framework's IoC container is "
+"closely followed by comprehensive coverage of Spring's Aspect-Oriented "
+"Programming (AOP) technologies.  The Spring Framework has its own AOP "
+"framework, which is conceptually easy to understand and which successfully "
+"addresses the 80% sweet spot of AOP requirements in Java enterprise "
+"programming."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core.adoc:17
+msgid ""
+"Coverage of Spring's integration with AspectJ (currently the richest -- in "
+"terms of features -- and certainly most mature AOP implementation in the "
+"Java enterprise space)  is also provided."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core.adoc:19
+msgid ""
+"AOT processing can be used to optimize your application ahead-of-time. It is "
+"typically used for native image deployment using GraalVM."
+msgstr ""

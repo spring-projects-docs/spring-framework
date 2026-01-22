@@ -1,0 +1,175 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:2
+#, no-wrap
+msgid "`@RequestBody`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-methods/requestbody.adoc[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:9
+msgid ""
+"You can use the `@RequestBody` annotation to have the request body read and "
+"deserialized into an `Object` through an "
+"xref:web/webflux/reactive-spring.adoc#webflux-codecs[HttpMessageReader].  "
+"The following example uses a `@RequestBody` argument:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:12
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:38
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:71
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:97
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:20
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/accounts\")\n"
+"\tpublic void handle(@RequestBody Account account) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:22
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:48
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:81
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:107
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:30
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/accounts\")\n"
+"\tfun handle(@RequestBody account: Account) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:35
+msgid ""
+"Unlike Spring MVC, in WebFlux, the `@RequestBody` method argument supports "
+"reactive types and fully non-blocking reading and (client-to-server) "
+"streaming."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:46
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/accounts\")\n"
+"\tpublic void handle(@RequestBody Mono<Account> account) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:56
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/accounts\")\n"
+"\tfun handle(@RequestBody accounts: Flow<Account>) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:61
+msgid ""
+"You can use the "
+"xref:web/webflux/config.adoc#webflux-config-message-codecs[HTTP message "
+"codecs] option of the "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-framework-config[WebFlux "
+"Config] to configure or customize message readers."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:68
+msgid ""
+"You can use `@RequestBody` in combination with `jakarta.validation.Valid` or "
+"Spring's `@Validated` annotation, which causes Standard Bean Validation to "
+"be applied. Validation errors cause a `WebExchangeBindException`, which "
+"results in a 400 (BAD_REQUEST) response.  The exception contains a "
+"`BindingResult` with error details and can be handled in the controller "
+"method by declaring the argument with an async wrapper and then using error "
+"related operators:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:79
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/accounts\")\n"
+"\tpublic void handle(@Valid @RequestBody Mono<Account> account) {\n"
+"\t\t// use one of the onError* operators...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:89
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:115
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/accounts\")\n"
+"\tfun handle(@Valid @RequestBody account: Mono<Account>) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:94
+msgid ""
+"You can also declare an `Errors` parameter for access to validation errors, "
+"but in that case the request body must not be a `Mono`, and will be resolved "
+"first:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:105
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/accounts\")\n"
+"\tpublic void handle(@Valid @RequestBody Account account, Errors errors) {\n"
+"\t\t// use one of the onError* operators...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-methods/requestbody.adoc:120
+msgid ""
+"If method validation applies because other parameters have `@Constraint` "
+"annotations, then `HandlerMethodValidationException` is raised instead. For "
+"more details, see the section on "
+"xref:web/webflux/controller/ann-validation.adoc[Validation]."
+msgstr ""

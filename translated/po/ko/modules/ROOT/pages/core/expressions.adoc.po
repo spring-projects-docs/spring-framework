@@ -1,0 +1,183 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:2
+#, no-wrap
+msgid "Spring Expression Language (SpEL)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:9
+msgid ""
+"The Spring Expression Language (\"SpEL\" for short) is a powerful expression "
+"language that supports querying and manipulating an object graph at "
+"runtime. The language syntax is similar to the "
+"https://jakarta.ee/specifications/expression-language/[Jakarta Expression "
+"Language] but offers additional features, most notably method invocation and "
+"basic string templating functionality."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:18
+msgid ""
+"While there are several other Java expression languages available -- OGNL, "
+"MVEL, and JBoss EL, to name a few -- the Spring Expression Language was "
+"created to provide the Spring community with a single well supported "
+"expression language that can be used across all the products in the Spring "
+"portfolio. Its language features are driven by the requirements of the "
+"projects in the Spring portfolio, including tooling requirements for code "
+"completion within the {spring-site-tools}[Spring Tools] IDE support. That "
+"said, SpEL is based on a technology-agnostic API that lets other expression "
+"language implementations be integrated, should the need arise."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:28
+msgid ""
+"While SpEL serves as the foundation for expression evaluation within the "
+"Spring portfolio, it is not directly tied to Spring and can be used "
+"independently. To be self contained, many of the examples in this chapter "
+"use SpEL as if it were an independent expression language. This requires "
+"creating a few bootstrapping infrastructure classes, such as the "
+"parser. Most Spring users need not deal with this infrastructure and can, "
+"instead, author only expression strings for evaluation.  An example of this "
+"typical use is the integration of SpEL into creating XML or annotation-based "
+"bean definitions, as shown in xref:core/expressions/beandef.adoc[Expression "
+"support for defining bean definitions]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:33
+msgid ""
+"This chapter covers the features of the expression language, its API, and "
+"its language syntax. In several places, `Inventor` and `Society` classes are "
+"used as the target objects for expression evaluation. These class "
+"declarations and the data used to populate them are listed at the end of the "
+"chapter."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:35
+msgid "The expression language supports the following functionality:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:37
+msgid "Literal expressions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:38
+msgid "Accessing properties, arrays, lists, and maps"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:39
+msgid "Inline lists"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:40
+msgid "Inline maps"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:41
+msgid "Array construction"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:42
+msgid "Relational operators"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:43
+msgid "Regular expressions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:44
+msgid "Logical operators"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:45
+msgid "String operators"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:46
+msgid "Mathematical operators"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:47
+msgid "Assignment"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:48
+msgid "Type expressions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:49
+msgid "Method invocation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:50
+msgid "Constructor invocation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:51
+msgid "Variables"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:52
+msgid "User-defined functions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:53
+msgid "Bean references"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:54
+msgid "Ternary, Elvis, and safe-navigation operators"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:55
+msgid "Collection projection"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:56
+msgid "Collection selection"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions.adoc:56
+msgid "Templated expressions"
+msgstr ""

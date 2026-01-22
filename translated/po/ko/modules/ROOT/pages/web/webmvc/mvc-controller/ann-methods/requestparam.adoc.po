@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:2
+#, no-wrap
+msgid "`@RequestParam`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/controller/ann-methods/requestparam.adoc[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:8
+msgid ""
+"You can use the `@RequestParam` annotation to bind Servlet request "
+"parameters (that is, query parameters or form data) to a method argument in "
+"a controller."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:10
+msgid "The following example shows how to do so:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:13
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:79
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:20
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\t@RequestMapping(\"/pets\")\n"
+"\tpublic class EditPetForm {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:22
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:31
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:47
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:56
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:88
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:106
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:113
+#, no-wrap
+msgid "\t\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:29
+#, no-wrap
+msgid ""
+"\t\t@GetMapping\n"
+"\t\tpublic String setupForm(@RequestParam(\"petId\") int petId, Model model) "
+"{ <1>\n"
+"\t\t\tPet pet = this.clinic.loadPet(petId);\n"
+"\t\t\tmodel.addAttribute(\"pet\", pet);\n"
+"\t\t\treturn \"petForm\";\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:33
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:58
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:115
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:35
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:60
+msgid "Using `@RequestParam` to bind `petId`."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:36
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:97
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:41
+#, no-wrap
+msgid "\timport org.springframework.ui.set\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:45
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:86
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:104
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\t@RequestMapping(\"/pets\")\n"
+"\tclass EditPetForm {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:54
+#, no-wrap
+msgid ""
+"\t\t@GetMapping\n"
+"\t\tfun setupForm(@RequestParam(\"petId\") petId: Int, model: Model): String "
+"{ // <1>\n"
+"\t\t\tval pet = this.clinic.loadPet(petId);\n"
+"\t\t\tmodel[\"pet\"] = pet\n"
+"\t\t\treturn \"petForm\"\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:65
+msgid ""
+"By default, method parameters that use this annotation are required, but you "
+"can specify that a method parameter is optional by setting the "
+"`@RequestParam` annotation's `required` flag to `false` or by declaring the "
+"argument with a `java.util.Optional` wrapper."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:68
+msgid ""
+"Type conversion is automatically applied if the target method parameter type "
+"is not `String`. See "
+"xref:web/webmvc/mvc-controller/ann-methods/typeconversion.adoc[Type "
+"Conversion]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:71
+msgid ""
+"Declaring the argument type as an array or list allows for resolving "
+"multiple parameter values for the same parameter name."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:76
+msgid ""
+"When an `@RequestParam` annotation is declared as a `Map<String, String>` or "
+"`MultiValueMap<String, String>`, without a parameter name specified in the "
+"annotation, then the map is populated with the request parameter values for "
+"each given parameter name.  The following example shows how to do so with "
+"form data processing:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:93
+#, no-wrap
+msgid ""
+"\t\t@PostMapping(path = \"/process\", consumes = "
+"MediaType.APPLICATION_FORM_URLENCODED_VALUE)\n"
+"\t\tpublic String processForm(@RequestParam MultiValueMap<String, String> "
+"params) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:96
+#, no-wrap
+msgid ""
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:111
+#, no-wrap
+msgid ""
+"\t\t@PostMapping(\"/process\", consumes = "
+"[MediaType.APPLICATION_FORM_URLENCODED_VALUE])\n"
+"\t\tfun processForm(@RequestParam params: MultiValueMap<String, String>): "
+"String {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/requestparam.adoc:122
+msgid ""
+"Note that use of `@RequestParam` is optional (for example, to set its "
+"attributes).  By default, any argument that is a simple value type (as "
+"determined by "
+"{spring-framework-api}/beans/BeanUtils.html#isSimpleProperty(java.lang.Class)[BeanUtils#isSimpleProperty])  "
+"and is not resolved by any other argument resolver, is treated as if it were "
+"annotated with `@RequestParam`."
+msgstr ""

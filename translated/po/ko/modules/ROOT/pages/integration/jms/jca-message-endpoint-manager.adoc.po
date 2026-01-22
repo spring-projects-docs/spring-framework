@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jms/jca-message-endpoint-manager.adoc:2
+#, no-wrap
+msgid "Support for JCA Message Endpoints"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jms/jca-message-endpoint-manager.adoc:9
+msgid ""
+"Beginning with version 2.5, Spring also provides support for a JCA-based "
+"`MessageListener` container. The `JmsMessageEndpointManager` tries to "
+"automatically determine the `ActivationSpec` class name from the provider's "
+"`ResourceAdapter` class name. Therefore, it is typically possible to provide "
+"Spring's generic `JmsActivationSpecConfig`, as the following example shows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jms/jca-message-endpoint-manager.adoc:15
+msgid ""
+"Alternatively, you can set up a `JmsMessageEndpointManager` with a given "
+"`ActivationSpec` object. The `ActivationSpec` object may also come from a "
+"JNDI lookup (using `<jee:jndi-lookup>`). The following example shows how to "
+"do so:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jms/jca-message-endpoint-manager.adoc:22
+msgid ""
+"See the javadoc for "
+"{spring-framework-api}/jms/listener/endpoint/JmsMessageEndpointManager.html[`JmsMessageEndpointManager`], "
+"{spring-framework-api}/jms/listener/endpoint/JmsActivationSpecConfig.html[`JmsActivationSpecConfig`], "
+"and "
+"{spring-framework-api}/jca/support/ResourceAdapterFactoryBean.html[`ResourceAdapterFactoryBean`] "
+"for more details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jms/jca-message-endpoint-manager.adoc:30
+msgid ""
+"Spring also provides a generic JCA message endpoint manager that is not tied "
+"to JMS: "
+"`org.springframework.jca.endpoint.GenericMessageEndpointManager`. This "
+"component allows for using any message listener type (such as a JMS "
+"`MessageListener`) and any provider-specific `ActivationSpec` object. See "
+"your JCA provider's documentation to find out about the actual capabilities "
+"of your connector, and see the "
+"{spring-framework-api}/jca/endpoint/GenericMessageEndpointManager.html[`GenericMessageEndpointManager`] "
+"javadoc for the Spring-specific configuration details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jms/jca-message-endpoint-manager.adoc:35
+msgid ""
+"JCA-based message endpoint management is very analogous to EJB 2.1 "
+"Message-Driven Beans.  It uses the same underlying resource provider "
+"contract. As with EJB 2.1 MDBs, you can use any message listener interface "
+"supported by your JCA provider in the Spring context as well.  Spring "
+"nevertheless provides explicit \"`convenience`\" support for JMS, because "
+"JMS is the most common endpoint API used with the JCA endpoint management "
+"contract."
+msgstr ""

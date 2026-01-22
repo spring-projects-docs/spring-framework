@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:2
+#, no-wrap
+msgid "Using Generics as Autowiring Qualifiers"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:7
+msgid ""
+"In addition to the `@Qualifier` annotation, you can use Java generic types "
+"as an implicit form of qualification. For example, suppose you have the "
+"following configuration:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:10
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:51
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:79
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:16
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class MyConfiguration {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:21
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic StringStore stringStore() {\n"
+"\t\t\treturn new StringStore();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:27
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic IntegerStore integerStore() {\n"
+"\t\t\treturn new IntegerStore();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:29
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:62
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:89
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:35
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass MyConfiguration {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:38
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun stringStore() = StringStore()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:42
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun integerStore() = IntegerStore()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:48
+msgid ""
+"Assuming that the preceding beans implement a generic interface, (that is, "
+"`Store<String>` and `Store<Integer>`), you can `@Autowire` the `Store` "
+"interface and the generic is used as a qualifier, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:57
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tprivate Store<String> s1; // <String> qualifier, injects the stringStore "
+"bean\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:60
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tprivate Store<Integer> s2; // <Integer> qualifier, injects the "
+"integerStore bean\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:68
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tprivate lateinit var s1: Store<String> // <String> qualifier, injects the "
+"stringStore bean\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:71
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tprivate lateinit var s2: Store<Integer> // <Integer> qualifier, injects "
+"the integerStore bean\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:76
+msgid ""
+"Generic qualifiers also apply when autowiring lists, `Map` instances and "
+"arrays. The following example autowires a generic `List`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:87
+#, no-wrap
+msgid ""
+"\t// Inject all Store beans as long as they have an <Integer> generic\n"
+"\t// Store<String> beans will not appear in this list\n"
+"\t@Autowired\n"
+"\tprivate List<Store<Integer>> s;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/generics-as-qualifiers.adoc:97
+#, no-wrap
+msgid ""
+"\t// Inject all Store beans as long as they have an <Integer> generic\n"
+"\t// Store<String> beans will not appear in this list\n"
+"\t@Autowired\n"
+"\tprivate lateinit var s: List<Store<Integer>>\n"
+msgstr ""

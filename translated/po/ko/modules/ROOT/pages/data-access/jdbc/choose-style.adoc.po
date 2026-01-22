@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/choose-style.adoc:2
+#, no-wrap
+msgid "Choosing an Approach for JDBC Database Access"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/choose-style.adoc:9
+msgid ""
+"You can choose among several approaches to form the basis for your JDBC "
+"database access.  In addition to three flavors of `JdbcTemplate`, a "
+"`SimpleJdbcInsert` and `SimpleJdbcCall` approach optimizes database "
+"metadata, and the RDBMS Object style results in a more object-oriented "
+"approach. Once you start using one of these approaches, you can still mix "
+"and match to include a feature from a different approach."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/choose-style.adoc:12
+msgid ""
+"`JdbcTemplate` is the classic and most popular Spring JDBC approach. This "
+"\"`lowest-level`\" approach and all others use a `JdbcTemplate` under the "
+"covers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/choose-style.adoc:15
+msgid ""
+"`NamedParameterJdbcTemplate` wraps a `JdbcTemplate` to provide named "
+"parameters instead of the traditional JDBC `?` placeholders. This approach "
+"provides better documentation and ease of use when you have multiple "
+"parameters for an SQL statement."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/choose-style.adoc:20
+msgid ""
+"`SimpleJdbcInsert` and `SimpleJdbcCall` optimize database metadata to limit "
+"the amount of necessary configuration. This approach simplifies coding so "
+"that you only need to provide the name of the table or procedure and a map "
+"of parameters matching the column names. This works only if the database "
+"provides adequate metadata. If the database does not provide this metadata, "
+"you have to provide explicit configuration of the parameters."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/choose-style.adoc:24
+msgid ""
+"RDBMS objects — including `MappingSqlQuery`, `SqlUpdate`, and "
+"`StoredProcedure` — require you to create reusable and thread-safe objects "
+"during initialization of your data-access layer. This approach allows you to "
+"define your query string, declare parameters, and compile the query. Once "
+"you do that, `execute(...)`, `update(...)`, and `findObject(...)` methods "
+"can be called multiple times with various parameter values."
+msgstr ""

@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:2
+#, no-wrap
+msgid "Aspect Instantiation Models"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:6
+msgid ""
+"This is an advanced topic. If you are just starting out with AOP, you can "
+"safely skip it until later."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:12
+msgid ""
+"By default, there is a single instance of each aspect within the application "
+"context. AspectJ calls this the singleton instantiation model. It is "
+"possible to define aspects with alternate lifecycles. Spring supports "
+"AspectJ's `perthis`, `pertarget`, and `pertypewithin` instantiation models; "
+"`percflow` and `percflowbelow` are not currently supported."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:15
+msgid ""
+"You can declare a `perthis` aspect by specifying a `perthis` clause in the "
+"`@Aspect` annotation. Consider the following example:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:18
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:24
+#, no-wrap
+msgid ""
+"\t@Aspect(\"perthis(execution(* com.xyz..service.*.*(..)))\")\n"
+"\tpublic class MyAspect {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:26
+#, no-wrap
+msgid "\t\tprivate int someState;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:32
+#, no-wrap
+msgid ""
+"\t\t@Before(\"execution(* com.xyz..service.*.*(..))\")\n"
+"\t\tpublic void recordServiceUsage() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:34
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:40
+#, no-wrap
+msgid ""
+"\t@Aspect(\"perthis(execution(* com.xyz..service.*.*(..)))\")\n"
+"\tclass MyAspect {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:42
+#, no-wrap
+msgid "\t\tprivate val someState: Int = 0\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:48
+#, no-wrap
+msgid ""
+"\t\t@Before(\"execution(* com.xyz..service.*.*(..))\")\n"
+"\t\tfun recordServiceUsage() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:60
+msgid ""
+"In the preceding example, the effect of the `perthis` clause is that one "
+"aspect instance is created for each unique service object that performs a "
+"business service (each unique object bound to `this` at join points matched "
+"by the pointcut expression). The aspect instance is created the first time "
+"that a method is invoked on the service object. The aspect goes out of scope "
+"when the service object goes out of scope. Before the aspect instance is "
+"created, none of the advice within it runs. As soon as the aspect instance "
+"has been created, the advice declared within it runs at matched join points, "
+"but only when the service object is the one with which this aspect is "
+"associated. See the AspectJ Programming Guide for more information on `per` "
+"clauses."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/instantiation-models.adoc:62
+msgid ""
+"The `pertarget` instantiation model works in exactly the same way as "
+"`perthis`, but it creates one aspect instance for each unique target object "
+"at matched join points."
+msgstr ""

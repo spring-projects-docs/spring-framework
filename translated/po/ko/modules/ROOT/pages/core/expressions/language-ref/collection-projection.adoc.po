@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/collection-projection.adoc:2
+#, no-wrap
+msgid "Collection Projection"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/collection-projection.adoc:9
+msgid ""
+"Projection lets a collection drive the evaluation of a sub-expression, and "
+"the result is a new collection. The syntax for projection is "
+"`.![projectionExpression]`. For example, suppose we have a list of inventors "
+"but want the list of cities where they were born.  Effectively, we want to "
+"evaluate `placeOfBirth.city` for every entry in the inventor list. The "
+"following example uses projection to do so:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/collection-projection.adoc:12
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/collection-projection.adoc:19
+#, no-wrap
+msgid ""
+"\t// evaluates to [\"Smiljan\", \"Idvor\"]\n"
+"\tList placesOfBirth = "
+"parser.parseExpression(\"members.![placeOfBirth.city]\")\n"
+"\t\t\t.getValue(societyContext, List.class);\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/collection-projection.adoc:21
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/collection-projection.adoc:28
+#, no-wrap
+msgid ""
+"\t// evaluates to [\"Smiljan\", \"Idvor\"]\n"
+"\tval placesOfBirth = "
+"parser.parseExpression(\"members.![placeOfBirth.city]\")\n"
+"\t \t\t.getValue(societyContext) as List<*>\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/collection-projection.adoc:36
+msgid ""
+"Projection is supported for arrays and anything that implements "
+"`java.lang.Iterable` or `java.util.Map`. When using a map to drive "
+"projection, the projection expression is evaluated against each entry in the "
+"map (represented as a Java `Map.Entry`). The result of a projection across a "
+"map is a list that consists of the evaluation of the projection expression "
+"against each map entry."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/collection-projection.adoc:40
+msgid ""
+"The Spring Expression Language also supports safe navigation for collection "
+"projection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/collection-projection.adoc:44
+msgid ""
+"See "
+"xref:core/expressions/language-ref/operator-safe-navigation.adoc#expressions-operator-safe-navigation-selection-and-projection[Safe "
+"Collection Selection and Projection] for details."
+msgstr ""

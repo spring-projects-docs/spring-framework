@@ -1,0 +1,538 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:2
+#, no-wrap
+msgid "Appendix"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:5
+#, no-wrap
+msgid "XML Schemas"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:8
+msgid ""
+"This part of the appendix lists XML schemas related to integration "
+"technologies."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:10
+#, no-wrap
+msgid "The `jee` Schema"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:14
+msgid ""
+"The `jee` elements deal with issues related to Jakarta EE (Enterprise "
+"Edition) configuration, such as looking up a JNDI object and defining EJB "
+"references."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:18
+msgid ""
+"To use the elements in the `jee` schema, you need to have the following "
+"preamble at the top of your Spring XML configuration file. The text in the "
+"following snippet references the correct schema so that the elements in the "
+"`jee` namespace are available to you:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:30
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:jee=\"http://www.springframework.org/schema/jee\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/jee\n"
+"\t\t\thttps://www.springframework.org/schema/jee/spring-jee.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:32
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:293
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:332
+#, no-wrap
+msgid "\t\t<!-- bean definitions here -->\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:34
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:295
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:334
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:39
+#, no-wrap
+msgid "<jee:jndi-lookup/> (simple)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:42
+msgid ""
+"The following example shows how to use JNDI to look up a data source without "
+"the `jee` schema:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:52
+#, no-wrap
+msgid ""
+"\t<bean id=\"dataSource\" "
+"class=\"org.springframework.jndi.JndiObjectFactoryBean\">\n"
+"\t\t<property name=\"jndiName\" value=\"jdbc/MyDataSource\"/>\n"
+"\t</bean>\n"
+"\t<bean id=\"userDao\" class=\"com.foo.JdbcUserDao\">\n"
+"\t\t<!-- Spring will do the cast automatically (as usual) -->\n"
+"\t\t<property name=\"dataSource\" ref=\"dataSource\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:56
+msgid ""
+"The following example shows how to use JNDI to look up a data source with "
+"the `jee` schema:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:60
+#, no-wrap
+msgid "\t<jee:jndi-lookup id=\"dataSource\" jndi-name=\"jdbc/MyDataSource\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:65
+#, no-wrap
+msgid ""
+"\t<bean id=\"userDao\" class=\"com.foo.JdbcUserDao\">\n"
+"\t\t<!-- Spring will do the cast automatically (as usual) -->\n"
+"\t\t<property name=\"dataSource\" ref=\"dataSource\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:70
+#, no-wrap
+msgid "`<jee:jndi-lookup/>` (with Single JNDI Environment Setting)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:74
+msgid ""
+"The following example shows how to use JNDI to look up an environment "
+"variable without `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:85
+#, no-wrap
+msgid ""
+"\t<bean id=\"simple\" "
+"class=\"org.springframework.jndi.JndiObjectFactoryBean\">\n"
+"\t\t<property name=\"jndiName\" value=\"jdbc/MyDataSource\"/>\n"
+"\t\t<property name=\"jndiEnvironment\">\n"
+"\t\t\t<props>\n"
+"\t\t\t\t<prop key=\"ping\">pong</prop>\n"
+"\t\t\t</props>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:88
+msgid ""
+"The following example shows how to use JNDI to look up an environment "
+"variable with `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:94
+#, no-wrap
+msgid ""
+"\t<jee:jndi-lookup id=\"simple\" jndi-name=\"jdbc/MyDataSource\">\n"
+"\t\t<jee:environment>ping=pong</jee:environment>\n"
+"\t</jee:jndi-lookup>\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:98
+#, no-wrap
+msgid "`<jee:jndi-lookup/>` (with Multiple JNDI Environment Settings)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:102
+msgid ""
+"The following example shows how to use JNDI to look up multiple environment "
+"variables without `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:114
+#, no-wrap
+msgid ""
+"\t<bean id=\"simple\" "
+"class=\"org.springframework.jndi.JndiObjectFactoryBean\">\n"
+"\t\t<property name=\"jndiName\" value=\"jdbc/MyDataSource\"/>\n"
+"\t\t<property name=\"jndiEnvironment\">\n"
+"\t\t\t<props>\n"
+"\t\t\t\t<prop key=\"sing\">song</prop>\n"
+"\t\t\t\t<prop key=\"ping\">pong</prop>\n"
+"\t\t\t</props>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:118
+msgid ""
+"The following example shows how to use JNDI to look up multiple environment "
+"variables with `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:128
+#, no-wrap
+msgid ""
+"\t<jee:jndi-lookup id=\"simple\" jndi-name=\"jdbc/MyDataSource\">\n"
+"\t\t<!-- newline-separated, key-value pairs for the environment (standard "
+"Properties format) -->\n"
+"\t\t<jee:environment>\n"
+"\t\t\tsing=song\n"
+"\t\t\tping=pong\n"
+"\t\t</jee:environment>\n"
+"\t</jee:jndi-lookup>\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:132
+#, no-wrap
+msgid "`<jee:jndi-lookup/>` (Complex)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:136
+msgid ""
+"The following example shows how to use JNDI to look up a data source and a "
+"number of different properties without `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:147
+#, no-wrap
+msgid ""
+"\t<bean id=\"simple\" "
+"class=\"org.springframework.jndi.JndiObjectFactoryBean\">\n"
+"\t\t<property name=\"jndiName\" value=\"jdbc/MyDataSource\"/>\n"
+"\t\t<property name=\"cache\" value=\"true\"/>\n"
+"\t\t<property name=\"resourceRef\" value=\"true\"/>\n"
+"\t\t<property name=\"lookupOnStartup\" value=\"false\"/>\n"
+"\t\t<property name=\"expectedType\" value=\"com.myapp.DefaultThing\"/>\n"
+"\t\t<property name=\"proxyInterface\" value=\"com.myapp.Thing\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:151
+msgid ""
+"The following example shows how to use JNDI to look up a data source and a "
+"number of different properties with `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:161
+#, no-wrap
+msgid ""
+"\t<jee:jndi-lookup id=\"simple\"\n"
+"\t\t\tjndi-name=\"jdbc/MyDataSource\"\n"
+"\t\t\tcache=\"true\"\n"
+"\t\t\tresource-ref=\"true\"\n"
+"\t\t\tlookup-on-startup=\"false\"\n"
+"\t\t\texpected-type=\"com.myapp.DefaultThing\"\n"
+"\t\t\tproxy-interface=\"com.myapp.Thing\"/>\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:166
+#, no-wrap
+msgid "`<jee:local-slsb/>` (Simple)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:169
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:197
+msgid ""
+"The `<jee:local-slsb/>` element configures a reference to a local EJB "
+"Stateless Session Bean."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:172
+msgid ""
+"The following example shows how to configure a reference to a local EJB "
+"Stateless Session Bean without `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:180
+#, no-wrap
+msgid ""
+"\t<bean id=\"simple\"\n"
+"\t\t\tclass=\"org.springframework.ejb.access.LocalStatelessSessionProxyFactoryBean\">\n"
+"\t\t<property name=\"jndiName\" value=\"ejb/RentalServiceBean\"/>\n"
+"\t\t<property name=\"businessInterface\" "
+"value=\"com.foo.service.RentalService\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:184
+msgid ""
+"The following example shows how to configure a reference to a local EJB "
+"Stateless Session Bean with `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:189
+#, no-wrap
+msgid ""
+"\t<jee:local-slsb id=\"simpleSlsb\" jndi-name=\"ejb/RentalServiceBean\"\n"
+"\t\t\tbusiness-interface=\"com.foo.service.RentalService\"/>\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:194
+#, no-wrap
+msgid "`<jee:local-slsb/>` (Complex)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:200
+msgid ""
+"The following example shows how to configure a reference to a local EJB "
+"Stateless Session Bean and a number of properties without `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:211
+#, no-wrap
+msgid ""
+"\t<bean id=\"complexLocalEjb\"\n"
+"\t\t\tclass=\"org.springframework.ejb.access.LocalStatelessSessionProxyFactoryBean\">\n"
+"\t\t<property name=\"jndiName\" value=\"ejb/RentalServiceBean\"/>\n"
+"\t\t<property name=\"businessInterface\" "
+"value=\"com.example.service.RentalService\"/>\n"
+"\t\t<property name=\"cacheHome\" value=\"true\"/>\n"
+"\t\t<property name=\"lookupHomeOnStartup\" value=\"true\"/>\n"
+"\t\t<property name=\"resourceRef\" value=\"true\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:215
+msgid ""
+"The following example shows how to configure a reference to a local EJB "
+"Stateless Session Bean and a number of properties with `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:224
+#, no-wrap
+msgid ""
+"\t<jee:local-slsb id=\"complexLocalEjb\"\n"
+"\t\t\tjndi-name=\"ejb/RentalServiceBean\"\n"
+"\t\t\tbusiness-interface=\"com.foo.service.RentalService\"\n"
+"\t\t\tcache-home=\"true\"\n"
+"\t\t\tlookup-home-on-startup=\"true\"\n"
+"\t\t\tresource-ref=\"true\">\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:228
+#, no-wrap
+msgid "<jee:remote-slsb/>"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:231
+msgid ""
+"The `<jee:remote-slsb/>` element configures a reference to a `remote` EJB "
+"Stateless Session Bean."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:234
+msgid ""
+"The following example shows how to configure a reference to a remote EJB "
+"Stateless Session Bean without `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:247
+#, no-wrap
+msgid ""
+"\t<bean id=\"complexRemoteEjb\"\n"
+"\t\t\tclass=\"org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean\">\n"
+"\t\t<property name=\"jndiName\" value=\"ejb/MyRemoteBean\"/>\n"
+"\t\t<property name=\"businessInterface\" "
+"value=\"com.foo.service.RentalService\"/>\n"
+"\t\t<property name=\"cacheHome\" value=\"true\"/>\n"
+"\t\t<property name=\"lookupHomeOnStartup\" value=\"true\"/>\n"
+"\t\t<property name=\"resourceRef\" value=\"true\"/>\n"
+"\t\t<property name=\"homeInterface\" "
+"value=\"com.foo.service.RentalService\"/>\n"
+"\t\t<property name=\"refreshHomeOnConnectFailure\" value=\"true\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:251
+msgid ""
+"The following example shows how to configure a reference to a remote EJB "
+"Stateless Session Bean with `jee`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:262
+#, no-wrap
+msgid ""
+"\t<jee:remote-slsb id=\"complexRemoteEjb\"\n"
+"\t\t\tjndi-name=\"ejb/MyRemoteBean\"\n"
+"\t\t\tbusiness-interface=\"com.foo.service.RentalService\"\n"
+"\t\t\tcache-home=\"true\"\n"
+"\t\t\tlookup-home-on-startup=\"true\"\n"
+"\t\t\tresource-ref=\"true\"\n"
+"\t\t\thome-interface=\"com.foo.service.RentalService\"\n"
+"\t\t\trefresh-home-on-connect-failure=\"true\">\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:267
+#, no-wrap
+msgid "The `jms` Schema"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:272
+msgid ""
+"The `jms` elements deal with configuring JMS-related beans, such as Spring's "
+"xref:integration/jms/using.adoc#jms-mdp[Message Listener Containers]. These "
+"elements are detailed in the section of the xref:integration/jms.adoc[JMS "
+"chapter] entitled xref:integration/jms/namespace.adoc[JMS Namespace Support]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:274
+msgid ""
+"See that chapter for full details on this support and the `jms` elements "
+"themselves."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:279
+msgid ""
+"In the interest of completeness, to use the elements in the `jms` schema, "
+"you need to have the following preamble at the top of your Spring XML "
+"configuration file. The text in the following snippet references the correct "
+"schema so that the elements in the `jms` namespace are available to you:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:291
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:jms=\"http://www.springframework.org/schema/jms\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/jms\n"
+"\t\t\thttps://www.springframework.org/schema/jms/spring-jms.xsd\">\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:300
+#, no-wrap
+msgid "Using `<context:mbean-export/>`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:304
+msgid ""
+"This element is detailed in "
+"xref:integration/jmx/naming.adoc#jmx-context-mbeanexport[Configuring "
+"Annotation-based MBean Export]."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:308
+#, no-wrap
+msgid "The `cache` Schema"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:314
+msgid ""
+"You can use the `cache` elements to enable support for Spring's "
+"`@CacheEvict`, `@CachePut`, and `@Caching` annotations. The `cache` schema "
+"also supports declarative XML-based caching. See "
+"xref:integration/cache/annotations.adoc#cache-annotation-enable[Enabling "
+"Caching Annotations] and "
+"xref:integration/cache/declarative-xml.adoc[Declarative XML-based Caching] "
+"for details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:318
+msgid ""
+"To use the elements in the `cache` schema, you need to have the following "
+"preamble at the top of your Spring XML configuration file. The text in the "
+"following snippet references the correct schema so that the elements in the "
+"`cache` namespace are available to you:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/appendix.adoc:330
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:cache=\"http://www.springframework.org/schema/cache\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/cache\n"
+"\t\t\thttps://www.springframework.org/schema/cache/spring-cache.xsd\">\n"
+msgstr ""

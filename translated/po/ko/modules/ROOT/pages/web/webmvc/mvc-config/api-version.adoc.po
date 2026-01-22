@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:2
+#, no-wrap
+msgid "API Version"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/config.adoc#webflux-config-api-version[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:7
+msgid ""
+"To enable API versioning, use the `ApiVersionConfigurer` callback of "
+"`WebMvcConfigurer`:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:12
+msgid ""
+"You can resolve the version through one of the built-in options listed "
+"below, or alternatively use a custom `ApiVersionResolver`:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:14
+msgid "Request header"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:15
+msgid "Request parameter"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:16
+msgid "Path segment"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:17
+msgid "Media type parameter"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:24
+msgid ""
+"To resolve from a path segment, you need to specify the index of the path "
+"segment expected to contain the version. The path segment must be declared "
+"as a URI variable, e.g.  \"/\\{version}\", \"/api/\\{version}\", etc. where "
+"the actual name is not important.  As the version is typically at the start "
+"of the path, consider configuring it externally as a common path prefix for "
+"all handlers through the xref:web/webmvc/mvc-config/path-matching.adoc[Path "
+"Matching] options."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:27
+msgid ""
+"By default, the version is parsed with `SemanticVersionParser`, but you can "
+"also configure a custom "
+"xref:web/webmvc-versioning.adoc#mvc-versioning-parser[ApiVersionParser]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:33
+msgid ""
+"Supported versions are transparently detected from versions declared in "
+"request mappings for convenience, but you can turn that off through a flag "
+"in the MVC config, and consider only the versions configured explicitly in "
+"the config as supported.  Requests with a version that is not supported are "
+"rejected with `InvalidApiVersionException` resulting in a 400 response."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:38
+msgid ""
+"You can set an `ApiVersionDeprecationHandler` to send information about "
+"deprecated versions to clients. The built-in standard handler can set "
+"\"Deprecation\", \"Sunset\", and \"Link\" headers based on "
+"https://datatracker.ietf.org/doc/html/rfc9745[RFC 9745] and "
+"https://datatracker.ietf.org/doc/html/rfc8594[RFC 8594]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/api-version.adoc:41
+msgid ""
+"Once API versioning is configured, you can begin to map requests to "
+"xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-version[controller "
+"methods] according to the request version."
+msgstr ""

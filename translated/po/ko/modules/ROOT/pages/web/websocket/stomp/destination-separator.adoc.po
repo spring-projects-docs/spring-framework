@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/destination-separator.adoc:2
+#, no-wrap
+msgid "Dots as Separators"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/destination-separator.adoc:8
+msgid ""
+"When messages are routed to `@MessageMapping` methods, they are matched with "
+"`AntPathMatcher`. By default, patterns are expected to use slash (`/`) as "
+"the separator.  This is a good convention in web applications and similar to "
+"HTTP URLs. However, if you are more used to messaging conventions, you can "
+"switch to using dot (`.`) as the separator."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/destination-separator.adoc:10
+msgid "The following example shows how to do so:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/destination-separator.adoc:15
+msgid ""
+"After that, a controller can use a dot (`.`) as the separator in "
+"`@MessageMapping` methods, as the following example shows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/destination-separator.adoc:19
+msgid "The client can now send a message to `/app/red.blue.green123`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/destination-separator.adoc:23
+msgid ""
+"In the preceding example, we did not change the prefixes on the \"`broker "
+"relay`\", because those depend entirely on the external message broker. See "
+"the STOMP documentation pages for the broker you use to see what conventions "
+"it supports for the destination header."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/destination-separator.adoc:26
+msgid ""
+"The \"`simple broker`\", on the other hand, does rely on the configured "
+"`PathMatcher`, so, if you switch the separator, that change also applies to "
+"the broker and the way the broker matches destinations from a message to "
+"patterns in subscriptions."
+msgstr ""

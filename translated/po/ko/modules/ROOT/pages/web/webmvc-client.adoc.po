@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:2
+#, no-wrap
+msgid "REST Clients"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:5
+msgid "This section describes options for client-side access to REST endpoints."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:8
+#, no-wrap
+msgid "`RestClient`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:11
+msgid "`RestClient` is a synchronous HTTP client that exposes a modern, fluent API."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:13
+msgid ""
+"See xref:integration/rest-clients.adoc#rest-restclient[`RestClient`] for "
+"more details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:16
+#, no-wrap
+msgid "`WebClient`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:19
+msgid "`WebClient` is a reactive client for making HTTP requests with a fluent API."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:21
+msgid "See xref:web/webflux-webclient.adoc[`WebClient`] for more details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:24
+#, no-wrap
+msgid "`RestTemplate`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:29
+msgid ""
+"`RestTemplate` is a synchronous client for making HTTP requests. It is the "
+"original Spring REST client and exposes a simple, template-method API over "
+"underlying HTTP client libraries."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:31
+msgid ""
+"See xref:integration/rest-clients.adoc#rest-resttemplate[`RestTemplate`] for "
+"details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:34
+#, no-wrap
+msgid "HTTP Service Client"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:40
+msgid ""
+"The Spring Framework lets you define an HTTP service as a Java interface "
+"with HTTP exchange methods. You can then generate a proxy that implements "
+"this interface and performs the exchanges. This helps to simplify HTTP "
+"remote access and provides additional flexibility for choosing an API style "
+"such as synchronous or reactive."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-client.adoc:41
+msgid ""
+"See xref:integration/rest-clients.adoc#rest-http-service-client[HTTP Service "
+"Client] for details."
+msgstr ""

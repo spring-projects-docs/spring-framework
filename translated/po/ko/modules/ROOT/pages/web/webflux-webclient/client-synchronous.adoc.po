@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:2
+#, no-wrap
+msgid "Synchronous Use"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:5
+msgid ""
+"`WebClient` can be used in synchronous style by blocking at the end for the "
+"result:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:8
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:44
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:15
+#, no-wrap
+msgid ""
+"\tPerson person = client.get().uri(\"/person/{id}\", i).retrieve()\n"
+"\t\t.bodyToMono(Person.class)\n"
+"\t\t.block();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:20
+#, no-wrap
+msgid ""
+"\tList<Person> persons = client.get().uri(\"/persons\").retrieve()\n"
+"\t\t.bodyToFlux(Person.class)\n"
+"\t\t.collectList()\n"
+"\t\t.block();\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:22
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:63
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:30
+#, no-wrap
+msgid ""
+"\tval person = runBlocking {\n"
+"\t\tclient.get().uri(\"/person/{id}\", i).retrieve()\n"
+"\t\t\t\t.awaitBody<Person>()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:36
+#, no-wrap
+msgid ""
+"\tval persons = runBlocking {\n"
+"\t\tclient.get().uri(\"/persons\").retrieve()\n"
+"\t\t\t\t.bodyToFlow<Person>()\n"
+"\t\t\t\t.toList()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:41
+msgid ""
+"However if multiple calls need to be made, it's more efficient to avoid "
+"blocking on each response individually, and instead wait for the combined "
+"result:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:50
+#, no-wrap
+msgid ""
+"\tMono<Person> personMono = client.get().uri(\"/person/{id}\", personId)\n"
+"\t\t\t.retrieve().bodyToMono(Person.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:53
+#, no-wrap
+msgid ""
+"\tMono<List<Hobby>> hobbiesMono = client.get().uri(\"/person/{id}/hobbies\", "
+"personId)\n"
+"\t\t\t.retrieve().bodyToFlux(Hobby.class).collectList();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:61
+#, no-wrap
+msgid ""
+"\tMap<String, Object> data = Mono.zip(personMono, hobbiesMono, (person, "
+"hobbies) -> {\n"
+"\t\t\t\tMap<String, String> map = new LinkedHashMap<>();\n"
+"\t\t\t\tmap.put(\"person\", person);\n"
+"\t\t\t\tmap.put(\"hobbies\", hobbies);\n"
+"\t\t\t\treturn map;\n"
+"\t\t\t})\n"
+"\t\t\t.block();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:72
+#, no-wrap
+msgid ""
+"\tval data = runBlocking {\n"
+"\t\t\tval personDeferred = async {\n"
+"\t\t\t\tclient.get().uri(\"/person/{id}\", personId)\n"
+"\t\t\t\t\t\t.retrieve().awaitBody<Person>()\n"
+"\t\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:77
+#, no-wrap
+msgid ""
+"\t\t\tval hobbiesDeferred = async {\n"
+"\t\t\t\tclient.get().uri(\"/person/{id}/hobbies\", personId)\n"
+"\t\t\t\t\t\t.retrieve().bodyToFlow<Hobby>().toList()\n"
+"\t\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:80
+#, no-wrap
+msgid ""
+"\t\t\tmapOf(\"person\" to personDeferred.await(), \"hobbies\" to "
+"hobbiesDeferred.await())\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:86
+msgid ""
+"The above is merely one example. There are lots of other patterns and "
+"operators for putting together a reactive pipeline that makes many remote "
+"calls, potentially some nested, interdependent, without ever blocking until "
+"the end."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-synchronous.adoc:93
+msgid ""
+"With `Flux` or `Mono`, you should never have to block in a Spring MVC or "
+"Spring WebFlux controller.  Simply return the resulting reactive type from "
+"the controller method. The same principle apply to Kotlin Coroutines and "
+"Spring WebFlux, just use suspending function or return `Flow` in your "
+"controller method ."
+msgstr ""

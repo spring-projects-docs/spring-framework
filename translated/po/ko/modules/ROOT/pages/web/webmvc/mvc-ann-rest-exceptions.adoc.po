@@ -1,0 +1,387 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:2
+#, no-wrap
+msgid "Error Responses"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/ann-rest-exceptions.adoc[See equivalent in the "
+"Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:9
+msgid ""
+"A common requirement for REST services is to include details in the body of "
+"error responses. The Spring Framework supports the \"Problem Details for "
+"HTTP APIs\" specification, {rfc-site}/rfc9457[RFC 9457]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:11
+msgid "The following are the main abstractions for this support:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:14
+msgid ""
+"`ProblemDetail` -- representation for an RFC 9457 problem detail; a simple "
+"container for both standard fields defined in the spec, and for non-standard "
+"ones."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:18
+msgid ""
+"`ErrorResponse` -- contract to expose HTTP error response details including "
+"HTTP status, response headers, and a body in the format of RFC 9457; this "
+"allows exceptions to encapsulate and expose the details of how they map to "
+"an HTTP response. All Spring MVC exceptions implement this."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:20
+msgid ""
+"`ErrorResponseException` -- basic `ErrorResponse` implementation that others "
+"can use as a convenient base class."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:23
+msgid ""
+"`ResponseEntityExceptionHandler` -- convenient base class for an "
+"xref:web/webmvc/mvc-controller/ann-advice.adoc[@ControllerAdvice] that "
+"handles all Spring MVC exceptions, and any `ErrorResponseException`, and "
+"renders an error response with a body."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:26
+#, no-wrap
+msgid "Render"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:28
+msgid ""
+"[.small]#xref:web/webflux/ann-rest-exceptions.adoc#webflux-ann-rest-exceptions-render[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:31
+msgid ""
+"You can return `ProblemDetail` or `ErrorResponse` from any "
+"`@ExceptionHandler` or from any `@RequestMapping` method to render an RFC "
+"9457 response. This is processed as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:33
+msgid "The `status` property of `ProblemDetail` determines the HTTP status."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:35
+msgid ""
+"The `instance` property of `ProblemDetail` is set from the current URL path, "
+"if not already set."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:38
+msgid ""
+"For content negotiation, the Jackson `HttpMessageConverter` prefers "
+"\"application/problem+json\" over \"application/json\" when rendering a "
+"`ProblemDetail`, and also falls back on it if no compatible media type is "
+"found."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:45
+msgid ""
+"To enable RFC 9457 responses for Spring MVC exceptions and for any "
+"`ErrorResponseException`, extend `ResponseEntityExceptionHandler` and "
+"declare it as an "
+"xref:web/webmvc/mvc-controller/ann-advice.adoc[@ControllerAdvice] in Spring "
+"configuration. The handler has an `@ExceptionHandler` method that handles "
+"any `ErrorResponse` exception, which includes all built-in web "
+"exceptions. You can add more exception handling methods, and use a protected "
+"method to map any exception to a `ProblemDetail`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:49
+msgid ""
+"You can register `ErrorResponse` interceptors through the "
+"xref:web/webmvc/mvc-config.adoc[MVC Config] with a `WebMvcConfigurer`. Use "
+"that to intercept any RFC 9457 response and take some action."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:52
+#, no-wrap
+msgid "Non-Standard Fields"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:54
+msgid ""
+"[.small]#xref:web/webflux/ann-rest-exceptions.adoc#webflux-ann-rest-exceptions-non-standard[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:56
+msgid ""
+"You can extend an RFC 9457 response with non-standard fields in one of two "
+"ways."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:62
+msgid ""
+"One, insert into the \"properties\" `Map` of `ProblemDetail`. When using the "
+"Jackson library, the Spring Framework registers `ProblemDetailJacksonMixin` "
+"that ensures this \"properties\" `Map` is unwrapped and rendered as top "
+"level JSON properties in the response, and likewise any unknown property "
+"during deserialization is inserted into this `Map`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:68
+msgid ""
+"You can also extend `ProblemDetail` to add dedicated non-standard "
+"properties.  The copy constructor in `ProblemDetail` allows a subclass to "
+"make it easy to be created from an existing `ProblemDetail`. This could be "
+"done centrally, for example, from an `@ControllerAdvice` such as "
+"`ResponseEntityExceptionHandler` that re-creates the `ProblemDetail` of an "
+"exception into a subclass with the additional non-standard fields."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:75
+msgid ""
+"In Spring Boot, the `spring.mvc.problemdetails.enabled` property "
+"autoconfigures a `ResponseEntityExceptionHandler` that handles built-in "
+"exceptions with problem details.  In that case, you may prefer to create "
+"another `@ControllerAdvice` instead of extending "
+"`ResponseEntityExceptionHandler` if you want to take over the handling of a "
+"specific built-in exception. You'll need to ensure your handler is ordered "
+"ahead of the one configured by Spring Boot whose order is 0."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:78
+#, no-wrap
+msgid "Customization and i18n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:80
+msgid ""
+"[.small]#xref:web/webflux/ann-rest-exceptions.adoc#webflux-ann-rest-exceptions-i18n[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:84
+msgid ""
+"It is a common requirement to customize and internationalize error response "
+"details.  It is also good practice to customize the problem details for "
+"Spring MVC exceptions to avoid revealing implementation details. This "
+"section describes the support for that."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:89
+msgid ""
+"An `ErrorResponse` exposes message codes for \"type\", \"title\", and "
+"\"detail\", as well as message code arguments for the \"detail\" "
+"field. `ResponseEntityExceptionHandler` resolves these through a "
+"xref:core/beans/context-introduction.adoc#context-functionality-messagesource[MessageSource] "
+"and updates the corresponding `ProblemDetail` fields accordingly."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:91
+msgid "The default strategy for message codes is as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:93
+msgid "\"type\": `problemDetail.type.[fully qualified exception class name]`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:94
+msgid "\"title\": `problemDetail.title.[fully qualified exception class name]`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:95
+msgid "\"detail\": `problemDetail.[fully qualified exception class name][suffix]`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:99
+msgid ""
+"An `ErrorResponse` may expose more than one message code, typically adding a "
+"suffix to the default message code. The table below lists message codes, and "
+"arguments for Spring MVC exceptions:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:191
+#, no-wrap
+msgid ""
+"| Exception | Message Code | Message Code Arguments\n"
+"\n"
+"| `AsyncRequestTimeoutException`\n"
+"| (default)\n"
+"|\n"
+"\n"
+"| `ConversionNotSupportedException`\n"
+"| (default)\n"
+"| `+{0}+` property name, `+{1}+` property value\n"
+"\n"
+"| `HandlerMethodValidationException`\n"
+"| (default)\n"
+"| `+{0}+` list all validation errors.\n"
+"Message codes and arguments for each error are also resolved via "
+"`MessageSource`.\n"
+"\n"
+"| `HttpMediaTypeNotAcceptableException`\n"
+"| (default)\n"
+"| `+{0}+` list of supported media types\n"
+"\n"
+"| `HttpMediaTypeNotAcceptableException`\n"
+"| (default) + \".parseError\"\n"
+"|\n"
+"\n"
+"| `HttpMediaTypeNotSupportedException`\n"
+"| (default)\n"
+"| `+{0}+` the media type that is not supported, `+{1}+` list of supported "
+"media types\n"
+"\n"
+"| `HttpMediaTypeNotSupportedException`\n"
+"| (default) + \".parseError\"\n"
+"|\n"
+"\n"
+"| `HttpMessageNotReadableException`\n"
+"| (default)\n"
+"|\n"
+"\n"
+"| `HttpMessageNotWritableException`\n"
+"| (default)\n"
+"|\n"
+"\n"
+"| `HttpRequestMethodNotSupportedException`\n"
+"| (default)\n"
+"| `+{0}+` the current HTTP method, `+{1}+` the list of supported HTTP "
+"methods\n"
+"\n"
+"| `MethodArgumentNotValidException`\n"
+"| (default)\n"
+"| `+{0}+` the list of global errors, `+{1}+` the list of field errors.\n"
+"  Message codes and arguments for each error are also resolved via "
+"`MessageSource`.\n"
+"\n"
+"| `MissingRequestHeaderException`\n"
+"| (default)\n"
+"| `+{0}+` the header name\n"
+"\n"
+"| `MissingServletRequestParameterException`\n"
+"| (default)\n"
+"| `+{0}+` the request parameter name\n"
+"\n"
+"| `MissingMatrixVariableException`\n"
+"| (default)\n"
+"| `+{0}+` the matrix variable name\n"
+"\n"
+"| `MissingPathVariableException`\n"
+"| (default)\n"
+"| `+{0}+` the path variable name\n"
+"\n"
+"| `MissingRequestCookieException`\n"
+"| (default)\n"
+"| `+{0}+` the cookie name\n"
+"\n"
+"| `MissingServletRequestPartException`\n"
+"| (default)\n"
+"| `+{0}+` the part name\n"
+"\n"
+"| `NoHandlerFoundException`\n"
+"| (default)\n"
+"|\n"
+"\n"
+"| `NoResourceFoundException`\n"
+"| (default)\n"
+"| `+{0}+` the request path (or portion of) used to find a resource\n"
+"\n"
+"| `TypeMismatchException`\n"
+"| (default)\n"
+"| `+{0}+` property name, `+{1}+` property value, `+{2}+` simple name of "
+"required type\n"
+"\n"
+"| `UnsatisfiedServletRequestParameterException`\n"
+"| (default)\n"
+"| `+{0}+` the list of parameter conditions\n"
+"\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:200
+msgid ""
+"Unlike other exceptions, the message arguments for "
+"`MethodArgumentNotValidException` and `HandlerMethodValidationException` are "
+"based on a list of `MessageSourceResolvable` errors that can also be "
+"customized through a "
+"xref:core/beans/context-introduction.adoc#context-functionality-messagesource[MessageSource] "
+"resource bundle. See "
+"xref:core/validation/beanvalidation.adoc#validation-beanvalidation-spring-method-i18n[Customizing "
+"Validation Errors] for more details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:203
+#, no-wrap
+msgid "Client Handling"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:205
+msgid ""
+"[.small]#xref:web/webflux/ann-rest-exceptions.adoc#webflux-ann-rest-exceptions-client[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-ann-rest-exceptions.adoc:209
+msgid ""
+"A client application can catch `WebClientResponseException`, when using the "
+"`WebClient`, or `RestClientResponseException` when using the `RestTemplate`, "
+"and use their `getResponseBodyAs` methods to decode the error response body "
+"to any target type such as `ProblemDetail`, or a subclass of "
+"`ProblemDetail`."
+msgstr ""

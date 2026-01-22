@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/constructors.adoc:2
+#, no-wrap
+msgid "Constructors"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/constructors.adoc:8
+msgid ""
+"You can invoke constructors by using the `new` operator. You should use the "
+"fully qualified class name for all types except those located in the "
+"`java.lang` package (`Integer`, `Float`, `String`, and so on).  "
+"xref:core/expressions/language-ref/varargs.adoc[Varargs] are also supported."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/constructors.adoc:10
+msgid ""
+"The following example shows how to use the `new` operator to invoke "
+"constructors."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/constructors.adoc:13
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/constructors.adoc:20
+#, no-wrap
+msgid ""
+"\tInventor einstein = parser.parseExpression(\n"
+"\t\t\"new org.spring.samples.spel.inventor.Inventor('Albert Einstein', "
+"'German')\")\n"
+"\t\t\t.getValue(Inventor.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/constructors.adoc:25
+#, no-wrap
+msgid ""
+"\t// create new Inventor instance within the add() method of List\n"
+"\tparser.parseExpression(\n"
+"\t\t\"Members.add(new org.spring.samples.spel.inventor.Inventor('Albert "
+"Einstein', 'German'))\")\n"
+"\t\t\t.getValue(societyContext);\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/constructors.adoc:27
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/constructors.adoc:34
+#, no-wrap
+msgid ""
+"\tval einstein = parser.parseExpression(\n"
+"\t\t\"new org.spring.samples.spel.inventor.Inventor('Albert Einstein', "
+"'German')\")\n"
+"\t\t\t.getValue(Inventor::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/constructors.adoc:39
+#, no-wrap
+msgid ""
+"\t// create new Inventor instance within the add() method of List\n"
+"\tparser.parseExpression(\n"
+"\t\t\"Members.add(new org.spring.samples.spel.inventor.Inventor('Albert "
+"Einstein', 'German'))\")\n"
+"\t\t\t.getValue(societyContext)\n"
+msgstr ""

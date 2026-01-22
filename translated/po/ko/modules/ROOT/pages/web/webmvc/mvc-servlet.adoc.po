@@ -1,0 +1,239 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:2
+#, no-wrap
+msgid "DispatcherServlet"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/dispatcher-handler.adoc[See equivalent in the "
+"Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:10
+msgid ""
+"Spring MVC, as many other web frameworks, is designed around the front "
+"controller pattern where a central `Servlet`, the `DispatcherServlet`, "
+"provides a shared algorithm for request processing, while actual work is "
+"performed by configurable delegate components.  This model is flexible and "
+"supports diverse workflows."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:16
+msgid ""
+"The `DispatcherServlet`, as any `Servlet`, needs to be declared and mapped "
+"according to the Servlet specification by using Java configuration or in "
+"`web.xml`.  In turn, the `DispatcherServlet` uses Spring configuration to "
+"discover the delegate components it needs for request mapping, view "
+"resolution, exception handling, "
+"xref:web/webmvc/mvc-servlet/special-bean-types.adoc[and more]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:20
+msgid ""
+"The following example of the Java configuration registers and initializes "
+"the `DispatcherServlet`, which is auto-detected by the Servlet container "
+"(see xref:web/webmvc/mvc-servlet/container-config.adoc[Servlet Config]):"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:23
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:28
+#, no-wrap
+msgid ""
+"\tpublic class MyWebApplicationInitializer implements "
+"WebApplicationInitializer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:31
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void onStartup(ServletContext servletContext) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:35
+#, no-wrap
+msgid ""
+"\t\t\t// Load Spring web application configuration\n"
+"\t\t\tAnnotationConfigWebApplicationContext context = new "
+"AnnotationConfigWebApplicationContext();\n"
+"\t\t\tcontext.register(AppConfig.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:43
+#, no-wrap
+msgid ""
+"\t\t\t// Create and register the DispatcherServlet\n"
+"\t\t\tDispatcherServlet servlet = new DispatcherServlet(context);\n"
+"\t\t\tServletRegistration.Dynamic registration = "
+"servletContext.addServlet(\"app\", servlet);\n"
+"\t\t\tregistration.setLoadOnStartup(1);\n"
+"\t\t\tregistration.addMapping(\"/app/*\");\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:45
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:50
+#, no-wrap
+msgid "\tclass MyWebApplicationInitializer : WebApplicationInitializer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:52
+#, no-wrap
+msgid "\t\toverride fun onStartup(servletContext: ServletContext) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:56
+#, no-wrap
+msgid ""
+"\t\t\t// Load Spring web application configuration\n"
+"\t\t\tval context = AnnotationConfigWebApplicationContext()\n"
+"\t\t\tcontext.register(AppConfig::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:64
+#, no-wrap
+msgid ""
+"\t\t\t// Create and register the DispatcherServlet\n"
+"\t\t\tval servlet = DispatcherServlet(context)\n"
+"\t\t\tval registration = servletContext.addServlet(\"app\", servlet)\n"
+"\t\t\tregistration.setLoadOnStartup(1)\n"
+"\t\t\tregistration.addMapping(\"/app/*\")\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:70
+msgid ""
+"In addition to using the ServletContext API directly, you can also extend "
+"`AbstractAnnotationConfigDispatcherServletInitializer` and override specific "
+"methods (see the example under "
+"xref:web/webmvc/mvc-servlet/context-hierarchy.adoc[Context Hierarchy])."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:75
+msgid ""
+"For programmatic use cases, a `GenericWebApplicationContext` can be used as "
+"an alternative to `AnnotationConfigWebApplicationContext`. See the "
+"{spring-framework-api}/web/context/support/GenericWebApplicationContext.html[`GenericWebApplicationContext`] "
+"javadoc for details."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:77
+msgid ""
+"The following example of `web.xml` configuration registers and initializes "
+"the `DispatcherServlet`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:81
+#, no-wrap
+msgid "<web-app>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:85
+#, no-wrap
+msgid ""
+"\t<listener>\n"
+"\t\t<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>\n"
+"\t</listener>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:90
+#, no-wrap
+msgid ""
+"\t<context-param>\n"
+"\t\t<param-name>contextConfigLocation</param-name>\n"
+"\t\t<param-value>/WEB-INF/app-context.xml</param-value>\n"
+"\t</context-param>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:100
+#, no-wrap
+msgid ""
+"\t<servlet>\n"
+"\t\t<servlet-name>app</servlet-name>\n"
+"\t\t<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>\n"
+"\t\t<init-param>\n"
+"\t\t\t<param-name>contextConfigLocation</param-name>\n"
+"\t\t\t<param-value></param-value>\n"
+"\t\t</init-param>\n"
+"\t\t<load-on-startup>1</load-on-startup>\n"
+"\t</servlet>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:105
+#, no-wrap
+msgid ""
+"\t<servlet-mapping>\n"
+"\t\t<servlet-name>app</servlet-name>\n"
+"\t\t<url-pattern>/app/*</url-pattern>\n"
+"\t</servlet-mapping>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:107
+#, no-wrap
+msgid "</web-app>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet.adoc:114
+msgid ""
+"Spring Boot follows a different initialization sequence. Rather than hooking "
+"into the lifecycle of the Servlet container, Spring Boot uses Spring "
+"configuration to bootstrap itself and the embedded Servlet "
+"container. `Filter` and `Servlet` declarations are detected in Spring "
+"configuration and registered with the Servlet container.  For more details, "
+"see the "
+"{spring-boot-docs-ref}/web/servlet.html#web.servlet.embedded-container[Spring "
+"Boot documentation]."
+msgstr ""

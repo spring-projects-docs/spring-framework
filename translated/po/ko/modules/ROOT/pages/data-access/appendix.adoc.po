@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:2
+#, no-wrap
+msgid "Appendix"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:6
+#, no-wrap
+msgid "XML Schemas"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:9
+msgid ""
+"This part of the appendix lists XML schemas for data access, including the "
+"following:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:11
+msgid "xref:data-access/appendix.adoc#xsd-schemas-tx[The `tx` Schema]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:12
+msgid "xref:data-access/appendix.adoc#xsd-schemas-jdbc[The `jdbc` Schema]"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:14
+#, no-wrap
+msgid "The `tx` Schema"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:19
+msgid ""
+"The `tx` tags deal with configuring all of those beans in Spring's "
+"comprehensive support for transactions. These tags are covered in the "
+"chapter entitled xref:data-access/transaction.adoc[Transaction Management]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:26
+msgid ""
+"We strongly encourage you to look at the `'spring-tx.xsd'` file that ships "
+"with the Spring distribution. This file contains the XML Schema for Spring's "
+"transaction configuration and covers all of the various elements in the `tx` "
+"namespace, including attribute defaults and similar information. This file "
+"is documented inline, and, thus, the information is not repeated here in the "
+"interests of adhering to the DRY (Don't Repeat Yourself) principle."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:31
+msgid ""
+"In the interest of completeness, to use the elements in the `tx` schema, you "
+"need to have the following preamble at the top of your Spring XML "
+"configuration file. The text in the following snippet references the correct "
+"schema so that the tags in the `tx` namespace are available to you:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:46
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:tx=\"http://www.springframework.org/schema/tx\" <1>\n"
+"\t\txmlns:aop=\"http://www.springframework.org/schema/aop\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/tx\n"
+"\t\t\thttps://www.springframework.org/schema/tx/spring-tx.xsd <2>\n"
+"\t\t\thttp://www.springframework.org/schema/aop\n"
+"\t\t\thttps://www.springframework.org/schema/aop/spring-aop.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:48
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:85
+#, no-wrap
+msgid "\t\t<!-- bean definitions here -->\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:50
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:87
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:52
+msgid "Declare usage of the `tx` namespace."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:53
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:89
+msgid "Specify the location (with other schema locations)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:59
+msgid ""
+"Often, when you use the elements in the `tx` namespace, you are also using "
+"the elements from the `aop` namespace (since the declarative transaction "
+"support in Spring is implemented by using AOP). The preceding XML snippet "
+"contains the relevant lines needed to reference the `aop` schema so that the "
+"elements in the `aop` namespace are available to you."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:61
+#, no-wrap
+msgid "The `jdbc` Schema"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:67
+msgid ""
+"The `jdbc` elements let you quickly configure an embedded database or "
+"initialize an existing data source. These elements are documented in "
+"xref:data-access/jdbc/embedded-database-support.adoc[Embedded Database "
+"Support] and xref:data-access/jdbc/initializing-datasource.adoc[Initializing "
+"a DataSource], respectively."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:71
+msgid ""
+"To use the elements in the `jdbc` schema, you need to have the following "
+"preamble at the top of your Spring XML configuration file. The text in the "
+"following snippet references the correct schema so that the elements in the "
+"`jdbc` namespace are available to you:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:83
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:jdbc=\"http://www.springframework.org/schema/jdbc\" <1>\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/jdbc\n"
+"\t\t\thttps://www.springframework.org/schema/jdbc/spring-jdbc.xsd\"> <2>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/appendix.adoc:89
+msgid "Declare usage of the `jdbc` namespace."
+msgstr ""

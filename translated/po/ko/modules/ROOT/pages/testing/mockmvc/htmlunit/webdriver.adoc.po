@@ -1,0 +1,870 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:2
+#, no-wrap
+msgid "MockMvc and WebDriver"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:7
+msgid ""
+"In the previous sections, we have seen how to use MockMvc in conjunction "
+"with the raw HtmlUnit APIs. In this section, we use additional abstractions "
+"within the Selenium "
+"https://docs.seleniumhq.org/projects/webdriver/[WebDriver] to make things "
+"even easier."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:9
+#, no-wrap
+msgid "Why WebDriver and MockMvc?"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:14
+msgid ""
+"We can already use HtmlUnit and MockMvc, so why would we want to use "
+"WebDriver? The Selenium WebDriver provides a very elegant API that lets us "
+"easily organize our code. To better show how it works, we explore an example "
+"in this section."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:17
+msgid ""
+"Despite being a part of https://docs.seleniumhq.org/[Selenium], WebDriver "
+"does not require a Selenium Server to run your tests."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:20
+msgid ""
+"Suppose we need to ensure that a message is created properly. The tests "
+"involve finding the HTML form input elements, filling them out, and making "
+"various assertions."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:25
+msgid ""
+"This approach results in numerous separate tests because we want to test "
+"error conditions as well. For example, we want to ensure that we get an "
+"error if we fill out only part of the form. If we fill out the entire form, "
+"the newly created message should be displayed afterwards."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:28
+msgid ""
+"If one of the fields were named \"`summary`\", we might have something that "
+"resembles the following repeated in multiple places within our tests:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:31
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:54
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:92
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:176
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:223
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:244
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:272
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:371
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:395
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:426
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:464
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:497
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:543
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:37
+#, no-wrap
+msgid ""
+"\tHtmlTextInput summaryInput = "
+"currentPage.getHtmlElementById(\"summary\");\n"
+"\tsummaryInput.setValueAttribute(summary);\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:39
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:69
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:129
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:190
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:230
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:252
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:319
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:379
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:409
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:438
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:478
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:517
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:562
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:45
+#, no-wrap
+msgid ""
+"\tval summaryInput = currentPage.getHtmlElementById(\"summary\")\n"
+"\tsummaryInput.setValueAttribute(summary)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:51
+msgid ""
+"So what happens if we change the `id` to `smmry`? Doing so would force us to "
+"update all of our tests to incorporate this change. This violates the DRY "
+"principle, so we should ideally extract this code into its own method, as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:62
+#, no-wrap
+msgid ""
+"\tpublic HtmlPage createMessage(HtmlPage currentPage, String summary, String "
+"text) {\n"
+"\t\tsetSummary(currentPage, summary);\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:67
+#, no-wrap
+msgid ""
+"\tpublic void setSummary(HtmlPage currentPage, String summary) {\n"
+"\t\tHtmlTextInput summaryInput = "
+"currentPage.getHtmlElementById(\"summary\");\n"
+"\t\tsummaryInput.setValueAttribute(summary);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:77
+#, no-wrap
+msgid ""
+"\tfun createMessage(currentPage: HtmlPage, summary:String, text:String) "
+":HtmlPage{\n"
+"\t\tsetSummary(currentPage, summary);\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:82
+#, no-wrap
+msgid ""
+"\tfun setSummary(currentPage:HtmlPage , summary: String) {\n"
+"\t\tval summaryInput = currentPage.getHtmlElementById(\"summary\")\n"
+"\t\tsummaryInput.setValueAttribute(summary)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:86
+msgid ""
+"Doing so ensures that we do not have to update all of our tests if we change "
+"the UI."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:89
+msgid ""
+"We might even take this a step further and place this logic within an "
+"`Object` that represents the `HtmlPage` we are currently on, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:97
+#, no-wrap
+msgid "\tpublic class CreateMessagePage {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:99
+#, no-wrap
+msgid "\t\tfinal HtmlPage currentPage;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:101
+#, no-wrap
+msgid "\t\tfinal HtmlTextInput summaryInput;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:103
+#, no-wrap
+msgid "\t\tfinal HtmlSubmitInput submit;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:109
+#, no-wrap
+msgid ""
+"\t\tpublic CreateMessagePage(HtmlPage currentPage) {\n"
+"\t\t\tthis.currentPage = currentPage;\n"
+"\t\t\tthis.summaryInput = currentPage.getHtmlElementById(\"summary\");\n"
+"\t\t\tthis.submit = currentPage.getHtmlElementById(\"submit\");\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:112
+#, no-wrap
+msgid ""
+"\t\tpublic <T> T createMessage(String summary, String text) throws Exception "
+"{\n"
+"\t\t\tsetSummary(summary);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:115
+#, no-wrap
+msgid ""
+"\t\t\tHtmlPage result = submit.click();\n"
+"\t\t\tboolean error = CreateMessagePage.at(result);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:118
+#, no-wrap
+msgid ""
+"\t\t\treturn (T) (error ? new CreateMessagePage(result) : new "
+"ViewMessagePage(result));\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:122
+#, no-wrap
+msgid ""
+"\t\tpublic void setSummary(String summary) throws Exception {\n"
+"\t\t\tsummaryInput.setValueAttribute(summary);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:127
+#, no-wrap
+msgid ""
+"\t\tpublic static boolean at(HtmlPage page) {\n"
+"\t\t\treturn \"Create Message\".equals(page.getTitleText());\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:134
+#, no-wrap
+msgid "\tclass CreateMessagePage(private val currentPage: HtmlPage) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:136
+#, no-wrap
+msgid ""
+"\t\tval summaryInput: HtmlTextInput = "
+"currentPage.getHtmlElementById(\"summary\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:138
+#, no-wrap
+msgid ""
+"\t\tval submit: HtmlSubmitInput = "
+"currentPage.getHtmlElementById(\"submit\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:141
+#, no-wrap
+msgid ""
+"\t\tfun <T> createMessage(summary: String, text: String): T {\n"
+"\t\t\tsetSummary(summary)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:144
+#, no-wrap
+msgid ""
+"\t\t\tval result = submit.click()\n"
+"\t\t\tval error = at(result)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:147
+#, no-wrap
+msgid ""
+"\t\t\treturn (if (error) CreateMessagePage(result) else "
+"ViewMessagePage(result)) as T\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:151
+#, no-wrap
+msgid ""
+"\t\tfun setSummary(summary: String) {\n"
+"\t\t\tsummaryInput.setValueAttribute(summary)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:157
+#, no-wrap
+msgid ""
+"\t\tfun at(page: HtmlPage): Boolean {\n"
+"\t\t\treturn \"Create Message\" == page.getTitleText()\n"
+"\t\t}\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:164
+msgid ""
+"Formerly, this pattern was known as the "
+"https://github.com/SeleniumHQ/selenium/wiki/PageObjects[Page Object "
+"Pattern]. While we can certainly do this with HtmlUnit, WebDriver provides "
+"some tools that we explore in the following sections to make this pattern "
+"much easier to implement."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:166
+#, no-wrap
+msgid "MockMvc and WebDriver Setup"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:170
+msgid ""
+"To use Selenium WebDriver with `MockMvc`, make sure that your project "
+"includes a test dependency on `org.seleniumhq.selenium:htmlunit3-driver`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:173
+msgid ""
+"We can easily create a Selenium WebDriver that integrates with MockMvc by "
+"using the `MockMvcHtmlUnitDriverBuilder` as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:181
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:469
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:502
+#, no-wrap
+msgid "\tWebDriver driver;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:188
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:476
+#, no-wrap
+msgid ""
+"\t@BeforeEach\n"
+"\tvoid setup(WebApplicationContext context) {\n"
+"\t\tdriver = MockMvcHtmlUnitDriverBuilder\n"
+"\t\t\t\t.webAppContextSetup(context)\n"
+"\t\t\t\t.build();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:195
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:483
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:522
+#, no-wrap
+msgid "\tlateinit var driver: WebDriver\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:202
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:490
+#, no-wrap
+msgid ""
+"\t@BeforeEach\n"
+"\tfun setup(context: WebApplicationContext) {\n"
+"\t\tdriver = MockMvcHtmlUnitDriverBuilder\n"
+"\t\t\t\t.webAppContextSetup(context)\n"
+"\t\t\t\t.build()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:207
+msgid ""
+"This is a simple example of using `MockMvcHtmlUnitDriverBuilder`. For more "
+"advanced usage, see <<mockmvc-server-htmlunit-webdriver-advanced-builder>>."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:212
+msgid ""
+"The preceding example ensures that any URL that references `localhost` as "
+"the server is directed to our `MockMvc` instance without the need for a real "
+"HTTP connection. Any other URL is requested by using a network connection, "
+"as normal. This lets us easily test the use of CDNs."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:214
+#, no-wrap
+msgid "MockMvc and WebDriver Usage"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:219
+msgid ""
+"Now we can use WebDriver as we normally would but without the need to deploy "
+"our application to a Servlet container. For example, we can request the view "
+"to create a message with the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:228
+#, no-wrap
+msgid "\tCreateMessagePage page = CreateMessagePage.to(driver);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:235
+#, no-wrap
+msgid "\tval page = CreateMessagePage.to(driver)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:240
+msgid "We can then fill out the form and submit it to create a message, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:250
+#, no-wrap
+msgid ""
+"\tViewMessagePage viewMessagePage =\n"
+"\t\t\tpage.createMessage(ViewMessagePage.class, expectedSummary, "
+"expectedText);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:258
+#, no-wrap
+msgid ""
+"\tval viewMessagePage =\n"
+"\t\tpage.createMessage(ViewMessagePage::class, expectedSummary, "
+"expectedText)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:268
+msgid ""
+"This improves on the design of our "
+"xref:testing/mockmvc/htmlunit/mah.adoc#mockmvc-server-htmlunit-mah-usage[HtmlUnit "
+"test] by leveraging the Page Object Pattern. As we mentioned in "
+"<<mockmvc-server-htmlunit-webdriver-why>>, we can use the Page Object "
+"Pattern with HtmlUnit, but it is much easier with WebDriver. Consider the "
+"following `CreateMessagePage` implementation:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:277
+#, no-wrap
+msgid "\tpublic class CreateMessagePage extends AbstractPage { // <1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:281
+#, no-wrap
+msgid ""
+"\t\t// <2>\n"
+"\t\tprivate WebElement summary;\n"
+"\t\tprivate WebElement text;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:284
+#, no-wrap
+msgid ""
+"\t\t@FindBy(css = \"input[type=submit]\") // <3>\n"
+"\t\tprivate WebElement submit;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:288
+#, no-wrap
+msgid ""
+"\t\tpublic CreateMessagePage(WebDriver driver) {\n"
+"\t\t\tsuper(driver);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:295
+#, no-wrap
+msgid ""
+"\t\tpublic <T> T createMessage(Class<T> resultPage, String summary, String "
+"details) {\n"
+"\t\t\tthis.summary.sendKeys(summary);\n"
+"\t\t\tthis.text.sendKeys(details);\n"
+"\t\t\tthis.submit.click();\n"
+"\t\t\treturn PageFactory.initElements(driver, resultPage);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:301
+#, no-wrap
+msgid ""
+"\t\tpublic static CreateMessagePage to(WebDriver driver) {\n"
+"\t\t\tdriver.get(\"http://localhost:9990/mail/messages/form\");\n"
+"\t\t\treturn PageFactory.initElements(driver, CreateMessagePage.class);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:306
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:350
+msgid ""
+"`CreateMessagePage` extends the `AbstractPage`. We do not go over the "
+"details of `AbstractPage`, but, in summary, it contains common functionality "
+"for all of our pages.  For example, if our application has a navigational "
+"bar, global error messages, and other features, we can place this logic in a "
+"shared location."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:314
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:358
+msgid ""
+"We have a member variable for each of the parts of the HTML page in which we "
+"are interested. These are of type `WebElement`. WebDriver's "
+"https://github.com/SeleniumHQ/selenium/wiki/PageFactory[`PageFactory`] lets "
+"us remove a lot of code from the HtmlUnit version of `CreateMessagePage` by "
+"automatically resolving each `WebElement`. The "
+"https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/PageFactory.html#initElements-org.openqa.selenium.WebDriver-java.lang.Class-[`PageFactory#initElements(WebDriver,Class<T>)`] "
+"method automatically resolves each `WebElement` by using the field name and "
+"looking it up by the `id` or `name` of the element within the HTML page."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:318
+msgid ""
+"We can use the "
+"https://github.com/SeleniumHQ/selenium/wiki/PageFactory#making-the-example-work-using-annotations[`@FindBy` "
+"annotation] to override the default lookup behavior. Our example shows how "
+"to use the `@FindBy` annotation to look up our submit button with a `css` "
+"selector (`input[type=submit]`)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:324
+#, no-wrap
+msgid ""
+"\tclass CreateMessagePage(private val driver: WebDriver) : "
+"AbstractPage(driver) { // <1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:328
+#, no-wrap
+msgid ""
+"\t\t// <2>\n"
+"\t\tprivate lateinit var summary: WebElement\n"
+"\t\tprivate lateinit var text: WebElement\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:331
+#, no-wrap
+msgid ""
+"\t\t@FindBy(css = \"input[type=submit]\") // <3>\n"
+"\t\tprivate lateinit var submit: WebElement\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:345
+#, no-wrap
+msgid ""
+"\t\tfun <T> createMessage(resultPage: Class<T>, summary: String, details: "
+"String): T {\n"
+"\t\t\tthis.summary.sendKeys(summary)\n"
+"\t\t\ttext.sendKeys(details)\n"
+"\t\t\tsubmit.click()\n"
+"\t\t\treturn PageFactory.initElements(driver, resultPage)\n"
+"\t\t}\n"
+"\t\tcompanion object {\n"
+"\t\t\tfun to(driver: WebDriver): CreateMessagePage {\n"
+"\t\t\t\tdriver.get(\"http://localhost:9990/mail/messages/form\")\n"
+"\t\t\t\treturn PageFactory.initElements(driver, "
+"CreateMessagePage::class.java)\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:362
+msgid ""
+"We can use the "
+"https://github.com/SeleniumHQ/selenium/wiki/PageFactory#making-the-example-work-using-annotations[`@FindBy` "
+"annotation] to override the default lookup behavior. Our example shows how "
+"to use the `@FindBy` annotation to look up our submit button with a `css` "
+"selector (*input[type=submit]*)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:367
+msgid ""
+"Finally, we can verify that a new message was created successfully. The "
+"following assertions use the {assertj-docs}[AssertJ] assertion library:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:377
+#, no-wrap
+msgid ""
+"\tassertThat(viewMessagePage.getMessage()).isEqualTo(expectedMessage);\n"
+"\tassertThat(viewMessagePage.getSuccess()).isEqualTo(\"Successfully created "
+"a new message\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:385
+#, no-wrap
+msgid ""
+"\tassertThat(viewMessagePage.message).isEqualTo(expectedMessage)\n"
+"\tassertThat(viewMessagePage.success).isEqualTo(\"Successfully created a new "
+"message\")\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:391
+msgid ""
+"We can see that our `ViewMessagePage` lets us interact with our custom "
+"domain model. For example, it exposes a method that returns a `Message` "
+"object:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:407
+#, no-wrap
+msgid ""
+"\tpublic Message getMessage() throws ParseException {\n"
+"\t\tMessage message = new Message();\n"
+"\t\tmessage.setId(getId());\n"
+"\t\tmessage.setCreated(getCreated());\n"
+"\t\tmessage.setSummary(getSummary());\n"
+"\t\tmessage.setText(getText());\n"
+"\t\treturn message;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:414
+#, no-wrap
+msgid ""
+"\tfun getMessage() = Message(getId(), getCreated(), getSummary(), "
+"getText())\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:419
+msgid "We can then use the rich domain objects in our assertions."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:422
+msgid ""
+"Lastly, we must not forget to close the `WebDriver` instance when the test "
+"is complete, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:436
+#, no-wrap
+msgid ""
+"\t@AfterEach\n"
+"\tvoid destroy() {\n"
+"\t\tif (driver != null) {\n"
+"\t\t\tdriver.close();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:448
+#, no-wrap
+msgid ""
+"\t@AfterEach\n"
+"\tfun destroy() {\n"
+"\t\tif (driver != null) {\n"
+"\t\t\tdriver.close()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:454
+msgid ""
+"For additional information on using WebDriver, see the Selenium "
+"https://github.com/SeleniumHQ/selenium/wiki/Getting-Started[WebDriver "
+"documentation]."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:456
+#, no-wrap
+msgid "Advanced `MockMvcHtmlUnitDriverBuilder`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:461
+msgid ""
+"In the examples so far, we have used `MockMvcHtmlUnitDriverBuilder` in the "
+"simplest way possible, by building a `WebDriver` based on the "
+"`WebApplicationContext` loaded for us by the Spring TestContext "
+"Framework. This approach is repeated here, as follows:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:494
+msgid "We can also specify additional configuration options, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:515
+#, no-wrap
+msgid ""
+"\t@BeforeEach\n"
+"\tvoid setup() {\n"
+"\t\tdriver = MockMvcHtmlUnitDriverBuilder\n"
+"\t\t\t\t// demonstrates applying a MockMvcConfigurer (Spring Security)\n"
+"\t\t\t\t.webAppContextSetup(context, springSecurity())\n"
+"\t\t\t\t// for illustration only - defaults to \"\"\n"
+"\t\t\t\t.contextPath(\"\")\n"
+"\t\t\t\t// By default MockMvc is used for localhost only;\n"
+"\t\t\t\t// the following will use MockMvc for example.com and example.org as "
+"well\n"
+"\t\t\t\t.useMockMvcForHosts(\"example.com\",\"example.org\")\n"
+"\t\t\t\t.build();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:535
+#, no-wrap
+msgid ""
+"\t@BeforeEach\n"
+"\tfun setup() {\n"
+"\t\tdriver = MockMvcHtmlUnitDriverBuilder\n"
+"\t\t\t\t// demonstrates applying a MockMvcConfigurer (Spring Security)\n"
+"\t\t\t\t.webAppContextSetup(context, springSecurity())\n"
+"\t\t\t\t// for illustration only - defaults to \"\"\n"
+"\t\t\t\t.contextPath(\"\")\n"
+"\t\t\t\t// By default MockMvc is used for localhost only;\n"
+"\t\t\t\t// the following will use MockMvc for example.com and example.org as "
+"well\n"
+"\t\t\t\t.useMockMvcForHosts(\"example.com\",\"example.org\")\n"
+"\t\t\t\t.build()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:540
+msgid ""
+"As an alternative, we can perform the exact same setup by configuring the "
+"`MockMvc` instance separately and supplying it to the "
+"`MockMvcHtmlUnitDriverBuilder`, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:551
+#, no-wrap
+msgid ""
+"\tMockMvc mockMvc = MockMvcBuilders\n"
+"\t\t\t.webAppContextSetup(context)\n"
+"\t\t\t.apply(springSecurity())\n"
+"\t\t\t.build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:560
+#, no-wrap
+msgid ""
+"\tdriver = MockMvcHtmlUnitDriverBuilder\n"
+"\t\t\t.mockMvcSetup(mockMvc)\n"
+"\t\t\t// for illustration only - defaults to \"\"\n"
+"\t\t\t.contextPath(\"\")\n"
+"\t\t\t// By default MockMvc is used for localhost only;\n"
+"\t\t\t// the following will use MockMvc for example.com and example.org as "
+"well\n"
+"\t\t\t.useMockMvcForHosts(\"example.com\",\"example.org\")\n"
+"\t\t\t.build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:570
+#, no-wrap
+msgid ""
+"\tval mockMvc: MockMvc = MockMvcBuilders\n"
+"\t\t\t.webAppContextSetup(context)\n"
+"\t\t\t.apply<DefaultMockMvcBuilder>(springSecurity())\n"
+"\t\t\t.build()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:579
+#, no-wrap
+msgid ""
+"\tdriver = MockMvcHtmlUnitDriverBuilder\n"
+"\t\t\t.mockMvcSetup(mockMvc)\n"
+"\t\t\t// for illustration only - defaults to \"\"\n"
+"\t\t\t.contextPath(\"\")\n"
+"\t\t\t// By default MockMvc is used for localhost only;\n"
+"\t\t\t// the following will use MockMvc for example.com and example.org as "
+"well\n"
+"\t\t\t.useMockMvcForHosts(\"example.com\", \"example.org\")\n"
+"\t\t\t.build()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:584
+msgid ""
+"This is more verbose, but, by building the `WebDriver` with a `MockMvc` "
+"instance, we have the full power of MockMvc at our fingertips."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/htmlunit/webdriver.adoc:587
+msgid ""
+"For additional information on creating a `MockMvc` instance, see "
+"xref:testing/mockmvc/hamcrest/setup.adoc[Configuring MockMvc]."
+msgstr ""

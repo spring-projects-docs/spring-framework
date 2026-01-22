@@ -1,0 +1,1125 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:2
+#, no-wrap
+msgid "Transaction Management"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:11
+msgid ""
+"In the TestContext framework, transactions are managed by the "
+"`TransactionalTestExecutionListener`, which is configured by default, even "
+"if you do not explicitly declare `@TestExecutionListeners` on your test "
+"class. To enable support for transactions, however, you must configure a "
+"`PlatformTransactionManager` bean in the `ApplicationContext` that is loaded "
+"with `@ContextConfiguration` semantics (further details are provided "
+"later). In addition, you must declare Spring's `@Transactional` annotation "
+"either at the class or the method level for your tests."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:14
+#, no-wrap
+msgid "Test-managed Transactions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:26
+msgid ""
+"Test-managed transactions are transactions that are managed declaratively by "
+"using the `TransactionalTestExecutionListener` or programmatically by using "
+"`TestTransaction` (described later). You should not confuse such "
+"transactions with Spring-managed transactions (those managed directly by "
+"Spring within the `ApplicationContext` loaded for tests) or "
+"application-managed transactions (those managed programmatically within "
+"application code that is invoked by tests). Spring-managed and "
+"application-managed transactions typically participate in test-managed "
+"transactions. However, you should use caution if Spring-managed or "
+"application-managed transactions are configured with any propagation type "
+"other than `REQUIRED` or `SUPPORTS` (see the discussion on "
+"xref:data-access/transaction/declarative/tx-propagation.adoc[transaction "
+"propagation] for details)."
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:27
+#, no-wrap
+msgid "Preemptive timeouts and test-managed transactions"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:32
+msgid ""
+"Caution must be taken when using any form of preemptive timeouts from a "
+"testing framework in conjunction with Spring's test-managed transactions."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:41
+msgid ""
+"Specifically, Spring’s testing support binds transaction state to the "
+"current thread (via a `java.lang.ThreadLocal` variable) _before_ the current "
+"test method is invoked. If a testing framework invokes the current test "
+"method in a new thread in order to support a preemptive timeout, any actions "
+"performed within the current test method will _not_ be invoked within the "
+"test-managed transaction. Consequently, the result of any such actions will "
+"not be rolled back with the test-managed transaction. On the contrary, such "
+"actions will be committed to the persistent store -- for example, a "
+"relational database -- even though the test-managed transaction is properly "
+"rolled back by Spring."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:43
+msgid ""
+"Situations in which this can occur include but are not limited to the "
+"following."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:45
+msgid "JUnit 4's `@Test(timeout = ...)` support and `TimeOut` rule"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:47
+msgid ""
+"JUnit Jupiter's `assertTimeoutPreemptively(...)` methods in the "
+"`org.junit.jupiter.api.Assertions` class"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:48
+msgid "TestNG's `@Test(timeOut = ...)` support"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:52
+#, no-wrap
+msgid "Enabling and Disabling Transactions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:63
+msgid ""
+"Annotating a test method with `@Transactional` causes the test to be run "
+"within a transaction that is, by default, automatically rolled back after "
+"completion of the test.  If a test class is annotated with `@Transactional`, "
+"each test method within that class hierarchy runs within a transaction. Test "
+"methods that are not annotated with `@Transactional` (at the class or method "
+"level) are not run within a transaction. Note that `@Transactional` is not "
+"supported on test lifecycle methods — for example, methods annotated with "
+"JUnit Jupiter's `@BeforeAll`, `@BeforeEach`, etc. Furthermore, tests that "
+"are annotated with `@Transactional` but have the `propagation` attribute set "
+"to `NOT_SUPPORTED` or `NEVER` are not run within a transaction."
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:65
+#, no-wrap
+msgid "`@Transactional` attribute support"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:82
+#, no-wrap
+msgid ""
+"|Attribute |Supported for test-managed transactions\n"
+"\n"
+"|`value` and `transactionManager` |yes\n"
+"\n"
+"|`propagation` |only `Propagation.NOT_SUPPORTED` and `Propagation.NEVER` are "
+"supported\n"
+"\n"
+"|`isolation` |no\n"
+"\n"
+"|`timeout` |no\n"
+"\n"
+"|`readOnly` |no\n"
+"\n"
+"|`rollbackFor` and `rollbackForClassName` |no: use "
+"`TestTransaction.flagForRollback()` instead\n"
+"\n"
+"|`noRollbackFor` and `noRollbackForClassName` |no: use "
+"`TestTransaction.flagForCommit()` instead\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:92
+msgid ""
+"Method-level lifecycle methods — for example, methods annotated with JUnit "
+"Jupiter's `@BeforeEach` or `@AfterEach` — are run within a test-managed "
+"transaction. On the other hand, suite-level and class-level lifecycle "
+"methods — for example, methods annotated with JUnit Jupiter's `@BeforeAll` "
+"or `@AfterAll` and methods annotated with TestNG's `@BeforeSuite`, "
+"`@AfterSuite`, `@BeforeClass`, or `@AfterClass` — are _not_ run within a "
+"test-managed transaction."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:97
+msgid ""
+"If you need to run code in a suite-level or class-level lifecycle method "
+"within a transaction, you may wish to inject a corresponding "
+"`PlatformTransactionManager` into your test class and then use that with a "
+"`TransactionTemplate` for programmatic transaction management."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:103
+#, no-wrap
+msgid ""
+"Note that "
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-support-classes-junit4[`AbstractTransactionalJUnit4SpringContextTests`]\n"
+" and\n"
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-support-classes-testng[`AbstractTransactionalTestNGSpringContextTests`]\n"
+"are preconfigured for transactional support at the class level.\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:106
+msgid ""
+"The following example demonstrates a common scenario for writing an "
+"integration test for a Hibernate-based `UserRepository`:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:109
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:229
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:323
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:384
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:478
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:539
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:621
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:116
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig.class)\n"
+"\t@Transactional\n"
+"\tclass HibernateUserRepositoryTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:119
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tHibernateUserRepository repository;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:122
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tSessionFactory sessionFactory;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:124
+#, no-wrap
+msgid "\t\tJdbcTemplate jdbcTemplate;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:129
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tvoid setDataSource(DataSource dataSource) {\n"
+"\t\t\tthis.jdbcTemplate = new JdbcTemplate(dataSource);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:134
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tvoid createUser() {\n"
+"\t\t\t// track initial state in test database:\n"
+"\t\t\tfinal int count = countRowsInTable(\"user\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:137
+#, no-wrap
+msgid ""
+"\t\t\tUser user = new User(...);\n"
+"\t\t\trepository.save(user);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:142
+#, no-wrap
+msgid ""
+"\t\t\t// Manual flush is required to avoid false positive in test\n"
+"\t\t\tsessionFactory.getCurrentSession().flush();\n"
+"\t\t\tassertNumUsers(count + 1);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:146
+#, no-wrap
+msgid ""
+"\t\tprivate int countRowsInTable(String tableName) {\n"
+"\t\t\treturn JdbcTestUtils.countRowsInTable(this.jdbcTemplate, tableName);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:151
+#, no-wrap
+msgid ""
+"\t\tprivate void assertNumUsers(int expected) {\n"
+"\t\t\tassertEquals(\"Number of rows in the [user] table.\", expected, "
+"countRowsInTable(\"user\"));\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:153
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:261
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:333
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:423
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:506
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:567
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:649
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:160
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig::class)\n"
+"\t@Transactional\n"
+"\tclass HibernateUserRepositoryTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:163
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var repository: HibernateUserRepository\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:166
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var sessionFactory: SessionFactory\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:168
+#, no-wrap
+msgid "\t\tlateinit var jdbcTemplate: JdbcTemplate\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:173
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tfun setDataSource(dataSource: DataSource) {\n"
+"\t\t\tthis.jdbcTemplate = JdbcTemplate(dataSource)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:178
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tfun createUser() {\n"
+"\t\t\t// track initial state in test database:\n"
+"\t\t\tval count = countRowsInTable(\"user\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:181
+#, no-wrap
+msgid ""
+"\t\t\tval user = User()\n"
+"\t\t\trepository.save(user)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:186
+#, no-wrap
+msgid ""
+"\t\t\t// Manual flush is required to avoid false positive in test\n"
+"\t\t\tsessionFactory.getCurrentSession().flush()\n"
+"\t\t\tassertNumUsers(count + 1)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:190
+#, no-wrap
+msgid ""
+"\t\tprivate fun countRowsInTable(tableName: String): Int {\n"
+"\t\t\treturn JdbcTestUtils.countRowsInTable(jdbcTemplate, tableName)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:195
+#, no-wrap
+msgid ""
+"\t\tprivate fun assertNumUsers(expected: Int) {\n"
+"\t\t\tassertEquals(\"Number of rows in the [user] table.\", expected, "
+"countRowsInTable(\"user\"))\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:202
+msgid ""
+"As explained in "
+"xref:testing/testcontext-framework/tx.adoc#testcontext-tx-rollback-and-commit-behavior[Transaction "
+"Rollback and Commit Behavior], there is no need to clean up the database "
+"after the `createUser()` method runs, since any changes made to the database "
+"are automatically rolled back by the `TransactionalTestExecutionListener`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:205
+#, no-wrap
+msgid "Transaction Rollback and Commit Behavior"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:211
+msgid ""
+"By default, test transactions will be automatically rolled back after "
+"completion of the test; however, transactional commit and rollback behavior "
+"can be configured declaratively via the `@Commit` and `@Rollback` "
+"annotations. See the corresponding entries in the "
+"xref:testing/annotations.adoc[annotation support] section for further "
+"details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:214
+#, no-wrap
+msgid "Programmatic Transaction Management"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:222
+msgid ""
+"You can interact with test-managed transactions programmatically by using "
+"the static methods in `TestTransaction`. For example, you can use "
+"`TestTransaction` within test methods, before methods, and after methods to "
+"start or end the current test-managed transaction or to configure the "
+"current test-managed transaction for rollback or commit.  Support for "
+"`TestTransaction` is automatically available whenever the "
+"`TransactionalTestExecutionListener` is enabled."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:226
+msgid ""
+"The following example demonstrates some of the features of "
+"`TestTransaction`. See the javadoc for "
+"{spring-framework-api}/test/context/transaction/TestTransaction.html[`TestTransaction`] "
+"for further details."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:236
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration(classes = TestConfig.class)\n"
+"\tpublic class ProgrammaticTransactionManagementTests extends\n"
+"\t\t\tAbstractTransactionalJUnit4SpringContextTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:241
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tpublic void transactionalTest() {\n"
+"\t\t\t// assert initial state in test database:\n"
+"\t\t\tassertNumUsers(2);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:243
+#, no-wrap
+msgid "\t\t\tdeleteFromTables(\"user\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:249
+#, no-wrap
+msgid ""
+"\t\t\t// changes to the database will be committed!\n"
+"\t\t\tTestTransaction.flagForCommit();\n"
+"\t\t\tTestTransaction.end();\n"
+"\t\t\tassertFalse(TestTransaction.isActive());\n"
+"\t\t\tassertNumUsers(0);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:254
+#, no-wrap
+msgid ""
+"\t\t\tTestTransaction.start();\n"
+"\t\t\t// perform other actions against the database that will\n"
+"\t\t\t// be automatically rolled back after the test completes...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:259
+#, no-wrap
+msgid ""
+"\t\tprotected void assertNumUsers(int expected) {\n"
+"\t\t\tassertEquals(\"Number of rows in the [user] table.\", expected, "
+"countRowsInTable(\"user\"));\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:267
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration(classes = [TestConfig::class])\n"
+"\tclass ProgrammaticTransactionManagementTests : "
+"AbstractTransactionalJUnit4SpringContextTests() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:272
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tfun transactionalTest() {\n"
+"\t\t\t// assert initial state in test database:\n"
+"\t\t\tassertNumUsers(2)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:274
+#, no-wrap
+msgid "\t\t\tdeleteFromTables(\"user\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:280
+#, no-wrap
+msgid ""
+"\t\t\t// changes to the database will be committed!\n"
+"\t\t\tTestTransaction.flagForCommit()\n"
+"\t\t\tTestTransaction.end()\n"
+"\t\t\tassertFalse(TestTransaction.isActive())\n"
+"\t\t\tassertNumUsers(0)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:285
+#, no-wrap
+msgid ""
+"\t\t\tTestTransaction.start()\n"
+"\t\t\t// perform other actions against the database that will\n"
+"\t\t\t// be automatically rolled back after the test completes...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:290
+#, no-wrap
+msgid ""
+"\t\tprotected fun assertNumUsers(expected: Int) {\n"
+"\t\t\tassertEquals(\"Number of rows in the [user] table.\", expected, "
+"countRowsInTable(\"user\"))\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:295
+#, no-wrap
+msgid "Running Code Outside of a Transaction"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:306
+msgid ""
+"Occasionally, you may need to run certain code before or after a "
+"transactional test method but outside the transactional context -- for "
+"example, to verify the initial database state prior to running your test or "
+"to verify expected transactional commit behavior after your test runs (if "
+"the test was configured to commit the transaction).  "
+"`TransactionalTestExecutionListener` supports the `@BeforeTransaction` and "
+"`@AfterTransaction` annotations for exactly such scenarios. You can annotate "
+"any `void` method in a test class or any `void` default method in a test "
+"interface with one of these annotations, and the "
+"`TransactionalTestExecutionListener` ensures that your before-transaction "
+"method or after-transaction method runs at the appropriate time."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:311
+msgid ""
+"Generally speaking, `@BeforeTransaction` and `@AfterTransaction` methods "
+"must not accept any arguments."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:320
+msgid ""
+"However, for tests using the "
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit-jupiter-extension[`SpringExtension`] "
+"with JUnit Jupiter, `@BeforeTransaction` and `@AfterTransaction` methods may "
+"optionally accept arguments which will be resolved by any registered JUnit "
+"`ParameterResolver` extension such as the `SpringExtension`. This means that "
+"JUnit-specific arguments like `TestInfo` or beans from the test's "
+"`ApplicationContext` may be provided to `@BeforeTransaction` and "
+"`@AfterTransaction` methods, as demonstrated in the following example."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:331
+#, no-wrap
+msgid ""
+"@BeforeTransaction\n"
+"void verifyInitialDatabaseState(@Autowired DataSource dataSource) {\n"
+"\t// Use the DataSource to verify the initial state before a transaction is "
+"started\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:341
+#, no-wrap
+msgid ""
+"@BeforeTransaction\n"
+"fun verifyInitialDatabaseState(@Autowired dataSource: DataSource) {\n"
+"\t// Use the DataSource to verify the initial state before a transaction is "
+"started\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:350
+msgid ""
+"Any before methods (such as methods annotated with JUnit Jupiter's "
+"`@BeforeEach`) and any after methods (such as methods annotated with JUnit "
+"Jupiter's `@AfterEach`) are run within the test-managed transaction for a "
+"transactional test method."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:353
+msgid ""
+"Similarly, methods annotated with `@BeforeTransaction` or "
+"`@AfterTransaction` are only run for transactional test methods."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:357
+#, no-wrap
+msgid "Configuring a Transaction Manager"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:368
+msgid ""
+"`TransactionalTestExecutionListener` expects a `PlatformTransactionManager` "
+"bean to be defined in the Spring `ApplicationContext` for the test. If there "
+"are multiple instances of `PlatformTransactionManager` within the test's "
+"`ApplicationContext`, you can declare a qualifier by using "
+"`@Transactional(\"myTxMgr\")` or `@Transactional(transactionManager = "
+"\"myTxMgr\")`, or `TransactionManagementConfigurer` can be implemented by an "
+"`@Configuration` class. Consult the "
+"{spring-framework-api}/test/context/transaction/TestContextTransactionUtils.html#retrieveTransactionManager(org.springframework.test.context.TestContext,java.lang.String)[javadoc "
+"for `TestContextTransactionUtils.retrieveTransactionManager()`] for details "
+"on the algorithm used to look up a transaction manager in the test's "
+"`ApplicationContext`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:371
+#, no-wrap
+msgid "Demonstration of All Transaction-related Annotations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:381
+#, no-wrap
+msgid ""
+"The following JUnit Jupiter based example displays a fictitious integration "
+"testing\n"
+"scenario that highlights all transaction-related annotations. The example is "
+"not intended\n"
+"to demonstrate best practices but rather to demonstrate how these "
+"annotations can be\n"
+"used. See the xref:testing/annotations.adoc[annotation support] section for "
+"further\n"
+"information and configuration "
+"examples. "
+"xref:testing/testcontext-framework/executing-sql.adoc#testcontext-executing-sql-declaratively-tx[Transaction "
+"management for `@Sql`]\n"
+" contains an additional example that uses `@Sql` for\n"
+"declarative SQL script execution with default transaction rollback "
+"semantics. The\n"
+"following example shows the relevant annotations:\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:392
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:431
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig\n"
+"\t@Transactional(transactionManager = \"txMgr\")\n"
+"\t@Commit\n"
+"\tclass FictitiousTransactionalTest {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:397
+#, no-wrap
+msgid ""
+"\t\t@BeforeTransaction\n"
+"\t\tvoid verifyInitialDatabaseState() {\n"
+"\t\t\t// logic to verify the initial state before a transaction is started\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:402
+#, no-wrap
+msgid ""
+"\t\t@BeforeEach\n"
+"\t\tvoid setUpTestDataWithinTransaction() {\n"
+"\t\t\t// set up test data within the transaction\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:409
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\t// overrides the class-level @Commit setting\n"
+"\t\t@Rollback\n"
+"\t\tvoid modifyDatabaseWithinTransaction() {\n"
+"\t\t\t// logic which uses the test data and modifies database state\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:414
+#, no-wrap
+msgid ""
+"\t\t@AfterEach\n"
+"\t\tvoid tearDownWithinTransaction() {\n"
+"\t\t\t// run \"tear down\" logic within the transaction\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:419
+#, no-wrap
+msgid ""
+"\t\t@AfterTransaction\n"
+"\t\tvoid verifyFinalDatabaseState() {\n"
+"\t\t\t// logic to verify the final state after transaction has rolled back\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:421
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:460
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:436
+#, no-wrap
+msgid ""
+"\t\t@BeforeTransaction\n"
+"\t\tfun verifyInitialDatabaseState() {\n"
+"\t\t\t// logic to verify the initial state before a transaction is started\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:441
+#, no-wrap
+msgid ""
+"\t\t@BeforeEach\n"
+"\t\tfun setUpTestDataWithinTransaction() {\n"
+"\t\t\t// set up test data within the transaction\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:448
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\t// overrides the class-level @Commit setting\n"
+"\t\t@Rollback\n"
+"\t\tfun modifyDatabaseWithinTransaction() {\n"
+"\t\t\t// logic which uses the test data and modifies database state\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:453
+#, no-wrap
+msgid ""
+"\t\t@AfterEach\n"
+"\t\tfun tearDownWithinTransaction() {\n"
+"\t\t\t// run \"tear down\" logic within the transaction\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:458
+#, no-wrap
+msgid ""
+"\t\t@AfterTransaction\n"
+"\t\tfun verifyFinalDatabaseState() {\n"
+"\t\t\t// logic to verify the final state after transaction has rolled back\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:464
+#, no-wrap
+msgid "Avoid false positives when testing ORM code"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:475
+msgid ""
+"When you test application code that manipulates the state of a Hibernate "
+"session or JPA persistence context, make sure to flush the underlying unit "
+"of work within test methods that run that code. Failing to flush the "
+"underlying unit of work can produce false positives: Your test passes, but "
+"the same code throws an exception in a live, production environment. Note "
+"that this applies to any ORM framework that maintains an in-memory unit of "
+"work. In the following Hibernate-based example test case, one method "
+"demonstrates a false positive, and the other method correctly exposes the "
+"results of flushing the session:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:483
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:504
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:511
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:532
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:544
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:565
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:572
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:593
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:626
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:647
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:654
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:675
+#, no-wrap
+msgid "\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:486
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tSessionFactory sessionFactory;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:494
+#, no-wrap
+msgid ""
+"\t@Transactional\n"
+"\t@Test // no expected exception!\n"
+"\tpublic void falsePositive() {\n"
+"\t\tupdateEntityInHibernateSession();\n"
+"\t\t// False positive: an exception will be thrown once the Hibernate\n"
+"\t\t// Session is finally flushed (i.e., in production code)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:502
+#, no-wrap
+msgid ""
+"\t@Transactional\n"
+"\t@Test(expected = ...)\n"
+"\tpublic void updateWithSessionFlush() {\n"
+"\t\tupdateEntityInHibernateSession();\n"
+"\t\t// Manual flush is required to avoid false positive in test\n"
+"\t\tsessionFactory.getCurrentSession().flush();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:514
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tlateinit var sessionFactory: SessionFactory\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:522
+#, no-wrap
+msgid ""
+"\t@Transactional\n"
+"\t@Test // no expected exception!\n"
+"\tfun falsePositive() {\n"
+"\t\tupdateEntityInHibernateSession()\n"
+"\t\t// False positive: an exception will be thrown once the Hibernate\n"
+"\t\t// Session is finally flushed (i.e., in production code)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:530
+#, no-wrap
+msgid ""
+"\t@Transactional\n"
+"\t@Test(expected = ...)\n"
+"\tfun updateWithSessionFlush() {\n"
+"\t\tupdateEntityInHibernateSession()\n"
+"\t\t// Manual flush is required to avoid false positive in test\n"
+"\t\tsessionFactory.getCurrentSession().flush()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:536
+msgid "The following example shows matching methods for JPA:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:547
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:632
+#, no-wrap
+msgid ""
+"\t@PersistenceContext\n"
+"\tEntityManager entityManager;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:555
+#, no-wrap
+msgid ""
+"\t@Transactional\n"
+"\t@Test // no expected exception!\n"
+"\tpublic void falsePositive() {\n"
+"\t\tupdateEntityInJpaPersistenceContext();\n"
+"\t\t// False positive: an exception will be thrown once the JPA\n"
+"\t\t// EntityManager is finally flushed (i.e., in production code)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:563
+#, no-wrap
+msgid ""
+"\t@Transactional\n"
+"\t@Test(expected = ...)\n"
+"\tpublic void updateWithEntityManagerFlush() {\n"
+"\t\tupdateEntityInJpaPersistenceContext();\n"
+"\t\t// Manual flush is required to avoid false positive in test\n"
+"\t\tentityManager.flush();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:575
+#, no-wrap
+msgid ""
+"\t@PersistenceContext\n"
+"\tlateinit var entityManager:EntityManager\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:583
+#, no-wrap
+msgid ""
+"\t@Transactional\n"
+"\t@Test // no expected exception!\n"
+"\tfun falsePositive() {\n"
+"\t\tupdateEntityInJpaPersistenceContext()\n"
+"\t\t// False positive: an exception will be thrown once the JPA\n"
+"\t\t// EntityManager is finally flushed (i.e., in production code)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:591
+#, no-wrap
+msgid ""
+"\t@Transactional\n"
+"\t@Test(expected = ...)\n"
+"\tvoid updateWithEntityManagerFlush() {\n"
+"\t\tupdateEntityInJpaPersistenceContext()\n"
+"\t\t// Manual flush is required to avoid false positive in test\n"
+"\t\tentityManager.flush()\n"
+"\t}\n"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:598
+#, no-wrap
+msgid "Testing ORM entity lifecycle callbacks"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:606
+msgid ""
+"Similar to the note about avoiding "
+"xref:testing/testcontext-framework/tx.adoc#testcontext-tx-false-positives[false "
+"positives] when testing ORM code, if your application makes use of entity "
+"lifecycle callbacks (also known as entity listeners), make sure to flush the "
+"underlying unit of work within test methods that run that code. Failing to "
+"_flush_ or _clear_ the underlying unit of work can result in certain "
+"lifecycle callbacks not being invoked."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:613
+msgid ""
+"For example, when using JPA, `@PostPersist`, `@PreUpdate`, and `@PostUpdate` "
+"callbacks will not be called unless `entityManager.flush()` is invoked after "
+"an entity has been saved or updated. Similarly, if an entity is already "
+"attached to the current unit of work (associated with the current "
+"persistence context), an attempt to reload the entity will not result in a "
+"`@PostLoad` callback unless `entityManager.clear()` is invoked before the "
+"attempt to reload the entity."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:618
+msgid ""
+"The following example shows how to flush the `EntityManager` to ensure that "
+"`@PostPersist` callbacks are invoked when an entity is persisted. An entity "
+"listener with a `@PostPersist` callback method has been registered for the "
+"`Person` entity used in the example."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:629
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tJpaPersonRepository repo;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:638
+#, no-wrap
+msgid ""
+"\t@Transactional\n"
+"\t@Test\n"
+"\tvoid savePerson() {\n"
+"\t\t// EntityManager#persist(...) results in @PrePersist but not "
+"@PostPersist\n"
+"\t\trepo.save(new Person(\"Jane\"));\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:641
+#, no-wrap
+msgid ""
+"\t\t// Manual flush is required for @PostPersist callback to be invoked\n"
+"\t\tentityManager.flush();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:645
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:673
+#, no-wrap
+msgid ""
+"\t\t// Test code that relies on the @PostPersist callback\n"
+"\t\t// having been invoked...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:657
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tlateinit var repo: JpaPersonRepository\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:660
+#, no-wrap
+msgid ""
+"\t@PersistenceContext\n"
+"\tlateinit var entityManager: EntityManager\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:666
+#, no-wrap
+msgid ""
+"\t@Transactional\n"
+"\t@Test\n"
+"\tfun savePerson() {\n"
+"\t\t// EntityManager#persist(...) results in @PrePersist but not "
+"@PostPersist\n"
+"\t\trepo.save(Person(\"Jane\"))\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:669
+#, no-wrap
+msgid ""
+"\t\t// Manual flush is required for @PostPersist callback to be invoked\n"
+"\t\tentityManager.flush()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/tx.adoc:681
+msgid ""
+"See "
+"{spring-framework-code}/spring-test/src/test/java/org/springframework/test/context/junit/jupiter/orm/JpaEntityListenerTests.java[JpaEntityListenerTests] "
+"in the Spring Framework test suite for working examples using all JPA "
+"lifecycle callbacks."
+msgstr ""

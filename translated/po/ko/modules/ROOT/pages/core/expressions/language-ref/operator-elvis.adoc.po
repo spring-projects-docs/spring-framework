@@ -1,0 +1,203 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:2
+#, no-wrap
+msgid "The Elvis Operator"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:8
+msgid ""
+"The Elvis operator (`?:`) is a shortening of the ternary operator syntax and "
+"is used in the "
+"https://www.groovy-lang.org/operators.html#_elvis_operator[Groovy] "
+"language. With the ternary operator syntax, you often have to repeat a "
+"variable twice, as the following Java example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:13
+#, no-wrap
+msgid ""
+"\tString name = \"Elvis Presley\";\n"
+"\tString displayName = (name != null ? name : \"Unknown\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:17
+msgid ""
+"Instead, you can use the Elvis operator (named for the resemblance to Elvis' "
+"hair style).  The following example shows how to use the Elvis operator in a "
+"SpEL expression:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:20
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:64
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:25
+#, no-wrap
+msgid "\tExpressionParser parser = new SpelExpressionParser();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:28
+#, no-wrap
+msgid ""
+"\tString name = parser.parseExpression(\"name ?: 'Unknown'\").getValue(new "
+"Inventor(), String.class);\n"
+"\tSystem.out.println(name);  // 'Unknown'\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:30
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:80
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:35
+#, no-wrap
+msgid "\tval parser = SpelExpressionParser()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:38
+#, no-wrap
+msgid ""
+"\tval name = parser.parseExpression(\"name ?: "
+"'Unknown'\").getValue(Inventor(), String::class.java)\n"
+"\tprintln(name)  // 'Unknown'\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:47
+msgid ""
+"The SpEL Elvis operator also treats an _empty_ String like a `null` "
+"object. Thus, the original Java example is only close to emulating the "
+"semantics of the operator: it would need to use `name != null && "
+"!name.isEmpty()` as the predicate to be compatible with the semantics of the "
+"SpEL Elvis operator."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:53
+msgid ""
+"As of Spring Framework 7.0, the SpEL Elvis operator supports "
+"`java.util.Optional` with transparent unwrapping semantics."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:58
+msgid ""
+"For example, given the expression `A ?: B`, if `A` is `null` or an _empty_ "
+"`Optional`, the expression evaluates to `B`. However, if `A` is a non-empty "
+"`Optional` the expression evaluates to the object contained in the "
+"`Optional`, thereby effectively unwrapping the `Optional` which correlates "
+"to `A.get()`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:61
+msgid "The following listing shows a more complex example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:70
+#, no-wrap
+msgid ""
+"\tExpressionParser parser = new SpelExpressionParser();\n"
+"\tEvaluationContext context = "
+"SimpleEvaluationContext.forReadOnlyDataBinding().build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:74
+#, no-wrap
+msgid ""
+"\tInventor tesla = new Inventor(\"Nikola Tesla\", \"Serbian\");\n"
+"\tString name = parser.parseExpression(\"name ?: 'Elvis "
+"Presley'\").getValue(context, tesla, String.class);\n"
+"\tSystem.out.println(name);  // Nikola Tesla\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:78
+#, no-wrap
+msgid ""
+"\ttesla.setName(\"\");\n"
+"\tname = parser.parseExpression(\"name ?: 'Elvis "
+"Presley'\").getValue(context, tesla, String.class);\n"
+"\tSystem.out.println(name);  // Elvis Presley\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:86
+#, no-wrap
+msgid ""
+"\tval parser = SpelExpressionParser()\n"
+"\tval context = SimpleEvaluationContext.forReadOnlyDataBinding().build()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:90
+#, no-wrap
+msgid ""
+"\tval tesla = Inventor(\"Nikola Tesla\", \"Serbian\")\n"
+"\tvar name = parser.parseExpression(\"name ?: 'Elvis "
+"Presley'\").getValue(context, tesla, String::class.java)\n"
+"\tprintln(name)  // Nikola Tesla\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:94
+#, no-wrap
+msgid ""
+"\ttesla.setName(\"\")\n"
+"\tname = parser.parseExpression(\"name ?: 'Elvis "
+"Presley'\").getValue(context, tesla, String::class.java)\n"
+"\tprintln(name)  // Elvis Presley\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:101
+msgid ""
+"You can use the Elvis operator to apply default values in expressions. The "
+"following example shows how to use the Elvis operator in a `@Value` "
+"expression:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:105
+#, no-wrap
+msgid "\t@Value(\"#{systemProperties['pop3.port'] ?: 25}\")\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/operator-elvis.adoc:109
+msgid ""
+"This will inject the value of the system property named `pop3.port` if it is "
+"defined or `25` if the property is not defined."
+msgstr ""

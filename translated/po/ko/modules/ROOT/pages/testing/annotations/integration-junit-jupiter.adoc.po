@@ -1,0 +1,692 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:2
+#, no-wrap
+msgid "Spring JUnit Jupiter Testing Annotations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:7
+msgid ""
+"The following annotations are supported when used in conjunction with the "
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit-jupiter-extension[`SpringExtension`] "
+"and JUnit Jupiter (that is, the programming model in JUnit):"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:9
+msgid "xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-annotations-junit-jupiter-springjunitconfig[`@SpringJUnitConfig`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:10
+msgid "xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-annotations-junit-jupiter-springjunitwebconfig[`@SpringJUnitWebConfig`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:11
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:244
+msgid "xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-annotations-testconstructor[`@TestConstructor`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:12
+msgid "xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-annotations-nestedtestconfiguration[`@NestedTestConfiguration`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:13
+msgid "xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-annotations-junit-jupiter-enabledif[`@EnabledIf`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:14
+msgid "xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-annotations-junit-jupiter-disabledif[`@DisabledIf`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:15
+msgid "xref:testing/annotations/integration-spring/annotation-disabledinaotmode.adoc[`@DisabledInAotMode`]"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:18
+#, no-wrap
+msgid "`@SpringJUnitConfig`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:26
+msgid ""
+"`@SpringJUnitConfig` is a composed annotation that combines "
+"`@ExtendWith(SpringExtension.class)` from JUnit Jupiter with "
+"`@ContextConfiguration` from the Spring TestContext Framework. It can be "
+"used at the class level as a drop-in replacement for "
+"`@ContextConfiguration`. With regard to configuration options, the only "
+"difference between `@ContextConfiguration` and `@SpringJUnitConfig` is that "
+"component classes may be declared with the `value` attribute in "
+"`@SpringJUnitConfig`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:29
+msgid ""
+"The following example shows how to use the `@SpringJUnitConfig` annotation "
+"to specify a configuration class:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:32
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:61
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:108
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:137
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:280
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:347
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:40
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig.class) // <1>\n"
+"\tclass ConfigurationClassJUnitJupiterSpringTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:42
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:53
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:118
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:129
+msgid "Specify the configuration class."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:43
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:72
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:119
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:148
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:293
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:360
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:51
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig::class) // <1>\n"
+"\tclass ConfigurationClassJUnitJupiterSpringTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:58
+msgid ""
+"The following example shows how to use the `@SpringJUnitConfig` annotation "
+"to specify the location of a configuration file:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:69
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(locations = \"/test-config.xml\") // <1>\n"
+"\tclass XmlJUnitJupiterSpringTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:71
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:82
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:147
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:158
+msgid "Specify the location of a configuration file."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:80
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(locations = [\"/test-config.xml\"]) // <1>\n"
+"\tclass XmlJUnitJupiterSpringTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:88
+msgid ""
+"See xref:testing/testcontext-framework/ctx-management.adoc[Context "
+"Management] as well as the javadoc for "
+"{spring-framework-api}/test/context/junit/jupiter/SpringJUnitConfig.html[`@SpringJUnitConfig`] "
+"and `@ContextConfiguration` for further details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:91
+#, no-wrap
+msgid "`@SpringJUnitWebConfig`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:102
+msgid ""
+"`@SpringJUnitWebConfig` is a composed annotation that combines "
+"`@ExtendWith(SpringExtension.class)` from JUnit Jupiter with "
+"`@ContextConfiguration` and `@WebAppConfiguration` from the Spring "
+"TestContext Framework. You can use it at the class level as a drop-in "
+"replacement for `@ContextConfiguration` and `@WebAppConfiguration`.  With "
+"regard to configuration options, the only difference between "
+"`@ContextConfiguration` and `@SpringJUnitWebConfig` is that you can declare "
+"component classes by using the `value` attribute in "
+"`@SpringJUnitWebConfig`. In addition, you can override the `value` attribute "
+"from `@WebAppConfiguration` only by using the `resourcePath` attribute in "
+"`@SpringJUnitWebConfig`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:105
+msgid ""
+"The following example shows how to use the `@SpringJUnitWebConfig` "
+"annotation to specify a configuration class:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:116
+#, no-wrap
+msgid ""
+"\t@SpringJUnitWebConfig(TestConfig.class) // <1>\n"
+"\tclass ConfigurationClassJUnitJupiterSpringWebTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:127
+#, no-wrap
+msgid ""
+"\t@SpringJUnitWebConfig(TestConfig::class) // <1>\n"
+"\tclass ConfigurationClassJUnitJupiterSpringWebTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:134
+msgid ""
+"The following example shows how to use the `@SpringJUnitWebConfig` "
+"annotation to specify the location of a configuration file:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:145
+#, no-wrap
+msgid ""
+"\t@SpringJUnitWebConfig(locations = \"/test-config.xml\") // <1>\n"
+"\tclass XmlJUnitJupiterSpringWebTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:156
+#, no-wrap
+msgid ""
+"\t@SpringJUnitWebConfig(locations = [\"/test-config.xml\"]) // <1>\n"
+"\tclass XmlJUnitJupiterSpringWebTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:166
+msgid ""
+"See xref:testing/testcontext-framework/ctx-management.adoc[Context "
+"Management] as well as the javadoc for "
+"{spring-framework-api}/test/context/junit/jupiter/web/SpringJUnitWebConfig.html[`@SpringJUnitWebConfig`], "
+"{spring-framework-api}/test/context/ContextConfiguration.html[`@ContextConfiguration`], "
+"and "
+"{spring-framework-api}/test/context/web/WebAppConfiguration.html[`@WebAppConfiguration`] "
+"for further details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:169
+#, no-wrap
+msgid "`@TestConstructor`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:174
+msgid ""
+"`@TestConstructor` is an annotation that can be applied to a test class to "
+"configure how the parameters of a test class constructor are autowired from "
+"components in the test's `ApplicationContext`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:180
+msgid ""
+"If `@TestConstructor` is not present or meta-present on a test class, the "
+"default _test constructor autowire mode_ will be used. See the tip below for "
+"details on how to change the default mode. Note, however, that a local "
+"declaration of `@Autowired` or `@jakarta.inject.Inject` on a constructor "
+"takes precedence over both `@TestConstructor` and the default mode."
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:181
+#, no-wrap
+msgid "Changing the default test constructor autowire mode"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:188
+msgid ""
+"The default _test constructor autowire mode_ can be changed by setting the "
+"`spring.test.constructor.autowire.mode` JVM system property to "
+"`all`. Alternatively, the default mode may be set via the "
+"xref:appendix.adoc#appendix-spring-properties[`SpringProperties`] mechanism."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:191
+msgid ""
+"The default mode may also be configured as a "
+"https://docs.junit.org/current/user-guide/#running-tests-config-params[JUnit "
+"Platform configuration parameter]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:194
+msgid ""
+"If the `spring.test.constructor.autowire.mode` property is not set, test "
+"class constructors will not be automatically autowired."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:200
+msgid ""
+"`@TestConstructor` is only supported in conjunction with the "
+"`SpringExtension` for use with JUnit Jupiter. Note that the "
+"`SpringExtension` is often automatically registered for you – for example, "
+"when using annotations such as `@SpringJUnitConfig` and "
+"`@SpringJUnitWebConfig` or various test-related annotations from Spring Boot "
+"Test."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:203
+#, no-wrap
+msgid "`@NestedTestConfiguration`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:208
+msgid ""
+"`@NestedTestConfiguration` is an annotation that can be applied to a test "
+"class to configure how Spring test configuration annotations are processed "
+"within enclosing class hierarchies for inner test classes."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:213
+msgid ""
+"If `@NestedTestConfiguration` is not present or meta-present on a test "
+"class, in its supertype hierarchy, or in its enclosing class hierarchy, the "
+"default _enclosing configuration inheritance mode_ will be used. See the tip "
+"below for details on how to change the default mode."
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:214
+#, no-wrap
+msgid "Changing the default enclosing configuration inheritance mode"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:221
+msgid ""
+"The default _enclosing configuration inheritance mode_ is `INHERIT`, but it "
+"can be changed by setting the `spring.test.enclosing.configuration` JVM "
+"system property to `OVERRIDE`. Alternatively, the default mode may be set "
+"via the xref:appendix.adoc#appendix-spring-properties[`SpringProperties`] "
+"mechanism."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:225
+msgid ""
+"The xref:testing/testcontext-framework.adoc[Spring TestContext Framework] "
+"honors `@NestedTestConfiguration` semantics for the following annotations."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:227
+msgid "xref:testing/annotations/integration-spring/annotation-bootstrapwith.adoc[`@BootstrapWith`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:228
+msgid "xref:testing/annotations/integration-spring/annotation-contextconfiguration.adoc[`@ContextConfiguration`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:229
+msgid "xref:testing/annotations/integration-spring/annotation-webappconfiguration.adoc[`@WebAppConfiguration`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:230
+msgid "xref:testing/annotations/integration-spring/annotation-contexthierarchy.adoc[`@ContextHierarchy`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:231
+msgid "xref:testing/annotations/integration-spring/annotation-contextcustomizerfactories.adoc[`@ContextCustomizerFactories`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:232
+msgid "xref:testing/annotations/integration-spring/annotation-activeprofiles.adoc[`@ActiveProfiles`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:233
+msgid "xref:testing/annotations/integration-spring/annotation-testpropertysource.adoc[`@TestPropertySource`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:234
+msgid "xref:testing/annotations/integration-spring/annotation-dynamicpropertysource.adoc[`@DynamicPropertySource`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:235
+msgid "xref:testing/annotations/integration-spring/annotation-dirtiescontext.adoc[`@DirtiesContext`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:236
+msgid "xref:testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc[`@TestExecutionListeners`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:237
+msgid "xref:testing/annotations/integration-spring/annotation-recordapplicationevents.adoc[`@RecordApplicationEvents`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:238
+msgid "xref:testing/testcontext-framework/tx.adoc[`@Transactional`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:239
+msgid "xref:testing/annotations/integration-spring/annotation-commit.adoc[`@Commit`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:240
+msgid "xref:testing/annotations/integration-spring/annotation-rollback.adoc[`@Rollback`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:241
+msgid "xref:testing/annotations/integration-spring/annotation-sql.adoc[`@Sql`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:242
+msgid "xref:testing/annotations/integration-spring/annotation-sqlconfig.adoc[`@SqlConfig`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:243
+msgid "xref:testing/annotations/integration-spring/annotation-sqlmergemode.adoc[`@SqlMergeMode`]"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:249
+msgid ""
+"The use of `@NestedTestConfiguration` typically only makes sense in "
+"conjunction with `@Nested` test classes in JUnit Jupiter; however, there may "
+"be other testing frameworks with support for Spring and nested test classes "
+"that make use of this annotation."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:252
+msgid ""
+"See "
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit-jupiter-nested-test-configuration[`@Nested` "
+"test class configuration] for an example and further details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:255
+#, no-wrap
+msgid "`@EnabledIf`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:262
+msgid ""
+"`@EnabledIf` is used to signal that the annotated JUnit Jupiter test class "
+"or test method is enabled and should be run if the supplied `expression` "
+"evaluates to `true`.  Specifically, if the expression evaluates to "
+"`Boolean.TRUE` or a `String` equal to `true` (ignoring case), the test is "
+"enabled. When applied at the class level, all test methods within that class "
+"are automatically enabled by default as well."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:264
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:331
+msgid "Expressions can be any of the following:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:267
+msgid ""
+"xref:core/expressions.adoc[Spring Expression Language] (SpEL) "
+"expression. For example: "
+"`@EnabledIf(\"#{systemProperties['os.name'].toLowerCase().contains('mac')}\")`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:269
+msgid ""
+"Placeholder for a property available in the Spring "
+"xref:core/beans/environment.adoc[`Environment`].  For example: "
+"`@EnabledIf(\"${smoke.tests.enabled}\")`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:270
+msgid "Text literal. For example: `@EnabledIf(\"true\")`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:274
+msgid ""
+"Note, however, that a text literal that is not the result of dynamic "
+"resolution of a property placeholder is of zero practical value, since "
+"`@EnabledIf(\"false\")` is equivalent to `@Disabled` and "
+"`@EnabledIf(\"true\")` is logically meaningless."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:277
+msgid ""
+"You can use `@EnabledIf` as a meta-annotation to create custom composed "
+"annotations. For example, you can create a custom `@EnabledOnMac` annotation "
+"as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:291
+#, no-wrap
+msgid ""
+"\t@Target({ElementType.TYPE, ElementType.METHOD})\n"
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t@EnabledIf(\n"
+"\t\texpression = "
+"\"#{systemProperties['os.name'].toLowerCase().contains('mac')}\",\n"
+"\t\treason = \"Enabled on Mac OS\"\n"
+"\t)\n"
+"\tpublic @interface EnabledOnMac {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:304
+#, no-wrap
+msgid ""
+"\t@Target(AnnotationTarget.TYPE, AnnotationTarget.FUNCTION)\n"
+"\t@Retention(AnnotationRetention.RUNTIME)\n"
+"\t@EnabledIf(\n"
+"\t\t\texpression = "
+"\"#{systemProperties['os.name'].toLowerCase().contains('mac')}\",\n"
+"\t\t\treason = \"Enabled on Mac OS\"\n"
+"\t)\n"
+"\tannotation class EnabledOnMac {}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:311
+msgid ""
+"`@EnabledOnMac` is meant only as an example of what is possible. If you have "
+"that exact use case, please use the built-in `@EnabledOnOs(MAC)` support in "
+"JUnit Jupiter."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:318
+msgid ""
+"Since JUnit 5.7, JUnit Jupiter also has a condition annotation named "
+"`@EnabledIf`. Thus, if you wish to use Spring's `@EnabledIf` support make "
+"sure you import the annotation type from the correct package."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:322
+#, no-wrap
+msgid "`@DisabledIf`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:329
+msgid ""
+"`@DisabledIf` is used to signal that the annotated JUnit Jupiter test class "
+"or test method is disabled and should not be run if the supplied "
+"`expression` evaluates to `true`. Specifically, if the expression evaluates "
+"to `Boolean.TRUE` or a `String` equal to `true` (ignoring case), the test is "
+"disabled. When applied at the class level, all test methods within that "
+"class are automatically disabled as well."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:334
+msgid ""
+"xref:core/expressions.adoc[Spring Expression Language] (SpEL) "
+"expression. For example: "
+"`@DisabledIf(\"#{systemProperties['os.name'].toLowerCase().contains('mac')}\")`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:336
+msgid ""
+"Placeholder for a property available in the Spring "
+"xref:core/beans/environment.adoc[`Environment`].  For example: "
+"`@DisabledIf(\"${smoke.tests.disabled}\")`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:337
+msgid "Text literal. For example: `@DisabledIf(\"true\")`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:341
+msgid ""
+"Note, however, that a text literal that is not the result of dynamic "
+"resolution of a property placeholder is of zero practical value, since "
+"`@DisabledIf(\"true\")` is equivalent to `@Disabled` and "
+"`@DisabledIf(\"false\")` is logically meaningless."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:344
+msgid ""
+"You can use `@DisabledIf` as a meta-annotation to create custom composed "
+"annotations. For example, you can create a custom `@DisabledOnMac` "
+"annotation as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:358
+#, no-wrap
+msgid ""
+"\t@Target({ElementType.TYPE, ElementType.METHOD})\n"
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t@DisabledIf(\n"
+"\t\texpression = "
+"\"#{systemProperties['os.name'].toLowerCase().contains('mac')}\",\n"
+"\t\treason = \"Disabled on Mac OS\"\n"
+"\t)\n"
+"\tpublic @interface DisabledOnMac {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:371
+#, no-wrap
+msgid ""
+"\t@Target(AnnotationTarget.TYPE, AnnotationTarget.FUNCTION)\n"
+"\t@Retention(AnnotationRetention.RUNTIME)\n"
+"\t@DisabledIf(\n"
+"\t\t\texpression = "
+"\"#{systemProperties['os.name'].toLowerCase().contains('mac')}\",\n"
+"\t\t\treason = \"Disabled on Mac OS\"\n"
+"\t)\n"
+"\tannotation class DisabledOnMac {}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:378
+msgid ""
+"`@DisabledOnMac` is meant only as an example of what is possible. If you "
+"have that exact use case, please use the built-in `@DisabledOnOs(MAC)` "
+"support in JUnit Jupiter."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-junit-jupiter.adoc:385
+msgid ""
+"Since JUnit 5.7, JUnit Jupiter also has a condition annotation named "
+"`@DisabledIf`. Thus, if you wish to use Spring's `@DisabledIf` support make "
+"sure you import the annotation type from the correct package."
+msgstr ""

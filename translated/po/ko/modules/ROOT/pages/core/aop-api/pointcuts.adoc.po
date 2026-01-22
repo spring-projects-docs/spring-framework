@@ -1,0 +1,443 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:2
+#, no-wrap
+msgid "Pointcut API in Spring"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:5
+msgid "This section describes how Spring handles the crucial pointcut concept."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:8
+#, no-wrap
+msgid "Concepts"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:12
+msgid ""
+"Spring's pointcut model enables pointcut reuse independent of advice "
+"types. You can target different advice with the same pointcut."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:15
+msgid ""
+"The `org.springframework.aop.Pointcut` interface is the central interface, "
+"used to target advice to particular classes and methods. The complete "
+"interface follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:19
+#, no-wrap
+msgid "\tpublic interface Pointcut {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:21
+#, no-wrap
+msgid "\t\tClassFilter getClassFilter();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:24
+#, no-wrap
+msgid ""
+"\t\tMethodMatcher getMethodMatcher();\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:29
+msgid ""
+"Splitting the `Pointcut` interface into two parts allows reuse of class and "
+"method matching parts and fine-grained composition operations (such as "
+"performing a \"`union`\" with another method matcher)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:33
+msgid ""
+"The `ClassFilter` interface is used to restrict the pointcut to a given set "
+"of target classes. If the `matches()` method always returns true, all target "
+"classes are matched. The following listing shows the `ClassFilter` interface "
+"definition:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:37
+#, no-wrap
+msgid "\tpublic interface ClassFilter {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:40
+#, no-wrap
+msgid ""
+"\t\tboolean matches(Class clazz);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:43
+msgid ""
+"The `MethodMatcher` interface is normally more important. The complete "
+"interface follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:47
+#, no-wrap
+msgid "\tpublic interface MethodMatcher {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:49
+#, no-wrap
+msgid "\t\tboolean matches(Method m, Class<?> targetClass);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:51
+#, no-wrap
+msgid "\t\tboolean isRuntime();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:54
+#, no-wrap
+msgid ""
+"\t\tboolean matches(Method m, Class<?> targetClass, Object... args);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:63
+msgid ""
+"The `matches(Method, Class)` method is used to test whether this pointcut "
+"ever matches a given method on a target class. This evaluation can be "
+"performed when an AOP proxy is created to avoid the need for a test on every "
+"method invocation. If the two-argument `matches` method returns `true` for a "
+"given method, and the `isRuntime()` method for the MethodMatcher returns "
+"`true`, the three-argument matches method is invoked on every method "
+"invocation. This lets a pointcut look at the arguments passed to the method "
+"invocation immediately before the target advice starts."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:66
+msgid ""
+"Most `MethodMatcher` implementations are static, meaning that their "
+"`isRuntime()` method returns `false`. In this case, the three-argument "
+"`matches` method is never invoked."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:69
+msgid ""
+"If possible, try to make pointcuts static, allowing the AOP framework to "
+"cache the results of pointcut evaluation when an AOP proxy is created."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:72
+#, no-wrap
+msgid "Operations on Pointcuts"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:75
+msgid "Spring supports operations (notably, union and intersection) on pointcuts."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:83
+msgid ""
+"Union means the methods that either pointcut matches.  Intersection means "
+"the methods that both pointcuts match.  Union is usually more useful.  You "
+"can compose pointcuts by using the static methods in the "
+"`org.springframework.aop.support.Pointcuts` class or by using the "
+"`ComposablePointcut` class in the same package. However, using AspectJ "
+"pointcut expressions is usually a simpler approach."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:86
+#, no-wrap
+msgid "AspectJ Expression Pointcuts"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:91
+msgid ""
+"Since 2.0, the most important type of pointcut used by Spring is "
+"`org.springframework.aop.aspectj.AspectJExpressionPointcut`. This is a "
+"pointcut that uses an AspectJ-supplied library to parse an AspectJ pointcut "
+"expression string."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:93
+msgid ""
+"See the xref:core/aop.adoc[previous chapter] for a discussion of supported "
+"AspectJ pointcut primitives."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:96
+#, no-wrap
+msgid "Convenience Pointcut Implementations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:100
+msgid ""
+"Spring provides several convenient pointcut implementations. You can use "
+"some of them directly; others are intended to be subclassed in "
+"application-specific pointcuts."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:102
+#, no-wrap
+msgid "Static Pointcuts"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:108
+msgid ""
+"Static pointcuts are based on the method and the target class and cannot "
+"take into account the method's arguments. Static pointcuts suffice -- and "
+"are best -- for most usages.  Spring can evaluate a static pointcut only "
+"once, when a method is first invoked.  After that, there is no need to "
+"evaluate the pointcut again with each method invocation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:111
+msgid ""
+"The rest of this section describes some of the static pointcut "
+"implementations that are included with Spring."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:113
+#, no-wrap
+msgid "Regular Expression Pointcuts"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:119
+msgid ""
+"One obvious way to specify static pointcuts is regular expressions. Several "
+"AOP frameworks besides Spring make this possible.  "
+"`org.springframework.aop.support.JdkRegexpMethodPointcut` is a generic "
+"regular expression pointcut that uses the regular expression support in the "
+"JDK."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:123
+msgid ""
+"With the `JdkRegexpMethodPointcut` class, you can provide a list of pattern "
+"strings.  If any of these is a match, the pointcut evaluates to `true`. (As "
+"a consequence, the resulting pointcut is effectively the union of the "
+"specified patterns.)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:125
+msgid "The following example shows how to use `JdkRegexpMethodPointcut`:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:133
+msgid ""
+"Spring provides a convenience class named `RegexpMethodPointcutAdvisor`, "
+"which lets us also reference an `Advice` (remember that an `Advice` can be "
+"an interceptor, before advice, throws advice, and others). Behind the "
+"scenes, Spring uses a `JdkRegexpMethodPointcut`.  Using "
+"`RegexpMethodPointcutAdvisor` simplifies wiring, as the one bean "
+"encapsulates both pointcut and advice, as the following example shows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:137
+msgid "You can use `RegexpMethodPointcutAdvisor` with any `Advice` type."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:139
+#, no-wrap
+msgid "Attribute-driven Pointcuts"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:143
+msgid ""
+"An important type of static pointcut is a metadata-driven pointcut. This "
+"uses the values of metadata attributes (typically, source-level metadata)."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:145
+#, no-wrap
+msgid "Dynamic pointcuts"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:151
+msgid ""
+"Dynamic pointcuts are costlier to evaluate than static pointcuts. They take "
+"into account method arguments as well as static information. This means that "
+"they must be evaluated with every method invocation and that the result "
+"cannot be cached, as arguments will vary."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:153
+msgid "The main example is the `control flow` pointcut."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:155
+#, no-wrap
+msgid "Control Flow Pointcuts"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:163
+msgid ""
+"Spring control flow pointcuts are conceptually similar to AspectJ `cflow` "
+"pointcuts, although less powerful. (There is currently no way to specify "
+"that a pointcut runs below a join point matched by another pointcut.) A "
+"control flow pointcut matches the current call stack. For example, it might "
+"fire if the join point was invoked by a method in the `com.mycompany.web` "
+"package or by the `SomeCaller` class. Control flow pointcuts are specified "
+"by using the `org.springframework.aop.support.ControlFlowPointcut` class."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:167
+msgid ""
+"Control flow pointcuts are significantly more expensive to evaluate at "
+"runtime than even other dynamic pointcuts. In Java 1.4, the cost is about "
+"five times that of other dynamic pointcuts."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:170
+#, no-wrap
+msgid "Pointcut Superclasses"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:173
+msgid ""
+"Spring provides useful pointcut superclasses to help you to implement your "
+"own pointcuts."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:178
+msgid ""
+"Because static pointcuts are most useful, you should probably subclass "
+"`StaticMethodMatcherPointcut`. This requires implementing only one abstract "
+"method (although you can override other methods to customize behavior). The "
+"following example shows how to subclass `StaticMethodMatcherPointcut`:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:181
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:186
+#, no-wrap
+msgid "\tclass TestStaticPointcut extends StaticMethodMatcherPointcut {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:191
+#, no-wrap
+msgid ""
+"\t\tpublic boolean matches(Method m, Class targetClass) {\n"
+"\t\t\t// return true if custom criteria match\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:193
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:198
+#, no-wrap
+msgid "\tclass TestStaticPointcut : StaticMethodMatcherPointcut() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:203
+#, no-wrap
+msgid ""
+"\t\toverride fun matches(method: Method, targetClass: Class<*>): Boolean {\n"
+"\t\t\t// return true if custom criteria match\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:208
+msgid ""
+"There are also superclasses for dynamic pointcuts.  You can use custom "
+"pointcuts with any advice type."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:211
+#, no-wrap
+msgid "Custom Pointcuts"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:217
+msgid ""
+"Because pointcuts in Spring AOP are Java classes rather than language "
+"features (as in AspectJ), you can declare custom pointcuts, whether static "
+"or dynamic. Custom pointcuts in Spring can be arbitrarily complex. However, "
+"we recommend using the AspectJ pointcut expression language, if you can."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/pointcuts.adoc:219
+msgid ""
+"Later versions of Spring may offer support for \"`semantic pointcuts`\" as "
+"offered by JAC -- for example, \"`all methods that change instance variables "
+"in the target object.`\""
+msgstr ""

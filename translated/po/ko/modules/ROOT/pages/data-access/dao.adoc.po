@@ -1,0 +1,307 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:2
+#, no-wrap
+msgid "DAO Support"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:9
+msgid ""
+"The Data Access Object (DAO) support in Spring is aimed at making it easy to "
+"work with data access technologies (such as JDBC, Hibernate, or JPA) in a "
+"consistent way. This lets you switch between the aforementioned persistence "
+"technologies fairly easily, and it also lets you code without worrying about "
+"catching exceptions that are specific to each technology."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:12
+#, no-wrap
+msgid "Consistent Exception Hierarchy"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:18
+msgid ""
+"Spring provides a convenient translation from technology-specific "
+"exceptions, such as `SQLException` to its own exception class hierarchy, "
+"which has `DataAccessException` as the root exception. These exceptions wrap "
+"the original exception so that there is never any risk that you might lose "
+"any information about what might have gone wrong."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:27
+msgid ""
+"In addition to JDBC exceptions, Spring can also wrap JPA- and "
+"Hibernate-specific exceptions, converting them to a set of focused runtime "
+"exceptions. This lets you handle most non-recoverable persistence exceptions "
+"in only the appropriate layers, without having annoying boilerplate "
+"catch-and-throw blocks and exception declarations in your DAOs.  (You can "
+"still trap and handle exceptions anywhere you need to though.) As mentioned "
+"above, JDBC exceptions (including database-specific dialects) are also "
+"converted to the same hierarchy, meaning that you can perform some "
+"operations with JDBC within a consistent programming model."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:36
+msgid ""
+"The preceding discussion holds true for the various template classes in "
+"Spring's support for various ORM frameworks. If you use the "
+"interceptor-based classes, the application must care about handling "
+"`HibernateExceptions` and `PersistenceExceptions` itself, preferably by "
+"delegating to the `convertHibernateAccessException(..)` or "
+"`convertJpaAccessException(..)` methods, respectively, of "
+"`SessionFactoryUtils`. These methods convert the exceptions to exceptions "
+"that are compatible with the exceptions in the `org.springframework.dao` "
+"exception hierarchy. As `PersistenceExceptions` are unchecked, they can get "
+"thrown, too (sacrificing generic DAO abstraction in terms of exceptions, "
+"though)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:40
+msgid ""
+"The following image shows the exception hierarchy that Spring provides.  "
+"(Note that the class hierarchy detailed in the image shows only a subset of "
+"the entire `DataAccessException` hierarchy.)"
+msgstr ""
+
+#. type: Target for macro image
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:41
+#, no-wrap
+msgid "DataAccessException.png"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:45
+#, no-wrap
+msgid "Annotations Used to Configure DAO or Repository Classes"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:52
+msgid ""
+"The best way to guarantee that your Data Access Objects (DAOs) or "
+"repositories provide exception translation is to use the `@Repository` "
+"annotation. This annotation also lets the component scanning support find "
+"and configure your DAOs and repositories without having to provide XML "
+"configuration entries for them. The following example shows how to use the "
+"`@Repository` annotation:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:55
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:88
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:123
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:159
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:63
+#, no-wrap
+msgid ""
+"\t@Repository // <1>\n"
+"\tpublic class SomeMovieFinder implements MovieFinder {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:65
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:76
+msgid "The `@Repository` annotation."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:66
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:102
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:141
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:177
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:74
+#, no-wrap
+msgid ""
+"\t@Repository // <1>\n"
+"\tclass SomeMovieFinder : MovieFinder {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:85
+msgid ""
+"Any DAO or repository implementation needs access to a persistence resource, "
+"depending on the persistence technology used. For example, a JDBC-based "
+"repository needs access to a JDBC `DataSource`, and a JPA-based repository "
+"needs access to an `EntityManager`. The easiest way to accomplish this is to "
+"have this resource dependency injected by using one of the `@Autowired`, "
+"`@Inject`, `@Resource` or `@PersistenceContext` annotations. The following "
+"example works for a JPA repository:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:94
+#, no-wrap
+msgid ""
+"\t@Repository\n"
+"\tpublic class JpaMovieFinder implements MovieFinder {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:97
+#, no-wrap
+msgid ""
+"\t\t@PersistenceContext\n"
+"\t\tprivate EntityManager entityManager;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:100
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:114
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:139
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:175
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:188
+#, no-wrap
+msgid ""
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:108
+#, no-wrap
+msgid ""
+"\t@Repository\n"
+"\tclass JpaMovieFinder : MovieFinder {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:111
+#, no-wrap
+msgid ""
+"\t\t@PersistenceContext\n"
+"\t\tprivate lateinit var entityManager: EntityManager\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:120
+msgid ""
+"If you use the classic Hibernate APIs, you can inject `SessionFactory`, as "
+"the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:129
+#, no-wrap
+msgid ""
+"\t@Repository\n"
+"\tpublic class HibernateMovieFinder implements MovieFinder {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:131
+#, no-wrap
+msgid "\t\tprivate SessionFactory sessionFactory;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:136
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void setSessionFactory(SessionFactory sessionFactory) {\n"
+"\t\t\tthis.sessionFactory = sessionFactory;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:149
+#, no-wrap
+msgid ""
+"\t@Repository\n"
+"\tclass HibernateMovieFinder(private val sessionFactory: SessionFactory) : "
+"MovieFinder {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:156
+msgid ""
+"The last example we show here is for typical JDBC support. You could have "
+"the `DataSource` injected into an initialization method or a constructor, "
+"where you would create a `JdbcTemplate` and other data access support "
+"classes (such as `SimpleJdbcCall` and others) by using this "
+"`DataSource`. The following example autowires a `DataSource`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:165
+#, no-wrap
+msgid ""
+"\t@Repository\n"
+"\tpublic class JdbcMovieFinder implements MovieFinder {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:167
+#, no-wrap
+msgid "\t\tprivate JdbcTemplate jdbcTemplate;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:172
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void init(DataSource dataSource) {\n"
+"\t\t\tthis.jdbcTemplate = new JdbcTemplate(dataSource);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:183
+#, no-wrap
+msgid ""
+"\t@Repository\n"
+"\tclass JdbcMovieFinder(dataSource: DataSource) : MovieFinder {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:185
+#, no-wrap
+msgid "\t\tprivate val jdbcTemplate = JdbcTemplate(dataSource)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/dao.adoc:192
+msgid ""
+"See the specific coverage of each persistence technology for details on how "
+"to configure the application context to take advantage of these annotations."
+msgstr ""

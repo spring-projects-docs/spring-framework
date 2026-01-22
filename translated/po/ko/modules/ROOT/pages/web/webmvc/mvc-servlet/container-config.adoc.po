@@ -1,0 +1,341 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:2
+#, no-wrap
+msgid "Servlet Config"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:7
+msgid ""
+"In a Servlet environment, you have the option of configuring the Servlet "
+"container programmatically as an alternative or in combination with a "
+"`web.xml` file.  The following example registers a `DispatcherServlet`:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:10
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:63
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:112
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:166
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:15
+#, no-wrap
+msgid "\timport org.springframework.web.WebApplicationInitializer;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:17
+#, no-wrap
+msgid ""
+"\tpublic class MyWebApplicationInitializer implements "
+"WebApplicationInitializer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:22
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void onStartup(ServletContext container) {\n"
+"\t\t\tXmlWebApplicationContext appContext = new "
+"XmlWebApplicationContext();\n"
+"\t\t\tappContext.setConfigLocation(\"/WEB-INF/spring/dispatcher-config.xml\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:28
+#, no-wrap
+msgid ""
+"\t\t\tServletRegistration.Dynamic registration = "
+"container.addServlet(\"dispatcher\", new DispatcherServlet(appContext));\n"
+"\t\t\tregistration.setLoadOnStartup(1);\n"
+"\t\t\tregistration.addMapping(\"/\");\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:30
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:86
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:137
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:182
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:35
+#, no-wrap
+msgid "\timport org.springframework.web.WebApplicationInitializer\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:37
+#, no-wrap
+msgid "\tclass MyWebApplicationInitializer : WebApplicationInitializer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:41
+#, no-wrap
+msgid ""
+"\t\toverride fun onStartup(container: ServletContext) {\n"
+"\t\t\tval appContext = XmlWebApplicationContext()\n"
+"\t\t\tappContext.setConfigLocation(\"/WEB-INF/spring/dispatcher-config.xml\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:47
+#, no-wrap
+msgid ""
+"\t\t\tval registration = container.addServlet(\"dispatcher\", "
+"DispatcherServlet(appContext))\n"
+"\t\t\tregistration.setLoadOnStartup(1)\n"
+"\t\t\tregistration.addMapping(\"/\")\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:57
+msgid ""
+"`WebApplicationInitializer` is an interface provided by Spring MVC that "
+"ensures your implementation is detected and automatically used to initialize "
+"any Servlet 3 container.  An abstract base class implementation of "
+"`WebApplicationInitializer` named `AbstractDispatcherServletInitializer` "
+"makes it even easier to register the `DispatcherServlet` by overriding "
+"methods to specify the servlet mapping and the location of the "
+"`DispatcherServlet` configuration."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:60
+msgid ""
+"This is recommended for applications that use Java-based Spring "
+"configuration, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:68
+#, no-wrap
+msgid ""
+"\tpublic class MyWebAppInitializer extends "
+"AbstractAnnotationConfigDispatcherServletInitializer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:73
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tprotected Class<?>[] getRootConfigClasses() {\n"
+"\t\t\treturn null;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:78
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tprotected Class<?>[] getServletConfigClasses() {\n"
+"\t\t\treturn new Class<?>[] { MyWebConfig.class };\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:84
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:135
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tprotected String[] getServletMappings() {\n"
+"\t\t\treturn new String[] { \"/\" };\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:91
+#, no-wrap
+msgid ""
+"\tclass MyWebAppInitializer : "
+"AbstractAnnotationConfigDispatcherServletInitializer() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:95
+#, no-wrap
+msgid ""
+"\t\toverride fun getRootConfigClasses(): Array<Class<*>>? {\n"
+"\t\t\treturn null\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:99
+#, no-wrap
+msgid ""
+"\t\toverride fun getServletConfigClasses(): Array<Class<*>>? {\n"
+"\t\t\treturn arrayOf(MyWebConfig::class.java)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:104
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:157
+#, no-wrap
+msgid ""
+"\t\toverride fun getServletMappings(): Array<String> {\n"
+"\t\t\treturn arrayOf(\"/\")\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:109
+msgid ""
+"If you use XML-based Spring configuration, you should extend directly from "
+"`AbstractDispatcherServletInitializer`, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:117
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:171
+#, no-wrap
+msgid ""
+"\tpublic class MyWebAppInitializer extends "
+"AbstractDispatcherServletInitializer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:122
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tprotected WebApplicationContext createRootApplicationContext() {\n"
+"\t\t\treturn null;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:129
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tprotected WebApplicationContext createServletApplicationContext() {\n"
+"\t\t\tXmlWebApplicationContext cxt = new XmlWebApplicationContext();\n"
+"\t\t\tcxt.setConfigLocation(\"/WEB-INF/spring/dispatcher-config.xml\");\n"
+"\t\t\treturn cxt;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:142
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:187
+#, no-wrap
+msgid "\tclass MyWebAppInitializer : AbstractDispatcherServletInitializer() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:146
+#, no-wrap
+msgid ""
+"\t\toverride fun createRootApplicationContext(): WebApplicationContext? {\n"
+"\t\t\treturn null\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:152
+#, no-wrap
+msgid ""
+"\t\toverride fun createServletApplicationContext(): WebApplicationContext "
+"{\n"
+"\t\t\treturn XmlWebApplicationContext().apply {\n"
+"\t\t\t\tsetConfigLocation(\"/WEB-INF/spring/dispatcher-config.xml\")\n"
+"\t\t\t}\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:163
+msgid ""
+"`AbstractDispatcherServletInitializer` also provides a convenient way to add "
+"`Filter` instances and have them be automatically mapped to the "
+"`DispatcherServlet`, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:173
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:189
+#, no-wrap
+msgid "\t\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:180
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tprotected Filter[] getServletFilters() {\n"
+"\t\t\treturn new Filter[] {\n"
+"\t\t\t\tnew HiddenHttpMethodFilter(), new CharacterEncodingFilter() };\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:194
+#, no-wrap
+msgid ""
+"\t\toverride fun getServletFilters(): Array<Filter> {\n"
+"\t\t\treturn arrayOf(HiddenHttpMethodFilter(), CharacterEncodingFilter())\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:199
+msgid ""
+"Each filter is added with a default name based on its concrete type and "
+"automatically mapped to the `DispatcherServlet`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:203
+msgid ""
+"The `isAsyncSupported` protected method of "
+"`AbstractDispatcherServletInitializer` provides a single place to enable "
+"async support on the `DispatcherServlet` and all filters mapped to it. By "
+"default, this flag is set to `true`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/container-config.adoc:206
+msgid ""
+"Finally, if you need to further customize the `DispatcherServlet` itself, "
+"you can override the `createDispatcherServlet` method."
+msgstr ""

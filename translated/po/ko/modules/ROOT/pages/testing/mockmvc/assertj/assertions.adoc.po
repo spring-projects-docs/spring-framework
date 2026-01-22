@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:2
+#, no-wrap
+msgid "Defining Expectations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:7
+msgid ""
+"Assertions work the same way as any AssertJ assertions. The support provides "
+"dedicated assert objects for the various pieces of the `MvcTestResult`, as "
+"shown in the following example:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:12
+msgid ""
+"If a request fails, the exchange does not throw the exception. Rather, you "
+"can assert that the result of the exchange has failed:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:19
+msgid ""
+"The request could also fail unexpectedly, that is the exception thrown by "
+"the handler has not been handled and is thrown as is. You can still use "
+"`.hasFailed()` and `.failure()` but any attempt to access part of the result "
+"will throw an exception as the exchange hasn't completed."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:22
+#, no-wrap
+msgid "JSON Support"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:25
+msgid ""
+"The AssertJ support for `MvcTestResult` provides JSON support via "
+"`bodyJson()`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:29
+msgid ""
+"If https://github.com/jayway/JsonPath[JSONPath] is available, you can apply "
+"an expression on the JSON document. The returned value provides convenient "
+"methods to return a dedicated assert object for the various supported JSON "
+"data types:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:34
+msgid ""
+"You can also convert the raw content to any of your data types as long as "
+"the message converter is configured properly:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:40
+msgid ""
+"Converting to a target `Class` provides a generic assert object. For more "
+"complex types, you may want to use `AssertFactory` instead that returns a "
+"dedicated assert type, if possible:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:46
+msgid ""
+"https://jsonassert.skyscreamer.org[JSONAssert] is also supported. The body "
+"of the response can be matched against a `Resource` or a content. If the "
+"content ends with `.json ` we look for a file matching that name on the "
+"classpath:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj/assertions.adoc:50
+msgid ""
+"If you prefer to use another library, you can provide an implementation of "
+"{spring-framework-api}/test/json/JsonComparator.html[`JsonComparator`]."
+msgstr ""

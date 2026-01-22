@@ -1,0 +1,985 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:2
+#, no-wrap
+msgid "Marshalling XML by Using Object-XML Mappers"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:6
+#, no-wrap
+msgid "Introduction"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:12
+msgid ""
+"This chapter, describes Spring's Object-XML Mapping support. Object-XML "
+"Mapping (O-X mapping for short) is the act of converting an XML document to "
+"and from an object. This conversion process is also known as XML "
+"Marshalling, or XML Serialization. This chapter uses these terms "
+"interchangeably."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:17
+msgid ""
+"Within the field of O-X mapping, a marshaller is responsible for serializing "
+"an object (graph) to XML. In similar fashion, an unmarshaller deserializes "
+"the XML to an object graph. This XML can take the form of a DOM document, an "
+"input or output stream, or a SAX handler."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:19
+msgid "Some of the benefits of using Spring for your O/X mapping needs are:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:21
+msgid "xref:data-access/oxm.adoc#oxm-ease-of-configuration[Ease of configuration]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:22
+msgid "xref:data-access/oxm.adoc#oxm-consistent-interfaces[Consistent Interfaces]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:23
+msgid ""
+"xref:data-access/oxm.adoc#oxm-consistent-exception-hierarchy[Consistent "
+"Exception Hierarchy]"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:25
+#, no-wrap
+msgid "Ease of configuration"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:32
+msgid ""
+"Spring's bean factory makes it easy to configure marshallers, without "
+"needing to construct JAXB context, JiBX binding factories, and so on. You "
+"can configure the marshallers as you would any other bean in your "
+"application context. Additionally, XML namespace-based configuration is "
+"available for a number of marshallers, making the configuration even "
+"simpler."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:34
+#, no-wrap
+msgid "Consistent Interfaces"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:43
+msgid ""
+"Spring's O-X mapping operates through two global interfaces: "
+"{spring-framework-api}/oxm/Marshaller.html[`Marshaller`] and "
+"{spring-framework-api}/oxm/Unmarshaller.html[`Unmarshaller`]. These "
+"abstractions let you switch O-X mapping frameworks with relative ease, with "
+"little or no change required on the classes that do the marshalling. This "
+"approach has the additional benefit of making it possible to do XML "
+"marshalling with a mix-and-match approach (for example, some marshalling "
+"performed using JAXB and some by XStream) in a non-intrusive fashion, "
+"letting you use the strength of each technology."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:45
+#, no-wrap
+msgid "Consistent Exception Hierarchy"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:50
+msgid ""
+"Spring provides a conversion from exceptions from the underlying O-X mapping "
+"tool to its own exception hierarchy with the `XmlMappingException` as the "
+"root exception.  These runtime exceptions wrap the original exception so "
+"that no information is lost."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:53
+#, no-wrap
+msgid "`Marshaller` and `Unmarshaller`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:58
+msgid ""
+"As stated in the xref:data-access/oxm.adoc#oxm-introduction[introduction], a "
+"marshaller serializes an object to XML, and an unmarshaller deserializes XML "
+"stream to an object. This section describes the two Spring interfaces used "
+"for this purpose."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:60
+#, no-wrap
+msgid "Understanding `Marshaller`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:64
+msgid ""
+"Spring abstracts all marshalling operations behind the "
+"`org.springframework.oxm.Marshaller` interface, the main method of which "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:68
+#, no-wrap
+msgid "\tpublic interface Marshaller {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:74
+#, no-wrap
+msgid ""
+"\t\t/**\n"
+"\t\t * Marshal the object graph with the given root into the provided "
+"Result.\n"
+"\t\t */\n"
+"\t\tvoid marshal(Object graph, Result result) throws XmlMappingException, "
+"IOException;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:80
+msgid ""
+"The `Marshaller` interface has one main method, which marshals the given "
+"object to a given `javax.xml.transform.Result`. The result is a tagging "
+"interface that basically represents an XML output abstraction. Concrete "
+"implementations wrap various XML representations, as the following table "
+"indicates:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:93
+#, no-wrap
+msgid ""
+"| Result implementation| Wraps XML representation\n"
+"\n"
+"| `DOMResult`\n"
+"| `org.w3c.dom.Node`\n"
+"\n"
+"| `SAXResult`\n"
+"| `org.xml.sax.ContentHandler`\n"
+"\n"
+"| `StreamResult`\n"
+"| `java.io.File`, `java.io.OutputStream`, or `java.io.Writer`\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:100
+msgid ""
+"Although the `marshal()` method accepts a plain object as its first "
+"parameter, most `Marshaller` implementations cannot handle arbitrary "
+"objects. Instead, an object class must be mapped in a mapping file, be "
+"marked with an annotation, be registered with the marshaller, or have a "
+"common base class. Refer to the later sections in this chapter to determine "
+"how your O-X technology manages this."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:102
+#, no-wrap
+msgid "Understanding `Unmarshaller`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:106
+msgid ""
+"Similar to the `Marshaller`, we have the "
+"`org.springframework.oxm.Unmarshaller` interface, which the following "
+"listing shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:110
+#, no-wrap
+msgid "\tpublic interface Unmarshaller {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:116
+#, no-wrap
+msgid ""
+"\t\t/**\n"
+"\t\t * Unmarshal the given provided Source into an object graph.\n"
+"\t\t */\n"
+"\t\tObject unmarshal(Source source) throws XmlMappingException, "
+"IOException;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:122
+msgid ""
+"This interface also has one method, which reads from the given "
+"`javax.xml.transform.Source` (an XML input abstraction) and returns the "
+"object read. As with `Result`, `Source` is a tagging interface that has "
+"three concrete implementations. Each wraps a different XML representation, "
+"as the following table indicates:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:135
+#, no-wrap
+msgid ""
+"| Source implementation| Wraps XML representation\n"
+"\n"
+"| `DOMSource`\n"
+"| `org.w3c.dom.Node`\n"
+"\n"
+"| `SAXSource`\n"
+"| `org.xml.sax.InputSource`, and `org.xml.sax.XMLReader`\n"
+"\n"
+"| `StreamSource`\n"
+"| `java.io.File`, `java.io.InputStream`, or `java.io.Reader`\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:141
+msgid ""
+"Even though there are two separate marshalling interfaces (`Marshaller` and "
+"`Unmarshaller`), all implementations in Spring-WS implement both in one "
+"class.  This means that you can wire up one marshaller class and refer to it "
+"both as a marshaller and as an unmarshaller in your "
+"`applicationContext.xml`."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:143
+#, no-wrap
+msgid "Understanding `XmlMappingException`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:148
+msgid ""
+"Spring converts exceptions from the underlying O-X mapping tool to its own "
+"exception hierarchy with the `XmlMappingException` as the root exception.  "
+"These runtime exceptions wrap the original exception so that no information "
+"will be lost."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:152
+msgid ""
+"Additionally, the `MarshallingFailureException` and "
+"`UnmarshallingFailureException` provide a distinction between marshalling "
+"and unmarshalling operations, even though the underlying O-X mapping tool "
+"does not do so."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:154
+msgid "The O-X Mapping exception hierarchy is shown in the following figure:"
+msgstr ""
+
+#. type: Target for macro image
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:155
+#, no-wrap
+msgid "oxm-exceptions.png"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:159
+#, no-wrap
+msgid "Using `Marshaller` and `Unmarshaller`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:164
+msgid ""
+"You can use Spring's OXM for a wide variety of situations. In the following "
+"example, we use it to marshal the settings of a Spring-managed application "
+"as an XML file. In the following example, we use a simple JavaBean to "
+"represent the settings:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:167
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:202
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:172
+#, no-wrap
+msgid "\tpublic class Settings {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:174
+#, no-wrap
+msgid "\t\tprivate boolean fooEnabled;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:178
+#, no-wrap
+msgid ""
+"\t\tpublic boolean isFooEnabled() {\n"
+"\t\t\treturn fooEnabled;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:183
+#, no-wrap
+msgid ""
+"\t\tpublic void setFooEnabled(boolean fooEnabled) {\n"
+"\t\t\tthis.fooEnabled = fooEnabled;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:185
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:253
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:192
+#, no-wrap
+msgid ""
+"\tclass Settings {\n"
+"\t\tvar isFooEnabled: Boolean = false\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:199
+msgid ""
+"The application class uses this bean to store its settings. Besides a main "
+"method, the class has two methods: `saveSettings()` saves the settings bean "
+"to a file named `settings.xml`, and `loadSettings()` loads these settings "
+"again. The following `main()` method constructs a Spring application context "
+"and calls these two methods:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:215
+#, no-wrap
+msgid ""
+"\timport java.io.FileInputStream;\n"
+"\timport java.io.FileOutputStream;\n"
+"\timport java.io.IOException;\n"
+"\timport javax.xml.transform.stream.StreamResult;\n"
+"\timport javax.xml.transform.stream.StreamSource;\n"
+"\timport org.springframework.context.ApplicationContext;\n"
+"\timport "
+"org.springframework.context.support.ClassPathXmlApplicationContext;\n"
+"\timport org.springframework.oxm.Marshaller;\n"
+"\timport org.springframework.oxm.Unmarshaller;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:217
+#, no-wrap
+msgid "\tpublic class Application {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:222
+#, no-wrap
+msgid ""
+"\t\tprivate static final String FILE_NAME = \"settings.xml\";\n"
+"\t\tprivate Settings settings = new Settings();\n"
+"\t\tprivate Marshaller marshaller;\n"
+"\t\tprivate Unmarshaller unmarshaller;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:226
+#, no-wrap
+msgid ""
+"\t\tpublic void setMarshaller(Marshaller marshaller) {\n"
+"\t\t\tthis.marshaller = marshaller;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:230
+#, no-wrap
+msgid ""
+"\t\tpublic void setUnmarshaller(Unmarshaller unmarshaller) {\n"
+"\t\t\tthis.unmarshaller = unmarshaller;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:236
+#, no-wrap
+msgid ""
+"\t\tpublic void saveSettings() throws IOException {\n"
+"\t\t\ttry (FileOutputStream os = new FileOutputStream(FILE_NAME)) {\n"
+"\t\t\t\tthis.marshaller.marshal(settings, new StreamResult(os));\n"
+"\t\t\t}\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:242
+#, no-wrap
+msgid ""
+"\t\tpublic void loadSettings() throws IOException {\n"
+"\t\t\ttry (FileInputStream is = new FileInputStream(FILE_NAME)) {\n"
+"\t\t\t\tthis.settings = (Settings) this.unmarshaller.unmarshal(new "
+"StreamSource(is));\n"
+"\t\t\t}\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:251
+#, no-wrap
+msgid ""
+"\t\tpublic static void main(String[] args) throws IOException {\n"
+"\t\t\tApplicationContext appContext =\n"
+"\t\t\t\t\tnew ClassPathXmlApplicationContext(\"applicationContext.xml\");\n"
+"\t\t\tApplication application = (Application) "
+"appContext.getBean(\"application\");\n"
+"\t\t\tapplication.saveSettings();\n"
+"\t\t\tapplication.loadSettings();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:258
+#, no-wrap
+msgid "\tclass Application {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:260
+#, no-wrap
+msgid "\t\tlateinit var marshaller: Marshaller\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:262
+#, no-wrap
+msgid "\t\tlateinit var unmarshaller: Unmarshaller\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:266
+#, no-wrap
+msgid ""
+"\t\tfun saveSettings() {\n"
+"\t\t\tFileOutputStream(FILE_NAME).use { outputStream -> "
+"marshaller.marshal(settings, StreamResult(outputStream)) }\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:271
+#, no-wrap
+msgid ""
+"\t\tfun loadSettings() {\n"
+"\t\t\tFileInputStream(FILE_NAME).use { inputStream -> settings = "
+"unmarshaller.unmarshal(StreamSource(inputStream)) as Settings }\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:273
+#, no-wrap
+msgid "\tprivate const val FILE_NAME = \"settings.xml\"\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:280
+#, no-wrap
+msgid ""
+"\tfun main(args: Array<String>) {\n"
+"\t\tval appContext = "
+"ClassPathXmlApplicationContext(\"applicationContext.xml\")\n"
+"\t\tval application = appContext.getBean(\"application\") as Application\n"
+"\t\tapplication.saveSettings()\n"
+"\t\tapplication.loadSettings()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:285
+msgid ""
+"The `Application` requires both a `marshaller` and an `unmarshaller` "
+"property to be set. We can do so by using the following "
+"`applicationContext.xml`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:295
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<bean id=\"application\" class=\"Application\">\n"
+"\t\t\t<property name=\"marshaller\" ref=\"xstreamMarshaller\" />\n"
+"\t\t\t<property name=\"unmarshaller\" ref=\"xstreamMarshaller\" />\n"
+"\t\t</bean>\n"
+"\t\t<bean id=\"xstreamMarshaller\" "
+"class=\"org.springframework.oxm.xstream.XStreamMarshaller\"/>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:303
+msgid ""
+"This application context uses XStream, but we could have used any of the "
+"other marshaller instances described later in this chapter. Note that, by "
+"default, XStream does not require any further configuration, so the bean "
+"definition is rather simple. Also note that the `XStreamMarshaller` "
+"implements both `Marshaller` and `Unmarshaller`, so we can refer to the "
+"`xstreamMarshaller` bean in both the `marshaller` and `unmarshaller` "
+"property of the application."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:305
+msgid "This sample application produces the following `settings.xml` file:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:310
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<settings foo-enabled=\"false\"/>\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:314
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:390
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:463
+#, no-wrap
+msgid "XML Configuration Namespace"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:319
+msgid ""
+"You can configure marshallers more concisely by using tags from the OXM "
+"namespace.  To make these tags available, you must first reference the "
+"appropriate schema in the preamble of the XML configuration file. The "
+"following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:330
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:oxm=\"http://www.springframework.org/schema/oxm\" <1>\n"
+"\t\txsi:schemaLocation=\"http://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/oxm\n"
+"\t\t\thttps://www.springframework.org/schema/oxm/spring-oxm.xsd\"> <2>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:332
+msgid "Reference the `oxm` schema."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:333
+msgid "Specify the `oxm` schema location."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:336
+msgid "The schema makes the following elements available:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:338
+msgid "xref:data-access/oxm.adoc#oxm-jaxb2-xsd[`jaxb2-marshaller`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:339
+msgid "xref:data-access/oxm.adoc#oxm-jibx-xsd[`jibx-marshaller`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:342
+msgid ""
+"Each tag is explained in its respective marshaller's section. As an example, "
+"though, the configuration of a JAXB2 marshaller might resemble the "
+"following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:346
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:398
+#, no-wrap
+msgid ""
+"\t<oxm:jaxb2-marshaller id=\"marshaller\" "
+"contextPath=\"org.springframework.ws.samples.airline.schema\"/>\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:350
+#, no-wrap
+msgid "JAXB"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:355
+msgid ""
+"The JAXB binding compiler translates a W3C XML Schema into one or more Java "
+"classes, a `jaxb.properties` file, and possibly some resource files. JAXB "
+"also offers a way to generate a schema from annotated Java classes."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:360
+msgid ""
+"Spring supports the JAXB 2.0 API as XML marshalling strategies, following "
+"the `Marshaller` and `Unmarshaller` interfaces described in "
+"xref:data-access/oxm.adoc#oxm-marshaller-unmarshaller[`Marshaller` and "
+"`Unmarshaller`].  The corresponding integration classes reside in the "
+"`org.springframework.oxm.jaxb` package."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:362
+#, no-wrap
+msgid "Using `Jaxb2Marshaller`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:370
+msgid ""
+"The `Jaxb2Marshaller` class implements both of Spring's `Marshaller` and "
+"`Unmarshaller` interfaces. It requires a context path to operate. You can "
+"set the context path by setting the `contextPath` property. The context path "
+"is a list of colon-separated Java package names that contain schema derived "
+"classes. It also offers a `classesToBeBound` property, which allows you to "
+"set an array of classes to be supported by the marshaller. Schema validation "
+"is performed by specifying one or more schema resources to the bean, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:383
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<bean id=\"jaxb2Marshaller\" "
+"class=\"org.springframework.oxm.jaxb.Jaxb2Marshaller\">\n"
+"\t\t\t<property name=\"classesToBeBound\">\n"
+"\t\t\t\t<list>\n"
+"\t\t\t\t\t<value>org.springframework.oxm.jaxb.Flight</value>\n"
+"\t\t\t\t\t<value>org.springframework.oxm.jaxb.Flights</value>\n"
+"\t\t\t\t</list>\n"
+"\t\t\t</property>\n"
+"\t\t\t<property name=\"schema\" "
+"value=\"classpath:org/springframework/oxm/schema.xsd\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:385
+#, no-wrap
+msgid "\t\t...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:387
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:394
+msgid ""
+"The `jaxb2-marshaller` element configures a "
+"`org.springframework.oxm.jaxb.Jaxb2Marshaller`, as the following example "
+"shows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:402
+msgid ""
+"Alternatively, you can provide the list of classes to bind to the marshaller "
+"by using the `class-to-be-bound` child element:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:410
+#, no-wrap
+msgid ""
+"\t<oxm:jaxb2-marshaller id=\"marshaller\">\n"
+"\t\t<oxm:class-to-be-bound "
+"name=\"org.springframework.ws.samples.airline.schema.Airport\"/>\n"
+"\t\t<oxm:class-to-be-bound "
+"name=\"org.springframework.ws.samples.airline.schema.Flight\"/>\n"
+"\t\t...\n"
+"\t</oxm:jaxb2-marshaller>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:413
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:474
+msgid "The following table describes the available attributes:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:424
+#, no-wrap
+msgid ""
+"| Attribute| Description| Required\n"
+"\n"
+"| `id`\n"
+"| The ID of the marshaller\n"
+"| No\n"
+"\n"
+"| `contextPath`\n"
+"| The JAXB Context path\n"
+"| No\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:428
+#, no-wrap
+msgid "JiBX"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:435
+msgid ""
+"The JiBX framework offers a solution similar to that which Hibernate "
+"provides for ORM: A binding definition defines the rules for how your Java "
+"objects are converted to or from XML. After preparing the binding and "
+"compiling the classes, a JiBX binding compiler enhances the class files and "
+"adds code to handle converting instances of the classes from or to XML."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:439
+msgid ""
+"For more information on JiBX, see the http://jibx.sourceforge.net/[JiBX web "
+"site]. The Spring integration classes reside in the "
+"`org.springframework.oxm.jibx` package."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:441
+#, no-wrap
+msgid "Using `JibxMarshaller`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:447
+msgid ""
+"The `JibxMarshaller` class implements both the `Marshaller` and "
+"`Unmarshaller` interface. To operate, it requires the name of the class to "
+"marshal in, which you can set using the `targetClass` property. Optionally, "
+"you can set the binding name by setting the `bindingName` property. In the "
+"following example, we bind the `Flights` class:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:456
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<bean id=\"jibxFlightsMarshaller\" "
+"class=\"org.springframework.oxm.jibx.JibxMarshaller\">\n"
+"\t\t\t<property "
+"name=\"targetClass\">org.springframework.oxm.jibx.Flights</property>\n"
+"\t\t</bean>\n"
+"\t\t...\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:461
+msgid ""
+"A `JibxMarshaller` is configured for a single class. If you want to marshal "
+"multiple classes, you have to configure multiple `JibxMarshaller` instances "
+"with different `targetClass` property values."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:467
+msgid ""
+"The `jibx-marshaller` tag configures a "
+"`org.springframework.oxm.jibx.JibxMarshaller`, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:471
+#, no-wrap
+msgid ""
+"\t<oxm:jibx-marshaller id=\"marshaller\" "
+"target-class=\"org.springframework.ws.samples.airline.schema.Flight\"/>\n"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:489
+#, no-wrap
+msgid ""
+"| Attribute| Description| Required\n"
+"\n"
+"| `id`\n"
+"| The ID of the marshaller\n"
+"| No\n"
+"\n"
+"| `target-class`\n"
+"| The target class for this marshaller\n"
+"| Yes\n"
+"\n"
+"| `bindingName`\n"
+"| The binding name used by this marshaller\n"
+"| No\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:493
+#, no-wrap
+msgid "XStream"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:497
+msgid ""
+"XStream is a simple library to serialize objects to XML and back again. It "
+"does not require any mapping and generates clean XML."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:501
+msgid ""
+"For more information on XStream, see the https://x-stream.github.io/[XStream "
+"web site]. The Spring integration classes reside in the "
+"`org.springframework.oxm.xstream` package."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:503
+#, no-wrap
+msgid "Using `XStreamMarshaller`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:508
+msgid ""
+"The `XStreamMarshaller` does not require any configuration and can be "
+"configured in an application context directly. To further customize the XML, "
+"you can set an alias map, which consists of string aliases mapped to "
+"classes, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:521
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<bean id=\"xstreamMarshaller\" "
+"class=\"org.springframework.oxm.xstream.XStreamMarshaller\">\n"
+"\t\t\t<property name=\"aliases\">\n"
+"\t\t\t\t<props>\n"
+"\t\t\t\t\t<prop "
+"key=\"Flight\">org.springframework.oxm.xstream.Flight</prop>\n"
+"\t\t\t\t</props>\n"
+"\t\t\t</property>\n"
+"\t\t</bean>\n"
+"\t\t...\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:529
+msgid ""
+"By default, XStream lets arbitrary classes be unmarshalled, which can lead "
+"to unsafe Java serialization effects. As such, we do not recommend using the "
+"`XStreamMarshaller` to unmarshal XML from external sources (that is, the "
+"Web), as this can result in security vulnerabilities."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:532
+msgid ""
+"If you choose to use the `XStreamMarshaller` to unmarshal XML from an "
+"external source, set the `supportedClasses` property on the "
+"`XStreamMarshaller`, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:539
+#, no-wrap
+msgid ""
+"\t<bean id=\"xstreamMarshaller\" "
+"class=\"org.springframework.oxm.xstream.XStreamMarshaller\">\n"
+"\t\t<property name=\"supportedClasses\" "
+"value=\"org.springframework.oxm.xstream.Flight\"/>\n"
+"\t\t...\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:542
+msgid ""
+"Doing so ensures that only the registered classes are eligible for "
+"unmarshalling."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:550
+msgid ""
+"Additionally, you can register "
+"{spring-framework-api}/oxm/xstream/XStreamMarshaller.html#setConverters(com.thoughtworks.xstream.converters.ConverterMatcher...)[custom "
+"converters] to make sure that only your supported classes can be "
+"unmarshalled. You might want to add a `CatchAllConverter` as the last "
+"converter in the list, in addition to converters that explicitly support the "
+"domain classes that should be supported.  As a result, default XStream "
+"converters with lower priorities and possible security vulnerabilities do "
+"not get invoked."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/oxm.adoc:554
+msgid ""
+"Note that XStream is an XML serialization library, not a data binding "
+"library.  Therefore, it has limited namespace support. As a result, it is "
+"rather unsuitable for usage within Web Services."
+msgstr ""

@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc:2
+#, no-wrap
+msgid "`@TestExecutionListeners`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc:8
+msgid ""
+"`@TestExecutionListeners` is used to register listeners for the annotated "
+"test class, its subclasses, and its nested classes. If you wish to register "
+"a listener globally, you should register it via the automatic discovery "
+"mechanism described in "
+"xref:testing/testcontext-framework/tel-config.adoc[`TestExecutionListener` "
+"Configuration]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc:10
+msgid ""
+"The following example shows how to register two `TestExecutionListener` "
+"implementations:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc:13
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc:22
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration\n"
+"\t@TestExecutionListeners({CustomTestExecutionListener.class, "
+"AnotherTestExecutionListener.class}) // <1>\n"
+"\tclass CustomTestExecutionListenerTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc:24
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc:36
+msgid "Register two `TestExecutionListener` implementations."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc:25
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc:34
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration\n"
+"\t@TestExecutionListeners(CustomTestExecutionListener::class, "
+"AnotherTestExecutionListener::class) // <1>\n"
+"\tclass CustomTestExecutionListenerTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testexecutionlisteners.adoc:45
+msgid ""
+"By default, `@TestExecutionListeners` provides support for inheriting "
+"listeners from superclasses or enclosing classes. See "
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit-jupiter-nested-test-configuration[`@Nested` "
+"test class configuration] and the "
+"{spring-framework-api}/test/context/TestExecutionListeners.html[`@TestExecutionListeners` "
+"javadoc] for an example and further details. If you discover that you need "
+"to switch back to using the default `TestExecutionListener` implementations, "
+"see the note in "
+"xref:testing/testcontext-framework/tel-config.adoc#testcontext-tel-config-registering-tels[Registering "
+"`TestExecutionListener` Implementations]."
+msgstr ""

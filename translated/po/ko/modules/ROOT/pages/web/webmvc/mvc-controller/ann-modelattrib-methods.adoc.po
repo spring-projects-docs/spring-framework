@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:2
+#, no-wrap
+msgid "Model"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/controller/ann-modelattrib-methods.adoc[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:7
+msgid "You can use the `@ModelAttribute` annotation:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:11
+msgid ""
+"On a "
+"xref:web/webmvc/mvc-controller/ann-methods/modelattrib-method-args.adoc[method "
+"argument] in `@RequestMapping` methods to create or access an `Object` from "
+"the model and to bind it to the request through a `WebDataBinder`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:13
+msgid ""
+"As a method-level annotation in `@Controller` or `@ControllerAdvice` classes "
+"that help to initialize the model prior to any `@RequestMapping` method "
+"invocation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:14
+msgid "On a `@RequestMapping` method to mark its return value is a model attribute."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:20
+msgid ""
+"This section discusses `@ModelAttribute` methods -- the second item in the "
+"preceding list.  A controller can have any number of `@ModelAttribute` "
+"methods. All such methods are invoked before `@RequestMapping` methods in "
+"the same controller. A `@ModelAttribute` method can also be shared across "
+"controllers through `@ControllerAdvice`. See the section on "
+"xref:web/webmvc/mvc-controller/ann-advice.adoc[Controller Advice] for more "
+"details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:24
+msgid ""
+"`@ModelAttribute` methods have flexible method signatures. They support many "
+"of the same arguments as `@RequestMapping` methods, except for "
+"`@ModelAttribute` itself or anything related to the request body."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:26
+msgid "The following example shows a `@ModelAttribute` method:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:29
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:56
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:91
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:38
+#, no-wrap
+msgid ""
+"\t@ModelAttribute\n"
+"\tpublic void populateModel(@RequestParam String number, Model model) {\n"
+"\t\tmodel.addAttribute(accountRepository.findAccount(number));\n"
+"\t\t// add more ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:40
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:66
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:103
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:49
+#, no-wrap
+msgid ""
+"\t@ModelAttribute\n"
+"\tfun populateModel(@RequestParam number: String, model: Model) {\n"
+"\t\tmodel.addAttribute(accountRepository.findAccount(number))\n"
+"\t\t// add more ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:53
+msgid "The following example adds only one attribute:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:64
+#, no-wrap
+msgid ""
+"\t@ModelAttribute\n"
+"\tpublic Account addAccount(@RequestParam String number) {\n"
+"\t\treturn accountRepository.findAccount(number);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:74
+#, no-wrap
+msgid ""
+"\t@ModelAttribute\n"
+"\tfun addAccount(@RequestParam number: String): Account {\n"
+"\t\treturn accountRepository.findAccount(number)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:82
+msgid ""
+"When a name is not explicitly specified, a default name is chosen based on "
+"the `Object` type, as explained in the javadoc for "
+"{spring-framework-api}/core/Conventions.html[`Conventions`].  You can always "
+"assign an explicit name by using the overloaded `addAttribute` method or "
+"through the `name` attribute on `@ModelAttribute` (for a return value)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:88
+msgid ""
+"You can also use `@ModelAttribute` as a method-level annotation on "
+"`@RequestMapping` methods, in which case the return value of the "
+"`@RequestMapping` method is interpreted as a model attribute. This is "
+"typically not required, as it is the default behavior in HTML controllers, "
+"unless the return value is a `String` that would otherwise be interpreted as "
+"a view name.  `@ModelAttribute` can also customize the model attribute name, "
+"as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:101
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/accounts/{id}\")\n"
+"\t@ModelAttribute(\"myAccount\")\n"
+"\tpublic Account handle() {\n"
+"\t\t// ...\n"
+"\t\treturn account;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-modelattrib-methods.adoc:113
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/accounts/{id}\")\n"
+"\t@ModelAttribute(\"myAccount\")\n"
+"\tfun handle(): Account {\n"
+"\t\t// ...\n"
+"\t\treturn account\n"
+"\t}\n"
+msgstr ""

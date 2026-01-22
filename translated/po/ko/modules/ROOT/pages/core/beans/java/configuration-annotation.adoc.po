@@ -1,0 +1,403 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:2
+#, no-wrap
+msgid "Using the `@Configuration` annotation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:10
+msgid ""
+"`@Configuration` is a class-level annotation indicating that an object is a "
+"source of bean definitions. `@Configuration` classes declare beans through "
+"`@Bean`-annotated methods. Calls to `@Bean` methods on `@Configuration` "
+"classes can also be used to define inter-bean dependencies. See "
+"xref:core/beans/java/basic-concepts.adoc[Basic Concepts: `@Bean` and "
+"`@Configuration`] for a general introduction."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:13
+#, no-wrap
+msgid "Injecting Inter-bean Dependencies"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:17
+msgid ""
+"When beans have dependencies on one another, expressing that dependency is "
+"as simple as having one bean method call another, as the following example "
+"shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:20
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:74
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:117
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:174
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:26
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:180
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:31
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic BeanOne beanOne() {\n"
+"\t\t\treturn new BeanOne(beanTwo());\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:37
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic BeanTwo beanTwo() {\n"
+"\t\t\treturn new BeanTwo();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:39
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:92
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:141
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:202
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:45
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:208
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:48
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun beanOne() = BeanOne(beanTwo())\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:52
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun beanTwo() = BeanTwo()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:57
+msgid ""
+"In the preceding example, `beanOne` receives a reference to `beanTwo` "
+"through constructor injection."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:61
+msgid ""
+"This method of declaring inter-bean dependencies works only when the `@Bean` "
+"method is declared within a `@Configuration` class. You cannot declare "
+"inter-bean dependencies by using plain `@Component` classes."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:64
+#, no-wrap
+msgid "Lookup Method Injection"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:71
+msgid ""
+"As noted earlier, "
+"xref:core/beans/dependencies/factory-method-injection.adoc[lookup method "
+"injection] is an advanced feature that you should use rarely. It is useful "
+"in cases where a singleton-scoped bean has a dependency on a "
+"prototype-scoped bean. Using Java for this type of configuration provides a "
+"natural means for implementing this pattern. The following example shows how "
+"to use lookup method injection:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:86
+#, no-wrap
+msgid ""
+"\tpublic abstract class CommandManager {\n"
+"\t\tpublic Object process(Object commandState) {\n"
+"\t\t\t// grab a new instance of the appropriate Command interface\n"
+"\t\t\tCommand command = createCommand();\n"
+"\t\t\t// set the state on the (hopefully brand new) Command instance\n"
+"\t\t\tcommand.setState(commandState);\n"
+"\t\t\treturn command.execute();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:90
+#, no-wrap
+msgid ""
+"\t\t// okay... but where is the implementation of this method?\n"
+"\t\tprotected abstract Command createCommand();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:104
+#, no-wrap
+msgid ""
+"\tabstract class CommandManager {\n"
+"\t\tfun process(commandState: Any): Any {\n"
+"\t\t\t// grab a new instance of the appropriate Command interface\n"
+"\t\t\tval command = createCommand()\n"
+"\t\t\t// set the state on the (hopefully brand new) Command instance\n"
+"\t\t\tcommand.setState(commandState)\n"
+"\t\t\treturn command.execute()\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:108
+#, no-wrap
+msgid ""
+"\t\t// okay... but where is the implementation of this method?\n"
+"\t\tprotected abstract fun createCommand(): Command\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:114
+msgid ""
+"By using Java configuration, you can create a subclass of `CommandManager` "
+"where the abstract `createCommand()` method is overridden in such a way that "
+"it looks up a new (prototype) command object. The following example shows "
+"how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:128
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\t@Scope(\"prototype\")\n"
+"\tpublic AsyncCommand asyncCommand() {\n"
+"\t\tAsyncCommand command = new AsyncCommand();\n"
+"\t\t// inject dependencies here as required\n"
+"\t\treturn command;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:139
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\tpublic CommandManager commandManager() {\n"
+"\t\t// return new anonymous implementation of CommandManager with "
+"createCommand()\n"
+"\t\t// overridden to return a new prototype Command object\n"
+"\t\treturn new CommandManager() {\n"
+"\t\t\tprotected Command createCommand() {\n"
+"\t\t\t\treturn asyncCommand();\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:152
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\t@Scope(\"prototype\")\n"
+"\tfun asyncCommand(): AsyncCommand {\n"
+"\t\tval command = AsyncCommand()\n"
+"\t\t// inject dependencies here as required\n"
+"\t\treturn command\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:163
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\tfun commandManager(): CommandManager {\n"
+"\t\t// return new anonymous implementation of CommandManager with "
+"createCommand()\n"
+"\t\t// overridden to return a new prototype Command object\n"
+"\t\treturn object : CommandManager() {\n"
+"\t\t\toverride fun createCommand(): Command {\n"
+"\t\t\t\treturn asyncCommand()\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:168
+#, no-wrap
+msgid "Further Information About How Java-based Configuration Works Internally"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:171
+msgid ""
+"Consider the following example, which shows a `@Bean` annotated method being "
+"called twice:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:187
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic ClientService clientService1() {\n"
+"\t\t\tClientServiceImpl clientService = new ClientServiceImpl();\n"
+"\t\t\tclientService.setClientDao(clientDao());\n"
+"\t\t\treturn clientService;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:194
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic ClientService clientService2() {\n"
+"\t\t\tClientServiceImpl clientService = new ClientServiceImpl();\n"
+"\t\t\tclientService.setClientDao(clientDao());\n"
+"\t\t\treturn clientService;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:200
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic ClientDao clientDao() {\n"
+"\t\t\treturn new ClientDaoImpl();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:215
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun clientService1(): ClientService {\n"
+"\t\t\treturn ClientServiceImpl().apply {\n"
+"\t\t\t\tclientDao = clientDao()\n"
+"\t\t\t}\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:222
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun clientService2(): ClientService {\n"
+"\t\t\treturn ClientServiceImpl().apply {\n"
+"\t\t\t\tclientDao = clientDao()\n"
+"\t\t\t}\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:228
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun clientDao(): ClientDao {\n"
+"\t\t\treturn ClientDaoImpl()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:238
+msgid ""
+"`clientDao()` has been called once in `clientService1()` and once in "
+"`clientService2()`.  Since this method creates a new instance of "
+"`ClientDaoImpl` and returns it, you would normally expect to have two "
+"instances (one for each service). That definitely would be problematic: In "
+"Spring, instantiated beans have a `singleton` scope by default. This is "
+"where the magic comes in: All `@Configuration` classes are subclassed at "
+"startup-time with `CGLIB`. In the subclass, the child method checks the "
+"container first for any cached (scoped) beans before it calls the parent "
+"method and creates a new instance."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:241
+msgid ""
+"The behavior could be different according to the scope of your bean. We are "
+"talking about singletons here."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:247
+msgid ""
+"It is not necessary to add CGLIB to your classpath because CGLIB classes are "
+"repackaged under the `org.springframework.cglib` package and included "
+"directly within the `spring-core` JAR."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:255
+msgid ""
+"There are a few restrictions due to the fact that CGLIB dynamically adds "
+"features at startup-time. In particular, configuration classes must not be "
+"final. However, any constructors are allowed on configuration classes, "
+"including the use of `@Autowired` or a single non-default constructor "
+"declaration for default injection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/configuration-annotation.adoc:262
+msgid ""
+"If you prefer to avoid any CGLIB-imposed limitations, consider declaring "
+"your `@Bean` methods on non-`@Configuration` classes (for example, on plain "
+"`@Component` classes instead) or by annotating your configuration class with "
+"`@Configuration(proxyBeanMethods = false)`. Cross-method calls between "
+"`@Bean` methods are then not intercepted, so you have to exclusively rely on "
+"dependency injection at the constructor or method level there."
+msgstr ""

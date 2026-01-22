@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:2
+#, no-wrap
+msgid "Setup Features"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:8
+msgid ""
+"No matter which MockMvc builder you use, all `MockMvcBuilder` "
+"implementations provide some common and very useful features. For example, "
+"you can declare an `Accept` header for all requests and expect a status of "
+"200 as well as a `Content-Type` header in all responses, as follows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:11
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:45
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:16
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:29
+#, no-wrap
+msgid "\t// static import of MockMvcBuilders.standaloneSetup\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:22
+#, no-wrap
+msgid ""
+"\tMockMvc mockMvc = standaloneSetup(new MusicController())\n"
+"\t\t.defaultRequest(get(\"/\").accept(MediaType.APPLICATION_JSON))\n"
+"\t\t.alwaysExpect(status().isOk())\n"
+"\t\t.alwaysExpect(content().contentType(\"application/json;charset=UTF-8\"))\n"
+"\t\t.build();\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:24
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:58
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:35
+#, no-wrap
+msgid ""
+"\tval mockMvc = standaloneSetup(MusicController())\n"
+"\t\t.defaultRequest<StandaloneMockMvcBuilder>(get(\"/\").accept(MediaType.APPLICATION_JSON))\n"
+"\t\t.alwaysExpect<StandaloneMockMvcBuilder>(status().isOk())\n"
+"\t\t.alwaysExpect<StandaloneMockMvcBuilder>(content().contentType(\"application/json;charset=UTF-8\"))\n"
+"\t\t.build()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:42
+msgid ""
+"In addition, third-party frameworks (and applications) can pre-package setup "
+"instructions, such as those in a `MockMvcConfigurer`. The Spring Framework "
+"has one such built-in implementation that helps to save and re-use the HTTP "
+"session across requests.  You can use it as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:50
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:63
+#, no-wrap
+msgid "\t// static import of SharedHttpSessionConfigurer.sharedHttpSession\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:54
+#, no-wrap
+msgid ""
+"\tMockMvc mockMvc = MockMvcBuilders.standaloneSetup(new TestController())\n"
+"\t\t\t.apply(sharedHttpSession())\n"
+"\t\t\t.build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:56
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:69
+#, no-wrap
+msgid "\t// Use mockMvc to perform requests...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:67
+#, no-wrap
+msgid ""
+"\tval mockMvc = MockMvcBuilders.standaloneSetup(TestController())\n"
+"\t\t\t.apply<StandaloneMockMvcBuilder>(sharedHttpSession())\n"
+"\t\t\t.build()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/hamcrest/setup-steps.adoc:74
+msgid ""
+"See the javadoc for "
+"{spring-framework-api}/test/web/servlet/setup/ConfigurableMockMvcBuilder.html[`ConfigurableMockMvcBuilder`] "
+"for a list of all MockMvc builder features or use the IDE to explore the "
+"available options."
+msgstr ""

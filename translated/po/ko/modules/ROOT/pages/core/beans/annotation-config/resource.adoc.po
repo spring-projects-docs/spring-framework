@@ -1,0 +1,242 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:2
+#, no-wrap
+msgid "Injection with `@Resource`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:8
+msgid ""
+"Spring also supports injection by using the JSR-250 `@Resource` annotation "
+"(`jakarta.annotation.Resource`) on fields or bean property setter methods.  "
+"This is a common pattern in Jakarta EE: for example, in JSF-managed beans "
+"and JAX-WS endpoints. Spring supports this pattern for Spring-managed "
+"objects as well."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:12
+msgid ""
+"`@Resource` takes a name attribute. By default, Spring interprets that value "
+"as the bean name to be injected. In other words, it follows by-name "
+"semantics, as demonstrated in the following example:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:16
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:55
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:104
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:21
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:60
+#, no-wrap
+msgid "\tpublic class SimpleMovieLister {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:23
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:62
+#, no-wrap
+msgid "\t\tprivate MovieFinder movieFinder;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:29
+#, no-wrap
+msgid ""
+"\t\t@Resource(name=\"myMovieFinder\") // <1>\n"
+"\t\tpublic void setMovieFinder(MovieFinder movieFinder) {\n"
+"\t\t\tthis.movieFinder = movieFinder;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:31
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:43
+msgid "This line injects a `@Resource`."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:32
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:70
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:125
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:37
+#, no-wrap
+msgid "class SimpleMovieLister {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:41
+#, no-wrap
+msgid ""
+"\t@Resource(name=\"myMovieFinder\") // <1>\n"
+"\tprivate lateinit var movieFinder:MovieFinder\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:51
+msgid ""
+"If no name is explicitly specified, the default name is derived from the "
+"field name or setter method. In case of a field, it takes the field name. In "
+"case of a setter method, it takes the bean property name. The following "
+"example is going to have the bean named `movieFinder` injected into its "
+"setter method:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:68
+#, no-wrap
+msgid ""
+"\t\t@Resource\n"
+"\t\tpublic void setMovieFinder(MovieFinder movieFinder) {\n"
+"\t\t\tthis.movieFinder = movieFinder;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:75
+#, no-wrap
+msgid "\tclass SimpleMovieLister {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:78
+#, no-wrap
+msgid ""
+"\t\t@set:Resource\n"
+"\t\tprivate lateinit var movieFinder: MovieFinder\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:80
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:90
+msgid ""
+"The name provided with the annotation is resolved as a bean name by the "
+"`ApplicationContext` of which the `CommonAnnotationBeanPostProcessor` is "
+"aware.  The names can be resolved through JNDI if you configure Spring's "
+"{spring-framework-api}/jndi/support/SimpleJndiBeanFactory.html[`SimpleJndiBeanFactory`] "
+"explicitly. However, we recommend that you rely on the default behavior and "
+"use Spring's JNDI lookup capabilities to preserve the level of indirection."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:96
+msgid ""
+"In the exclusive case of `@Resource` usage with no explicit name specified, "
+"and similar to `@Autowired`, `@Resource` finds a primary type match instead "
+"of a specific named bean and resolves well known resolvable dependencies: "
+"the `BeanFactory`, `ApplicationContext`, `ResourceLoader`, "
+"`ApplicationEventPublisher`, and `MessageSource` interfaces."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:100
+msgid ""
+"Thus, in the following example, the `customerPreferenceDao` field first "
+"looks for a bean named \"customerPreferenceDao\" and then falls back to a "
+"primary type match for the type `CustomerPreferenceDao`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:109
+#, no-wrap
+msgid "\tpublic class MovieRecommender {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:112
+#, no-wrap
+msgid ""
+"\t\t@Resource\n"
+"\t\tprivate CustomerPreferenceDao customerPreferenceDao;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:115
+#, no-wrap
+msgid ""
+"\t\t@Resource\n"
+"\t\tprivate ApplicationContext context; // <1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:118
+#, no-wrap
+msgid ""
+"\t\tpublic MovieRecommender() {\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:121
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:140
+#, no-wrap
+msgid ""
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:124
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:143
+msgid ""
+"The `context` field is injected based on the known resolvable dependency "
+"type: `ApplicationContext`."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:130
+#, no-wrap
+msgid "\tclass MovieRecommender {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:133
+#, no-wrap
+msgid ""
+"\t\t@Resource\n"
+"\t\tprivate lateinit var customerPreferenceDao: CustomerPreferenceDao\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/resource.adoc:137
+#, no-wrap
+msgid ""
+"\t\t@Resource\n"
+"\t\tprivate lateinit var context: ApplicationContext // <1>\n"
+msgstr ""

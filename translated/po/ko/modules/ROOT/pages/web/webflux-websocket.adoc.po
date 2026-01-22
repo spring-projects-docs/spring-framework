@@ -1,0 +1,811 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:2
+#, no-wrap
+msgid "WebSockets"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:5
+msgid "[.small]#xref:web/websocket.adoc[See equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:8
+msgid ""
+"This part of the reference documentation covers support for reactive-stack "
+"WebSocket messaging."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:13
+#, no-wrap
+msgid "WebSocket API"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:15
+msgid ""
+"[.small]#xref:web/websocket/stomp/server-config.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:18
+msgid ""
+"The Spring Framework provides a WebSocket API that you can use to write "
+"client- and server-side applications that handle WebSocket messages."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:20
+#, no-wrap
+msgid "Server"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:22
+msgid ""
+"[.small]#xref:web/websocket/server.adoc#websocket-server-handler[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:25
+msgid ""
+"To create a WebSocket server, you can first create a `WebSocketHandler`.  "
+"The following example shows how to do so:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:28
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:64
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:106
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:176
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:234
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:292
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:388
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:460
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:34
+#, no-wrap
+msgid ""
+"\timport org.springframework.web.reactive.socket.WebSocketHandler;\n"
+"\timport org.springframework.web.reactive.socket.WebSocketSession;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:36
+#, no-wrap
+msgid "\tpublic class MyWebSocketHandler implements WebSocketHandler {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:42
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic Mono<Void> handle(WebSocketSession session) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:44
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:82
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:122
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:200
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:260
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:321
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:409
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:473
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:50
+#, no-wrap
+msgid ""
+"\timport org.springframework.web.reactive.socket.WebSocketHandler\n"
+"\timport org.springframework.web.reactive.socket.WebSocketSession\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:52
+#, no-wrap
+msgid "\tclass MyWebSocketHandler : WebSocketHandler {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:57
+#, no-wrap
+msgid ""
+"\t\toverride fun handle(session: WebSocketSession): Mono<Void> {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:61
+msgid "Then you can map it to a URL:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:70
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:88
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:112
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:128
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:394
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:415
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass WebConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:76
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic HandlerMapping handlerMapping() {\n"
+"\t\t\tMap<String, WebSocketHandler> map = new HashMap<>();\n"
+"\t\t\tmap.put(\"/path\", new MyWebSocketHandler());\n"
+"\t\t\tint order = -1; // before annotated controllers\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:80
+#, no-wrap
+msgid ""
+"\t\t\treturn new SimpleUrlHandlerMapping(map, order);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:93
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun handlerMapping(): HandlerMapping {\n"
+"\t\t\tval map = mapOf(\"/path\" to MyWebSocketHandler())\n"
+"\t\t\tval order = -1 // before annotated controllers\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:97
+#, no-wrap
+msgid ""
+"\t\t\treturn SimpleUrlHandlerMapping(map, order)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:103
+msgid ""
+"If using the "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-framework-config[WebFlux "
+"Config] there is nothing further to do, or otherwise if not using the "
+"WebFlux config you'll need to declare a `WebSocketHandlerAdapter` as shown "
+"below:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:114
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:130
+#, no-wrap
+msgid "\t\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:120
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic WebSocketHandlerAdapter handlerAdapter() {\n"
+"\t\t\treturn new WebSocketHandlerAdapter();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:134
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun handlerAdapter() =  WebSocketHandlerAdapter()\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:138
+#, no-wrap
+msgid "`WebSocketHandler`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:144
+msgid ""
+"The `handle` method of `WebSocketHandler` takes `WebSocketSession` and "
+"returns `Mono<Void>` to indicate when application handling of the session is "
+"complete. The session is handled through two streams, one for inbound and "
+"one for outbound messages. The following table describes the two methods "
+"that handle the streams:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:156
+#, no-wrap
+msgid ""
+"| `WebSocketSession` method | Description\n"
+"\n"
+"| `Flux<WebSocketMessage> receive()`\n"
+"| Provides access to the inbound message stream and completes when the "
+"connection is closed.\n"
+"\n"
+"| `Mono<Void> send(Publisher<WebSocketMessage>)`\n"
+"| Takes a source for outgoing messages, writes the messages, and returns a "
+"`Mono<Void>` that\n"
+"  completes when the source completes and writing is done.\n"
+"\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:161
+msgid ""
+"A `WebSocketHandler` must compose the inbound and outbound streams into a "
+"unified flow and return a `Mono<Void>` that reflects the completion of that "
+"flow. Depending on application requirements, the unified flow completes "
+"when:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:163
+msgid "Either the inbound or the outbound message stream completes."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:164
+msgid ""
+"The inbound stream completes (that is, the connection closed), while the "
+"outbound stream is infinite."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:165
+msgid "At a chosen point, through the `close` method of `WebSocketSession`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:170
+msgid ""
+"When inbound and outbound message streams are composed together, there is no "
+"need to check if the connection is open, since Reactive Streams signals end "
+"activity.  The inbound stream receives a completion or error signal, and the "
+"outbound stream receives a cancellation signal."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:173
+msgid ""
+"The most basic implementation of a handler is one that handles the inbound "
+"stream. The following example shows such an implementation:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:181
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:239
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:297
+#, no-wrap
+msgid "\tclass ExampleHandler implements WebSocketHandler {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:194
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic Mono<Void> handle(WebSocketSession session) {\n"
+"\t\t\treturn session.receive()\t\t\t// <1>\n"
+"\t\t\t\t\t.doOnNext(message -> {\n"
+"\t\t\t\t\t\t// ...\t\t\t\t\t// <2>\n"
+"\t\t\t\t\t})\n"
+"\t\t\t\t\t.concatMap(message -> {\n"
+"\t\t\t\t\t\t// ...\t\t\t\t\t// <3>\n"
+"\t\t\t\t\t})\n"
+"\t\t\t\t\t.then();\t\t\t\t\t// <4>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:196
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:219
+msgid "Access the stream of inbound messages."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:197
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:220
+msgid "Do something with each message."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:198
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:221
+msgid "Perform nested asynchronous operations that use the message content."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:199
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:222
+msgid "Return a `Mono<Void>` that completes when receiving completes."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:205
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:265
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:326
+#, no-wrap
+msgid "\tclass ExampleHandler : WebSocketHandler {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:217
+#, no-wrap
+msgid ""
+"\t\toverride fun handle(session: WebSocketSession): Mono<Void> {\n"
+"\t\t\treturn session.receive()\t\t\t// <1>\n"
+"\t\t\t\t\t.doOnNext {\n"
+"\t\t\t\t\t\t// ...\t\t\t\t\t// <2>\n"
+"\t\t\t\t\t}\n"
+"\t\t\t\t\t.concatMap {\n"
+"\t\t\t\t\t\t// ...\t\t\t\t\t// <3>\n"
+"\t\t\t\t\t}\n"
+"\t\t\t\t\t.then()\t\t\t\t\t\t// <4>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:229
+msgid ""
+"For nested, asynchronous operations, you may need to call `message.retain()` "
+"on underlying servers that use pooled data buffers (for example, "
+"Netty). Otherwise, the data buffer may be released before you have had a "
+"chance to read the data. For more background, see "
+"xref:core/databuffer-codec.adoc[Data Buffers and Codecs]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:231
+msgid "The following implementation combines the inbound and outbound streams:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:242
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:300
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic Mono<Void> handle(WebSocketSession session) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:251
+#, no-wrap
+msgid ""
+"\t\t\tFlux<WebSocketMessage> output = session.receive()\t\t\t\t// <1>\n"
+"\t\t\t\t\t.doOnNext(message -> {\n"
+"\t\t\t\t\t\t// ...\n"
+"\t\t\t\t\t})\n"
+"\t\t\t\t\t.concatMap(message -> {\n"
+"\t\t\t\t\t\t// ...\n"
+"\t\t\t\t\t})\n"
+"\t\t\t\t\t.map(value -> session.textMessage(\"Echo \" + value));\t// <2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:255
+#, no-wrap
+msgid ""
+"\t\t\treturn session.send(output);\t\t\t\t\t\t\t\t\t// <3>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:257
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:282
+msgid "Handle the inbound message stream."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:258
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:283
+msgid "Create the outbound message, producing a combined flow."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:259
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:284
+msgid "Return a `Mono<Void>` that does not complete while we continue to receive."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:267
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:328
+#, no-wrap
+msgid "\t\toverride fun handle(session: WebSocketSession): Mono<Void> {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:276
+#, no-wrap
+msgid ""
+"\t\t\tval output = session.receive()\t\t\t\t\t\t// <1>\n"
+"\t\t\t\t\t.doOnNext {\n"
+"\t\t\t\t\t\t// ...\n"
+"\t\t\t\t\t}\n"
+"\t\t\t\t\t.concatMap {\n"
+"\t\t\t\t\t\t// ...\n"
+"\t\t\t\t\t}\n"
+"\t\t\t\t\t.map { session.textMessage(\"Echo $it\") }\t// <2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:280
+#, no-wrap
+msgid ""
+"\t\t\treturn session.send(output)\t\t\t\t\t\t\t// <3>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:289
+msgid ""
+"Inbound and outbound streams can be independent and be joined only for "
+"completion, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:309
+#, no-wrap
+msgid ""
+"\t\t\tMono<Void> input = session.receive()\t\t\t\t\t\t\t\t<1>\n"
+"\t\t\t\t\t.doOnNext(message -> {\n"
+"\t\t\t\t\t\t// ...\n"
+"\t\t\t\t\t})\n"
+"\t\t\t\t\t.concatMap(message -> {\n"
+"\t\t\t\t\t\t// ...\n"
+"\t\t\t\t\t})\n"
+"\t\t\t\t\t.then();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:312
+#, no-wrap
+msgid ""
+"\t\t\tFlux<String> source = ... ;\n"
+"\t\t\tMono<Void> output = "
+"session.send(source.map(session::textMessage));\t<2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:316
+#, no-wrap
+msgid ""
+"\t\t\treturn input.and(output);\t\t\t\t\t\t\t\t\t\t\t<3>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:318
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:346
+msgid "Handle inbound message stream."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:319
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:347
+msgid "Send outgoing messages."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:320
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:348
+msgid ""
+"Join the streams and return a `Mono<Void>` that completes when either stream "
+"ends."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:337
+#, no-wrap
+msgid ""
+"\t\t\tval input = session.receive()\t\t\t\t\t\t\t\t\t// <1>\n"
+"\t\t\t\t\t.doOnNext {\n"
+"\t\t\t\t\t\t// ...\n"
+"\t\t\t\t\t}\n"
+"\t\t\t\t\t.concatMap {\n"
+"\t\t\t\t\t\t// ...\n"
+"\t\t\t\t\t}\n"
+"\t\t\t\t\t.then()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:340
+#, no-wrap
+msgid ""
+"\t\t\tval source: Flux<String> = ...\n"
+"\t\t\tval output = session.send(source.map(session::textMessage))\t\t// "
+"<2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:344
+#, no-wrap
+msgid ""
+"\t\t\treturn input.and(output)\t\t\t\t\t\t\t\t\t\t// <3>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:351
+#, no-wrap
+msgid "`DataBuffer`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:358
+msgid ""
+"`DataBuffer` is the representation for a byte buffer in WebFlux. The Spring "
+"Core part of the reference has more on that in the section on "
+"xref:core/databuffer-codec.adoc[Data Buffers and Codecs]. The key point to "
+"understand is that on some servers like Netty, byte buffers are pooled and "
+"reference counted, and must be released when consumed to avoid memory leaks."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:362
+msgid ""
+"When running on Netty, applications must use "
+"`DataBufferUtils.retain(dataBuffer)` if they wish to hold on input data "
+"buffers in order to ensure they are not released, and subsequently use "
+"`DataBufferUtils.release(dataBuffer)` when the buffers are consumed."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:364
+#, no-wrap
+msgid "Handshake"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:366
+msgid ""
+"[.small]#xref:web/websocket/server.adoc#websocket-server-handshake[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:371
+msgid ""
+"`WebSocketHandlerAdapter` delegates to a `WebSocketService`. By default, "
+"that is an instance of `HandshakeWebSocketService`, which performs basic "
+"checks on the WebSocket request and then uses `RequestUpgradeStrategy` for "
+"the server in use. Currently, there is built-in support for Reactor Netty, "
+"Tomcat, and Jetty."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:375
+msgid ""
+"`HandshakeWebSocketService` exposes a `sessionAttributePredicate` property "
+"that allows setting a `Predicate<String>` to extract attributes from the "
+"`WebSession` and insert them into the attributes of the `WebSocketSession`."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:377
+#, no-wrap
+msgid "Server Configuration"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:379
+msgid ""
+"[.small]#xref:web/websocket/server.adoc#websocket-server-runtime-configuration[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:385
+msgid ""
+"The `RequestUpgradeStrategy` for each server exposes configuration specific "
+"to the underlying WebSocket server engine. When using the WebFlux Java "
+"config you can customize such properties as shown in the corresponding "
+"section of the "
+"xref:web/webflux/config.adoc#webflux-config-websocket-service[WebFlux "
+"Config], or otherwise if not using the WebFlux config, use the below:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:399
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic WebSocketHandlerAdapter handlerAdapter() {\n"
+"\t\t\treturn new WebSocketHandlerAdapter(webSocketService());\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:407
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic WebSocketService webSocketService() {\n"
+"\t\t\tTomcatRequestUpgradeStrategy strategy = new "
+"TomcatRequestUpgradeStrategy();\n"
+"\t\t\tstrategy.setMaxSessionIdleTimeout(0L);\n"
+"\t\t\treturn new HandshakeWebSocketService(strategy);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:419
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun handlerAdapter() =\n"
+"\t\t\t\tWebSocketHandlerAdapter(webSocketService())\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:428
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun webSocketService(): WebSocketService {\n"
+"\t\t\tval strategy = TomcatRequestUpgradeStrategy().apply {\n"
+"\t\t\t\tsetMaxSessionIdleTimeout(0L)\n"
+"\t\t\t}\n"
+"\t\t\treturn HandshakeWebSocketService(strategy)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:433
+msgid ""
+"Check the upgrade strategy for your server to see what options are "
+"available. Currently, only Tomcat and Jetty expose such options."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:435
+#, no-wrap
+msgid "CORS"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:437
+msgid ""
+"[.small]#xref:web/websocket/server.adoc#websocket-server-allowed-origins[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:444
+msgid ""
+"The easiest way to configure CORS and restrict access to a WebSocket "
+"endpoint is to have your `WebSocketHandler` implement "
+"`CorsConfigurationSource` and return a `CorsConfiguration` with allowed "
+"origins, headers, and other details. If you cannot do that, you can also set "
+"the `corsConfigurations` property on the `SimpleUrlHandler` to specify CORS "
+"settings by URL pattern. If both are specified, they are combined by using "
+"the `combine` method on `CorsConfiguration`."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:446
+#, no-wrap
+msgid "Client"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:450
+msgid ""
+"Spring WebFlux provides a `WebSocketClient` abstraction with implementations "
+"for Reactor Netty, Tomcat, Jetty, and standard Java (that is, JSR-356)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:454
+msgid ""
+"The Tomcat client is effectively an extension of the standard Java one with "
+"some extra functionality in the `WebSocketSession` handling to take "
+"advantage of the Tomcat-specific API to suspend receiving messages for back "
+"pressure."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:457
+msgid ""
+"To start a WebSocket session, you can create an instance of the client and "
+"use its `execute` methods:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:465
+#, no-wrap
+msgid "\tWebSocketClient client = new ReactorNettyWebSocketClient();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:471
+#, no-wrap
+msgid ""
+"\tURI url = new URI(\"ws://localhost:8080/path\");\n"
+"\tclient.execute(url, session ->\n"
+"\t\t\tsession.receive()\n"
+"\t\t\t\t\t.doOnNext(System.out::println)\n"
+"\t\t\t\t\t.then());\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:478
+#, no-wrap
+msgid "\tval client = ReactorNettyWebSocketClient()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:485
+#, no-wrap
+msgid ""
+"\t\t\tval url = URI(\"ws://localhost:8080/path\")\n"
+"\t\t\tclient.execute(url) { session ->\n"
+"\t\t\t\tsession.receive()\n"
+"\t\t\t\t\t\t.doOnNext(::println)\n"
+"\t\t\t\t.then()\n"
+"\t\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-websocket.adoc:490
+msgid ""
+"Some clients, such as Jetty, implement `Lifecycle` and need to be stopped "
+"and started before you can use them. All clients have constructor options "
+"related to configuration of the underlying WebSocket client."
+msgstr ""

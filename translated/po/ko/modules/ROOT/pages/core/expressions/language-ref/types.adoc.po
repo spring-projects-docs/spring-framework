@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:2
+#, no-wrap
+msgid "Types"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:11
+msgid ""
+"You can use the special `T` operator to specify an instance of "
+"`java.lang.Class` (the type). Static methods are invoked by using this "
+"operator as well. The `StandardEvaluationContext` uses a `TypeLocator` to "
+"find types, and the `StandardTypeLocator` (which can be replaced) is built "
+"with an understanding of the `java.lang` package. This means that `T()` "
+"references to types within the `java.lang` package do not need to be fully "
+"qualified, but all other type references must be. The following example "
+"shows how to use the `T` operator:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:14
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:19
+#, no-wrap
+msgid ""
+"\tClass dateClass = "
+"parser.parseExpression(\"T(java.util.Date)\").getValue(Class.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:21
+#, no-wrap
+msgid ""
+"\tClass stringClass = "
+"parser.parseExpression(\"T(String)\").getValue(Class.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:25
+#, no-wrap
+msgid ""
+"\tboolean trueValue = parser.parseExpression(\n"
+"\t\t\t\"T(java.math.RoundingMode).CEILING < "
+"T(java.math.RoundingMode).FLOOR\")\n"
+"\t\t\t.getValue(Boolean.class);\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:27
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:32
+#, no-wrap
+msgid ""
+"\tval dateClass = "
+"parser.parseExpression(\"T(java.util.Date)\").getValue(Class::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:34
+#, no-wrap
+msgid ""
+"\tval stringClass = "
+"parser.parseExpression(\"T(String)\").getValue(Class::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:38
+#, no-wrap
+msgid ""
+"\tval trueValue = parser.parseExpression(\n"
+"\t\t\t\"T(java.math.RoundingMode).CEILING < "
+"T(java.math.RoundingMode).FLOOR\")\n"
+"\t\t\t.getValue(Boolean::class.java)\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:46
+msgid ""
+"If your application or framework manages its own `EvaluationContext`, you "
+"may need to manually configure a `StandardTypeLocator` with a specific "
+"`ClassLoader` to ensure that the SpEL expression parser is able to reliably "
+"locate user types."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/types.adoc:50
+msgid ""
+"For example, the `StandardBeanExpressionResolver` in the `spring-context` "
+"module configures a `StandardTypeLocator` using the bean `ClassLoader` of "
+"the corresponding `BeanFactory`."
+msgstr ""

@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:2
+#, no-wrap
+msgid "Context Configuration with Groovy Scripts"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:10
+msgid ""
+"To load an `ApplicationContext` for your tests by using Groovy scripts that "
+"use the xref:core/beans/basics.adoc#beans-factory-groovy[Groovy Bean "
+"Definition DSL], you can annotate your test class with "
+"`@ContextConfiguration` and configure the `locations` or `value` attribute "
+"with an array that contains the resource locations of Groovy "
+"scripts. Resource lookup semantics for Groovy scripts are the same as those "
+"described for xref:testing/testcontext-framework/ctx-management/xml.adoc[XML "
+"configuration files]."
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:11
+#, no-wrap
+msgid "Enabling Groovy script support"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:14
+msgid ""
+"Support for using Groovy scripts to load an `ApplicationContext` in the "
+"Spring TestContext Framework is enabled automatically if Groovy is on the "
+"classpath."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:16
+msgid "The following example shows how to specify Groovy configuration files:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:19
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:59
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:102
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:30
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t// ApplicationContext will be loaded from \"/AppConfig.groovy\" and\n"
+"\t// \"/TestConfig.groovy\" in the root of the classpath\n"
+"\t@ContextConfiguration({\"/AppConfig.groovy\", \"/TestConfig.Groovy\"}) "
+"<1>\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:32
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:46
+msgid "Specifying the location of Groovy configuration files."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:33
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:73
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:115
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:44
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t// ApplicationContext will be loaded from \"/AppConfig.groovy\" and\n"
+"\t// \"/TestConfig.groovy\" in the root of the classpath\n"
+"\t@ContextConfiguration(\"/AppConfig.groovy\", \"/TestConfig.Groovy\") // "
+"<1>\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:56
+msgid ""
+"If you omit both the `locations` and `value` attributes from the "
+"`@ContextConfiguration` annotation, the TestContext framework tries to "
+"detect a default Groovy script.  Specifically, "
+"`GenericGroovyXmlContextLoader` and `GenericGroovyXmlWebContextLoader` "
+"detect a default location based on the name of the test class. If your class "
+"is named `com.example.MyTest`, the Groovy context loader loads your "
+"application context from "
+"`\"classpath:com/example/MyTestContext.groovy\"`. The following example "
+"shows how to use the default:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:70
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t// ApplicationContext will be loaded from\n"
+"\t// \"classpath:com/example/MyTestContext.groovy\"\n"
+"\t@ContextConfiguration // <1>\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:72
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:86
+msgid "Loading configuration from the default location."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:84
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t// ApplicationContext will be loaded from\n"
+"\t// \"classpath:com/example/MyTestContext.groovy\"\n"
+"\t@ContextConfiguration // <1>\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:89
+#, no-wrap
+msgid "Declaring XML configuration and Groovy scripts simultaneously"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:97
+msgid ""
+"You can declare both XML configuration files and Groovy scripts "
+"simultaneously by using the `locations` or `value` attribute of "
+"`@ContextConfiguration`. If the path to a configured resource location ends "
+"with `.xml`, it is loaded by using an `XmlBeanDefinitionReader`. Otherwise, "
+"it is loaded by using a `GroovyBeanDefinitionReader`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:99
+msgid "The following listing shows how to combine both in an integration test:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:113
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t// ApplicationContext will be loaded from\n"
+"\t// \"/app-config.xml\" and \"/TestConfig.groovy\"\n"
+"\t@ContextConfiguration({ \"/app-config.xml\", \"/TestConfig.groovy\" })\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/groovy.adoc:126
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t// ApplicationContext will be loaded from\n"
+"\t// \"/app-config.xml\" and \"/TestConfig.groovy\"\n"
+"\t@ContextConfiguration(\"/app-config.xml\", \"/TestConfig.groovy\")\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""

@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc:2
+#, no-wrap
+msgid "Flash Attributes"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc:9
+msgid ""
+"Flash attributes provide a way for one request to store attributes that are "
+"intended for use in another. This is most commonly needed when redirecting "
+"-- for example, the Post-Redirect-Get pattern. Flash attributes are saved "
+"temporarily before the redirect (typically in the session) to be made "
+"available to the request after the redirect and are removed immediately."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc:13
+msgid ""
+"Spring MVC has two main abstractions in support of flash "
+"attributes. `FlashMap` is used to hold flash attributes, while "
+"`FlashMapManager` is used to store, retrieve, and manage `FlashMap` "
+"instances."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc:20
+msgid ""
+"Flash attribute support is always \"`on`\" and does not need to be enabled "
+"explicitly.  However, if not used, it never causes HTTP session creation. On "
+"each request, there is an \"`input`\" `FlashMap` with attributes passed from "
+"a previous request (if any) and an \"`output`\" `FlashMap` with attributes "
+"to save for a subsequent request. Both `FlashMap` instances are accessible "
+"from anywhere in Spring MVC through static methods in `RequestContextUtils`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc:27
+msgid ""
+"Annotated controllers typically do not need to work with `FlashMap` "
+"directly. Instead, a `@RequestMapping` method can accept an argument of type "
+"`RedirectAttributes` and use it to add flash attributes for a redirect "
+"scenario. Flash attributes added through `RedirectAttributes` are "
+"automatically propagated to the \"`output`\" FlashMap. Similarly, after the "
+"redirect, attributes from the \"`input`\" `FlashMap` are automatically added "
+"to the `Model` of the controller that serves the target URL."
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc:28
+#, no-wrap
+msgid "Matching requests to flash attributes"
+msgstr ""
+
+#. type: delimited block *
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc:35
+msgid ""
+"The concept of flash attributes exists in many other web frameworks and has "
+"proven to sometimes be exposed to concurrency issues. This is because, by "
+"definition, flash attributes are to be stored until the next "
+"request. However the very \"`next`\" request may not be the intended "
+"recipient but another asynchronous request (for example, polling or resource "
+"requests), in which case the flash attributes are removed too early."
+msgstr ""
+
+#. type: delimited block *
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc:40
+msgid ""
+"To reduce the possibility of such issues, `RedirectView` automatically "
+"\"`stamps`\" `FlashMap` instances with the path and query parameters of the "
+"target redirect URL. In turn, the default `FlashMapManager` matches that "
+"information to incoming requests when it looks up the \"`input`\" "
+"`FlashMap`."
+msgstr ""
+
+#. type: delimited block *
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc:44
+msgid ""
+"This does not entirely eliminate the possibility of a concurrency issue but "
+"reduces it greatly with information that is already available in the "
+"redirect URL.  Therefore, we recommend that you use flash attributes mainly "
+"for redirect scenarios."
+msgstr ""

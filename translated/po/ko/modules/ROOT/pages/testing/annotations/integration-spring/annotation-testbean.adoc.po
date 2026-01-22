@@ -1,0 +1,243 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:2
+#, no-wrap
+msgid "`@TestBean`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:7
+msgid ""
+"{spring-framework-api}/test/context/bean/override/convention/TestBean.html[`@TestBean`] "
+"is used on a non-static field in a test class to override a specific bean in "
+"the test's `ApplicationContext` with an instance provided by a factory "
+"method."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:13
+msgid ""
+"The associated factory method name is derived from the annotated field's "
+"name, or the bean name if specified. The factory method must be `static`, "
+"accept no arguments, and have a return type compatible with the type of the "
+"bean to override. To make things more explicit, or if you'd rather use a "
+"different name, the annotation allows for a specific method name to be "
+"provided."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:18
+msgid ""
+"By default, the annotated field's type is used to search for candidate beans "
+"to override.  If multiple candidates match, `@Qualifier` can be provided to "
+"narrow the candidate to override. Alternatively, a candidate whose bean name "
+"matches the name of the field will match."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:22
+msgid ""
+"A bean will be created if a corresponding bean does not exist. However, if "
+"you would like for the test to fail when a corresponding bean does not "
+"exist, you can set the `enforceOverride` attribute to `true` – for example, "
+"`@TestBean(enforceOverride = true)`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:25
+msgid ""
+"To use a by-name override rather than a by-type override, specify the `name` "
+"attribute of the annotation."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:32
+msgid ""
+"Qualifiers, including the name of the field, are used to determine if a "
+"separate `ApplicationContext` needs to be created. If you are using this "
+"feature to override the same bean in several tests, make sure to name the "
+"field consistently to avoid creating unnecessary contexts."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:41
+msgid ""
+"Using `@TestBean` in conjunction with `@ContextHierarchy` can lead to "
+"undesirable results since each `@TestBean` will be applied to all context "
+"hierarchy levels by default. To ensure that a particular `@TestBean` is "
+"applied to a single context hierarchy level, set the `contextName` attribute "
+"to match a configured `@ContextConfiguration` name – for example, "
+"`@TestBean(contextName = \"app-config\")`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:45
+msgid ""
+"See "
+"xref:testing/testcontext-framework/ctx-management/hierarchies.adoc#testcontext-ctx-management-ctx-hierarchies-with-bean-overrides[context "
+"hierarchies with bean overrides] for further details and examples."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:50
+msgid ""
+"There are no restrictions on the visibility of `@TestBean` fields or factory "
+"methods."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:53
+msgid ""
+"Such fields and methods can therefore be `public`, `protected`, "
+"package-private (default visibility), or `private` depending on the needs or "
+"coding practices of the project."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:56
+msgid ""
+"The following example shows how to use the default behavior of the "
+"`@TestBean` annotation:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:59
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:87
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:66
+#, no-wrap
+msgid ""
+"\tclass OverrideBeanTests {\n"
+"\t\t@TestBean // <1>\n"
+"\t\tCustomService customService;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:68
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:96
+#, no-wrap
+msgid "\t\t// test case body...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:73
+#, no-wrap
+msgid ""
+"\t\tstatic CustomService customService() { // <2>\n"
+"\t\t\treturn new MyFakeCustomService();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:75
+msgid "Mark a field for overriding the bean with type `CustomService`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:76
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:105
+msgid ""
+"The result of this static method will be used as the instance and injected "
+"into the field."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:82
+msgid ""
+"In the example above, we are overriding the bean with type "
+"`CustomService`. If more than one bean of that type exists, the bean named "
+"`customService` is considered. Otherwise, the test will fail, and you will "
+"need to provide a qualifier of some sort to identify which of the "
+"`CustomService` beans you want to override."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:84
+msgid "The following example uses a by-name lookup, rather than a by-type lookup:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:94
+#, no-wrap
+msgid ""
+"\tclass OverrideBeanTests {\n"
+"\t\t@TestBean(name = \"service\", methodName = \"createCustomService\") // "
+"<1>\n"
+"\t\tCustomService customService;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:101
+#, no-wrap
+msgid ""
+"\t\tstatic CustomService createCustomService() { // <2>\n"
+"\t\t\treturn new MyFakeCustomService();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:104
+msgid ""
+"Mark a field for overriding the bean with name `service`, and specify that "
+"the factory method is named `createCustomService`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:113
+msgid ""
+"To locate the factory method to invoke, Spring searches in the class in "
+"which the `@TestBean` field is declared, in one of its superclasses, or in "
+"any implemented interfaces. If the `@TestBean` field is declared in a "
+"`@Nested` test class, the enclosing class hierarchy will also be searched."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:117
+msgid ""
+"Alternatively, a factory method in an external class can be referenced via "
+"its fully-qualified method name following the syntax `<fully-qualified class "
+"name>#<method name>` – for example, `methodName = "
+"\"org.example.TestUtils#createCustomService\"`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:126
+msgid ""
+"When overriding a non-singleton bean, the non-singleton bean will be "
+"replaced with a singleton bean corresponding to the value returned from the "
+"`@TestBean` factory method, and the corresponding bean definition will be "
+"converted to a `singleton`. Consequently, if `@TestBean` is used to override "
+"a `prototype` or scoped bean, the overridden bean will be treated as a "
+"`singleton`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testbean.adoc:130
+msgid ""
+"Similarly, when overriding a bean created by a `FactoryBean`, the "
+"`FactoryBean` will be replaced with a singleton bean corresponding to the "
+"value returned from the `@TestBean` factory method."
+msgstr ""

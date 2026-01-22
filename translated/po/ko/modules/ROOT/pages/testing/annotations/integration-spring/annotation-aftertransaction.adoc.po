@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-aftertransaction.adoc:2
+#, no-wrap
+msgid "`@AfterTransaction`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-aftertransaction.adoc:9
+msgid ""
+"`@AfterTransaction` indicates that the annotated `void` method should be run "
+"after a transaction is ended, for test methods that have been configured to "
+"run within a transaction by using Spring's `@Transactional` "
+"annotation. `@AfterTransaction` methods are not required to be `public` and "
+"may be declared on Java 8-based interface default methods."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-aftertransaction.adoc:12
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-aftertransaction.adoc:20
+#, no-wrap
+msgid ""
+"\t@AfterTransaction // <1>\n"
+"\tvoid afterTransaction() {\n"
+"\t\t// logic to be run after a transaction has ended\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-aftertransaction.adoc:22
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-aftertransaction.adoc:33
+msgid "Run this method after a transaction."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-aftertransaction.adoc:23
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-aftertransaction.adoc:31
+#, no-wrap
+msgid ""
+"\t@AfterTransaction // <1>\n"
+"\tfun afterTransaction() {\n"
+"\t\t// logic to be run after a transaction has ended\n"
+"\t}\n"
+msgstr ""

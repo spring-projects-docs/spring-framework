@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux.adoc:4
+#, no-wrap
+msgid "Spring WebFlux"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux.adoc:12
+msgid ""
+"The original web framework included in the Spring Framework, Spring Web MVC, "
+"was purpose-built for the Servlet API and Servlet containers. The "
+"reactive-stack web framework, Spring WebFlux, was added later in version "
+"5.0. It is fully non-blocking, supports {reactive-streams-site}/[Reactive "
+"Streams] back pressure, and runs on such servers as Netty, and Servlet "
+"containers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux.adoc:17
+msgid ""
+"Both web frameworks mirror the names of their source modules "
+"({spring-framework-code}/spring-webmvc[spring-webmvc] and "
+"{spring-framework-code}/spring-webflux[spring-webflux]) and co-exist side by "
+"side in the Spring Framework. Each module is optional. Applications can use "
+"one or the other module or, in some cases, both -- for example, Spring MVC "
+"controllers with the reactive `WebClient`."
+msgstr ""

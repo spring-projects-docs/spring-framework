@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:2
+#, no-wrap
+msgid "Logging"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/reactive-spring.adoc#webflux-logging[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:9
+msgid ""
+"DEBUG-level logging in Spring MVC is designed to be compact, minimal, and "
+"human-friendly. It focuses on high-value bits of information that are useful "
+"over and over again versus others that are useful only when debugging a "
+"specific issue."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:13
+msgid ""
+"TRACE-level logging generally follows the same principles as DEBUG (and, for "
+"example, also should not be a fire hose) but can be used for debugging any "
+"issue. In addition, some log messages may show a different level of detail "
+"at TRACE versus DEBUG."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:16
+msgid ""
+"Good logging comes from the experience of using the logs. If you spot "
+"anything that does not meet the stated goals, please let us know."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:19
+#, no-wrap
+msgid "Sensitive Data"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:21
+msgid ""
+"[.small]#xref:web/webflux/reactive-spring.adoc#webflux-logging-sensitive-data[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:25
+msgid ""
+"DEBUG and TRACE logging may log sensitive information. This is why request "
+"parameters and headers are masked by default and their logging in full must "
+"be enabled explicitly through the `enableLoggingRequestDetails` property on "
+"`DispatcherServlet`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:27
+msgid "The following example shows how to do so by using Java configuration:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:30
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:36
+#, no-wrap
+msgid ""
+"public class MyInitializer\n"
+"\t\textends AbstractAnnotationConfigDispatcherServletInitializer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:41
+#, no-wrap
+msgid ""
+"\t@Override\n"
+"\tprotected Class<?>[] getRootConfigClasses() {\n"
+"\t\treturn ... ;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:46
+#, no-wrap
+msgid ""
+"\t@Override\n"
+"\tprotected Class<?>[] getServletConfigClasses() {\n"
+"\t\treturn ... ;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:51
+#, no-wrap
+msgid ""
+"\t@Override\n"
+"\tprotected String[] getServletMappings() {\n"
+"\t\treturn ... ;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:56
+#, no-wrap
+msgid ""
+"\t@Override\n"
+"\tprotected void customizeRegistration(ServletRegistration.Dynamic "
+"registration) {\n"
+"\t\tregistration.setInitParameter(\"enableLoggingRequestDetails\", "
+"\"true\");\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:58
+#, no-wrap
+msgid "}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:60
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:65
+#, no-wrap
+msgid ""
+"\tclass MyInitializer : "
+"AbstractAnnotationConfigDispatcherServletInitializer() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:69
+#, no-wrap
+msgid ""
+"\t\toverride fun getRootConfigClasses(): Array<Class<*>>? {\n"
+"\t\t\treturn ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:73
+#, no-wrap
+msgid ""
+"\t\toverride fun getServletConfigClasses(): Array<Class<*>>? {\n"
+"\t\t\treturn ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:77
+#, no-wrap
+msgid ""
+"\t\toverride fun getServletMappings(): Array<String> {\n"
+"\t\t\treturn ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/logging.adoc:82
+#, no-wrap
+msgid ""
+"\t\toverride fun customizeRegistration(registration: "
+"ServletRegistration.Dynamic) {\n"
+"\t\t\tregistration.setInitParameter(\"enableLoggingRequestDetails\", "
+"\"true\")\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""

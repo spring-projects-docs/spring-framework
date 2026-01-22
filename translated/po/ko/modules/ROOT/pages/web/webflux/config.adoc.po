@@ -1,0 +1,1276 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:2
+#, no-wrap
+msgid "WebFlux Config"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config.adoc[See equivalent in the Servlet "
+"stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:12
+msgid ""
+"The WebFlux Java configuration declares the components that are required to "
+"process requests with annotated controllers or functional endpoints, and it "
+"offers an API to customize the configuration. That means you do not need to "
+"understand the underlying beans created by the Java configuration. However, "
+"if you want to understand them, you can see them in "
+"`WebFluxConfigurationSupport` or read more about what they are in "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-special-bean-types[Special "
+"Bean Types]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:16
+msgid ""
+"For more advanced customizations, not available in the configuration API, "
+"you can gain full control over the configuration through the "
+"xref:web/webflux/config.adoc#webflux-config-advanced-java[Advanced "
+"Configuration Mode]."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:19
+#, no-wrap
+msgid "Enabling WebFlux Config"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:21
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/enable.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:23
+msgid ""
+"You can use the `@EnableWebFlux` annotation in your Java config, as the "
+"following example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:26
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:65
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:101
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:137
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:188
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:223
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:269
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:306
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:348
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:382
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:431
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:469
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:528
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:577
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:674
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:748
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:798
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:849
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:34
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@EnableWebFlux\n"
+"\tpublic class WebConfig {\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:36
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:76
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:116
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:153
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:203
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:238
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:283
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:320
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:362
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:406
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:447
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:489
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:545
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:595
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:688
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:763
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:814
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:860
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:43
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@EnableWebFlux\n"
+"\tclass WebConfig\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:50
+msgid ""
+"When using Spring Boot, you may want to use `@Configuration` classes of type "
+"`WebFluxConfigurer` but without `@EnableWebFlux` to keep Spring Boot WebFlux "
+"customizations. See more details in xref:#webflux-config-customize[the "
+"WebFlux config API section] and in "
+"{spring-boot-docs-ref}/web/reactive.html#web.reactive.webflux.auto-configuration[the "
+"dedicated Spring Boot documentation]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:54
+msgid ""
+"The preceding example registers a number of Spring WebFlux "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-special-bean-types[infrastructure "
+"beans] and adapts to dependencies available on the classpath -- for JSON, "
+"XML, and others."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:57
+#, no-wrap
+msgid "WebFlux config API"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:59
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/customize.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:62
+msgid ""
+"In your Java configuration, you can implement the `WebFluxConfigurer` "
+"interface, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:71
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:107
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:143
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:194
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:275
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:312
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:354
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:388
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:437
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:475
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:534
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:583
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:754
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:804
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class WebConfig implements WebFluxConfigurer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:74
+#, no-wrap
+msgid ""
+"\t\t// Implement configuration methods...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:82
+#, no-wrap
+msgid ""
+"@Configuration\n"
+"class WebConfig : WebFluxConfigurer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:85
+#, no-wrap
+msgid ""
+"\t// Implement configuration methods...\n"
+"}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:90
+#, no-wrap
+msgid "Conversion, formatting"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:92
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/conversion.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:96
+msgid ""
+"By default, formatters for various number and date types are installed, "
+"along with support for customization via `@NumberFormat`, `@DurationFormat`, "
+"and `@DateTimeFormat` on fields and parameters."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:98
+msgid ""
+"To register custom formatters and converters in Java config, use the "
+"following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:112
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void addFormatters(FormatterRegistry registry) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:114
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:201
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:215
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:236
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:543
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:593
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:610
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:122
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:159
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:209
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:289
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:326
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:368
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:412
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:453
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:495
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:551
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:601
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:769
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:820
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass WebConfig : WebFluxConfigurer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:127
+#, no-wrap
+msgid ""
+"\t\toverride fun addFormatters(registry: FormatterRegistry) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:134
+msgid ""
+"By default Spring WebFlux considers the request Locale when parsing and "
+"formatting date values. This works for forms where dates are represented as "
+"Strings with \"input\" form fields. For \"date\" and \"time\" form fields, "
+"however, browsers use a fixed format defined in the HTML spec. For such "
+"cases date and time formatting can be customized as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:151
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void addFormatters(FormatterRegistry registry) {\n"
+"\t\t\tDateTimeFormatterRegistrar registrar = new "
+"DateTimeFormatterRegistrar();\n"
+"\t\t\tregistrar.setUseIsoFormat(true);\n"
+"\t\t\tregistrar.registerFormatters(registry);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:166
+#, no-wrap
+msgid ""
+"\t\toverride fun addFormatters(registry: FormatterRegistry) {\n"
+"\t\t\tval registrar = DateTimeFormatterRegistrar()\n"
+"\t\t\tregistrar.setUseIsoFormat(true)\n"
+"\t\t\tregistrar.registerFormatters(registry)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:172
+msgid ""
+"See "
+"xref:core/validation/format.adoc#format-FormatterRegistrar-SPI[`FormatterRegistrar` "
+"SPI] and the `FormattingConversionServiceFactoryBean` for more information "
+"on when to use `FormatterRegistrar` implementations."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:175
+#, no-wrap
+msgid "Validation"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:177
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/validation.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:182
+msgid ""
+"By default, if "
+"xref:core/validation/beanvalidation.adoc#validation-beanvalidation-overview[Bean "
+"Validation] is present on the classpath (for example, the Hibernate "
+"Validator), the `LocalValidatorFactoryBean` is registered as a global "
+"xref:core/validation/validator.adoc[validator] for use with `@Valid` and "
+"`@Validated` on `@Controller` method arguments."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:185
+msgid ""
+"In your Java configuration, you can customize the global `Validator` "
+"instance, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:199
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic Validator getValidator() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:213
+#, no-wrap
+msgid ""
+"\t\toverride fun getValidator(): Validator {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:220
+msgid ""
+"Note that you can also register `Validator` implementations locally, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:229
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\tpublic class MyController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:234
+#, no-wrap
+msgid ""
+"\t\t@InitBinder\n"
+"\t\tprotected void initBinder(WebDataBinder binder) {\n"
+"\t\t\tbinder.addValidators(new FooValidator());\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:244
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\tclass MyController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:250
+#, no-wrap
+msgid ""
+"\t\t@InitBinder\n"
+"\t\tprotected fun initBinder(binder: WebDataBinder) {\n"
+"\t\t\tbinder.addValidators(FooValidator())\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:255
+msgid ""
+"If you need to have a `LocalValidatorFactoryBean` injected somewhere, create "
+"a bean and mark it with `@Primary` in order to avoid conflict with the one "
+"declared in the MVC config."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:258
+#, no-wrap
+msgid "Content Type Resolvers"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:260
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/content-negotiation.adoc[See equivalent "
+"in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:264
+msgid ""
+"You can configure how Spring WebFlux determines the requested media types "
+"for `@Controller` instances from the request. By default, only the `Accept` "
+"header is checked, but you can also enable a query parameter-based strategy."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:266
+msgid ""
+"The following example shows how to customize the requested content type "
+"resolution:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:281
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void "
+"configureContentTypeResolver(RequestedContentTypeResolverBuilder builder) "
+"{\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:294
+#, no-wrap
+msgid ""
+"\t\toverride fun configureContentTypeResolver(builder: "
+"RequestedContentTypeResolverBuilder) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:299
+#, no-wrap
+msgid "HTTP message codecs"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:301
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/message-converters.adoc[See equivalent "
+"in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:303
+msgid ""
+"The following example shows how to customize how the request and response "
+"body are read and written:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:318
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void configureHttpMessageCodecs(ServerCodecConfigurer configurer) "
+"{\n"
+"\t\t\tconfigurer.defaultCodecs().maxInMemorySize(512 * 1024);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:331
+#, no-wrap
+msgid ""
+"\t\toverride fun configureHttpMessageCodecs(configurer: "
+"ServerCodecConfigurer) {\n"
+"\t\t\tconfigurer.defaultCodecs().maxInMemorySize(512 * 1024)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:336
+msgid ""
+"`ServerCodecConfigurer` provides a set of default readers and writers. You "
+"can use it to add more readers and writers, customize the default ones, or "
+"replace the default ones completely."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:339
+msgid ""
+"For Jackson, consider using a Jackson format-specific builder like "
+"`JsonMapper.Builder` to configure Jackson's default properties."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:341
+#, no-wrap
+msgid "View Resolvers"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:343
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/view-resolvers.adoc[See equivalent in "
+"the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:345
+msgid "The following example shows how to configure view resolution:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:360
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void configureViewResolvers(ViewResolverRegistry registry) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:373
+#, no-wrap
+msgid ""
+"\t\toverride fun configureViewResolvers(registry: ViewResolverRegistry) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:379
+msgid ""
+"The `ViewResolverRegistry` has shortcuts for view technologies with which "
+"the Spring Framework integrates. The following example uses FreeMarker "
+"(which also requires configuring the underlying FreeMarker view technology):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:394
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void configureViewResolvers(ViewResolverRegistry registry) {\n"
+"\t\t\tregistry.freeMarker();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:396
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:418
+#, no-wrap
+msgid "\t\t// Configure Freemarker...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:404
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic FreeMarkerConfigurer freeMarkerConfigurer() {\n"
+"\t\t\tFreeMarkerConfigurer configurer = new FreeMarkerConfigurer();\n"
+"\t\t\tconfigurer.setTemplateLoaderPath(\"classpath:/templates\");\n"
+"\t\t\treturn configurer;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:416
+#, no-wrap
+msgid ""
+"\t\toverride fun configureViewResolvers(registry: ViewResolverRegistry) {\n"
+"\t\t\tregistry.freeMarker()\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:424
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun freeMarkerConfigurer() = FreeMarkerConfigurer().apply {\n"
+"\t\t\tsetTemplateLoaderPath(\"classpath:/templates\")\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:428
+msgid ""
+"You can also plug in any `ViewResolver` implementation, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:445
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void configureViewResolvers(ViewResolverRegistry registry) {\n"
+"\t\t\tViewResolver resolver = ... ;\n"
+"\t\t\tregistry.viewResolver(resolver);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:459
+#, no-wrap
+msgid ""
+"\t\toverride fun configureViewResolvers(registry: ViewResolverRegistry) {\n"
+"\t\t\tval resolver: ViewResolver = ...\n"
+"\t\t\tregistry.viewResolver(resolver\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:466
+msgid ""
+"To support "
+"xref:web/webflux/dispatcher-handler.adoc#webflux-multiple-representations[Content "
+"Negotiation] and rendering other formats through view resolution (besides "
+"HTML), you can configure one or more default views based on the "
+"`HttpMessageWriterView` implementation, which accepts any of the available "
+"xref:web/webflux/reactive-spring.adoc#webflux-codecs[Codecs] from "
+"`spring-web`. The following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:480
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void configureViewResolvers(ViewResolverRegistry registry) {\n"
+"\t\t\tregistry.freeMarker();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:484
+#, no-wrap
+msgid ""
+"\t\t\tJacksonJsonEncoder encoder = new JacksonJsonEncoder();\n"
+"\t\t\tregistry.defaultViews(new HttpMessageWriterView(encoder));\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:487
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:506
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:858
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:869
+#, no-wrap
+msgid ""
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:499
+#, no-wrap
+msgid ""
+"\t\toverride fun configureViewResolvers(registry: ViewResolverRegistry) {\n"
+"\t\t\tregistry.freeMarker()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:503
+#, no-wrap
+msgid ""
+"\t\t\tval encoder = JacksonJsonEncoder()\n"
+"\t\t\tregistry.defaultViews(HttpMessageWriterView(encoder))\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:510
+msgid ""
+"See xref:web/webflux-view.adoc[View Technologies] for more on the view "
+"technologies that are integrated with Spring WebFlux."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:513
+#, no-wrap
+msgid "Static Resources"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:515
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/static-resources.adoc[See equivalent in "
+"the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:518
+msgid ""
+"This option provides a convenient way to serve static resources from a list "
+"of {spring-framework-api}/core/io/Resource.html[`Resource`]-based locations."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:525
+msgid ""
+"In the next example, given a request that starts with `/resources`, the "
+"relative path is used to find and serve static resources relative to "
+"`/static` on the classpath. Resources are served with a one-year future "
+"expiration to ensure maximum use of the browser cache and a reduction in "
+"HTTP requests made by the browser. The `Last-Modified` header is also "
+"evaluated and, if present, a `304` status code is returned. The following "
+"listing shows the example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:541
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void addResourceHandlers(ResourceHandlerRegistry registry) {\n"
+"\t\t\tregistry.addResourceHandler(\"/resources/**\")\n"
+"\t\t\t\t\t.addResourceLocations(\"/public\", \"classpath:/static/\")\n"
+"\t\t\t\t\t.setCacheControl(CacheControl.maxAge(365, TimeUnit.DAYS));\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:558
+#, no-wrap
+msgid ""
+"\t\toverride fun addResourceHandlers(registry: ResourceHandlerRegistry) {\n"
+"\t\t\tregistry.addResourceHandler(\"/resources/**\")\n"
+"\t\t\t\t\t.addResourceLocations(\"/public\", \"classpath:/static/\")\n"
+"\t\t\t\t\t.setCacheControl(CacheControl.maxAge(365, TimeUnit.DAYS))\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:562
+msgid ""
+"See also xref:web/webflux/caching.adoc#webflux-caching-static-resources[HTTP "
+"caching support for static resources]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:567
+msgid ""
+"The resource handler also supports a chain of "
+"{spring-framework-api}/web/reactive/resource/ResourceResolver.html[`ResourceResolver`] "
+"implementations and "
+"{spring-framework-api}/web/reactive/resource/ResourceTransformer.html[`ResourceTransformer`] "
+"implementations, which can be used to create a toolchain for working with "
+"optimized resources."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:572
+msgid ""
+"You can use the `VersionResourceResolver` for versioned resource URLs based "
+"on an MD5 hash computed from the content, a fixed application version, or "
+"other information. A `ContentVersionStrategy` (MD5 hash) is a good choice "
+"with some notable exceptions (such as JavaScript resources used with a "
+"module loader)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:574
+msgid ""
+"The following example shows how to use `VersionResourceResolver` in your "
+"Java configuration:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:591
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void addResourceHandlers(ResourceHandlerRegistry registry) {\n"
+"\t\t\tregistry.addResourceHandler(\"/resources/**\")\n"
+"\t\t\t\t\t.addResourceLocations(\"/public/\")\n"
+"\t\t\t\t\t.resourceChain(true)\n"
+"\t\t\t\t\t.addResolver(new "
+"VersionResourceResolver().addContentVersionStrategy(\"/**\"));\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:608
+#, no-wrap
+msgid ""
+"\t\toverride fun addResourceHandlers(registry: ResourceHandlerRegistry) {\n"
+"\t\t\tregistry.addResourceHandler(\"/resources/**\")\n"
+"\t\t\t\t\t.addResourceLocations(\"/public/\")\n"
+"\t\t\t\t\t.resourceChain(true)\n"
+"\t\t\t\t\t.addResolver(VersionResourceResolver().addContentVersionStrategy(\"/**\"))\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:616
+msgid ""
+"You can use `ResourceUrlProvider` to rewrite URLs and apply the full chain "
+"of resolvers and transformers (for example, to insert versions). The WebFlux "
+"configuration provides a `ResourceUrlProvider` so that it can be injected "
+"into others."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:621
+msgid ""
+"Unlike Spring MVC, at present, in WebFlux, there is no way to transparently "
+"rewrite static resource URLs, since there are no view technologies that can "
+"make use of a non-blocking chain of resolvers and transformers. When serving "
+"only local resources, the workaround is to use `ResourceUrlProvider` "
+"directly (for example, through a custom element) and block."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:625
+msgid ""
+"Note that, when using both `EncodedResourceResolver` (for example, Gzip, "
+"Brotli encoded) and `VersionedResourceResolver`, they must be registered in "
+"that order, to ensure content-based versions are always computed reliably "
+"based on the unencoded file."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:631
+msgid ""
+"For https://www.webjars.org/documentation[WebJars], versioned URLs like "
+"`/webjars/jquery/1.2.0/jquery.min.js` are the recommended and most efficient "
+"way to use them.  The related resource location is configured out of the box "
+"with Spring Boot (or can be configured manually via "
+"`ResourceHandlerRegistry`) and does not require to add the "
+"`org.webjars:webjars-locator-lite` dependency."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:636
+msgid ""
+"Version-less URLs like `/webjars/jquery/jquery.min.js` are supported through "
+"the `WebJarsResourceResolver` which is automatically registered when the "
+"`org.webjars:webjars-locator-lite` library is present on the classpath. The "
+"resolver can re-write URLs to include the version of the jar and can also "
+"match against incoming URLs without versions"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:637
+msgid ""
+"for example, from `/webjars/jquery/jquery.min.js` to "
+"`/webjars/jquery/1.2.0/jquery.min.js`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:640
+msgid ""
+"The Java configuration based on `ResourceHandlerRegistry` provides further "
+"options for fine-grained control, for example, last-modified behavior and "
+"optimized resource resolution."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:643
+#, no-wrap
+msgid "Path Matching"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:645
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/path-matching.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:649
+msgid ""
+"You can customize options related to path matching. For details on the "
+"individual options, see the "
+"{spring-framework-api}/web/reactive/config/PathMatchConfigurer.html[`PathMatchConfigurer`] "
+"javadoc.  The following example shows how to use `PathMatchConfigurer`:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:659
+msgid ""
+"Spring WebFlux relies on a parsed representation of the request path called "
+"`RequestPath` for access to decoded path segment values, with semicolon "
+"content removed (that is, path or matrix variables). That means, unlike in "
+"Spring MVC, you need not indicate whether to decode the request path nor "
+"whether to remove semicolon content for path matching purposes."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:663
+msgid ""
+"Spring WebFlux also does not support suffix pattern matching, unlike in "
+"Spring MVC, where we are also "
+"xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-suffix-pattern-match[recommend] "
+"moving away from reliance on it."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:667
+#, no-wrap
+msgid "API Version"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:669
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/api-version.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:671
+msgid ""
+"To enable API versioning, use the `ApiVersionConfigurer` callback of "
+"`WebFluxConfigurer`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:680
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class WebConfiguration implements WebFluxConfigurer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:686
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void configureApiVersioning(ApiVersionConfigurer configurer) {\n"
+"\t\t\tconfigurer.useRequestHeader(\"API-Version\");\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:694
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass WebConfiguration : WebFluxConfigurer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:699
+#, no-wrap
+msgid ""
+"\t\toverride fun configureApiVersioning(configurer: ApiVersionConfigurer) "
+"{\n"
+"\t\t\tconfigurer.useRequestHeader(\"API-Version\")\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:704
+msgid ""
+"You can resolve the version through one of the built-in options listed "
+"below, or alternatively use a custom `ApiVersionResolver`:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:706
+msgid "Request header"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:707
+msgid "Request parameter"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:708
+msgid "Path segment"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:709
+msgid "Media type parameter"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:716
+msgid ""
+"To resolve from a path segment, you need to specify the index of the path "
+"segment expected to contain the version. The path segment must be declared "
+"as a URI variable, e.g.  \"/\\{version}\", \"/api/\\{version}\", etc. where "
+"the actual name is not important.  As the version is typically at the start "
+"of the path, consider configuring it externally as a common path prefix for "
+"all handlers through the "
+"xref:web/webflux/config.adoc#webflux-config-path-matching[Path Matching] "
+"options."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:719
+msgid ""
+"By default, the version is parsed with `SemanticVersionParser`, but you can "
+"also configure a custom "
+"xref:web/webflux-versioning.adoc#webflux-versioning-parser[ApiVersionParser]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:725
+msgid ""
+"Supported versions are transparently detected from versions declared in "
+"request mappings for convenience, but you can turn that off through a flag "
+"in the WebFlux config, and consider only the versions configured explicitly "
+"in the config as supported.  Requests with a version that is not supported "
+"are rejected with `InvalidApiVersionException` resulting in a 400 response."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:730
+msgid ""
+"You can set an `ApiVersionDeprecationHandler` to send information about "
+"deprecated versions to clients. The built-in standard handler can set "
+"\"Deprecation\", \"Sunset\", and \"Link\" headers based on "
+"https://datatracker.ietf.org/doc/html/rfc9745[RFC 9745] and "
+"https://datatracker.ietf.org/doc/html/rfc8594[RFC 8594]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:734
+msgid ""
+"Once API versioning is configured, you can begin to map requests to "
+"xref:web/webflux/controller/ann-requestmapping.adoc#webflux-ann-requestmapping-version[controller "
+"methods] according to the request version."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:737
+#, no-wrap
+msgid "Blocking Execution"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:740
+msgid ""
+"The WebFlux Java config allows you to customize blocking execution in "
+"WebFlux."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:745
+msgid ""
+"You can have blocking controller methods called on a separate thread by "
+"providing an `AsyncTaskExecutor` such as the "
+"{spring-framework-api}/core/task/VirtualThreadTaskExecutor.html[`VirtualThreadTaskExecutor`] "
+"as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:761
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void configureBlockingExecution(BlockingExecutionConfigurer "
+"configurer) {\n"
+"\t\t\tAsyncTaskExecutor executor = ...\n"
+"\t\t\tconfigurer.setExecutor(executor);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:776
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tfun configureBlockingExecution(configurer: BlockingExecutionConfigurer) "
+"{\n"
+"\t\t\tval executor = ...\n"
+"\t\t\tconfigurer.setExecutor(executor)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:782
+msgid ""
+"By default, controller methods whose return type is not recognized by the "
+"configured `ReactiveAdapterRegistry` are considered blocking, but you can "
+"set a custom controller method predicate via `BlockingExecutionConfigurer`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:785
+#, no-wrap
+msgid "WebSocketService"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:791
+msgid ""
+"The WebFlux Java config declares of a `WebSocketHandlerAdapter` bean which "
+"provides support for the invocation of WebSocket handlers. That means all "
+"that remains to do in order to handle a WebSocket handshake request is to "
+"map a `WebSocketHandler` to a URL via `SimpleUrlHandlerMapping`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:795
+msgid ""
+"In some cases it may be necessary to create the `WebSocketHandlerAdapter` "
+"bean with a provided `WebSocketService` service which allows configuring "
+"WebSocket server properties.  For example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:812
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic WebSocketService getWebSocketService() {\n"
+"\t\t\tTomcatRequestUpgradeStrategy strategy = new "
+"TomcatRequestUpgradeStrategy();\n"
+"\t\t\tstrategy.setMaxSessionIdleTimeout(0L);\n"
+"\t\t\treturn new HandshakeWebSocketService(strategy);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:829
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tfun webSocketService(): WebSocketService {\n"
+"\t\t\tval strategy = TomcatRequestUpgradeStrategy().apply {\n"
+"\t\t\t\tsetMaxSessionIdleTimeout(0L)\n"
+"\t\t\t}\n"
+"\t\t\treturn HandshakeWebSocketService(strategy)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:834
+#, no-wrap
+msgid "Advanced Configuration Mode"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:836
+msgid ""
+"[.small]#xref:web/webmvc/mvc-config/advanced-java.adoc[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:838
+msgid "`@EnableWebFlux` imports `DelegatingWebFluxConfiguration` that:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:840
+msgid "Provides default Spring configuration for WebFlux applications"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:842
+msgid ""
+"detects and delegates to `WebFluxConfigurer` implementations to customize "
+"that configuration."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:846
+msgid ""
+"For advanced mode, you can remove `@EnableWebFlux` and extend directly from "
+"`DelegatingWebFluxConfiguration` instead of implementing "
+"`WebFluxConfigurer`, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:855
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class WebConfig extends DelegatingWebFluxConfiguration {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:866
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass WebConfig : DelegatingWebFluxConfiguration {\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/config.adoc:874
+msgid ""
+"You can keep existing methods in `WebConfig`, but you can now also override "
+"bean declarations from the base class and still have any number of other "
+"`WebMvcConfigurer` implementations on the classpath."
+msgstr ""

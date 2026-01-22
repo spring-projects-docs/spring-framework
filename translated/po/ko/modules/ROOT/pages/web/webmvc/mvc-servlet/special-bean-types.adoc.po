@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/special-bean-types.adoc:2
+#, no-wrap
+msgid "Special Bean Types"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/special-bean-types.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/dispatcher-handler.adoc#webflux-special-bean-types[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/special-bean-types.adoc:10
+msgid ""
+"The `DispatcherServlet` delegates to special beans to process requests and "
+"render the appropriate responses. By \"`special beans`\" we mean "
+"Spring-managed `Object` instances that implement framework contracts. Those "
+"usually come with built-in contracts, but you can customize their properties "
+"and extend or replace them."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/special-bean-types.adoc:12
+msgid ""
+"The following table lists the special beans detected by the "
+"`DispatcherServlet`:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/special-bean-types.adoc:54
+#, no-wrap
+msgid ""
+"| Bean type| Explanation\n"
+"\n"
+"| `HandlerMapping`\n"
+"| Map a request to a handler along with a list of\n"
+"  xref:web/webmvc/mvc-servlet/handlermapping-interceptor.adoc[interceptors] "
+"for pre- and post-processing.\n"
+"  The mapping is based on some criteria, the details of which vary by "
+"`HandlerMapping`\n"
+"  implementation.\n"
+"\n"
+"  The two main `HandlerMapping` implementations are "
+"`RequestMappingHandlerMapping`\n"
+"  (which supports `@RequestMapping` annotated methods) and "
+"`SimpleUrlHandlerMapping`\n"
+"  (which maintains explicit registrations of URI path patterns to "
+"handlers).\n"
+"\n"
+"| `HandlerAdapter`\n"
+"| Help the `DispatcherServlet` to invoke a handler mapped to a request, "
+"regardless of\n"
+"  how the handler is actually invoked. For example, invoking an annotated "
+"controller\n"
+"  requires resolving annotations. The main purpose of a `HandlerAdapter` "
+"is\n"
+"  to shield the `DispatcherServlet` from such details.\n"
+"\n"
+"| "
+"xref:web/webmvc/mvc-servlet/exceptionhandlers.adoc[`HandlerExceptionResolver`]\n"
+"| Strategy to resolve exceptions, possibly mapping them to handlers, to HTML "
+"error\n"
+"  views, or other targets. See "
+"xref:web/webmvc/mvc-servlet/exceptionhandlers.adoc[Exceptions].\n"
+"\n"
+"| xref:web/webmvc/mvc-servlet/viewresolver.adoc[`ViewResolver`]\n"
+"| Resolve logical `String`-based view names returned from a handler to an "
+"actual `View`\n"
+"  with which to render to the response. See "
+"xref:web/webmvc/mvc-servlet/viewresolver.adoc[View Resolution] and "
+"xref:web/webmvc-view.adoc[View Technologies].\n"
+"\n"
+"| xref:web/webmvc/mvc-servlet/localeresolver.adoc[`LocaleResolver`], "
+"xref:web/webmvc/mvc-servlet/localeresolver.adoc#mvc-timezone[LocaleContextResolver]\n"
+"| Resolve the `Locale` a client is using and possibly their time zone, in "
+"order to be able\n"
+"  to offer internationalized views. See "
+"xref:web/webmvc/mvc-servlet/localeresolver.adoc[Locale].\n"
+"\n"
+"| xref:web/webmvc/mvc-servlet/multipart.adoc[`MultipartResolver`]\n"
+"| Abstraction for parsing a multi-part request (for example, browser form "
+"file upload) with\n"
+"  the help of some multipart parsing library. See "
+"xref:web/webmvc/mvc-servlet/multipart.adoc[Multipart Resolver].\n"
+"\n"
+"| "
+"xref:web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc[`FlashMapManager`]\n"
+"| Store and retrieve the \"`input`\" and the \"`output`\" `FlashMap` that "
+"can be used to pass\n"
+"  attributes from one request to another, usually across a redirect.\n"
+"  See xref:web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc[Flash "
+"Attributes].\n"
+msgstr ""

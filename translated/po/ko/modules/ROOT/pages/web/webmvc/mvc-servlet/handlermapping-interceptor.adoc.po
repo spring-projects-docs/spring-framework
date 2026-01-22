@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/handlermapping-interceptor.adoc:2
+#, no-wrap
+msgid "Interception"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/handlermapping-interceptor.adoc:7
+msgid ""
+"All `HandlerMapping` implementations support handler interception which is "
+"useful when you want to apply functionality across requests. A "
+"`HandlerInterceptor` can implement the following:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/handlermapping-interceptor.adoc:11
+msgid ""
+"`preHandle(..)` -- callback before the actual handler is run that returns a "
+"boolean.  If the method returns `true`, execution continues; if it returns "
+"`false`, the rest of the execution chain is bypassed and the handler is not "
+"called."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/handlermapping-interceptor.adoc:12
+msgid "`postHandle(..)` -- callback after the handler is run."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/handlermapping-interceptor.adoc:13
+msgid "`afterCompletion(..)` -- callback after the complete request has finished."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/handlermapping-interceptor.adoc:20
+msgid ""
+"For `@ResponseBody` and `ResponseEntity` controller methods, the response is "
+"written and committed within the `HandlerAdapter`, before `postHandle` is "
+"called. That means it is too late to change the response, such as to add an "
+"extra header. You can implement `ResponseBodyAdvice` and declare it as an "
+"xref:web/webmvc/mvc-controller/ann-advice.adoc[Controller Advice] bean or "
+"configure it directly on `RequestMappingHandlerAdapter`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/handlermapping-interceptor.adoc:24
+msgid ""
+"See xref:web/webmvc/mvc-config/interceptors.adoc[Interceptors] in the "
+"section on MVC configuration for examples of how to configure "
+"interceptors. You can also register them directly by using setters on "
+"individual `HandlerMapping` implementations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/handlermapping-interceptor.adoc:29
+msgid ""
+"Interceptors are not ideally suited as a security layer due to the potential "
+"for a mismatch with annotated controller path matching. Generally, we "
+"recommend using Spring Security, or alternatively a similar approach "
+"integrated with the Servlet filter chain, and applied as early as possible."
+msgstr ""

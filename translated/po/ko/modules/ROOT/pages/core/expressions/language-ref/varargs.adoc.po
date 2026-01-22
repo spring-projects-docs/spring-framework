@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:2
+#, no-wrap
+msgid "Varargs Invocations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:9
+msgid ""
+"The Spring Expression Language supports "
+"https://docs.oracle.com/javase/8/docs/technotes/guides/language/varargs.html[varargs] "
+"invocations for "
+"xref:core/expressions/language-ref/constructors.adoc[constructors], "
+"xref:core/expressions/language-ref/methods.adoc[methods], and user-defined "
+"xref:core/expressions/language-ref/functions.adoc[functions]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:13
+msgid ""
+"The following example shows how to invoke the "
+"`java.lang.String#formatted(Object...)` _varargs_ method within an "
+"expression by supplying the variable argument list as separate arguments "
+"(`'blue', 1`)."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:16
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:40
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:65
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:101
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:133
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:23
+#, no-wrap
+msgid ""
+"\t// evaluates to \"blue is color #1\"\n"
+"\tString expression = \"'%s is color #%d'.formatted('blue', 1)\";\n"
+"\tString message = "
+"parser.parseExpression(expression).getValue(String.class);\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:25
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:49
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:74
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:111
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:142
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:32
+#, no-wrap
+msgid ""
+"\t// evaluates to \"blue is color #1\"\n"
+"\tval expression = \"'%s is color #%d'.formatted('blue', 1)\"\n"
+"\tval message = "
+"parser.parseExpression(expression).getValue(String::class.java)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:37
+msgid ""
+"A variable argument list can also be supplied as an array, as demonstrated "
+"in the following example (`new Object[] {'blue', 1}`)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:47
+#, no-wrap
+msgid ""
+"\t// evaluates to \"blue is color #1\"\n"
+"\tString expression = \"'%s is color #%d'.formatted(new Object[] {'blue', "
+"1})\";\n"
+"\tString message = "
+"parser.parseExpression(expression).getValue(String.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:56
+#, no-wrap
+msgid ""
+"\t// evaluates to \"blue is color #1\"\n"
+"\tval expression = \"'%s is color #%d'.formatted(new Object[] {'blue', "
+"1})\"\n"
+"\tval message = "
+"parser.parseExpression(expression).getValue(String::class.java)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:62
+msgid ""
+"As an alternative, a variable argument list can be supplied as a "
+"`java.util.List` – for example, as an "
+"xref:core/expressions/language-ref/inline-lists.adoc[inline list] (`{'blue', "
+"1}`). The following example shows how to do that."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:72
+#, no-wrap
+msgid ""
+"\t// evaluates to \"blue is color #1\"\n"
+"\tString expression = \"'%s is color #%d'.formatted({'blue', 1})\";\n"
+"\tString message = "
+"parser.parseExpression(expression).getValue(String.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:81
+#, no-wrap
+msgid ""
+"\t// evaluates to \"blue is color #1\"\n"
+"\tval expression = \"'%s is color #%d'.formatted({'blue', 1})\"\n"
+"\tval message = "
+"parser.parseExpression(expression).getValue(String::class.java)\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:85
+#, no-wrap
+msgid "Varargs Type Conversion"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:91
+msgid ""
+"In contrast to the standard support for varargs invocations in Java, "
+"xref:core/expressions/evaluation.adoc#expressions-type-conversion[type "
+"conversion] may be applied to the individual arguments when invoking varargs "
+"constructors, methods, or functions in SpEL."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:98
+msgid ""
+"For example, if we have registered a custom "
+"xref:core/expressions/language-ref/functions.adoc[function] in the "
+"`EvaluationContext` under the name `#reverseStrings` for a method with the "
+"signature `String reverseStrings(String... strings)`, we can invoke that "
+"function within a SpEL expression with any argument that can be converted to "
+"a `String`, as demonstrated in the following example."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:109
+#, no-wrap
+msgid ""
+"\t// evaluates to \"3.0, 2.0, 1, SpEL\"\n"
+"\tString expression = \"#reverseStrings('SpEL', 1, 10F / 5, 3.0000)\";\n"
+"\tString message = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(evaluationContext, String.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:119
+#, no-wrap
+msgid ""
+"\t// evaluates to \"3.0, 2.0, 1, SpEL\"\n"
+"\tval expression = \"#reverseStrings('SpEL', 1, 10F / 5, 3.0000)\"\n"
+"\tval message = parser.parseExpression(expression)\n"
+"\t\t\t.getValue(evaluationContext, String::class.java)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:126
+msgid ""
+"Similarly, any array whose component type is a subtype of the required "
+"varargs type can be supplied as the variable argument list for a varargs "
+"invocation. For example, a `String[]` array can be supplied to a varargs "
+"invocation that accepts an `Object...` argument list."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:130
+msgid ""
+"The following listing demonstrates that we can supply a `String[]` array to "
+"the `java.lang.String#formatted(Object...)` _varargs_ method. It also "
+"highlights that `1` will be automatically converted to `\"1\"`."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:140
+#, no-wrap
+msgid ""
+"\t// evaluates to \"blue is color #1\"\n"
+"\tString expression = \"'%s is color #%s'.formatted(new String[] {'blue', "
+"1})\";\n"
+"\tString message = "
+"parser.parseExpression(expression).getValue(String.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/varargs.adoc:149
+#, no-wrap
+msgid ""
+"\t// evaluates to \"blue is color #1\"\n"
+"\tval expression = \"'%s is color #%s'.formatted(new String[] {'blue', "
+"1})\"\n"
+"\tval message = "
+"parser.parseExpression(expression).getValue(String::class.java)\n"
+msgstr ""

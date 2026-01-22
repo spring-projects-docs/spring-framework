@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:2
+#, no-wrap
+msgid "Introductions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:7
+msgid ""
+"Introductions (known as inter-type declarations in AspectJ) enable an aspect "
+"to declare that advised objects implement a given interface, and to provide "
+"an implementation of that interface on behalf of those objects."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:13
+msgid ""
+"You can make an introduction by using the `@DeclareParents` annotation. This "
+"annotation is used to declare that matching types have a new parent (hence "
+"the name). For example, given an interface named `UsageTracked` and an "
+"implementation of that interface named `DefaultUsageTracked`, the following "
+"aspect declares that all implementors of service interfaces also implement "
+"the `UsageTracked` interface (for example, for statistics via JMX):"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:16
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:64
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:22
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tpublic class UsageTracking {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:25
+#, no-wrap
+msgid ""
+"\t\t@DeclareParents(value=\"com.xyz.service.*+\", "
+"defaultImpl=DefaultUsageTracked.class)\n"
+"\t\tpublic static UsageTracked mixin;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:30
+#, no-wrap
+msgid ""
+"\t\t@Before(\"execution(* com.xyz..service.*.*(..)) && "
+"this(usageTracked)\")\n"
+"\t\tpublic void recordUsage(UsageTracked usageTracked) {\n"
+"\t\t\tusageTracked.incrementUseCount();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:32
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:34
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:71
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:40
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tclass UsageTracking {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:46
+#, no-wrap
+msgid ""
+"\t\tcompanion object {\n"
+"\t\t\t@DeclareParents(value = \"com.xyz.service.*+\",\n"
+"\t\t\t\tdefaultImpl = DefaultUsageTracked::class)\n"
+"\t\t\tlateinit var mixin: UsageTracked\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:52
+#, no-wrap
+msgid ""
+"\t\t@Before(\"execution(* com.xyz..service.*.*(..)) && "
+"this(usageTracked)\")\n"
+"\t\tfun recordUsage(usageTracked: UsageTracked) {\n"
+"\t\t\tusageTracked.incrementUseCount()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:61
+msgid ""
+"The interface to be implemented is determined by the type of the annotated "
+"field. The `value` attribute of the `@DeclareParents` annotation is an "
+"AspectJ type pattern. Any bean of a matching type implements the "
+"`UsageTracked` interface. Note that, in the before advice of the preceding "
+"example, service beans can be directly used as implementations of the "
+"`UsageTracked` interface. If accessing a bean programmatically, you would "
+"write the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:69
+#, no-wrap
+msgid ""
+"\tUsageTracked usageTracked = context.getBean(\"myService\", "
+"UsageTracked.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/introductions.adoc:76
+#, no-wrap
+msgid "\tval usageTracked = context.getBean<UsageTracked>(\"myService\")\n"
+msgstr ""

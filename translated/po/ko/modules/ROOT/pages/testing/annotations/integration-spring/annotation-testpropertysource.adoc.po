@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:2
+#, no-wrap
+msgid "`@TestPropertySource`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:8
+msgid ""
+"`@TestPropertySource` is an annotation that can be applied to a test class "
+"to configure the locations of properties files and inlined properties to be "
+"added to the set of `PropertySources` in the `Environment` for an "
+"`ApplicationContext` loaded for an integration test."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:10
+msgid ""
+"The following example demonstrates how to declare a properties file from the "
+"classpath:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:13
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:43
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:22
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:34
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration\n"
+"\t@TestPropertySource(\"/test.properties\") // <1>\n"
+"\tclass MyIntegrationTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:24
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:36
+msgid "Get properties from `test.properties` in the root of the classpath."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:25
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:55
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:40
+msgid "The following example demonstrates how to declare inlined properties:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:52
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration\n"
+"\t@TestPropertySource(properties = { \"timezone = GMT\", \"port: 4242\" }) "
+"// <1>\n"
+"\tclass MyIntegrationTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:54
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:66
+msgid "Declare `timezone` and `port` properties."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:64
+#, no-wrap
+msgid ""
+"\t@ContextConfiguration\n"
+"\t@TestPropertySource(properties = [\"timezone = GMT\", \"port: 4242\"]) // "
+"<1>\n"
+"\tclass MyIntegrationTests {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-testpropertysource.adoc:69
+msgid ""
+"See "
+"xref:testing/testcontext-framework/ctx-management/property-sources.adoc[Context "
+"Configuration with Test Property Sources] for examples and further details."
+msgstr ""

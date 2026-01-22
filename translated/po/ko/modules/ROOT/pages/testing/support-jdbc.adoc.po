@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:2
+#, no-wrap
+msgid "JDBC Testing Support"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:6
+#, no-wrap
+msgid "JdbcTestUtils"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:12
+msgid ""
+"The `org.springframework.test.jdbc` package contains `JdbcTestUtils`, which "
+"is a collection of JDBC-related utility functions intended to simplify "
+"standard database testing scenarios. Specifically, `JdbcTestUtils` provides "
+"the following static utility methods."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:14
+msgid "`countRowsInTable(..)`: Counts the number of rows in the given table."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:16
+msgid ""
+"`countRowsInTableWhere(..)`: Counts the number of rows in the given table by "
+"using the provided `WHERE` clause."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:17
+msgid "`deleteFromTables(..)`: Deletes all rows from the specified tables."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:19
+msgid ""
+"`deleteFromTableWhere(..)`: Deletes rows from the given table by using the "
+"provided `WHERE` clause."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:20
+msgid "`dropTables(..)`: Drops the specified tables."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:27
+msgid ""
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-support-classes-junit4[`AbstractTransactionalJUnit4SpringContextTests`] "
+"and "
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-support-classes-testng[`AbstractTransactionalTestNGSpringContextTests`] "
+"provide convenience methods that delegate to the aforementioned methods in "
+"`JdbcTestUtils`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:30
+#, no-wrap
+msgid "Embedded Databases"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/support-jdbc.adoc:36
+#, no-wrap
+msgid ""
+"The `spring-jdbc` module provides support for configuring and launching an "
+"embedded\n"
+"database, which you can use in integration tests that interact with a "
+"database.\n"
+"For details, see "
+"xref:data-access/jdbc/embedded-database-support.adoc[Embedded Database "
+"Support]\n"
+" and "
+"xref:data-access/jdbc/embedded-database-support.adoc#jdbc-embedded-database-dao-testing[Testing "
+"Data Access\n"
+"Logic with an Embedded Database].\n"
+msgstr ""

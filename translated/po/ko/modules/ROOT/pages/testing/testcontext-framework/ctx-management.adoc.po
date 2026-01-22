@@ -1,0 +1,285 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:2
+#, no-wrap
+msgid "Context Management"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:11
+msgid ""
+"Each `TestContext` provides context management and caching support for the "
+"test instance for which it is responsible. Test instances do not "
+"automatically receive access to the configured "
+"`ApplicationContext`. However, if a test class implements the "
+"`ApplicationContextAware` interface, a reference to the `ApplicationContext` "
+"is supplied to the test instance. Note that "
+"`AbstractJUnit4SpringContextTests` and `AbstractTestNGSpringContextTests` "
+"implement `ApplicationContextAware` and, therefore, provide access to the "
+"`ApplicationContext` automatically."
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:12
+#, no-wrap
+msgid "@Autowired ApplicationContext"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:18
+msgid ""
+"As an alternative to implementing the `ApplicationContextAware` interface, "
+"you can inject the application context for your test class through the "
+"`@Autowired` annotation on either a field or setter method, as the following "
+"example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:21
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:58
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:27
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:42
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig\n"
+"\tclass MyTest {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:30
+#, no-wrap
+msgid ""
+"\t\t@Autowired // <1>\n"
+"\t\tApplicationContext applicationContext;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:33
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:48
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:70
+#, no-wrap
+msgid ""
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:35
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:50
+msgid "Injecting the `ApplicationContext`."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:36
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:74
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:45
+#, no-wrap
+msgid ""
+"\t\t@Autowired // <1>\n"
+"\t\tlateinit var applicationContext: ApplicationContext\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:55
+msgid ""
+"Similarly, if your test is configured to load a `WebApplicationContext`, you "
+"can inject the web application context into your test, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:64
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:80
+#, no-wrap
+msgid ""
+"\t@SpringJUnitWebConfig // <1>\n"
+"\tclass MyWebAppTest {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:67
+#, no-wrap
+msgid ""
+"\t\t@Autowired // <2>\n"
+"\t\tWebApplicationContext wac;\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:72
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:87
+msgid "Configuring the `WebApplicationContext`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:73
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:88
+msgid "Injecting the `WebApplicationContext`."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:85
+#, no-wrap
+msgid ""
+"\t\t@Autowired // <2>\n"
+"\t\tlateinit var wac: WebApplicationContext\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:94
+msgid ""
+"Dependency injection by using `@Autowired` is provided by the "
+"`DependencyInjectionTestExecutionListener`, which is configured by default "
+"(see xref:testing/testcontext-framework/fixture-di.adoc[Dependency Injection "
+"of Test Fixtures])."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:104
+msgid ""
+"Test classes that use the TestContext framework do not need to extend any "
+"particular class or implement a specific interface to configure their "
+"application context. Instead, configuration is achieved by declaring the "
+"`@ContextConfiguration` annotation at the class level. If your test class "
+"does not explicitly declare application context resource locations or "
+"component classes, the configured `ContextLoader` determines how to load a "
+"context from a default location or default configuration classes. In "
+"addition to context resource locations and component classes, an application "
+"context can also be configured through application context initializers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:110
+msgid ""
+"The following sections explain how to use Spring's `@ContextConfiguration` "
+"annotation to configure a test `ApplicationContext` by using XML "
+"configuration files, Groovy scripts, component classes (typically "
+"`@Configuration` classes), or context initializers.  Alternatively, you can "
+"implement and configure your own custom `SmartContextLoader` for advanced "
+"use cases."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:112
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/xml.adoc[Context "
+"Configuration with XML resources]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:113
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/groovy.adoc[Context "
+"Configuration with Groovy Scripts]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:114
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/javaconfig.adoc[Context "
+"Configuration with Component Classes]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:115
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/mixed-config.adoc[Mixing "
+"XML, Groovy Scripts, and Component Classes]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:116
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/context-customizers.adoc[Context "
+"Configuration with Context Customizers]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:117
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/initializers.adoc[Context "
+"Configuration with Context Initializers]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:118
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/inheritance.adoc[Context "
+"Configuration Inheritance]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:119
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/env-profiles.adoc[Context "
+"Configuration with Environment Profiles]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:120
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/property-sources.adoc[Context "
+"Configuration with Test Property Sources]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:121
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/dynamic-property-sources.adoc[Context "
+"Configuration with Dynamic Property Sources]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:122
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/web.adoc[Loading a "
+"`WebApplicationContext`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:123
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/caching.adoc[Context "
+"Caching]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:124
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/failure-threshold.adoc[Context "
+"Failure Threshold]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management.adoc:124
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/hierarchies.adoc[Context "
+"Hierarchies]"
+msgstr ""

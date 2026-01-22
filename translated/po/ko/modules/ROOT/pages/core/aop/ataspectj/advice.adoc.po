@@ -1,0 +1,1389 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:2
+#, no-wrap
+msgid "Declaring Advice"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:7
+msgid ""
+"Advice is associated with a pointcut expression and runs before, after, or "
+"around method executions matched by the pointcut. The pointcut expression "
+"may be either an _inline pointcut_ or a reference to a "
+"xref:core/aop/ataspectj/pointcuts.adoc#aop-common-pointcuts[_named "
+"pointcut_]."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:10
+#, no-wrap
+msgid "Before Advice"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:13
+msgid ""
+"You can declare before advice in an aspect by using the `@Before` "
+"annotation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:15
+msgid "The following example uses an inline pointcut expression."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:18
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:58
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:102
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:147
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:205
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:248
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:312
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:418
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:501
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:534
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:573
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:598
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:631
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:657
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:683
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:757
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:795
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:834
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:868
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:24
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:64
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.annotation.Aspect;\n"
+"\timport org.aspectj.lang.annotation.Before;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:27
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:67
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tpublic class BeforeExample {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:33
+#, no-wrap
+msgid ""
+"\t\t@Before(\"execution(* com.xyz.dao.*.*(..))\")\n"
+"\t\tpublic void doAccessCheck() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:35
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:75
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:119
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:166
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:222
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:267
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:329
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:439
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:511
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:547
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:584
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:610
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:641
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:667
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:693
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:772
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:810
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:845
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:883
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:41
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:81
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.annotation.Aspect\n"
+"\timport org.aspectj.lang.annotation.Before\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:44
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:84
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tclass BeforeExample {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:50
+#, no-wrap
+msgid ""
+"\t\t@Before(\"execution(* com.xyz.dao.*.*(..))\")\n"
+"\t\tfun doAccessCheck() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:55
+msgid ""
+"If we use a "
+"xref:core/aop/ataspectj/pointcuts.adoc#aop-common-pointcuts[named pointcut], "
+"we can rewrite the preceding example as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:73
+#, no-wrap
+msgid ""
+"\t\t@Before(\"com.xyz.CommonPointcuts.dataAccessOperation()\")\n"
+"\t\tpublic void doAccessCheck() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:90
+#, no-wrap
+msgid ""
+"\t\t@Before(\"com.xyz.CommonPointcuts.dataAccessOperation()\")\n"
+"\t\tfun doAccessCheck() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:95
+#, no-wrap
+msgid "After Returning Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:99
+msgid ""
+"After returning advice runs when a matched method execution returns "
+"normally.  You can declare it by using the `@AfterReturning` annotation."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:108
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:153
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.annotation.Aspect;\n"
+"\timport org.aspectj.lang.annotation.AfterReturning;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:111
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:156
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tpublic class AfterReturningExample {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:117
+#, no-wrap
+msgid ""
+"\t\t@AfterReturning(\"execution(* com.xyz.dao.*.*(..))\")\n"
+"\t\tpublic void doAccessCheck() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:125
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:172
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.annotation.Aspect\n"
+"\timport org.aspectj.lang.annotation.AfterReturning\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:128
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:175
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tclass AfterReturningExample {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:134
+#, no-wrap
+msgid ""
+"\t\t@AfterReturning(\"execution(* com.xyz.dao.*.*(..))\")\n"
+"\t\tfun doAccessCheck() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:140
+msgid ""
+"You can have multiple advice declarations (and other members as well), all "
+"inside the same aspect. We show only a single advice declaration in these "
+"examples to focus the effect of each one."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:144
+msgid ""
+"Sometimes, you need access in the advice body to the actual value that was "
+"returned.  You can use the form of `@AfterReturning` that binds the return "
+"value to get that access, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:164
+#, no-wrap
+msgid ""
+"\t\t@AfterReturning(\n"
+"\t\t\tpointcut=\"execution(* com.xyz.dao.*.*(..))\",\n"
+"\t\t\treturning=\"retVal\")\n"
+"\t\tpublic void doAccessCheck(Object retVal) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:183
+#, no-wrap
+msgid ""
+"\t\t@AfterReturning(\n"
+"\t\t\tpointcut = \"execution(* com.xyz.dao.*.*(..))\",\n"
+"\t\t\treturning = \"retVal\")\n"
+"\t\tfun doAccessCheck(retVal: Any?) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:191
+msgid ""
+"The name used in the `returning` attribute must correspond to the name of a "
+"parameter in the advice method. When a method execution returns, the return "
+"value is passed to the advice method as the corresponding argument value. A "
+"`returning` clause also restricts matching to only those method executions "
+"that return a value of the specified type (in this case, `Object`, which "
+"matches any return value)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:194
+msgid ""
+"Please note that it is not possible to return a totally different reference "
+"when using after returning advice."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:197
+#, no-wrap
+msgid "After Throwing Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:202
+msgid ""
+"After throwing advice runs when a matched method execution exits by throwing "
+"an exception. You can declare it by using the `@AfterThrowing` annotation, "
+"as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:211
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:254
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.annotation.Aspect;\n"
+"\timport org.aspectj.lang.annotation.AfterThrowing;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:214
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:257
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tpublic class AfterThrowingExample {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:220
+#, no-wrap
+msgid ""
+"\t\t@AfterThrowing(\"execution(* com.xyz.dao.*.*(..))\")\n"
+"\t\tpublic void doRecoveryActions() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:228
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:273
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.annotation.Aspect\n"
+"\timport org.aspectj.lang.annotation.AfterThrowing\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:231
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:276
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tclass AfterThrowingExample {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:237
+#, no-wrap
+msgid ""
+"\t\t@AfterThrowing(\"execution(* com.xyz.dao.*.*(..))\")\n"
+"\t\tfun doRecoveryActions() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:245
+msgid ""
+"Often, you want the advice to run only when exceptions of a given type are "
+"thrown, and you also often need access to the thrown exception in the advice "
+"body. You can use the `throwing` attribute to both restrict matching (if "
+"desired -- use `Throwable` as the exception type otherwise) and bind the "
+"thrown exception to an advice parameter.  The following example shows how to "
+"do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:265
+#, no-wrap
+msgid ""
+"\t\t@AfterThrowing(\n"
+"\t\t\tpointcut=\"execution(* com.xyz.dao.*.*(..))\",\n"
+"\t\t\tthrowing=\"ex\")\n"
+"\t\tpublic void doRecoveryActions(DataAccessException ex) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:284
+#, no-wrap
+msgid ""
+"\t\t@AfterThrowing(\n"
+"\t\t\tpointcut = \"execution(* com.xyz.dao.*.*(..))\",\n"
+"\t\t\tthrowing = \"ex\")\n"
+"\t\tfun doRecoveryActions(ex: DataAccessException) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:292
+msgid ""
+"The name used in the `throwing` attribute must correspond to the name of a "
+"parameter in the advice method. When a method execution exits by throwing an "
+"exception, the exception is passed to the advice method as the corresponding "
+"argument value. A `throwing` clause also restricts matching to only those "
+"method executions that throw an exception of the specified type "
+"(`DataAccessException`, in this case)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:299
+msgid ""
+"Note that `@AfterThrowing` does not indicate a general exception handling "
+"callback.  Specifically, an `@AfterThrowing` advice method is only supposed "
+"to receive exceptions from the join point (user-declared target method) "
+"itself but not from an accompanying `@After`/`@AfterReturning` method."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:303
+#, no-wrap
+msgid "After (Finally) Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:309
+msgid ""
+"After (finally) advice runs when a matched method execution exits. It is "
+"declared by using the `@After` annotation. After advice must be prepared to "
+"handle both normal and exception return conditions. It is typically used for "
+"releasing resources and similar purposes. The following example shows how to "
+"use after finally advice:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:318
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.annotation.Aspect;\n"
+"\timport org.aspectj.lang.annotation.After;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:321
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tpublic class AfterFinallyExample {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:327
+#, no-wrap
+msgid ""
+"\t\t@After(\"execution(* com.xyz.dao.*.*(..))\")\n"
+"\t\tpublic void doReleaseLock() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:335
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.annotation.Aspect\n"
+"\timport org.aspectj.lang.annotation.After\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:338
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tclass AfterFinallyExample {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:344
+#, no-wrap
+msgid ""
+"\t\t@After(\"execution(* com.xyz.dao.*.*(..))\")\n"
+"\t\tfun doReleaseLock() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:353
+msgid ""
+"Note that `@After` advice in AspectJ is defined as \"after finally advice\", "
+"analogous to a finally block in a try-catch statement. It will be invoked "
+"for any outcome, normal return or exception thrown from the join point "
+"(user-declared target method), in contrast to `@AfterReturning` which only "
+"applies to successful normal returns."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:357
+#, no-wrap
+msgid "Around Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:364
+msgid ""
+"The last kind of advice is _around_ advice. Around advice runs \"around\" a "
+"matched method's execution. It has the opportunity to do work both before "
+"and after the method runs and to determine when, how, and even if the method "
+"actually gets to run at all.  Around advice is often used if you need to "
+"share state before and after a method execution in a thread-safe manner – "
+"for example, starting and stopping a timer."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:368
+msgid "Always use the least powerful form of advice that meets your requirements."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:370
+msgid ""
+"For example, do not use _around_ advice if _before_ advice is sufficient for "
+"your needs."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:381
+msgid ""
+"Around advice is declared by annotating a method with the `@Around` "
+"annotation. The method should declare `Object` as its return type, and the "
+"first parameter of the method must be of type `ProceedingJoinPoint`. Within "
+"the body of the advice method, you must invoke `proceed()` on the "
+"`ProceedingJoinPoint` in order for the underlying method to run. Invoking "
+"`proceed()` without arguments will result in the caller's original arguments "
+"being supplied to the underlying method when it is invoked. For advanced use "
+"cases, there is an overloaded variant of the `proceed()` method which "
+"accepts an array of arguments (`Object[]`). The values in the array will be "
+"used as the arguments to the underlying method when it is invoked."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:391
+msgid ""
+"The behavior of `proceed` when called with an `Object[]` is a little "
+"different than the behavior of `proceed` for around advice compiled by the "
+"AspectJ compiler. For around advice written using the traditional AspectJ "
+"language, the number of arguments passed to `proceed` must match the number "
+"of arguments passed to the around advice (not the number of arguments taken "
+"by the underlying join point), and the value passed to proceed in a given "
+"argument position supplants the original value at the join point for the "
+"entity the value was bound to (do not worry if this does not make sense "
+"right now)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:398
+msgid ""
+"The approach taken by Spring is simpler and a better match to its "
+"proxy-based, execution-only semantics. You only need to be aware of this "
+"difference if you compile `@AspectJ` aspects written for Spring and use "
+"`proceed` with arguments with the AspectJ compiler and weaver. There is a "
+"way to write such aspects that is 100% compatible across both Spring AOP and "
+"AspectJ, and this is discussed in the "
+"xref:core/aop/ataspectj/advice.adoc#aop-ataspectj-advice-proceeding-with-the-call[following "
+"section on advice parameters]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:405
+msgid ""
+"The value returned by the around advice is the return value seen by the "
+"caller of the method. For example, a simple caching aspect could return a "
+"value from a cache if it has one or invoke `proceed()` (and return that "
+"value) if it does not. Note that `proceed` may be invoked once, many times, "
+"or not at all within the body of the around advice. All of these are legal."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:413
+msgid ""
+"If you declare the return type of your around advice method as `void`, "
+"`null` will always be returned to the caller, effectively ignoring the "
+"result of any invocation of `proceed()`. It is therefore recommended that an "
+"around advice method declare a return type of `Object`. The advice method "
+"should typically return the value returned from an invocation of "
+"`proceed()`, even if the underlying method has a `void` return type.  "
+"However, the advice may optionally return a cached value, a wrapped value, "
+"or some other value depending on the use case."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:415
+msgid "The following example shows how to use around advice:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:425
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.annotation.Aspect;\n"
+"\timport org.aspectj.lang.annotation.Around;\n"
+"\timport org.aspectj.lang.ProceedingJoinPoint;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:428
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tpublic class AroundExample {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:437
+#, no-wrap
+msgid ""
+"\t\t@Around(\"execution(* com.xyz..service.*.*(..))\")\n"
+"\t\tpublic Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable "
+"{\n"
+"\t\t\t// start stopwatch\n"
+"\t\t\tObject retVal = pjp.proceed();\n"
+"\t\t\t// stop stopwatch\n"
+"\t\t\treturn retVal;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:446
+#, no-wrap
+msgid ""
+"\timport org.aspectj.lang.annotation.Aspect\n"
+"\timport org.aspectj.lang.annotation.Around\n"
+"\timport org.aspectj.lang.ProceedingJoinPoint\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:449
+#, no-wrap
+msgid ""
+"\t@Aspect\n"
+"\tclass AroundExample {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:458
+#, no-wrap
+msgid ""
+"\t\t@Around(\"execution(* com.xyz..service.*.*(..))\")\n"
+"\t\tfun doBasicProfiling(pjp: ProceedingJoinPoint): Any? {\n"
+"\t\t\t// start stopwatch\n"
+"\t\t\tval retVal = pjp.proceed()\n"
+"\t\t\t// stop stopwatch\n"
+"\t\t\treturn retVal\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:462
+#, no-wrap
+msgid "Advice Parameters"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:469
+msgid ""
+"Spring offers fully typed advice, meaning that you declare the parameters "
+"you need in the advice signature (as we saw earlier for the returning and "
+"throwing examples) rather than work with `Object[]` arrays all the time. We "
+"see how to make argument and other contextual values available to the advice "
+"body later in this section. First, we take a look at how to write generic "
+"advice that can find out about the method the advice is currently advising."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:471
+#, no-wrap
+msgid "Access to the Current `JoinPoint`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:476
+msgid ""
+"Any advice method may declare, as its first parameter, a parameter of type "
+"`org.aspectj.lang.JoinPoint`. Note that around advice is required to declare "
+"a first parameter of type `ProceedingJoinPoint`, which is a subclass of "
+"`JoinPoint`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:478
+msgid "The `JoinPoint` interface provides a number of useful methods:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:480
+msgid "`getArgs()`: Returns the method arguments."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:481
+msgid "`getThis()`: Returns the proxy object."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:482
+msgid "`getTarget()`: Returns the target object."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:483
+msgid "`getSignature()`: Returns a description of the method that is being advised."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:484
+msgid "`toString()`: Prints a useful description of the method being advised."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:486
+msgid ""
+"See the {aspectj-api}/org/aspectj/lang/JoinPoint.html[javadoc] for more "
+"detail."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:488
+#, no-wrap
+msgid "Passing Parameters to Advice"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:498
+msgid ""
+"We have already seen how to bind the returned value or exception value "
+"(using after returning and after throwing advice). To make argument values "
+"available to the advice body, you can use the binding form of `args`. If you "
+"use a parameter name in place of a type name in an `args` expression, the "
+"value of the corresponding argument is passed as the parameter value when "
+"the advice is invoked. An example should make this clearer.  Suppose you "
+"want to advise the execution of DAO operations that take an `Account` object "
+"as the first parameter, and you need access to the account in the advice "
+"body.  You could write the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:509
+#, no-wrap
+msgid ""
+"\t@Before(\"execution(* com.xyz.dao.*.*(..)) && args(account,..)\")\n"
+"\tpublic void validateAccount(Account account) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:519
+#, no-wrap
+msgid ""
+"\t@Before(\"execution(* com.xyz.dao.*.*(..)) && args(account,..)\")\n"
+"\tfun validateAccount(account: Account) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:527
+msgid ""
+"The `args(account,..)` part of the pointcut expression serves two "
+"purposes. First, it restricts matching to only those method executions where "
+"the method takes at least one parameter, and the argument passed to that "
+"parameter is an instance of `Account`.  Second, it makes the actual "
+"`Account` object available to the advice through the `account` parameter."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:531
+msgid ""
+"Another way of writing this is to declare a pointcut that \"provides\" the "
+"`Account` object value when it matches a join point, and then refer to the "
+"named pointcut from the advice. This would look as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:540
+#, no-wrap
+msgid ""
+"\t@Pointcut(\"execution(* com.xyz.dao.*.*(..)) && args(account,..)\")\n"
+"\tprivate void accountDataAccessOperation(Account account) {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:545
+#, no-wrap
+msgid ""
+"\t@Before(\"accountDataAccessOperation(account)\")\n"
+"\tpublic void validateAccount(Account account) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:554
+#, no-wrap
+msgid ""
+"\t@Pointcut(\"execution(* com.xyz.dao.*.*(..)) && args(account,..)\")\n"
+"\tprivate fun accountDataAccessOperation(account: Account) {\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:559
+#, no-wrap
+msgid ""
+"\t@Before(\"accountDataAccessOperation(account)\")\n"
+"\tfun validateAccount(account: Account) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:563
+msgid "See the AspectJ programming guide for more details."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:568
+msgid ""
+"The proxy object (`this`), target object (`target`), and annotations "
+"(`@within`, `@target`, `@annotation`, and `@args`) can all be bound in a "
+"similar fashion. The next set of examples shows how to match the execution "
+"of methods annotated with an `@Auditable` annotation and extract the audit "
+"code:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:570
+msgid "The following shows the definition of the `@Auditable` annotation:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:582
+#, no-wrap
+msgid ""
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t@Target(ElementType.METHOD)\n"
+"\tpublic @interface Auditable {\n"
+"\t\tAuditCode value();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:591
+#, no-wrap
+msgid ""
+"\t@Retention(AnnotationRetention.RUNTIME)\n"
+"\t@Target(AnnotationTarget.FUNCTION)\n"
+"\tannotation class Auditable(val value: AuditCode)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:595
+msgid ""
+"The following shows the advice that matches the execution of `@Auditable` "
+"methods:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:607
+#, no-wrap
+msgid ""
+"\t@Before(\"com.xyz.Pointcuts.publicMethod() && @annotation(auditable)\") // "
+"<1>\n"
+"\tpublic void audit(Auditable auditable) {\n"
+"\t\tAuditCode code = auditable.value();\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:609
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:621
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:770
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:785
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:808
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:823
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:844
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:855
+msgid ""
+"References the `publicMethod` named pointcut defined in "
+"xref:core/aop/ataspectj/pointcuts.adoc#aop-pointcuts-combining[Combining "
+"Pointcut Expressions]."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:619
+#, no-wrap
+msgid ""
+"\t@Before(\"com.xyz.Pointcuts.publicMethod() && @annotation(auditable)\") // "
+"<1>\n"
+"\tfun audit(auditable: Auditable) {\n"
+"\t\tval code = auditable.value()\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:624
+#, no-wrap
+msgid "Advice Parameters and Generics"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:628
+msgid ""
+"Spring AOP can handle generics used in class declarations and method "
+"parameters. Suppose you have a generic type like the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:639
+#, no-wrap
+msgid ""
+"\tpublic interface Sample<T> {\n"
+"\t\tvoid sampleGenericMethod(T param);\n"
+"\t\tvoid sampleGenericCollectionMethod(Collection<T> param);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:649
+#, no-wrap
+msgid ""
+"\tinterface Sample<T> {\n"
+"\t\tfun sampleGenericMethod(param: T)\n"
+"\t\tfun sampleGenericCollectionMethod(param: Collection<T>)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:654
+msgid ""
+"You can restrict interception of method types to certain parameter types by "
+"tying the advice parameter to the parameter type for which you want to "
+"intercept the method:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:665
+#, no-wrap
+msgid ""
+"\t@Before(\"execution(* ..Sample+.sampleGenericMethod(*)) && "
+"args(param)\")\n"
+"\tpublic void beforeSampleMethod(MyType param) {\n"
+"\t\t// Advice implementation\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:675
+#, no-wrap
+msgid ""
+"\t@Before(\"execution(* ..Sample+.sampleGenericMethod(*)) && "
+"args(param)\")\n"
+"\tfun beforeSampleMethod(param: MyType) {\n"
+"\t\t// Advice implementation\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:680
+msgid ""
+"This approach does not work for generic collections. So you cannot define a "
+"pointcut as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:691
+#, no-wrap
+msgid ""
+"\t@Before(\"execution(* ..Sample+.sampleGenericCollectionMethod(*)) && "
+"args(param)\")\n"
+"\tpublic void beforeSampleMethod(Collection<MyType> param) {\n"
+"\t\t// Advice implementation\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:701
+#, no-wrap
+msgid ""
+"\t@Before(\"execution(* ..Sample+.sampleGenericCollectionMethod(*)) && "
+"args(param)\")\n"
+"\tfun beforeSampleMethod(param: Collection<MyType>) {\n"
+"\t\t// Advice implementation\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:708
+msgid ""
+"To make this work, we would have to inspect every element of the collection, "
+"which is not reasonable, as we also cannot decide how to treat `null` values "
+"in general. To achieve something similar to this, you have to type the "
+"parameter to `Collection<?>` and manually check the type of the elements."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:710
+#, no-wrap
+msgid "Determining Argument Names"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:714
+msgid ""
+"Parameter binding in advice invocations relies on matching the names used in "
+"pointcut expressions to the parameter names declared in advice and pointcut "
+"method signatures."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:717
+msgid ""
+"This section uses the terms _argument_ and _parameter_ interchangeably, "
+"since AspectJ APIs refer to parameter names as argument names."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:722
+msgid ""
+"Spring AOP uses the following `ParameterNameDiscoverer` implementations to "
+"determine parameter names. Each discoverer will be given a chance to "
+"discover parameter names, and the first successful discoverer wins. If none "
+"of the registered discoverers is capable of determining parameter names, an "
+"exception will be thrown."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:723
+#, no-wrap
+msgid "`AspectJAnnotationParameterNameDiscoverer` "
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:726
+msgid ""
+"Uses parameter names that have been explicitly specified by the user via the "
+"`argNames` attribute in the corresponding advice or pointcut annotation. See "
+"xref:core/aop/ataspectj/advice.adoc#aop-ataspectj-advice-params-names-explicit[Explicit "
+"Argument Names] for details."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:726
+#, no-wrap
+msgid "`KotlinReflectionParameterNameDiscoverer` "
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:728
+msgid ""
+"Uses Kotlin reflection APIs to determine parameter names. This discoverer is "
+"only used if such APIs are present on the classpath."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:728
+#, no-wrap
+msgid "`StandardReflectionParameterNameDiscoverer` "
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:731
+msgid ""
+"Uses the standard `java.lang.reflect.Parameter` API to determine parameter "
+"names. Requires that code be compiled with the `-parameters` flag for "
+"`javac`. Recommended approach on Java 8+."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:731
+#, no-wrap
+msgid "`AspectJAdviceParameterNameDiscoverer` "
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:735
+msgid ""
+"Deduces parameter names from the pointcut expression, `returning`, and "
+"`throwing` clauses. See the "
+"{spring-framework-api}/aop/aspectj/AspectJAdviceParameterNameDiscoverer.html[javadoc] "
+"for details on the algorithm used."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:737
+#, no-wrap
+msgid "Explicit Argument Names"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:741
+msgid ""
+"@AspectJ advice and pointcut annotations have an optional `argNames` "
+"attribute that you can use to specify the argument names of the annotated "
+"method."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:747
+msgid ""
+"If an @AspectJ aspect has been compiled by the AspectJ compiler (`ajc`) even "
+"without debug information, you do not need to add the `argNames` attribute, "
+"since the compiler retains the needed information."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:751
+msgid ""
+"Similarly, if an @AspectJ aspect has been compiled with `javac` using the "
+"`-parameters` flag, you do not need to add the `argNames` attribute, since "
+"the compiler retains the needed information."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:754
+msgid "The following example shows how to use the `argNames` attribute:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:768
+#, no-wrap
+msgid ""
+"\t@Before(\n"
+"\t\tvalue = \"com.xyz.Pointcuts.publicMethod() && target(bean) && "
+"@annotation(auditable)\", // <1>\n"
+"\t\targNames = \"bean,auditable\") // <2>\n"
+"\tpublic void audit(Object bean, Auditable auditable) {\n"
+"\t\tAuditCode code = auditable.value();\n"
+"\t\t// ... use code and bean\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:771
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:786
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:809
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:824
+msgid "Declares `bean` and `auditable` as the argument names."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:783
+#, no-wrap
+msgid ""
+"\t@Before(\n"
+"\t\tvalue = \"com.xyz.Pointcuts.publicMethod() && target(bean) && "
+"@annotation(auditable)\", // <1>\n"
+"\t\targNames = \"bean,auditable\") // <2>\n"
+"\tfun audit(bean: Any, auditable: Auditable) {\n"
+"\t\tval code = auditable.value()\n"
+"\t\t// ... use code and bean\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:792
+msgid ""
+"If the first parameter is of type `JoinPoint`, `ProceedingJoinPoint`, or "
+"`JoinPoint.StaticPart`, you can omit the name of the parameter from the "
+"value of the `argNames` attribute. For example, if you modify the preceding "
+"advice to receive the join point object, the `argNames` attribute does not "
+"need to include it:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:806
+#, no-wrap
+msgid ""
+"\t@Before(\n"
+"\t\tvalue = \"com.xyz.Pointcuts.publicMethod() && target(bean) && "
+"@annotation(auditable)\", // <1>\n"
+"\t\targNames = \"bean,auditable\") // <2>\n"
+"\tpublic void audit(JoinPoint jp, Object bean, Auditable auditable) {\n"
+"\t\tAuditCode code = auditable.value();\n"
+"\t\t// ... use code, bean, and jp\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:821
+#, no-wrap
+msgid ""
+"\t@Before(\n"
+"\t\tvalue = \"com.xyz.Pointcuts.publicMethod() && target(bean) && "
+"@annotation(auditable)\", // <1>\n"
+"\t\targNames = \"bean,auditable\") // <2>\n"
+"\tfun audit(jp: JoinPoint, bean: Any, auditable: Auditable) {\n"
+"\t\tval code = auditable.value()\n"
+"\t\t// ... use code, bean, and jp\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:831
+msgid ""
+"The special treatment given to the first parameter of type `JoinPoint`, "
+"`ProceedingJoinPoint`, or `JoinPoint.StaticPart` is particularly convenient "
+"for advice methods that do not collect any other join point context. In such "
+"situations, you may omit the `argNames` attribute. For example, the "
+"following advice does not need to declare the `argNames` attribute:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:842
+#, no-wrap
+msgid ""
+"\t@Before(\"com.xyz.Pointcuts.publicMethod()\") // <1>\n"
+"\tpublic void audit(JoinPoint jp) {\n"
+"\t\t// ... use jp\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:853
+#, no-wrap
+msgid ""
+"\t@Before(\"com.xyz.Pointcuts.publicMethod()\") // <1>\n"
+"\tfun audit(jp: JoinPoint) {\n"
+"\t\t// ... use jp\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:859
+#, no-wrap
+msgid "Proceeding with Arguments"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:865
+msgid ""
+"We remarked earlier that we would describe how to write a `proceed` call "
+"with arguments that works consistently across Spring AOP and AspectJ. The "
+"solution is to ensure that the advice signature binds each of the method "
+"parameters in order.  The following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:880
+#, no-wrap
+msgid ""
+"\t@Around(\"execution(List<Account> find*(..)) && \" +\n"
+"\t\t\t\"com.xyz.CommonPointcuts.inDataAccessLayer() && \" +\n"
+"\t\t\t\"args(accountHolderNamePattern)\") // <1>\n"
+"\tpublic Object preProcessQueryPattern(ProceedingJoinPoint pjp,\n"
+"\t\t\tString accountHolderNamePattern) throws Throwable {\n"
+"\t\tString newPattern = preProcess(accountHolderNamePattern);\n"
+"\t\treturn pjp.proceed(new Object[] {newPattern});\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:882
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:897
+msgid ""
+"References the `inDataAccessLayer` named pointcut defined in "
+"xref:core/aop/ataspectj/pointcuts.adoc#aop-common-pointcuts[Sharing Named "
+"Pointcut Definitions]."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:895
+#, no-wrap
+msgid ""
+"\t@Around(\"execution(List<Account> find*(..)) && \" +\n"
+"\t\t\t\"com.xyz.CommonPointcuts.inDataAccessLayer() && \" +\n"
+"\t\t\t\"args(accountHolderNamePattern)\") // <1>\n"
+"\tfun preProcessQueryPattern(pjp: ProceedingJoinPoint,\n"
+"\t\t\t\t\t\t\taccountHolderNamePattern: String): Any? {\n"
+"\t\tval newPattern = preProcess(accountHolderNamePattern)\n"
+"\t\treturn pjp.proceed(arrayOf<Any>(newPattern))\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:900
+msgid "In many cases, you do this binding anyway (as in the preceding example)."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:903
+#, no-wrap
+msgid "Advice Ordering"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:911
+msgid ""
+"What happens when multiple pieces of advice all want to run at the same join "
+"point? Spring AOP follows the same precedence rules as AspectJ to determine "
+"the order of advice execution. The highest precedence advice runs first \"on "
+"the way in\" (so, given two pieces of before advice, the one with highest "
+"precedence runs first). \"On the way out\" from a join point, the highest "
+"precedence advice runs last (so, given two pieces of after advice, the one "
+"with the highest precedence will run second)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:919
+msgid ""
+"When two pieces of advice defined in different aspects both need to run at "
+"the same join point, unless you specify otherwise, the order of execution is "
+"undefined. You can control the order of execution by specifying "
+"precedence. This is done in the normal Spring way by either implementing the "
+"`org.springframework.core.Ordered` interface in the aspect class or "
+"annotating it with the `@Order` annotation. Given two aspects, the aspect "
+"returning the lower value from `Ordered.getOrder()` (or the annotation "
+"value) has the higher precedence."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:925
+msgid ""
+"Each of the distinct advice types of a particular aspect is conceptually "
+"meant to apply to the join point directly. As a consequence, an "
+"`@AfterThrowing` advice method is not supposed to receive an exception from "
+"an accompanying `@After`/`@AfterReturning` method."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:932
+msgid ""
+"Advice methods defined in the same `@Aspect` class that need to run at the "
+"same join point are assigned precedence based on their advice type in the "
+"following order, from highest to lowest precedence: `@Around`, `@Before`, "
+"`@After`, `@AfterReturning`, `@AfterThrowing`. Note, however, that an "
+"`@After` advice method will effectively be invoked after any "
+"`@AfterReturning` or `@AfterThrowing` advice methods in the same aspect, "
+"following AspectJ's \"after finally advice\" semantics for `@After`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj/advice.adoc:939
+msgid ""
+"When two pieces of the same type of advice (for example, two `@After` advice "
+"methods)  defined in the same `@Aspect` class both need to run at the same "
+"join point, the ordering is undefined (since there is no way to retrieve the "
+"source code declaration order through reflection for javac-compiled "
+"classes). Consider collapsing such advice methods into one advice method per "
+"join point in each `@Aspect` class or refactor the pieces of advice into "
+"separate `@Aspect` classes that you can order at the aspect level via "
+"`Ordered` or `@Order`."
+msgstr ""

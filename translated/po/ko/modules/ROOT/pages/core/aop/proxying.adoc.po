@@ -1,0 +1,515 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:2
+#, no-wrap
+msgid "Proxying Mechanisms"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:7
+msgid ""
+"Spring AOP uses either JDK dynamic proxies or CGLIB to create the proxy for "
+"a given target object. JDK dynamic proxies are built into the JDK, whereas "
+"CGLIB is a common open-source class definition library (repackaged into "
+"`spring-core`)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:12
+msgid ""
+"If the target object to be proxied implements at least one interface, a JDK "
+"dynamic proxy is used, and all of the interfaces implemented by the target "
+"type are proxied.  If the target object does not implement any interfaces, a "
+"CGLIB proxy is created which is a runtime-generated subclass of the target "
+"type."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:16
+msgid ""
+"If you want to force the use of CGLIB proxying (for example, to proxy every "
+"method defined for the target object, not only those implemented by its "
+"interfaces), you can do so. However, you should consider the following "
+"issues:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:18
+msgid "`final` classes cannot be proxied, because they cannot be extended."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:19
+msgid "`final` methods cannot be advised, because they cannot be overridden."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:20
+msgid "`private` methods cannot be advised, because they cannot be overridden."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:22
+msgid ""
+"Methods that are not visible – for example, package-private methods in a "
+"parent class from a different package – cannot be advised because they are "
+"effectively private."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:26
+msgid ""
+"The constructor of your proxied object will not be called twice, since the "
+"CGLIB proxy instance is created through Objenesis. However, if your JVM does "
+"not allow for constructor bypassing, you might see double invocations and "
+"corresponding debug log entries from Spring's AOP support."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:30
+msgid ""
+"Your CGLIB proxy usage may face limitations with the Java Module System. As "
+"a typical case, you cannot create a CGLIB proxy for a class from the "
+"`java.lang` package when deploying on the module path. Such cases require a "
+"JVM bootstrap flag `--add-opens=java.base/java.lang=ALL-UNNAMED` which is "
+"not available for modules."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:33
+#, no-wrap
+msgid "Forcing Specific AOP Proxy Types"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:37
+msgid ""
+"To force the use of CGLIB proxies, set the value of the `proxy-target-class` "
+"attribute of the `<aop:config>` element to true, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:43
+#, no-wrap
+msgid ""
+"\t<aop:config proxy-target-class=\"true\">\n"
+"\t\t<!-- other beans defined here... -->\n"
+"\t</aop:config>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:48
+msgid ""
+"To force CGLIB proxying when you use the @AspectJ auto-proxy support, set "
+"the `proxy-target-class` attribute of the `<aop:aspectj-autoproxy>` element "
+"to `true`, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:52
+#, no-wrap
+msgid "\t<aop:aspectj-autoproxy proxy-target-class=\"true\"/>\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:61
+msgid ""
+"Multiple `<aop:config/>` sections are collapsed into a single unified "
+"auto-proxy creator at runtime, which applies the _strongest_ proxy settings "
+"that any of the `<aop:config/>` sections (typically from different XML bean "
+"definition files) specified.  This also applies to the "
+"`<tx:annotation-driven/>` and `<aop:aspectj-autoproxy/>` elements."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:65
+msgid ""
+"To be clear, using `proxy-target-class=\"true\"` on "
+"`<tx:annotation-driven/>`, `<aop:aspectj-autoproxy/>`, or `<aop:config/>` "
+"elements forces the use of CGLIB proxies _for all three of them_."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:73
+msgid ""
+"`@EnableAspectJAutoProxy`, `@EnableTransactionManagement` and related "
+"configuration annotations offer a corresponding `proxyTargetClass` "
+"attribute. These are collapsed into a single unified auto-proxy creator too, "
+"effectively applying the _strongest_ proxy settings at runtime. As of 7.0, "
+"this applies to individual proxy processors as well, for example "
+"`@EnableAsync`, consistently participating in unified global default "
+"settings for all auto-proxying attempts in a given application."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:77
+msgid ""
+"The global default proxy type may differ between setups. While the core "
+"framework suggests interface-based proxies by default, Spring Boot may - "
+"depending on configuration properties - enable class-based proxies by "
+"default."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:84
+msgid ""
+"As of 7.0, forcing a specific proxy type for individual beans is possible "
+"through the `@Proxyable` annotation on a given `@Bean` method or "
+"`@Component` class, with `@Proxyable(INTERFACES)` or "
+"`@Proxyable(TARGET_CLASS)` overriding any globally configured default. For "
+"very specific purposes, you may even specify the proxy interface(s) to use "
+"through `@Proxyable(interfaces=...)`, limiting the exposure to selected "
+"interfaces rather than all interfaces that the target bean implements."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:87
+#, no-wrap
+msgid "Understanding AOP Proxies"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:92
+msgid ""
+"Spring AOP is proxy-based. It is vitally important that you grasp the "
+"semantics of what that last statement actually means before you write your "
+"own aspects or use any of the Spring AOP-based aspects supplied with the "
+"Spring Framework."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:95
+msgid ""
+"Consider first the scenario where you have a plain-vanilla, un-proxied "
+"object reference, as the following code snippet shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:98
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:140
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:173
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:235
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:277
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:103
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:240
+#, no-wrap
+msgid "\tpublic class SimplePojo implements Pojo {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:108
+#, no-wrap
+msgid ""
+"\t\tpublic void foo() {\n"
+"\t\t\t// this next method invocation is a direct call on the 'this' "
+"reference\n"
+"\t\t\tthis.bar();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:113
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:250
+#, no-wrap
+msgid ""
+"\t\tpublic void bar() {\n"
+"\t\t\t// some logic...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:115
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:154
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:191
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:252
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:296
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:120
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:257
+#, no-wrap
+msgid "\tclass SimplePojo : Pojo {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:125
+#, no-wrap
+msgid ""
+"\t\tfun foo() {\n"
+"\t\t\t// this next method invocation is a direct call on the 'this' "
+"reference\n"
+"\t\t\tthis.bar()\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:130
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:267
+#, no-wrap
+msgid ""
+"\t\tfun bar() {\n"
+"\t\t\t// some logic...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:135
+msgid ""
+"If you invoke a method on an object reference, the method is invoked "
+"directly on that object reference, as the following image and listing show:"
+msgstr ""
+
+#. type: Target for macro image
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:136
+#, no-wrap
+msgid "aop-proxy-plain-pojo-call.png"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:145
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:178
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:282
+#, no-wrap
+msgid "\tpublic class Main {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:152
+#, no-wrap
+msgid ""
+"\t\tpublic static void main(String[] args) {\n"
+"\t\t\tPojo pojo = new SimplePojo();\n"
+"\t\t\t// this is a direct method call on the 'pojo' reference\n"
+"\t\t\tpojo.foo();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:163
+#, no-wrap
+msgid ""
+"\tfun main() {\n"
+"\t\tval pojo = SimplePojo()\n"
+"\t\t// this is a direct method call on the 'pojo' reference\n"
+"\t\tpojo.foo()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:168
+msgid ""
+"Things change slightly when the reference that client code has is a "
+"proxy. Consider the following diagram and code snippet:"
+msgstr ""
+
+#. type: Target for macro image
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:169
+#, no-wrap
+msgid "aop-proxy-call.png"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:183
+#, no-wrap
+msgid ""
+"\t\tpublic static void main(String[] args) {\n"
+"\t\t\tProxyFactory factory = new ProxyFactory(new SimplePojo());\n"
+"\t\t\tfactory.addInterface(Pojo.class);\n"
+"\t\t\tfactory.addAdvice(new RetryAdvice());\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:189
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:294
+#, no-wrap
+msgid ""
+"\t\t\tPojo pojo = (Pojo) factory.getProxy();\n"
+"\t\t\t// this is a method call on the proxy!\n"
+"\t\t\tpojo.foo();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:199
+#, no-wrap
+msgid ""
+"fun main() {\n"
+"\tval factory = ProxyFactory(SimplePojo())\n"
+"\tfactory.addInterface(Pojo::class.java)\n"
+"\tfactory.addAdvice(RetryAdvice())\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:204
+#, no-wrap
+msgid ""
+"\tval pojo = factory.proxy as Pojo\n"
+"\t// this is a method call on the proxy!\n"
+"\tpojo.foo()\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:217
+msgid ""
+"The key thing to understand here is that the client code inside the "
+"`main(..)` method of the `Main` class has a reference to the proxy. This "
+"means that method calls on that object reference are calls on the proxy. As "
+"a result, the proxy can delegate to all of the interceptors (advice) that "
+"are relevant to that particular method call. However, once the call has "
+"finally reached the target object (the `SimplePojo` reference in this case), "
+"any method calls that it may make on itself, such as `this.bar()` or "
+"`this.foo()`, are going to be invoked against the `this` reference, and not "
+"the proxy.  This has important implications. It means that self invocation "
+"is not going to result in the advice associated with a method invocation "
+"getting a chance to run. In other words, self invocation via an explicit or "
+"implicit `this` reference will bypass the advice."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:219
+msgid "To address that, you have the following options."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:220
+#, no-wrap
+msgid "Avoid self invocation "
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:224
+msgid ""
+"The best approach (the term \"best\" is used loosely here) is to refactor "
+"your code such that the self invocation does not happen. This does entail "
+"some work on your part, but it is the best, least-invasive approach."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:224
+#, no-wrap
+msgid "Inject a self reference "
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:228
+msgid ""
+"An alternative approach is to make use of "
+"xref:core/beans/annotation-config/autowired.adoc#beans-autowired-annotation-self-injection[self "
+"injection], and invoke methods on the proxy via the self reference instead "
+"of via `this`."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:228
+#, no-wrap
+msgid "Use `AopContext.currentProxy()` "
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:232
+msgid ""
+"This last approach is highly discouraged, and we hesitate to point it out, "
+"in favor of the previous options. However, as a last resort you can choose "
+"to tie the logic within your class to Spring AOP, as the following example "
+"shows."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:245
+#, no-wrap
+msgid ""
+"\t\tpublic void foo() {\n"
+"\t\t\t// This works, but it should be avoided if possible.\n"
+"\t\t\t((Pojo) AopContext.currentProxy()).bar();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:262
+#, no-wrap
+msgid ""
+"\t\tfun foo() {\n"
+"\t\t\t// This works, but it should be avoided if possible.\n"
+"\t\t\t(AopContext.currentProxy() as Pojo).bar()\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:274
+msgid ""
+"The use of `AopContext.currentProxy()` totally couples your code to Spring "
+"AOP, and it makes the class itself aware of the fact that it is being used "
+"in an AOP context, which reduces some of the benefits of AOP. It also "
+"requires that the `ProxyFactory` is configured to expose the proxy, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:288
+#, no-wrap
+msgid ""
+"\t\tpublic static void main(String[] args) {\n"
+"\t\t\tProxyFactory factory = new ProxyFactory(new SimplePojo());\n"
+"\t\t\tfactory.addInterface(Pojo.class);\n"
+"\t\t\tfactory.addAdvice(new RetryAdvice());\n"
+"\t\t\tfactory.setExposeProxy(true);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:305
+#, no-wrap
+msgid ""
+"\tfun main() {\n"
+"\t\tval factory = ProxyFactory(SimplePojo())\n"
+"\t\tfactory.addInterface(Pojo::class.java)\n"
+"\t\tfactory.addAdvice(RetryAdvice())\n"
+"\t\tfactory.isExposeProxy = true\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:310
+#, no-wrap
+msgid ""
+"\t\tval pojo = factory.proxy as Pojo\n"
+"\t\t// this is a method call on the proxy!\n"
+"\t\tpojo.foo()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/proxying.adoc:314
+msgid ""
+"AspectJ compile-time weaving and load-time weaving do not have this "
+"self-invocation issue because they apply advice within the bytecode instead "
+"of via a proxy."
+msgstr ""

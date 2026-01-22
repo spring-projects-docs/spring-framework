@@ -1,0 +1,43 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj.adoc:2
+#, no-wrap
+msgid "@AspectJ support"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj.adoc:11
+msgid ""
+"@AspectJ refers to a style of declaring aspects as regular Java classes "
+"annotated with annotations. The @AspectJ style was introduced by the "
+"{aspectj-site}[AspectJ project] as part of the AspectJ 5 release. Spring "
+"interprets the same annotations as AspectJ 5, using a library supplied by "
+"AspectJ for pointcut parsing and matching. The AOP runtime is still pure "
+"Spring AOP, though, and there is no dependency on the AspectJ compiler or "
+"weaver."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/ataspectj.adoc:13
+msgid ""
+"Using the AspectJ compiler and weaver enables use of the full AspectJ "
+"language and is discussed in xref:core/aop/using-aspectj.adoc[Using AspectJ "
+"with Spring Applications]."
+msgstr ""

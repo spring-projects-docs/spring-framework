@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/inline-maps.adoc:2
+#, no-wrap
+msgid "Inline Maps"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/inline-maps.adoc:6
+msgid ""
+"You can also directly express maps in an expression by using `{key:value}` "
+"notation. The following example shows how to do so:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/inline-maps.adoc:9
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/inline-maps.adoc:15
+#, no-wrap
+msgid ""
+"\t// evaluates to a Java map containing the two entries\n"
+"\tMap inventorInfo = (Map) "
+"parser.parseExpression(\"{name:'Nikola',dob:'10-July-1856'}\").getValue(context);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/inline-maps.adoc:17
+#, no-wrap
+msgid ""
+"\tMap mapOfMaps = (Map) "
+"parser.parseExpression(\"{name:{first:'Nikola',last:'Tesla'},dob:{day:10,month:'July',year:1856}}\").getValue(context);\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/inline-maps.adoc:19
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/inline-maps.adoc:25
+#, no-wrap
+msgid ""
+"\t// evaluates to a Java map containing the two entries\n"
+"\tval inventorInfo = "
+"parser.parseExpression(\"{name:'Nikola',dob:'10-July-1856'}\").getValue(context) "
+"as Map<*, *>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/inline-maps.adoc:27
+#, no-wrap
+msgid ""
+"\tval mapOfMaps = "
+"parser.parseExpression(\"{name:{first:'Nikola',last:'Tesla'},dob:{day:10,month:'July',year:1856}}\").getValue(context) "
+"as Map<*, *>\t\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/expressions/language-ref/inline-maps.adoc:35
+msgid ""
+"`{:}` by itself means an empty map. For performance reasons, if the map is "
+"itself composed of fixed literals or other nested constant structures (lists "
+"or maps), a constant map is created to represent the expression (rather than "
+"building a new map on each evaluation). Quoting of the map keys is optional "
+"(unless the key contains a period (`.`)). The examples above do not use "
+"quoted keys."
+msgstr ""

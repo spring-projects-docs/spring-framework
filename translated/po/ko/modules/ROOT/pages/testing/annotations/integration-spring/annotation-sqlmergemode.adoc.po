@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:2
+#, no-wrap
+msgid "`@SqlMergeMode`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:9
+msgid ""
+"`@SqlMergeMode` is used to annotate a test class or test method to configure "
+"whether method-level `@Sql` declarations are merged with class-level `@Sql` "
+"declarations. If `@SqlMergeMode` is not declared on a test class or test "
+"method, the `OVERRIDE` merge mode will be used by default. With the "
+"`OVERRIDE` mode, method-level `@Sql` declarations will effectively override "
+"class-level `@Sql` declarations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:11
+msgid ""
+"Note that a method-level `@SqlMergeMode` declaration overrides a class-level "
+"declaration."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:13
+msgid "The following example shows how to use `@SqlMergeMode` at the class level."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:16
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:57
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:24
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig.class)\n"
+"\t@Sql(\"/test-schema.sql\")\n"
+"\t@SqlMergeMode(MERGE) // <1>\n"
+"\tclass UserTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:31
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\t@Sql(\"/user-test-data-001.sql\")\n"
+"\t\tvoid standardUserProfile() {\n"
+"\t\t\t// run code that relies on test data set 001\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:33
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:51
+msgid "Set the `@Sql` merge mode to `MERGE` for all test methods in the class."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:34
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:75
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:42
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig::class)\n"
+"\t@Sql(\"/test-schema.sql\")\n"
+"\t@SqlMergeMode(MERGE) // <1>\n"
+"\tclass UserTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:49
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\t@Sql(\"/user-test-data-001.sql\")\n"
+"\t\tfun standardUserProfile() {\n"
+"\t\t\t// run code that relies on test data set 001\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:54
+msgid "The following example shows how to use `@SqlMergeMode` at the method level."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:64
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig.class)\n"
+"\t@Sql(\"/test-schema.sql\")\n"
+"\tclass UserTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:72
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\t@Sql(\"/user-test-data-001.sql\")\n"
+"\t\t@SqlMergeMode(MERGE) // <1>\n"
+"\t\tvoid standardUserProfile() {\n"
+"\t\t\t// run code that relies on test data set 001\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:74
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:92
+msgid "Set the `@Sql` merge mode to `MERGE` for a specific test method."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:82
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig::class)\n"
+"\t@Sql(\"/test-schema.sql\")\n"
+"\tclass UserTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-sqlmergemode.adoc:90
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\t@Sql(\"/user-test-data-001.sql\")\n"
+"\t\t@SqlMergeMode(MERGE) // <1>\n"
+"\t\tfun standardUserProfile() {\n"
+"\t\t\t// run code that relies on test data set 001\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""

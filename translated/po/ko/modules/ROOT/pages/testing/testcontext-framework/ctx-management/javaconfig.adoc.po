@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:2
+#, no-wrap
+msgid "Context Configuration with Component Classes"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:8
+msgid ""
+"To load an `ApplicationContext` for your tests by using component classes "
+"(see xref:core/beans/java.adoc[Java-based container configuration]), you can "
+"annotate your test class with `@ContextConfiguration` and configure the "
+"`classes` attribute with an array that contains references to component "
+"classes. The following example shows how to do so:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:11
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:74
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:21
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t// ApplicationContext will be loaded from AppConfig and TestConfig\n"
+"\t@ContextConfiguration(classes = {AppConfig.class, TestConfig.class}) // "
+"<1>\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:23
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:36
+msgid "Specifying component classes."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:24
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:106
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:34
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t// ApplicationContext will be loaded from AppConfig and TestConfig\n"
+"\t@ContextConfiguration(classes = [AppConfig::class, TestConfig::class]) // "
+"<1>\n"
+"\tclass MyTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:40
+#, no-wrap
+msgid "Component Classes"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:44
+msgid "The term \"`component class`\" can refer to any of the following:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:46
+msgid "A class annotated with `@Configuration`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:47
+msgid ""
+"A component (that is, a class annotated with `@Component`, `@Service`, "
+"`@Repository`, or other stereotype annotations)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:48
+msgid ""
+"A JSR-330 compliant class that is annotated with `jakarta.inject` "
+"annotations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:49
+msgid "Any class that contains `@Bean`-methods."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:52
+msgid ""
+"Any other class that is intended to be registered as a Spring component "
+"(i.e., a Spring bean in the `ApplicationContext`), potentially taking "
+"advantage of automatic autowiring of a single constructor without the use of "
+"Spring annotations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:58
+msgid ""
+"See the javadoc of "
+"{spring-framework-api}/context/annotation/Configuration.html[`@Configuration`] "
+"and {spring-framework-api}/context/annotation/Bean.html[`@Bean`] for further "
+"information regarding the configuration and semantics of component classes, "
+"paying special attention to the discussion of `@Bean` Lite Mode."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:71
+msgid ""
+"If you omit the `classes` attribute from the `@ContextConfiguration` "
+"annotation, the TestContext framework tries to detect the presence of "
+"default configuration classes.  Specifically, "
+"`AnnotationConfigContextLoader` and `AnnotationConfigWebContextLoader` "
+"detect all `static` nested classes of the test class that meet the "
+"requirements for configuration class implementations, as specified in the "
+"{spring-framework-api}/context/annotation/Configuration.html[`@Configuration`] "
+"javadoc.  Note that the name of the configuration class is arbitrary. In "
+"addition, a test class can contain more than one `static` nested "
+"configuration class if desired. In the following example, the "
+"`OrderServiceTest` class declares a `static` nested configuration class "
+"named `Config` that is automatically used to load the `ApplicationContext` "
+"for the test class:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:81
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig <1>\n"
+"\t// ApplicationContext will be loaded from the static nested Config class\n"
+"\tclass OrderServiceTest {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:84
+#, no-wrap
+msgid ""
+"\t\t@Configuration\n"
+"\t\tstatic class Config {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:93
+#, no-wrap
+msgid ""
+"\t\t\t// this bean will be injected into the OrderServiceTest class\n"
+"\t\t\t@Bean\n"
+"\t\t\tOrderService orderService() {\n"
+"\t\t\t\tOrderService orderService = new OrderServiceImpl();\n"
+"\t\t\t\t// set properties, etc.\n"
+"\t\t\t\treturn orderService;\n"
+"\t\t\t}\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:96
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tOrderService orderService;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:101
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tvoid testOrderService() {\n"
+"\t\t\t// test the orderService\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:103
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:105
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:135
+msgid "Loading configuration information from the nested `Config` class."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:113
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig <1>\n"
+"\t// ApplicationContext will be loaded from the nested Config class\n"
+"\tclass OrderServiceTest {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:116
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var orderService: OrderService\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:119
+#, no-wrap
+msgid ""
+"\t\t@Configuration\n"
+"\t\tclass Config {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:127
+#, no-wrap
+msgid ""
+"\t\t\t// this bean will be injected into the OrderServiceTest class\n"
+"\t\t\t@Bean\n"
+"\t\t\tfun orderService(): OrderService {\n"
+"\t\t\t\t// set properties, etc.\n"
+"\t\t\t\treturn OrderServiceImpl()\n"
+"\t\t\t}\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/javaconfig.adoc:133
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tfun testOrderService() {\n"
+"\t\t\t// test the orderService\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""

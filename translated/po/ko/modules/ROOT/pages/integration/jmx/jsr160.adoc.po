@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 17:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:2
+#, no-wrap
+msgid "Using JSR-160 Connectors"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:7
+msgid ""
+"For remote access, Spring JMX module offers two `FactoryBean` "
+"implementations inside the `org.springframework.jmx.support` package for "
+"creating both server- and client-side connectors."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:10
+#, no-wrap
+msgid "Server-side Connectors"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:14
+msgid ""
+"To have Spring JMX create, start, and expose a JSR-160 `JMXConnectorServer`, "
+"you can use the following configuration:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:18
+#, no-wrap
+msgid ""
+"\t<bean id=\"serverConnector\" "
+"class=\"org.springframework.jmx.support.ConnectorServerFactoryBean\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:26
+msgid ""
+"By default, `ConnectorServerFactoryBean` creates a `JMXConnectorServer` "
+"bound to `service:jmx:jmxmp://localhost:9875`. The `serverConnector` bean "
+"thus exposes the local `MBeanServer` to clients through the JMXMP protocol "
+"on localhost, port 9875. Note that the JMXMP protocol is marked as optional "
+"by the JSR 160 specification. Currently, the main open-source JMX "
+"implementation, MX4J, and the one provided with the JDK do not support "
+"JMXMP."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:30
+msgid ""
+"To specify another URL and register the `JMXConnectorServer` itself with the "
+"`MBeanServer`, you can use the `serviceUrl` and `ObjectName` properties, "
+"respectively, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:39
+#, no-wrap
+msgid ""
+"\t<bean id=\"serverConnector\"\n"
+"\t\t\tclass=\"org.springframework.jmx.support.ConnectorServerFactoryBean\">\n"
+"\t\t<property name=\"objectName\" value=\"connector:name=rmi\"/>\n"
+"\t\t<property name=\"serviceUrl\"\n"
+"\t\t\t\tvalue=\"service:jmx:rmi://localhost/jndi/rmi://localhost:1099/myconnector\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:45
+msgid ""
+"If the `ObjectName` property is set, Spring automatically registers your "
+"connector with the `MBeanServer` under that `ObjectName`. The following "
+"example shows the full set of parameters that you can pass to the "
+"`ConnectorServerFactoryBean` when creating a `JMXConnector`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:61
+#, no-wrap
+msgid ""
+"\t<bean id=\"serverConnector\"\n"
+"\t\t\tclass=\"org.springframework.jmx.support.ConnectorServerFactoryBean\">\n"
+"\t\t<property name=\"objectName\" value=\"connector:name=iiop\"/>\n"
+"\t\t<property name=\"serviceUrl\"\n"
+"\t\t\tvalue=\"service:jmx:iiop://localhost/jndi/iiop://localhost:900/myconnector\"/>\n"
+"\t\t<property name=\"threaded\" value=\"true\"/>\n"
+"\t\t<property name=\"daemon\" value=\"true\"/>\n"
+"\t\t<property name=\"environment\">\n"
+"\t\t\t<map>\n"
+"\t\t\t\t<entry key=\"someKey\" value=\"someValue\"/>\n"
+"\t\t\t</map>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:65
+msgid ""
+"Note that, when you use a RMI-based connector, you need the lookup service "
+"(`tnameserv` or `rmiregistry`) to be started in order for the name "
+"registration to complete."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:68
+#, no-wrap
+msgid "Client-side Connectors"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:72
+msgid ""
+"To create an `MBeanServerConnection` to a remote JSR-160-enabled "
+"`MBeanServer`, you can use the `MBeanServerConnectionFactoryBean`, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:78
+#, no-wrap
+msgid ""
+"\t<bean id=\"clientConnector\" "
+"class=\"org.springframework.jmx.support.MBeanServerConnectionFactoryBean\">\n"
+"\t\t<property name=\"serviceUrl\" "
+"value=\"service:jmx:rmi://localhost/jndi/rmi://localhost:1099/jmxrmi\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:82
+#, no-wrap
+msgid "JMX over Hessian or SOAP"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:90
+msgid ""
+"JSR-160 permits extensions to the way in which communication is done between "
+"the client and the server. The examples shown in the preceding sections use "
+"the mandatory RMI-based implementation required by the JSR-160 specification "
+"(IIOP and JRMP) and the (optional) JMXMP. By using other providers or JMX "
+"implementations (such as http://mx4j.sourceforge.net[MX4J]) you can take "
+"advantage of protocols such as SOAP or Hessian over simple HTTP or SSL and "
+"others, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:97
+#, no-wrap
+msgid ""
+"\t<bean id=\"serverConnector\" "
+"class=\"org.springframework.jmx.support.ConnectorServerFactoryBean\">\n"
+"\t\t<property name=\"objectName\" value=\"connector:name=burlap\"/>\n"
+"\t\t<property name=\"serviceUrl\" "
+"value=\"service:jmx:burlap://localhost:9874\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/jsr160.adoc:100
+msgid ""
+"In the preceding example, we used MX4J 3.0.0. See the official MX4J "
+"documentation for more information."
+msgstr ""
