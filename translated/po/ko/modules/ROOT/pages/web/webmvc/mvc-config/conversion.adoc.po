@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/conversion.adoc:2
+#, no-wrap
+msgid "Type Conversion"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/conversion.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/config.adoc#webflux-config-conversion[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/conversion.adoc:9
+msgid ""
+"By default, formatters for various number and date types are installed, "
+"along with support for customization via `@NumberFormat`, `@DurationFormat`, "
+"and `@DateTimeFormat` on fields and parameters."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/conversion.adoc:11
+msgid "To register custom formatters and converters, use the following:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/conversion.adoc:18
+msgid ""
+"By default Spring MVC considers the request Locale when parsing and "
+"formatting date values. This works for forms where dates are represented as "
+"Strings with \"input\" form fields. For \"date\" and \"time\" form fields, "
+"however, browsers use a fixed format defined in the HTML spec. For such "
+"cases date and time formatting can be customized as follows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/conversion.adoc:23
+msgid ""
+"See xref:core/validation/format.adoc#format-FormatterRegistrar-SPI[the "
+"`FormatterRegistrar` SPI] and the `FormattingConversionServiceFactoryBean` "
+"for more information on when to use FormatterRegistrar implementations."
+msgstr ""

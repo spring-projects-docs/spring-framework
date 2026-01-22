@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:2
+#, no-wrap
+msgid "Static Resources"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/config.adoc#webflux-config-static-resources[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:8
+msgid ""
+"This option provides a convenient way to serve static resources from a list "
+"of {spring-framework-api}/core/io/Resource.html[`Resource`]-based locations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:15
+msgid ""
+"In the next example, given a request that starts with `/resources`, the "
+"relative path is used to find and serve static resources relative to "
+"`/public` under the web application root or on the classpath under "
+"`/static`. The resources are served with a one-year future expiration to "
+"ensure maximum use of the browser cache and a reduction in HTTP requests "
+"made by the browser. The `Last-Modified` information is deduced from "
+"`Resource#lastModified` so that HTTP conditional requests are supported with "
+"`\"Last-Modified\"` headers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:17
+msgid "The following listing shows how to do so:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:22
+msgid ""
+"See also xref:web/webmvc/mvc-caching.adoc#mvc-caching-static-resources[HTTP "
+"caching support for static resources]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:27
+msgid ""
+"The resource handler also supports a chain of "
+"{spring-framework-api}/web/servlet/resource/ResourceResolver.html[`ResourceResolver`] "
+"implementations and "
+"{spring-framework-api}/web/servlet/resource/ResourceTransformer.html[`ResourceTransformer`] "
+"implementations, which you can use to create a toolchain for working with "
+"optimized resources."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:32
+msgid ""
+"You can use the `VersionResourceResolver` for versioned resource URLs based "
+"on an MD5 hash computed from the content, a fixed application version, or "
+"other. A `ContentVersionStrategy` (MD5 hash) is a good choice -- with some "
+"notable exceptions, such as JavaScript resources used with a module loader."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:34
+msgid "The following example shows how to use `VersionResourceResolver`:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:42
+msgid ""
+"You can then use `ResourceUrlProvider` to rewrite URLs and apply the full "
+"chain of resolvers and transformers -- for example, to insert versions. The "
+"MVC configuration provides a `ResourceUrlProvider` bean so that it can be "
+"injected into others. You can also make the rewrite transparent with the "
+"`ResourceUrlEncodingFilter` for Thymeleaf, JSPs, FreeMarker, and others with "
+"URL tags that rely on `HttpServletResponse#encodeURL`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:46
+msgid ""
+"Note that, when using both `EncodedResourceResolver` (for example, for "
+"serving gzipped or brotli-encoded resources) and `VersionResourceResolver`, "
+"you must register them in this order.  That ensures content-based versions "
+"are always computed reliably, based on the unencoded file."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:52
+msgid ""
+"For https://www.webjars.org/documentation[WebJars], versioned URLs like "
+"`/webjars/jquery/1.2.0/jquery.min.js` are the recommended and most efficient "
+"way to use them.  The related resource location is configured out of the box "
+"with Spring Boot (or can be configured manually via "
+"`ResourceHandlerRegistry`) and does not require to add the "
+"`org.webjars:webjars-locator-lite` dependency."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:57
+msgid ""
+"Version-less URLs like `/webjars/jquery/jquery.min.js` are supported through "
+"the `WebJarsResourceResolver` which is automatically registered when the "
+"`org.webjars:webjars-locator-lite` library is present on the classpath. The "
+"resolver can re-write URLs to include the version of the jar and can also "
+"match against incoming URLs without versions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:58
+msgid ""
+"for example, from `/webjars/jquery/jquery.min.js` to "
+"`/webjars/jquery/1.2.0/jquery.min.js`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config/static-resources.adoc:60
+msgid ""
+"The Java configuration based on `ResourceHandlerRegistry` provides further "
+"options for fine-grained control, for example, last-modified behavior and "
+"optimized resource resolution."
+msgstr ""

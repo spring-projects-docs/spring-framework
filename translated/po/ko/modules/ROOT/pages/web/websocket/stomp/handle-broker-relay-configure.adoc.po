@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay-configure.adoc:2
+#, no-wrap
+msgid "Connecting to a Broker"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay-configure.adoc:10
+msgid ""
+"A STOMP broker relay maintains a single \"`system`\" TCP connection to the "
+"broker.  This connection is used for messages originating from the "
+"server-side application only, not for receiving messages. You can configure "
+"the STOMP credentials (that is, the STOMP frame `login` and `passcode` "
+"headers) for this connection. This is exposed in both the XML namespace and "
+"Java configuration as the `systemLogin` and `systemPasscode` properties with "
+"default values of `guest` and `guest`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay-configure.adoc:16
+msgid ""
+"The STOMP broker relay also creates a separate TCP connection for every "
+"connected WebSocket client. You can configure the STOMP credentials that are "
+"used for all TCP connections created on behalf of clients. This is exposed "
+"in both the XML namespace and Java configuration as the `clientLogin` and "
+"`clientPasscode` properties with default values of `guest` and `guest`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay-configure.adoc:22
+msgid ""
+"The STOMP broker relay always sets the `login` and `passcode` headers on "
+"every `CONNECT` frame that it forwards to the broker on behalf of "
+"clients. Therefore, WebSocket clients need not set those headers. They are "
+"ignored. As the xref:web/websocket/stomp/authentication.adoc[Authentication] "
+"section explains, WebSocket clients should instead rely on HTTP "
+"authentication to protect the WebSocket endpoint and establish the client "
+"identity."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay-configure.adoc:28
+msgid ""
+"The STOMP broker relay also sends and receives heartbeats to and from the "
+"message broker over the \"`system`\" TCP connection. You can configure the "
+"intervals for sending and receiving heartbeats (10 seconds each by "
+"default). If connectivity to the broker is lost, the broker relay continues "
+"to try to reconnect, every 5 seconds, until it succeeds."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay-configure.adoc:33
+msgid ""
+"Any Spring bean can implement `ApplicationListener<BrokerAvailabilityEvent>` "
+"to receive notifications when the \"`system`\" connection to the broker is "
+"lost and re-established. For example, a Stock Quote service that broadcasts "
+"stock quotes can stop trying to send messages when there is no active "
+"\"`system`\" connection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay-configure.adoc:38
+msgid ""
+"By default, the STOMP broker relay always connects, and reconnects as needed "
+"if connectivity is lost, to the same host and port. If you wish to supply "
+"multiple addresses, on each attempt to connect, you can configure a supplier "
+"of addresses, instead of a fixed host and port. The following example shows "
+"how to do that:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/handle-broker-relay-configure.adoc:45
+msgid ""
+"You can also configure the STOMP broker relay with a `virtualHost` "
+"property.  The value of this property is set as the `host` header of every "
+"`CONNECT` frame and can be useful (for example, in a cloud environment where "
+"the actual host to which the TCP connection is established differs from the "
+"host that provides the cloud-based STOMP service)."
+msgstr ""

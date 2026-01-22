@@ -1,0 +1,421 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:2
+#, no-wrap
+msgid "HTTP Caching"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/caching.adoc[See equivalent in the Reactive "
+"stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:13
+msgid ""
+"HTTP caching can significantly improve the performance of a web "
+"application. HTTP caching revolves around the `Cache-Control` response "
+"header and, subsequently, conditional request headers (such as "
+"`Last-Modified` and `ETag`). `Cache-Control` advises private (for example, "
+"browser)  and public (for example, proxy) caches on how to cache and re-use "
+"responses. An `ETag` header is used to make a conditional request that may "
+"result in a 304 (NOT_MODIFIED) without a body, if the content has not "
+"changed. `ETag` can be seen as a more sophisticated successor to the "
+"`Last-Modified` header."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:15
+msgid ""
+"This section describes the HTTP caching-related options that are available "
+"in Spring Web MVC."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:18
+#, no-wrap
+msgid "`CacheControl`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:20
+msgid ""
+"[.small]#xref:web/webflux/caching.adoc#webflux-caching-cachecontrol[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:24
+msgid ""
+"{spring-framework-api}/http/CacheControl.html[`CacheControl`] provides "
+"support for configuring settings related to the `Cache-Control` header and "
+"is accepted as an argument in a number of places:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:26
+msgid "{spring-framework-api}/web/servlet/mvc/WebContentInterceptor.html[`WebContentInterceptor`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:27
+msgid "{spring-framework-api}/web/servlet/support/WebContentGenerator.html[`WebContentGenerator`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:28
+msgid "xref:web/webmvc/mvc-caching.adoc#mvc-caching-etag-lastmodified[Controllers]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:29
+msgid ""
+"xref:web/webmvc/mvc-caching.adoc#mvc-caching-static-resources[Static "
+"Resources]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:33
+msgid ""
+"While {rfc-site}/rfc7234#section-5.2.2[RFC 7234] describes all possible "
+"directives for the `Cache-Control` response header, the `CacheControl` type "
+"takes a use case-oriented approach that focuses on the common scenarios:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:36
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:90
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:138
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:42
+#, no-wrap
+msgid ""
+"\t// Cache for an hour - \"Cache-Control: max-age=3600\"\n"
+"\tCacheControl ccCacheOneHour = CacheControl.maxAge(1, TimeUnit.HOURS);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:45
+#, no-wrap
+msgid ""
+"\t// Prevent caching - \"Cache-Control: no-store\"\n"
+"\tCacheControl ccNoStore = CacheControl.noStore();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:50
+#, no-wrap
+msgid ""
+"\t// Cache for ten days in public and private caches,\n"
+"\t// public caches should not transform the response\n"
+"\t// \"Cache-Control: max-age=864000, public, no-transform\"\n"
+"\tCacheControl ccCustom = CacheControl.maxAge(10, "
+"TimeUnit.DAYS).noTransform().cachePublic();\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:52
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:108
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:159
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:58
+#, no-wrap
+msgid ""
+"\t// Cache for an hour - \"Cache-Control: max-age=3600\"\n"
+"\tval ccCacheOneHour = CacheControl.maxAge(1, TimeUnit.HOURS)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:61
+#, no-wrap
+msgid ""
+"\t// Prevent caching - \"Cache-Control: no-store\"\n"
+"\tval ccNoStore = CacheControl.noStore()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:66
+#, no-wrap
+msgid ""
+"\t// Cache for ten days in public and private caches,\n"
+"\t// public caches should not transform the response\n"
+"\t// \"Cache-Control: max-age=864000, public, no-transform\"\n"
+"\tval ccCustom = CacheControl.maxAge(10, "
+"TimeUnit.DAYS).noTransform().cachePublic()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:71
+msgid ""
+"`WebContentGenerator` also accepts a simpler `cachePeriod` property (defined "
+"in seconds) that works as follows:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:73
+msgid "A `-1` value does not generate a `Cache-Control` response header."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:74
+msgid ""
+"A `0` value prevents caching by using the `'Cache-Control: no-store'` "
+"directive."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:76
+msgid ""
+"An `n > 0` value caches the given response for `n` seconds by using the "
+"`'Cache-Control: max-age=n'` directive."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:79
+#, no-wrap
+msgid "Controllers"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:81
+msgid ""
+"[.small]#xref:web/webflux/caching.adoc#webflux-caching-etag-lastmodified[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:86
+msgid ""
+"Controllers can add explicit support for HTTP caching. We recommended doing "
+"so, since the `lastModified` or `ETag` value for a resource needs to be "
+"calculated before it can be compared against conditional request headers. A "
+"controller can add an `ETag` header and `Cache-Control` settings to a "
+"`ResponseEntity`, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:96
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/book/{id}\")\n"
+"\tpublic ResponseEntity<Book> showBook(@PathVariable Long id) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:99
+#, no-wrap
+msgid ""
+"\t\tBook book = findBook(id);\n"
+"\t\tString version = book.getVersion();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:106
+#, no-wrap
+msgid ""
+"\t\treturn ResponseEntity\n"
+"\t\t\t\t.ok()\n"
+"\t\t\t\t.cacheControl(CacheControl.maxAge(30, TimeUnit.DAYS))\n"
+"\t\t\t\t.eTag(version) // lastModified is also available\n"
+"\t\t\t\t.body(book);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:114
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/book/{id}\")\n"
+"\tfun showBook(@PathVariable id: Long): ResponseEntity<Book> {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:117
+#, no-wrap
+msgid ""
+"\t\tval book = findBook(id);\n"
+"\t\tval version = book.getVersion()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:124
+#, no-wrap
+msgid ""
+"\t\treturn ResponseEntity\n"
+"\t\t\t\t.ok()\n"
+"\t\t\t\t.cacheControl(CacheControl.maxAge(30, TimeUnit.DAYS))\n"
+"\t\t\t\t.eTag(version) // lastModified is also available\n"
+"\t\t\t\t.body(book)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:131
+msgid ""
+"The preceding example sends a 304 (NOT_MODIFIED) response with an empty body "
+"if the comparison to the conditional request headers indicates that the "
+"content has not changed. Otherwise, the `ETag` and `Cache-Control` headers "
+"are added to the response."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:134
+msgid ""
+"You can also make the check against conditional request headers in the "
+"controller, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:144
+#, no-wrap
+msgid ""
+"\t@RequestMapping\n"
+"\tpublic String myHandleMethod(WebRequest request, Model model) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:146
+#, no-wrap
+msgid "\t\tlong eTag = ... // <1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:150
+#, no-wrap
+msgid ""
+"\t\tif (request.checkNotModified(eTag)) {\n"
+"\t\t\treturn null; // <2>\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:154
+#, no-wrap
+msgid ""
+"\t\tmodel.addAttribute(...); // <3>\n"
+"\t\treturn \"myViewName\";\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:156
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:177
+msgid "Application-specific calculation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:157
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:178
+msgid "The response has been set to 304 (NOT_MODIFIED) -- no further processing."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:158
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:179
+msgid "Continue with the request processing."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:165
+#, no-wrap
+msgid ""
+"\t@RequestMapping\n"
+"\tfun myHandleMethod(request: WebRequest, model: Model): String? {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:167
+#, no-wrap
+msgid "\t\tval eTag: Long = ... // <1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:171
+#, no-wrap
+msgid ""
+"\t\tif (request.checkNotModified(eTag)) {\n"
+"\t\t\treturn null // <2>\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:175
+#, no-wrap
+msgid ""
+"\t\tmodel[...] = ... // <3>\n"
+"\t\treturn \"myViewName\"\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:186
+msgid ""
+"There are three variants for checking conditional requests against `eTag` "
+"values, `lastModified` values, or both. For conditional `GET` and `HEAD` "
+"requests, you can set the response to 304 (NOT_MODIFIED). For conditional "
+"`POST`, `PUT`, and `DELETE`, you can instead set the response to 412 "
+"(PRECONDITION_FAILED), to prevent concurrent modification."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:189
+#, no-wrap
+msgid "Static Resources"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:191
+msgid ""
+"[.small]#xref:web/webflux/caching.adoc#webflux-caching-static-resources[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:194
+msgid ""
+"You should serve static resources with a `Cache-Control` and conditional "
+"response headers for optimal performance. See the section on configuring "
+"xref:web/webmvc/mvc-config/static-resources.adoc[Static Resources]."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:197
+#, no-wrap
+msgid "`ETag` Filter"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-caching.adoc:200
+msgid ""
+"You can use the `ShallowEtagHeaderFilter` to add \"`shallow`\" `eTag` values "
+"that are computed from the response content and, thus, save bandwidth but "
+"not CPU time. See xref:web/webmvc/filters.adoc#filters-shallow-etag[Shallow "
+"ETag]."
+msgstr ""

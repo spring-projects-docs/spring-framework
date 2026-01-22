@@ -1,0 +1,207 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:2
+#, no-wrap
+msgid "Script Views"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:5
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-view-script[See equivalent in "
+"the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:10
+msgid ""
+"The Spring Framework has a built-in integration for using Spring MVC with "
+"any templating library that can run on top of the {JSR}223[JSR-223] Java "
+"scripting engine. We have tested the following templating libraries on "
+"different script engines:"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:16
+#, no-wrap
+msgid ""
+"|Scripting Library |Scripting Engine\n"
+"|https://docs.ruby-lang.org/en/master/ERB.html[ERB] "
+"|https://www.jruby.org[JRuby]\n"
+"|https://docs.python.org/2/library/string.html#template-strings[String "
+"templates] |https://www.jython.org/[Jython]\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:20
+msgid ""
+"The basic rule for integrating any other script engine is that it must "
+"implement the `ScriptEngine` and `Invocable` interfaces."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:23
+#, no-wrap
+msgid "Requirements"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:25
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-view-script-dependencies[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:27
+msgid ""
+"You need to have the script engine on your classpath, the details of which "
+"vary by script engine:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:29
+msgid ""
+"https://www.jruby.org[JRuby] should be added as a dependency for Ruby "
+"support."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:30
+msgid ""
+"https://www.jython.org[Jython] should be added as a dependency for Python "
+"support."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:32
+#, no-wrap
+msgid "Script Templates"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:34
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-view-script-integrate[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:38
+msgid ""
+"You can declare a `ScriptTemplateConfigurer` bean to specify the script "
+"engine to use, the script files to load, what function to call to render "
+"templates, and so on.  The following example uses the Jython Python engine:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:42
+msgid "The render function is called with the following parameters:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:44
+msgid "`String template`: The template content"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:45
+msgid "`Map model`: The view model"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:49
+msgid ""
+"`RenderingContext renderingContext`: The "
+"{spring-framework-api}/web/servlet/view/script/RenderingContext.html[`RenderingContext`] "
+"that gives access to the application context, the locale, the template "
+"loader, and the URL"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:51
+msgid ""
+"The controller is used to populate the model attributes and specify the view "
+"name, as the following example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:54
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:60
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\tpublic class SampleController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:68
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(\"/sample\")\n"
+"\t\tpublic String test(Model model) {\n"
+"\t\t\tmodel.addAttribute(\"title\", \"Sample title\");\n"
+"\t\t\tmodel.addAttribute(\"body\", \"Sample body\");\n"
+"\t\t\treturn \"template\";\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:70
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:76
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\tclass SampleController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:84
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(\"/sample\")\n"
+"\t\tfun test(model: Model): String {\n"
+"\t\t\tmodel[\"title\"] = \"Sample title\"\n"
+"\t\t\tmodel[\"body\"] = \"Sample body\"\n"
+"\t\t\treturn \"template\"\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-script.adoc:90
+msgid ""
+"Check out the Spring Framework unit tests, "
+"{spring-framework-code}/spring-webmvc/src/test/java/org/springframework/web/servlet/view/script[Java], "
+"and "
+"{spring-framework-code}/spring-webmvc/src/test/resources/org/springframework/web/servlet/view/script[resources], "
+"for more configuration examples."
+msgstr ""

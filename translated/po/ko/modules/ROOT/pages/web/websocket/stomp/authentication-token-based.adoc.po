@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication-token-based.adoc:2
+#, no-wrap
+msgid "Token Authentication"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication-token-based.adoc:9
+msgid ""
+"{spring-github-org}/spring-security-oauth[Spring Security OAuth] provides "
+"support for token based security, including JSON Web Token (JWT).  You can "
+"use this as the authentication mechanism in Web applications, including "
+"STOMP over WebSocket interactions, as described in the previous section "
+"(that is, to maintain identity through a cookie-based session)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication-token-based.adoc:13
+msgid ""
+"At the same time, cookie-based sessions are not always the best fit (for "
+"example, in applications that do not maintain a server-side session or in "
+"mobile applications where it is common to use headers for authentication)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication-token-based.adoc:24
+msgid ""
+"The {rfc-site}/rfc6455#section-10.5[WebSocket protocol, RFC 6455] \"doesn't "
+"prescribe any particular way that servers can authenticate clients during "
+"the WebSocket handshake.\" In practice, however, browser clients can use "
+"only standard authentication headers (that is, basic HTTP authentication) or "
+"cookies and cannot (for example)  provide custom headers. Likewise, the "
+"SockJS JavaScript client does not provide a way to send HTTP headers with "
+"SockJS transport requests. See {sockjs-client}/issues/196[sockjs-client "
+"issue 196].  Instead, it does allow sending query parameters that you can "
+"use to send a token, but that has its own drawbacks (for example, the token "
+"may be inadvertently logged with the URL in server logs)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication-token-based.adoc:28
+msgid ""
+"The preceding limitations are for browser-based clients and do not apply to "
+"the Spring Java-based STOMP client, which does support sending headers with "
+"both WebSocket and SockJS requests."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication-token-based.adoc:33
+msgid ""
+"Therefore, applications that wish to avoid the use of cookies may not have "
+"any good alternatives for authentication at the HTTP protocol level. Instead "
+"of using cookies, they may prefer to authenticate with headers at the STOMP "
+"messaging protocol level.  Doing so requires two simple steps:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication-token-based.adoc:35
+msgid "Use the STOMP client to pass authentication headers at connect time."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication-token-based.adoc:36
+msgid "Process the authentication headers with a `ChannelInterceptor`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication-token-based.adoc:42
+msgid ""
+"The next example uses server-side configuration to register a custom "
+"authentication interceptor. Note that an interceptor needs only to "
+"authenticate and set the user header on the CONNECT `Message`. Spring notes "
+"and saves the authenticated user and associate it with subsequent STOMP "
+"messages on the same session. The following example shows how to register a "
+"custom authentication interceptor:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/authentication-token-based.adoc:49
+msgid ""
+"Also, note that, when you use Spring Security's authorization for messages, "
+"at present, you need to ensure that the authentication `ChannelInterceptor` "
+"config is ordered ahead of Spring Security's. This is best done by declaring "
+"the custom interceptor in its own implementation of "
+"`WebSocketMessageBrokerConfigurer` that is marked with "
+"`@Order(Ordered.HIGHEST_PRECEDENCE + 99)`."
+msgstr ""

@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:2
+#, no-wrap
+msgid "Transaction Management"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:7
+msgid ""
+"Comprehensive transaction support is among the most compelling reasons to "
+"use the Spring Framework. The Spring Framework provides a consistent "
+"abstraction for transaction management that delivers the following benefits:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:10
+msgid ""
+"A consistent programming model across different transaction APIs, such as "
+"Java Transaction API (JTA), JDBC, Hibernate, and the Java Persistence API "
+"(JPA)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:11
+msgid ""
+"Support for xref:data-access/transaction/declarative.adoc[declarative "
+"transaction management]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:13
+msgid ""
+"A simpler API for "
+"xref:data-access/transaction/programmatic.adoc[programmatic] transaction "
+"management than complex transaction APIs, such as JTA."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:14
+msgid "Excellent integration with Spring's data access abstractions."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:16
+msgid ""
+"The following sections describe the Spring Framework's transaction features "
+"and technologies:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:20
+msgid ""
+"xref:data-access/transaction/motivation.adoc[Advantages of the Spring "
+"Framework's transaction support model] describes why you would use the "
+"Spring Framework's transaction abstraction instead of EJB Container-Managed "
+"Transactions (CMT) or choosing to drive transactions through a proprietary "
+"API."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:23
+msgid ""
+"xref:data-access/transaction/strategies.adoc[Understanding the Spring "
+"Framework transaction abstraction] outlines the core classes and describes "
+"how to configure and obtain `DataSource` instances from a variety of "
+"sources."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:25
+msgid ""
+"xref:data-access/transaction/tx-resource-synchronization.adoc[Synchronizing "
+"resources with transactions] describes how the application code ensures that "
+"resources are created, reused, and cleaned up properly."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:27
+msgid ""
+"xref:data-access/transaction/declarative.adoc[Declarative transaction "
+"management] describes support for declarative transaction management."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:29
+msgid ""
+"xref:data-access/transaction/programmatic.adoc[Programmatic transaction "
+"management] covers support for programmatic (that is, explicitly coded) "
+"transaction management."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:31
+msgid ""
+"xref:data-access/transaction/event.adoc[Transaction bound event] describes "
+"how you could use application events within a transaction."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction.adoc:34
+msgid ""
+"The chapter also includes discussions of best practices, "
+"xref:data-access/transaction/application-server-integration.adoc[application "
+"server integration], and "
+"xref:data-access/transaction/solutions-to-common-problems.adoc[solutions to "
+"common problems]."
+msgstr ""

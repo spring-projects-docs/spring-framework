@@ -1,0 +1,1443 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:2
+#, no-wrap
+msgid "Composing Java-based Configurations"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:6
+msgid ""
+"Spring's Java-based configuration feature lets you compose annotations, "
+"which can reduce the complexity of your configuration."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:9
+#, no-wrap
+msgid "Using the `@Import` Annotation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:14
+msgid ""
+"Much as the `<import/>` element is used within Spring XML files to aid in "
+"modularizing configurations, the `@Import` annotation allows for loading "
+"`@Bean` definitions from another configuration class, as the following "
+"example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:17
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:68
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:124
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:235
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:353
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:397
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:570
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:649
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:723
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:794
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:883
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:23
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class ConfigA {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:29
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic A a() {\n"
+"\t\t\treturn new A();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:33
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Import(ConfigA.class)\n"
+"\tpublic class ConfigB {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:39
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic B b() {\n"
+"\t\t\treturn new B();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:41
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:81
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:164
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:284
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:371
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:447
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:590
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:671
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:734
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:829
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:894
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:47
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass ConfigA {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:51
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun a() = A()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:55
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Import(ConfigA::class)\n"
+"\tclass ConfigB {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:59
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun b() = B()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:65
+msgid ""
+"Now, rather than needing to specify both `ConfigA.class` and `ConfigB.class` "
+"when instantiating the context, only `ConfigB` needs to be supplied "
+"explicitly, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:74
+#, no-wrap
+msgid ""
+"\tpublic static void main(String[] args) {\n"
+"\t\tApplicationContext ctx = new "
+"AnnotationConfigApplicationContext(ConfigB.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:79
+#, no-wrap
+msgid ""
+"\t\t// now both beans A and B will be available...\n"
+"\t\tA a = ctx.getBean(A.class);\n"
+"\t\tB b = ctx.getBean(B.class);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:86
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:169
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:289
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:452
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:899
+#, no-wrap
+msgid "\timport org.springframework.beans.factory.getBean\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:89
+#, no-wrap
+msgid ""
+"\tfun main() {\n"
+"\t\tval ctx = AnnotationConfigApplicationContext(ConfigB::class.java)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:94
+#, no-wrap
+msgid ""
+"\t\t// now both beans A and B will be available...\n"
+"\t\tval a = ctx.getBean<A>()\n"
+"\t\tval b = ctx.getBean<B>()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:100
+msgid ""
+"This approach simplifies container instantiation, as only one class needs to "
+"be dealt with, rather than requiring you to remember a potentially large "
+"number of `@Configuration` classes during construction."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:105
+msgid ""
+"As of Spring Framework 4.2, `@Import` also supports references to regular "
+"component classes, analogous to the "
+"`AnnotationConfigApplicationContext.register` method.  This is particularly "
+"useful if you want to avoid component scanning, by using a few configuration "
+"classes as entry points to explicitly define all your components."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:107
+#, no-wrap
+msgid "Injecting Dependencies on Imported `@Bean` Definitions"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:115
+msgid ""
+"The preceding example works but is simplistic. In most practical scenarios, "
+"beans have dependencies on one another across configuration classes. When "
+"using XML, this is not an issue, because no compiler is involved, and you "
+"can declare `ref=\"someBean\"` and trust Spring to work it out during "
+"container initialization.  When using `@Configuration` classes, the Java "
+"compiler places constraints on the configuration model, in that references "
+"to other beans must be valid Java syntax."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:121
+msgid ""
+"Fortunately, solving this problem is simple. As "
+"xref:core/beans/java/bean-annotation.adoc#beans-java-dependencies[we already "
+"discussed], a `@Bean` method can have an arbitrary number of parameters that "
+"describe the bean dependencies. Consider the following more realistic "
+"scenario with several `@Configuration` classes, each depending on beans "
+"declared in the others:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:130
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:241
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:359
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:403
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class ServiceConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:136
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic TransferService transferService(AccountRepository "
+"accountRepository) {\n"
+"\t\t\treturn new TransferServiceImpl(accountRepository);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:139
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:253
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class RepositoryConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:145
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic AccountRepository accountRepository(DataSource dataSource) {\n"
+"\t\t\treturn new JdbcAccountRepository(dataSource);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:149
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:269
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Import({ServiceConfig.class, RepositoryConfig.class})\n"
+"\tpublic class SystemTestConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:155
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:275
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic DataSource dataSource() {\n"
+"\t\t\t// return new DataSource\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:162
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:282
+#, no-wrap
+msgid ""
+"\tpublic static void main(String[] args) {\n"
+"\t\tApplicationContext ctx = new "
+"AnnotationConfigApplicationContext(SystemTestConfig.class);\n"
+"\t\t// everything wires up across configuration classes...\n"
+"\t\tTransferService transferService = ctx.getBean(TransferService.class);\n"
+"\t\ttransferService.transfer(100.00, \"A123\", \"C456\");\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:172
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:292
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:455
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass ServiceConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:178
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun transferService(accountRepository: AccountRepository): "
+"TransferService {\n"
+"\t\t\treturn TransferServiceImpl(accountRepository)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:181
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass RepositoryConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:187
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun accountRepository(dataSource: DataSource): AccountRepository {\n"
+"\t\t\treturn JdbcAccountRepository(dataSource)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:191
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:314
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Import(ServiceConfig::class, RepositoryConfig::class)\n"
+"\tclass SystemTestConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:197
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:320
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\t// return new DataSource\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:205
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:327
+#, no-wrap
+msgid ""
+"\tfun main() {\n"
+"\t\tval ctx = "
+"AnnotationConfigApplicationContext(SystemTestConfig::class.java)\n"
+"\t\t// everything wires up across configuration classes...\n"
+"\t\tval transferService = ctx.getBean<TransferService>()\n"
+"\t\ttransferService.transfer(100.00, \"A123\", \"C456\")\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:211
+msgid ""
+"There is another way to achieve the same result. Remember that "
+"`@Configuration` classes are ultimately only another bean in the container: "
+"This means that they can take advantage of `@Autowired` and `@Value` "
+"injection and other features the same as any other bean."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:218
+msgid ""
+"Make sure that the dependencies you inject that way are of the simplest kind "
+"only. `@Configuration` classes are processed quite early during the "
+"initialization of the context, and forcing a dependency to be injected this "
+"way may lead to unexpected early initialization. Whenever possible, resort "
+"to parameter-based injection, as in the preceding example."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:223
+msgid ""
+"Avoid access to locally defined beans within a `@PostConstruct` method on "
+"the same configuration class. This effectively leads to a circular reference "
+"since non-static `@Bean` methods semantically require a fully initialized "
+"configuration class instance to be called on. With circular references "
+"disallowed (for example, in Spring Boot 2.6+), this may trigger a "
+"`BeanCurrentlyInCreationException`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:229
+msgid ""
+"Also, be particularly careful with `BeanPostProcessor` and "
+"`BeanFactoryPostProcessor` definitions through `@Bean`. Those should usually "
+"be declared as `static @Bean` methods, not triggering the instantiation of "
+"their containing configuration class. Otherwise, `@Autowired` and `@Value` "
+"may not work on the configuration class itself, since it is possible to "
+"create it as a bean instance earlier than "
+"{spring-framework-api}/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.html[`AutowiredAnnotationBeanPostProcessor`]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:232
+msgid "The following example shows how one bean can be autowired to another bean:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:244
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate AccountRepository accountRepository;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:250
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic TransferService transferService() {\n"
+"\t\t\treturn new TransferServiceImpl(accountRepository);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:255
+#, no-wrap
+msgid "\t\tprivate final DataSource dataSource;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:259
+#, no-wrap
+msgid ""
+"\t\tpublic RepositoryConfig(DataSource dataSource) {\n"
+"\t\t\tthis.dataSource = dataSource;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:265
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic AccountRepository accountRepository() {\n"
+"\t\t\treturn new JdbcAccountRepository(dataSource);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:295
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var accountRepository: AccountRepository\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:301
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun transferService(): TransferService {\n"
+"\t\t\treturn TransferServiceImpl(accountRepository)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:304
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass RepositoryConfig(private val dataSource: DataSource) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:310
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun accountRepository(): AccountRepository {\n"
+"\t\t\treturn JdbcAccountRepository(dataSource)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:332
+msgid ""
+"Note that there is no need to specify `@Autowired` if the target bean "
+"defines only one constructor."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:335
+#, no-wrap
+msgid "Fully-qualifying imported beans for ease of navigation"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:346
+msgid ""
+"In the preceding scenario, using `@Autowired` works well and provides the "
+"desired modularity, but determining exactly where the autowired bean "
+"definitions are declared is still somewhat ambiguous. For example, as a "
+"developer looking at `ServiceConfig`, how do you know exactly where the "
+"`@Autowired AccountRepository` bean is declared? It is not explicit in the "
+"code, and this may be just fine. Note that the {spring-site-tools}[Spring "
+"Tools] IDE support provides tooling that can render graphs showing how "
+"everything is wired, which may be all you need. Also, your Java IDE can "
+"easily find all declarations and uses of the `AccountRepository` type and "
+"quickly show you the location of `@Bean` methods that return that type."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:350
+msgid ""
+"In cases where this ambiguity is not acceptable and you wish to have direct "
+"navigation from within your IDE from one `@Configuration` class to another, "
+"consider autowiring the configuration classes themselves. The following "
+"example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:362
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:406
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate RepositoryConfig repositoryConfig;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:369
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic TransferService transferService() {\n"
+"\t\t\t// navigate 'through' the config class to the @Bean method!\n"
+"\t\t\treturn new "
+"TransferServiceImpl(repositoryConfig.accountRepository());\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:377
+#, no-wrap
+msgid ""
+"@Configuration\n"
+"class ServiceConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:380
+#, no-wrap
+msgid ""
+"\t@Autowired\n"
+"\tprivate lateinit var repositoryConfig: RepositoryConfig\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:387
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\tfun transferService(): TransferService {\n"
+"\t\t// navigate 'through' the config class to the @Bean method!\n"
+"\t\treturn TransferServiceImpl(repositoryConfig.accountRepository())\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:394
+msgid ""
+"In the preceding situation, where `AccountRepository` is defined is "
+"completely explicit.  However, `ServiceConfig` is now tightly coupled to "
+"`RepositoryConfig`. That is the tradeoff. This tight coupling can be "
+"somewhat mitigated by using interface-based or abstract class-based "
+"`@Configuration` classes. Consider the following example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:412
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic TransferService transferService() {\n"
+"\t\t\treturn new "
+"TransferServiceImpl(repositoryConfig.accountRepository());\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:415
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic interface RepositoryConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:419
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tAccountRepository accountRepository();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:422
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class DefaultRepositoryConfig implements RepositoryConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:428
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic AccountRepository accountRepository() {\n"
+"\t\t\treturn new JdbcAccountRepository(...);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:432
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Import({ServiceConfig.class, DefaultRepositoryConfig.class})  // import "
+"the concrete config!\n"
+"\tpublic class SystemTestConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:437
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic DataSource dataSource() {\n"
+"\t\t\t// return DataSource\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:439
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:491
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:827
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:862
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:445
+#, no-wrap
+msgid ""
+"\tpublic static void main(String[] args) {\n"
+"\t\tApplicationContext ctx = new "
+"AnnotationConfigApplicationContext(SystemTestConfig.class);\n"
+"\t\tTransferService transferService = ctx.getBean(TransferService.class);\n"
+"\t\ttransferService.transfer(100.00, \"A123\", \"C456\");\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:458
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate lateinit var repositoryConfig: RepositoryConfig\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:464
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun transferService(): TransferService {\n"
+"\t\t\treturn TransferServiceImpl(repositoryConfig.accountRepository())\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:467
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tinterface RepositoryConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:471
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun accountRepository(): AccountRepository\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:474
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass DefaultRepositoryConfig : RepositoryConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:480
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun accountRepository(): AccountRepository {\n"
+"\t\t\treturn JdbcAccountRepository(...)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:484
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Import(ServiceConfig::class, DefaultRepositoryConfig::class)  // import "
+"the concrete config!\n"
+"\tclass SystemTestConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:489
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\t// return DataSource\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:497
+#, no-wrap
+msgid ""
+"\tfun main() {\n"
+"\t\tval ctx = "
+"AnnotationConfigApplicationContext(SystemTestConfig::class.java)\n"
+"\t\tval transferService = ctx.getBean<TransferService>()\n"
+"\t\ttransferService.transfer(100.00, \"A123\", \"C456\")\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:505
+msgid ""
+"Now `ServiceConfig` is loosely coupled with respect to the concrete "
+"`DefaultRepositoryConfig`, and built-in IDE tooling is still useful: You can "
+"easily get a type hierarchy of `RepositoryConfig` implementations. In this "
+"way, navigating `@Configuration` classes and their dependencies becomes no "
+"different than the usual process of navigating interface-based code."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:508
+#, no-wrap
+msgid "Influencing the Startup of `@Bean`-defined Singletons"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:512
+msgid ""
+"If you want to influence the startup creation order of certain singleton "
+"beans, consider declaring some of them as `@Lazy` for creation on first "
+"access instead of on startup."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:516
+msgid ""
+"`@DependsOn` forces certain other beans to be initialized first, making sure "
+"that the specified beans are created before the current bean, beyond what "
+"the latter's direct dependencies imply."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:518
+#, no-wrap
+msgid "Background Initialization"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:523
+msgid ""
+"As of 6.2, there is a background initialization option: "
+"`@Bean(bootstrap=BACKGROUND)` allows for singling out specific beans for "
+"background initialization, covering the entire bean creation step for each "
+"such bean on context startup."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:528
+msgid ""
+"Dependent beans with non-lazy injection points automatically wait for the "
+"bean instance to be completed. All regular background initializations are "
+"forced to complete at the end of context startup. Only beans additionally "
+"marked as `@Lazy` are allowed to be completed later (up until the first "
+"actual access)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:532
+msgid ""
+"Background initialization typically goes together with `@Lazy` (or "
+"`ObjectProvider`)  injection points in dependent beans. Otherwise, the main "
+"bootstrap thread is going to block when an actual background-initialized "
+"bean instance needs to be injected early."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:537
+msgid ""
+"This form of concurrent startup applies to individual beans: if such a bean "
+"depends on other beans, they need to have been initialized already, either "
+"simply through being declared earlier or through `@DependsOn` which enforces "
+"initialization in the main bootstrap thread before background initialization "
+"for the affected bean is triggered."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:543
+msgid ""
+"A `bootstrapExecutor` bean of type `Executor` must be declared for "
+"background bootstrapping to be actually active. Otherwise, the background "
+"markers will be ignored at runtime."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:546
+msgid ""
+"The bootstrap executor may be a bounded executor just for startup purposes "
+"or a shared thread pool which serves for other purposes as well."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:550
+#, no-wrap
+msgid "Conditionally Include `@Configuration` Classes or `@Bean` Methods"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:557
+msgid ""
+"It is often useful to conditionally enable or disable a complete "
+"`@Configuration` class or even individual `@Bean` methods, based on some "
+"arbitrary system state. One common example of this is to use the `@Profile` "
+"annotation to activate beans only when a specific profile has been enabled "
+"in the Spring `Environment` (see "
+"xref:core/beans/environment.adoc#beans-definition-profiles[Bean Definition "
+"Profiles] for details)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:563
+msgid ""
+"The `@Profile` annotation is actually implemented by using a much more "
+"flexible annotation called "
+"{spring-framework-api}/context/annotation/Conditional.html[`@Conditional`].  "
+"The `@Conditional` annotation indicates specific "
+"`org.springframework.context.annotation.Condition` implementations that "
+"should be consulted before a `@Bean` is registered."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:567
+msgid ""
+"Implementations of the `Condition` interface provide a `matches(...)` method "
+"that returns `true` or `false`. For example, the following listing shows the "
+"actual `Condition` implementation used for `@Profile`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:588
+#, no-wrap
+msgid ""
+"\t@Override\n"
+"\tpublic boolean matches(ConditionContext context, AnnotatedTypeMetadata "
+"metadata) {\n"
+"\t\t// Read the @Profile annotation attributes\n"
+"\t\tMultiValueMap<String, Object> attrs = "
+"metadata.getAllAnnotationAttributes(Profile.class.getName());\n"
+"\t\tif (attrs != null) {\n"
+"\t\t\tfor (Object value : attrs.get(\"value\")) {\n"
+"\t\t\t\tif (context.getEnvironment().matchesProfiles((String[]) value)) {\n"
+"\t\t\t\t\treturn true;\n"
+"\t\t\t\t}\n"
+"\t\t\t}\n"
+"\t\t\treturn false;\n"
+"\t\t}\n"
+"\t\treturn true;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:607
+#, no-wrap
+msgid ""
+"\toverride fun matches(context: ConditionContext, metadata: "
+"AnnotatedTypeMetadata): Boolean {\n"
+"\t\t// Read the @Profile annotation attributes\n"
+"\t\tval attrs = "
+"metadata.getAllAnnotationAttributes(Profile::class.java.name)\n"
+"\t\tif (attrs != null) {\n"
+"\t\t\tfor (value in attrs[\"value\"]!!) {\n"
+"\t\t\t\tif (context.environment.matchesProfiles(*value as Array<String>)) "
+"{\n"
+"\t\t\t\t\treturn true\n"
+"\t\t\t\t}\n"
+"\t\t\t}\n"
+"\t\t\treturn false\n"
+"\t\t}\n"
+"\t\treturn true\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:612
+msgid ""
+"See the "
+"{spring-framework-api}/context/annotation/Conditional.html[`@Conditional`] "
+"javadoc for more detail."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:615
+#, no-wrap
+msgid "Combining Java and XML Configuration"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:624
+msgid ""
+"Spring's `@Configuration` class support does not aim to be a 100% complete "
+"replacement for Spring XML. Some facilities, such as Spring XML namespaces, "
+"remain an ideal way to configure the container. In cases where XML is "
+"convenient or necessary, you have a choice: either instantiate the container "
+"in an \"`XML-centric`\" way by using, for example, "
+"`ClassPathXmlApplicationContext`, or instantiate it in a \"`Java-centric`\" "
+"way by using `AnnotationConfigApplicationContext` and the `@ImportResource` "
+"annotation to import XML as needed."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:626
+#, no-wrap
+msgid "XML-centric Use of `@Configuration` Classes"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:633
+msgid ""
+"It may be preferable to bootstrap the Spring container from XML and include "
+"`@Configuration` classes in an ad-hoc fashion. For example, in a large "
+"existing codebase that uses Spring XML, it is easier to create "
+"`@Configuration` classes on an as-needed basis and include them from the "
+"existing XML files. Later in this section, we cover the options for using "
+"`@Configuration` classes in this kind of \"`XML-centric`\" situation."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:636
+#, no-wrap
+msgid "Declaring `@Configuration` classes as plain Spring `<bean/>` elements"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:644
+msgid ""
+"Remember that `@Configuration` classes are ultimately bean definitions in "
+"the container.  In this series of examples, we create a `@Configuration` "
+"class named `AppConfig` and include it within `system-test-config.xml` as a "
+"`<bean/>` definition. Because `<context:annotation-config/>` is switched on, "
+"the container recognizes the `@Configuration` annotation and processes the "
+"`@Bean` methods declared in `AppConfig` properly."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:646
+msgid ""
+"The following example shows the `AppConfig` configuration class in Java and "
+"Kotlin:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:655
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:658
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate DataSource dataSource;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:663
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic AccountRepository accountRepository() {\n"
+"\t\t\treturn new JdbcAccountRepository(dataSource);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:669
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic TransferService transferService() {\n"
+"\t\t\treturn new TransferServiceImpl(accountRepository());\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:677
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:680
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate lateinit var dataSource: DataSource\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:685
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun accountRepository(): AccountRepository {\n"
+"\t\t\treturn JdbcAccountRepository(dataSource)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:689
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun transferService() = TransferService(accountRepository())\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:693
+msgid "The following example shows part of a sample `system-test-config.xml` file:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:699
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<!-- enable processing of annotations such as @Autowired and "
+"@Configuration -->\n"
+"\t\t<context:annotation-config/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:701
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:772
+#, no-wrap
+msgid ""
+"\t\t<context:property-placeholder "
+"location=\"classpath:/com/acme/jdbc.properties\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:703
+#, no-wrap
+msgid "\t\t<bean class=\"com.acme.AppConfig\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:710
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:779
+#, no-wrap
+msgid ""
+"\t\t<bean "
+"class=\"org.springframework.jdbc.datasource.DriverManagerDataSource\">\n"
+"\t\t\t<property name=\"url\" value=\"${jdbc.url}\"/>\n"
+"\t\t\t<property name=\"username\" value=\"${jdbc.username}\"/>\n"
+"\t\t\t<property name=\"password\" value=\"${jdbc.password}\"/>\n"
+"\t\t</bean>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:713
+msgid "The following example shows a possible `jdbc.properties` file:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:719
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:879
+#, no-wrap
+msgid ""
+"jdbc.url=jdbc:hsqldb:hsql://localhost/xdb\n"
+"jdbc.username=sa\n"
+"jdbc.password=\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:732
+#, no-wrap
+msgid ""
+"\tpublic static void main(String[] args) {\n"
+"\t\tApplicationContext ctx = new "
+"ClassPathXmlApplicationContext(\"classpath:/com/acme/system-test-config.xml\");\n"
+"\t\tTransferService transferService = ctx.getBean(TransferService.class);\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:743
+#, no-wrap
+msgid ""
+"\tfun main() {\n"
+"\t\tval ctx = "
+"ClassPathXmlApplicationContext(\"classpath:/com/acme/system-test-config.xml\")\n"
+"\t\tval transferService = ctx.getBean<TransferService>()\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:751
+msgid ""
+"In the `system-test-config.xml` file, the `AppConfig` `<bean/>` does not "
+"declare an `id` attribute. While it would be acceptable to do so, it is "
+"unnecessary, given that no other bean ever refers to it, and it is unlikely "
+"to be explicitly fetched from the container by name.  Similarly, the "
+"`DataSource` bean is only ever autowired by type, so an explicit bean `id` "
+"is not strictly required."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:754
+#, no-wrap
+msgid "Using <context:component-scan/> to pick up `@Configuration` classes"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:762
+msgid ""
+"Because `@Configuration` is meta-annotated with `@Component`, "
+"`@Configuration`-annotated classes are automatically candidates for "
+"component scanning. Using the same scenario as described in the previous "
+"example, we can redefine `system-test-config.xml` to take advantage of "
+"component-scanning. Note that, in this case, we need not explicitly declare "
+"`<context:annotation-config/>`, because `<context:component-scan/>` enables "
+"the same functionality."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:764
+msgid "The following example shows the modified `system-test-config.xml` file:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:770
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<!-- picks up and registers AppConfig as a bean definition -->\n"
+"\t\t<context:component-scan base-package=\"com.acme\"/>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:782
+#, no-wrap
+msgid "`@Configuration` Class-centric Use of XML with `@ImportResource`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:791
+msgid ""
+"In applications where `@Configuration` classes are the primary mechanism for "
+"configuring the container, it may still be necessary to use at least some "
+"XML. In such scenarios, you can use `@ImportResource` and define only as "
+"much XML as you need. Doing so achieves a \"`Java-centric`\" approach to "
+"configuring the container and keeps XML to a bare minimum.  The following "
+"example (which includes a configuration class, an XML file that defines a "
+"bean, a properties file, and the `main()` method) shows how to use the "
+"`@ImportResource` annotation to achieve \"`Java-centric`\" configuration "
+"that uses XML as needed:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:801
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@ImportResource(\"classpath:/com/acme/properties-config.xml\")\n"
+"\tpublic class AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:804
+#, no-wrap
+msgid ""
+"\t\t@Value(\"${jdbc.url}\")\n"
+"\t\tprivate String url;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:807
+#, no-wrap
+msgid ""
+"\t\t@Value(\"${jdbc.username}\")\n"
+"\t\tprivate String username;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:810
+#, no-wrap
+msgid ""
+"\t\t@Value(\"${jdbc.password}\")\n"
+"\t\tprivate String password;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:815
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic DataSource dataSource() {\n"
+"\t\t\treturn new DriverManagerDataSource(url, username, password);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:820
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic AccountRepository accountRepository(DataSource dataSource) {\n"
+"\t\t\treturn new JdbcAccountRepository(dataSource);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:825
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic TransferService transferService(AccountRepository "
+"accountRepository) {\n"
+"\t\t\treturn new TransferServiceImpl(accountRepository);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:836
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@ImportResource(\"classpath:/com/acme/properties-config.xml\")\n"
+"\tclass AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:839
+#, no-wrap
+msgid ""
+"\t\t@Value(\"\\${jdbc.url}\")\n"
+"\t\tprivate lateinit var url: String\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:842
+#, no-wrap
+msgid ""
+"\t\t@Value(\"\\${jdbc.username}\")\n"
+"\t\tprivate lateinit var username: String\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:845
+#, no-wrap
+msgid ""
+"\t\t@Value(\"\\${jdbc.password}\")\n"
+"\t\tprivate lateinit var password: String\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:850
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\treturn DriverManagerDataSource(url, username, password)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:855
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun accountRepository(dataSource: DataSource): AccountRepository {\n"
+"\t\t\treturn JdbcAccountRepository(dataSource)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:860
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun transferService(accountRepository: AccountRepository): "
+"TransferService {\n"
+"\t\t\treturn TransferServiceImpl(accountRepository)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:865
+#, no-wrap
+msgid "properties-config.xml"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:871
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<context:property-placeholder "
+"location=\"classpath:/com/acme/jdbc.properties\"/>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:873
+#, no-wrap
+msgid "jdbc.properties"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:892
+#, no-wrap
+msgid ""
+"\tpublic static void main(String[] args) {\n"
+"\t\tApplicationContext ctx = new "
+"AnnotationConfigApplicationContext(AppConfig.class);\n"
+"\t\tTransferService transferService = ctx.getBean(TransferService.class);\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/composing-configuration-classes.adoc:905
+#, no-wrap
+msgid ""
+"\tfun main() {\n"
+"\t\tval ctx = AnnotationConfigApplicationContext(AppConfig::class.java)\n"
+"\t\tval transferService = ctx.getBean<TransferService>()\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""

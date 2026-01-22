@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/overview.adoc:2
+#, no-wrap
+msgid "Overview"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/overview.adoc:10
+msgid ""
+"You can write plain unit tests for Spring MVC by instantiating a controller, "
+"injecting it with dependencies, and calling its methods. However such tests "
+"do not verify request mappings, data binding, message conversion, type "
+"conversion, or validation and also do not involve any of the supporting "
+"`@InitBinder`, `@ModelAttribute`, or `@ExceptionHandler` methods."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/overview.adoc:16
+msgid ""
+"`MockMvc` aims to provide more complete testing support for Spring MVC "
+"controllers without a running server. It does that by invoking the "
+"`DispatcherServlet` and passing "
+"xref:testing/unit.adoc#mock-objects-servlet[\"mock\" implementations of the "
+"Servlet API] from the `spring-test` module which replicates the full Spring "
+"MVC request handling without a running server."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/overview.adoc:22
+msgid ""
+"MockMvc is a server-side test framework that lets you verify most of the "
+"functionality of a Spring MVC application using lightweight and targeted "
+"tests. You can use it on its own to perform requests and to verify responses "
+"using Hamcrest or through `MockMvcTester` which provides a fluent API using "
+"AssertJ. You can also use it through the "
+"xref:testing/webtestclient.adoc[WebTestClient] API with MockMvc plugged in "
+"as the server to handle requests."
+msgstr ""

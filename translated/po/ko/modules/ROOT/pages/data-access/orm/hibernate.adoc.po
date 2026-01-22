@@ -1,0 +1,912 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:2
+#, no-wrap
+msgid "Hibernate"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:10
+msgid ""
+"We start with a coverage of https://hibernate.org/[Hibernate] in a Spring "
+"environment, using it to demonstrate the approach that Spring takes towards "
+"integrating OR mappers.  This section covers many issues in detail and shows "
+"different variations of DAO implementations and transaction "
+"demarcation. Most of these patterns can be directly translated to all other "
+"supported ORM tools. The later sections in this chapter then cover the other "
+"ORM technologies and show brief examples."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:15
+msgid ""
+"As of Spring Framework 7.0, Spring requires Hibernate ORM 7.x for Spring's "
+"`HibernateJpaVendorAdapter`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:19
+msgid ""
+"The `org.springframework.orm.jpa.hibernate` package supersedes the former "
+"`orm.hibernate5`: now for use with Hibernate ORM 7.1+, tightly integrated "
+"with `HibernateJpaVendorAdapter` as well as supporting Hibernate's native "
+"`SessionFactory.getCurrentSession()` style."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:23
+#, no-wrap
+msgid "`SessionFactory` Setup in a Spring Container"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:30
+msgid ""
+"To avoid tying application objects to hard-coded resource lookups, you can "
+"define resources (such as a JDBC `DataSource` or a Hibernate "
+"`SessionFactory`) as beans in the Spring container. Application objects that "
+"need to access resources receive references to such predefined instances "
+"through bean references, as illustrated in the DAO definition in the "
+"xref:data-access/orm/hibernate.adoc#orm-hibernate-straight[next section]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:33
+msgid ""
+"The following excerpt from an XML application context definition shows how "
+"to set up a JDBC `DataSource` and a Hibernate `SessionFactory` on top of it:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:37
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:157
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:302
+#, no-wrap
+msgid "\t<beans>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:44
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"myDataSource\" "
+"class=\"org.apache.commons.dbcp.BasicDataSource\" "
+"destroy-method=\"close\">\n"
+"\t\t\t<property name=\"driverClassName\" value=\"org.hsqldb.jdbcDriver\"/>\n"
+"\t\t\t<property name=\"url\" value=\"jdbc:hsqldb:hsql://localhost:9001\"/>\n"
+"\t\t\t<property name=\"username\" value=\"sa\"/>\n"
+"\t\t\t<property name=\"password\" value=\"\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:58
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"mySessionFactory\" "
+"class=\"org.springframework.orm.jpa.hibernate.LocalSessionFactoryBean\">\n"
+"\t\t\t<property name=\"dataSource\" ref=\"myDataSource\"/>\n"
+"\t\t\t<property name=\"mappingResources\">\n"
+"\t\t\t\t<list>\n"
+"\t\t\t\t\t<value>product.hbm.xml</value>\n"
+"\t\t\t\t</list>\n"
+"\t\t\t</property>\n"
+"\t\t\t<property name=\"hibernateProperties\">\n"
+"\t\t\t\t<value>\n"
+"\t\t\t\t\thibernate.dialect=org.hibernate.dialect.HSQLDialect\n"
+"\t\t\t\t</value>\n"
+"\t\t\t</property>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:60
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:163
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:284
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:313
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:65
+msgid ""
+"Switching from a local Jakarta Commons DBCP `BasicDataSource` to a "
+"JNDI-located `DataSource` (usually managed by an application server) is only "
+"a matter of configuration, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:71
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<jee:jndi-lookup id=\"myDataSource\" "
+"jndi-name=\"java:comp/env/jdbc/myds\"/>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:76
+msgid ""
+"You can also access a JNDI-located `SessionFactory`, using Spring's "
+"`JndiObjectFactoryBean` / `<jee:jndi-lookup>` to retrieve and expose it.  "
+"However, that is typically not common outside of an EJB context."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:81
+msgid ""
+"Spring also provides a `LocalSessionFactoryBuilder` variant, seamlessly "
+"integrating with `@Bean` style configuration and programmatic setup (no "
+"`FactoryBean` involved)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:88
+msgid ""
+"Both `LocalSessionFactoryBean` and `LocalSessionFactoryBuilder` support "
+"background bootstrapping, with Hibernate initialization running in parallel "
+"to the application bootstrap thread on a given bootstrap executor (such as a "
+"`SimpleAsyncTaskExecutor`).  On `LocalSessionFactoryBean`, this is available "
+"through the `bootstrapExecutor` property. On the programmatic "
+"`LocalSessionFactoryBuilder`, there is an overloaded `buildSessionFactory` "
+"method that takes a bootstrap executor argument."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:92
+msgid ""
+"Such a native Hibernate setup can also expose a JPA `EntityManagerFactory` "
+"for standard JPA interaction next to native Hibernate access.  See "
+"xref:data-access/orm/jpa.adoc#orm-jpa-hibernate[Native Hibernate Setup for "
+"JPA] for details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:96
+#, no-wrap
+msgid "Implementing DAOs Based on the Plain Hibernate API"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:102
+msgid ""
+"Hibernate has a feature called contextual sessions, wherein Hibernate itself "
+"manages one current `Session` per transaction. This is roughly equivalent to "
+"Spring's synchronization of one Hibernate `Session` per transaction. A "
+"corresponding DAO implementation resembles the following example, based on "
+"the plain Hibernate API:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:105
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:208
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:317
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:110
+#, no-wrap
+msgid "\tpublic class ProductDaoImpl implements ProductDao {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:112
+#, no-wrap
+msgid "\t\tprivate SessionFactory sessionFactory;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:116
+#, no-wrap
+msgid ""
+"\t\tpublic void setSessionFactory(SessionFactory sessionFactory) {\n"
+"\t\t\tthis.sessionFactory = sessionFactory;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:124
+#, no-wrap
+msgid ""
+"\t\tpublic Collection loadProductsByCategory(String category) {\n"
+"\t\t\treturn this.sessionFactory.getCurrentSession()\n"
+"\t\t\t\t\t.createQuery(\"from test.Product product where "
+"product.category=?\")\n"
+"\t\t\t\t\t.setParameter(0, category)\n"
+"\t\t\t\t\t.list();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:126
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:233
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:345
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:131
+#, no-wrap
+msgid ""
+"\tclass ProductDaoImpl(private val sessionFactory: SessionFactory) : "
+"ProductDao {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:139
+#, no-wrap
+msgid ""
+"\t\tfun loadProductsByCategory(category: String): Collection<*> {\n"
+"\t\t\treturn sessionFactory.currentSession\n"
+"\t\t\t\t\t.createQuery(\"from test.Product product where "
+"product.category=?\")\n"
+"\t\t\t\t\t.setParameter(0, category)\n"
+"\t\t\t\t\t.list()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:147
+msgid ""
+"This style is similar to that of the Hibernate reference documentation and "
+"examples, except for holding the `SessionFactory` in an instance "
+"variable. We strongly recommend such an instance-based setup over the "
+"old-school `static` `HibernateUtil` class from Hibernate's CaveatEmptor "
+"sample application. (In general, do not keep any resources in `static` "
+"variables unless absolutely necessary.)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:153
+msgid ""
+"The preceding DAO example follows the dependency injection pattern. It fits "
+"nicely into a Spring IoC container, as it would if coded against Spring's "
+"`HibernateTemplate`.  You can also set up such a DAO in plain Java (for "
+"example, in unit tests). To do so, instantiate it and call "
+"`setSessionFactory(..)` with the desired factory reference. As a Spring bean "
+"definition, the DAO would resemble the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:161
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"myProductDao\" class=\"product.ProductDaoImpl\">\n"
+"\t\t\t<property name=\"sessionFactory\" ref=\"mySessionFactory\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:168
+msgid ""
+"The main advantage of this DAO style is that it depends on Hibernate API "
+"only. No import of any Spring class is required. This is appealing from a "
+"non-invasiveness perspective and may feel more natural to Hibernate "
+"developers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:176
+msgid ""
+"However, the DAO throws plain `HibernateException` (which is unchecked, so "
+"it does not have to be declared or caught), which means that callers can "
+"treat exceptions only as being generally fatal -- unless they want to depend "
+"on Hibernate's own exception hierarchy.  Catching specific causes (such as "
+"an optimistic locking failure) is not possible without tying the caller to "
+"the implementation strategy. This trade off might be acceptable to "
+"applications that are strongly Hibernate-based, do not need any special "
+"exception treatment, or both."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:184
+msgid ""
+"Fortunately, Spring's `LocalSessionFactoryBean` supports Hibernate's "
+"`SessionFactory.getCurrentSession()` method for any Spring transaction "
+"strategy, returning the current Spring-managed transactional `Session`, even "
+"with `HibernateTransactionManager`. The standard behavior of that method "
+"remains to return the current `Session` associated with the ongoing JTA "
+"transaction, if any.  This behavior applies regardless of whether you use "
+"Spring's `JtaTransactionManager`, EJB container managed transactions (CMTs), "
+"or JTA."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:187
+msgid ""
+"In summary, you can implement DAOs based on the plain Hibernate API, while "
+"still being able to participate in Spring-managed transactions."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:190
+#, no-wrap
+msgid "Declarative Transaction Demarcation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:198
+msgid ""
+"We recommend that you use Spring's declarative transaction support, which "
+"lets you replace explicit transaction demarcation API calls in your Java "
+"code with an AOP transaction interceptor. You can configure this transaction "
+"interceptor in a Spring container by using either Java annotations or "
+"XML. This declarative transaction capability lets you keep business services "
+"free of repetitive transaction demarcation code and focus on adding business "
+"logic, which is the real value of your application."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:201
+msgid ""
+"Before you continue, we are strongly encourage you to read "
+"xref:data-access/transaction/declarative.adoc[Declarative Transaction "
+"Management] if you have not already done so."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:205
+msgid ""
+"You can annotate the service layer with `@Transactional` annotations and "
+"instruct the Spring container to find these annotations and provide "
+"transactional semantics for these annotated methods. The following example "
+"shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:213
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:322
+#, no-wrap
+msgid "\tpublic class ProductServiceImpl implements ProductService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:215
+#, no-wrap
+msgid "\t\tprivate ProductDao productDao;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:219
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:333
+#, no-wrap
+msgid ""
+"\t\tpublic void setProductDao(ProductDao productDao) {\n"
+"\t\t\tthis.productDao = productDao;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:225
+#, no-wrap
+msgid ""
+"\t\t@Transactional\n"
+"\t\tpublic void increasePriceOfAllProductsInCategory(final String category) "
+"{\n"
+"\t\t\tList productsToChange = "
+"this.productDao.loadProductsByCategory(category);\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:231
+#, no-wrap
+msgid ""
+"\t\t@Transactional(readOnly = true)\n"
+"\t\tpublic List<Product> findAllProducts() {\n"
+"\t\t\treturn this.productDao.findAllProducts();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:238
+#, no-wrap
+msgid ""
+"\tclass ProductServiceImpl(private val productDao: ProductDao) : "
+"ProductService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:244
+#, no-wrap
+msgid ""
+"\t\t@Transactional\n"
+"\t\tfun increasePriceOfAllProductsInCategory(category: String) {\n"
+"\t\t\tval productsToChange = productDao.loadProductsByCategory(category)\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:248
+#, no-wrap
+msgid ""
+"\t\t@Transactional(readOnly = true)\n"
+"\t\tfun findAllProducts() = productDao.findAllProducts()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:254
+msgid ""
+"In the container, you need to set up the `PlatformTransactionManager` "
+"implementation (as a bean) and a `<tx:annotation-driven/>` entry, opting "
+"into `@Transactional` processing at runtime. The following example shows how "
+"to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:269
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:aop=\"http://www.springframework.org/schema/aop\"\n"
+"\t\txmlns:tx=\"http://www.springframework.org/schema/tx\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/tx\n"
+"\t\t\thttps://www.springframework.org/schema/tx/spring-tx.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/aop\n"
+"\t\t\thttps://www.springframework.org/schema/aop/spring-aop.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:271
+#, no-wrap
+msgid "\t\t<!-- SessionFactory, DataSource, etc. omitted -->\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:276
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"transactionManager\"\n"
+"\t\t\t\tclass=\"org.springframework.orm.jpa.hibernate.HibernateTransactionManager\">\n"
+"\t\t\t<property name=\"sessionFactory\" ref=\"sessionFactory\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:278
+#, no-wrap
+msgid "\t\t<tx:annotation-driven/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:282
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"myProductService\" class=\"product.SimpleProductService\">\n"
+"\t\t\t<property name=\"productDao\" ref=\"myProductDao\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:288
+#, no-wrap
+msgid "Programmatic Transaction Demarcation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:298
+msgid ""
+"You can demarcate transactions in a higher level of the application, on top "
+"of lower-level data access services that span any number of operations. Nor "
+"do restrictions exist on the implementation of the surrounding business "
+"service. It needs only a Spring `PlatformTransactionManager`. Again, the "
+"latter can come from anywhere, but preferably as a bean reference through a "
+"`setTransactionManager(..)` method. Also, the `productDAO` should be set by "
+"a `setProductDao(..)` method. The following pair of snippets show a "
+"transaction manager and a business service definition in a Spring "
+"application context and an example for a business method implementation:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:306
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"myTxManager\" "
+"class=\"org.springframework.orm.jpa.hibernate.HibernateTransactionManager\">\n"
+"\t\t\t<property name=\"sessionFactory\" ref=\"mySessionFactory\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:311
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"myProductService\" class=\"product.ProductServiceImpl\">\n"
+"\t\t\t<property name=\"transactionManager\" ref=\"myTxManager\"/>\n"
+"\t\t\t<property name=\"productDao\" ref=\"myProductDao\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:325
+#, no-wrap
+msgid ""
+"\t\tprivate TransactionTemplate transactionTemplate;\n"
+"\t\tprivate ProductDao productDao;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:329
+#, no-wrap
+msgid ""
+"\t\tpublic void setTransactionManager(PlatformTransactionManager "
+"transactionManager) {\n"
+"\t\t\tthis.transactionTemplate = new "
+"TransactionTemplate(transactionManager);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:343
+#, no-wrap
+msgid ""
+"\t\tpublic void increasePriceOfAllProductsInCategory(final String category) "
+"{\n"
+"\t\t\tthis.transactionTemplate.execute(new "
+"TransactionCallbackWithoutResult() {\n"
+"\t\t\t\tpublic void doInTransactionWithoutResult(TransactionStatus status) "
+"{\n"
+"\t\t\t\t\tList productsToChange = "
+"this.productDao.loadProductsByCategory(category);\n"
+"\t\t\t\t\t// do the price increase...\n"
+"\t\t\t\t}\n"
+"\t\t\t});\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:351
+#, no-wrap
+msgid ""
+"\tclass ProductServiceImpl(transactionManager: PlatformTransactionManager,\n"
+"\t\t\t\t\t\t\tprivate val productDao: ProductDao) : ProductService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:353
+#, no-wrap
+msgid ""
+"\t\tprivate val transactionTemplate = "
+"TransactionTemplate(transactionManager)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:361
+#, no-wrap
+msgid ""
+"\t\tfun increasePriceOfAllProductsInCategory(category: String) {\n"
+"\t\t\ttransactionTemplate.execute {\n"
+"\t\t\t\tval productsToChange = productDao.loadProductsByCategory(category)\n"
+"\t\t\t\t// do the price increase...\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:370
+msgid ""
+"Spring's `TransactionInterceptor` lets any checked application exception be "
+"thrown with the callback code, while `TransactionTemplate` is restricted to "
+"unchecked exceptions within the callback. `TransactionTemplate` triggers a "
+"rollback in case of an unchecked application exception or if the transaction "
+"is marked rollback-only by the application (by setting "
+"`TransactionStatus`). By default, `TransactionInterceptor` behaves the same "
+"way but allows configurable rollback policies per method."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:373
+#, no-wrap
+msgid "Transaction Management Strategies"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:386
+msgid ""
+"Both `TransactionTemplate` and `TransactionInterceptor` delegate the actual "
+"transaction handling to a `PlatformTransactionManager` instance (which can "
+"be a `HibernateTransactionManager` (for a single Hibernate `SessionFactory`) "
+"by using a `ThreadLocal` `Session` under the hood) or a "
+"`JtaTransactionManager` (delegating to the JTA subsystem of the container) "
+"for Hibernate applications. You can even use a custom "
+"`PlatformTransactionManager` implementation. Switching from native Hibernate "
+"transaction management to JTA (such as when facing distributed transaction "
+"requirements for certain deployments of your application) is only a matter "
+"of configuration. You can replace the Hibernate transaction manager with "
+"Spring's JTA transaction implementation. Both transaction demarcation and "
+"data access code work without changes, because they use the generic "
+"transaction management APIs."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:394
+msgid ""
+"For distributed transactions across multiple Hibernate session factories, "
+"you can combine `JtaTransactionManager` as a transaction strategy with "
+"multiple `LocalSessionFactoryBean` definitions. Each DAO then gets one "
+"specific `SessionFactory` reference passed into its corresponding bean "
+"property. If all underlying JDBC data sources are transactional container "
+"ones, a business service can demarcate transactions across any number of "
+"DAOs and any number of session factories without special regard, as long as "
+"it uses `JtaTransactionManager` as the strategy."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:398
+msgid ""
+"Both `HibernateTransactionManager` and `JtaTransactionManager` allow for "
+"proper JVM-level cache handling with Hibernate, without container-specific "
+"transaction manager lookup or a JCA connector (if you do not use EJB to "
+"initiate transactions)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:408
+msgid ""
+"`HibernateTransactionManager` can export the Hibernate JDBC `Connection` to "
+"plain JDBC access code for a specific `DataSource`. This ability allows for "
+"high-level transaction demarcation with mixed Hibernate and JDBC data access "
+"completely without JTA, provided you access only one "
+"database. `HibernateTransactionManager` automatically exposes the Hibernate "
+"transaction as a JDBC transaction if you have set up the passed-in "
+"`SessionFactory` with a `DataSource` through the `dataSource` property of "
+"the `LocalSessionFactoryBean` class. Alternatively, you can specify "
+"explicitly the `DataSource` for which the transactions are supposed to be "
+"exposed through the `dataSource` property of the "
+"`HibernateTransactionManager` class."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:414
+msgid ""
+"For JTA-style lazy retrieval of actual resource connections, Spring provides "
+"a corresponding `DataSource` proxy class for the target connection pool: see "
+"{spring-framework-api}/jdbc/datasource/LazyConnectionDataSourceProxy.html[`LazyConnectionDataSourceProxy`].  "
+"This is particularly useful for Hibernate read-only transactions which can "
+"often be processed from a local cache rather than hitting the database."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:417
+#, no-wrap
+msgid "Comparing Container-managed and Locally Defined Resources"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:427
+msgid ""
+"You can switch between a container-managed JNDI `SessionFactory` and a "
+"locally defined one without having to change a single line of application "
+"code. Whether to keep resource definitions in the container or locally "
+"within the application is mainly a matter of the transaction strategy that "
+"you use. Compared to a Spring-defined local `SessionFactory`, a manually "
+"registered JNDI `SessionFactory` does not provide any benefits. Deploying a "
+"`SessionFactory` through Hibernate's JCA connector provides the added value "
+"of participating in the Jakarta EE server's management infrastructure, but "
+"does not add actual value beyond that."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:436
+msgid ""
+"Spring's transaction support is not bound to a container. When configured "
+"with any strategy other than JTA, transaction support also works in a "
+"stand-alone or test environment.  Especially in the typical case of "
+"single-database transactions, Spring's single-resource local transaction "
+"support is a lightweight and powerful alternative to JTA. When you use local "
+"EJB stateless session beans to drive transactions, you depend both on an EJB "
+"container and on JTA, even if you access only a single database and use only "
+"stateless session beans to provide declarative transactions through "
+"container-managed transactions. Direct use of JTA programmatically also "
+"requires a Jakarta EE environment."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:444
+msgid ""
+"Spring-driven transactions can work as well with a locally defined Hibernate "
+"`SessionFactory` as they do with a local JDBC `DataSource`, provided they "
+"access a single database. Thus, you need only use Spring's JTA transaction "
+"strategy when you have distributed transaction requirements. A JCA connector "
+"requires container-specific deployment steps, and (obviously) JCA support in "
+"the first place. This configuration requires more work than deploying a "
+"simple web application with local resource definitions and Spring-driven "
+"transactions."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:451
+msgid ""
+"All things considered, if you do not use EJBs, stick with local "
+"`SessionFactory` setup and Spring's `HibernateTransactionManager` or "
+"`JtaTransactionManager`. You get all of the benefits, including proper "
+"transactional JVM-level caching and distributed transactions, without the "
+"inconvenience of container deployment. JNDI registration of a Hibernate "
+"`SessionFactory` through the JCA connector adds value only when used in "
+"conjunction with EJBs."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:454
+#, no-wrap
+msgid "Spurious Application Server Warnings with Hibernate"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:463
+msgid ""
+"In some JTA environments with very strict `XADataSource` implementations "
+"(currently some WebLogic Server and WebSphere versions), when Hibernate is "
+"configured without regard to the JTA transaction manager for that "
+"environment, spurious warnings or exceptions can show up in the application "
+"server log. These warnings or exceptions indicate that the connection being "
+"accessed is no longer valid or JDBC access is no longer valid, possibly "
+"because the transaction is no longer active. As an example, here is an "
+"actual exception from WebLogic:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:469
+#, no-wrap
+msgid ""
+"java.sql.SQLException: The transaction is no longer active - status: "
+"'Committed'. No\n"
+"further JDBC access is allowed within this transaction.\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:473
+msgid ""
+"Another common problem is a connection leak after JTA transactions, with "
+"Hibernate sessions (and potentially underlying JDBC connections) not getting "
+"closed properly."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:476
+msgid ""
+"You can resolve such issues by making Hibernate aware of the JTA transaction "
+"manager, to which it synchronizes (along with Spring). You have two options "
+"for doing this:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:481
+msgid ""
+"Pass your Spring `JtaTransactionManager` bean to your Hibernate setup. The "
+"easiest way is a bean reference into the `jtaTransactionManager` property "
+"for your `LocalSessionFactoryBean` bean (see "
+"xref:data-access/transaction/strategies.adoc#transaction-strategies-hibernate[Hibernate "
+"Transaction Setup]).  Spring then makes the corresponding JTA strategies "
+"available to Hibernate."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:485
+msgid ""
+"You may also configure Hibernate's JTA-related properties explicitly, in "
+"particular \"hibernate.transaction.coordinator_class\", "
+"\"hibernate.connection.handling_mode\" and potentially "
+"\"hibernate.transaction.jta.platform\" in your \"hibernateProperties\" on "
+"`LocalSessionFactoryBean` (see Hibernate's manual for details on those "
+"properties)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:488
+msgid ""
+"The remainder of this section describes the sequence of events that occur "
+"with and without Hibernate's awareness of the JTA "
+"`PlatformTransactionManager`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:491
+msgid ""
+"When Hibernate is not configured with any awareness of the JTA transaction "
+"manager, the following events occur when a JTA transaction commits:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:493
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:514
+msgid "The JTA transaction commits."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:495
+msgid ""
+"Spring's `JtaTransactionManager` is synchronized to the JTA transaction, so "
+"it is called back through an `afterCompletion` callback by the JTA "
+"transaction manager."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:499
+msgid ""
+"Among other activities, this synchronization can trigger a callback by "
+"Spring to Hibernate, through Hibernate's `afterTransactionCompletion` "
+"callback (used to clear the Hibernate cache), followed by an explicit "
+"`close()` call on the Hibernate session, which causes Hibernate to attempt "
+"to `close()` the JDBC Connection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:502
+msgid ""
+"In some environments, this `Connection.close()` call then triggers the "
+"warning or error, as the application server no longer considers the "
+"`Connection` to be usable, because the transaction has already been "
+"committed."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:505
+msgid ""
+"When Hibernate is configured with awareness of the JTA transaction manager, "
+"the following events occur when a JTA transaction commits:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:507
+msgid "The JTA transaction is ready to commit."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:510
+msgid ""
+"Spring's `JtaTransactionManager` is synchronized to the JTA transaction, so "
+"the transaction is called back through a `beforeCompletion` callback by the "
+"JTA transaction manager."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:513
+msgid ""
+"Spring is aware that Hibernate itself is synchronized to the JTA transaction "
+"and behaves differently than in the previous scenario. In particular, it "
+"aligns with Hibernate's transactional resource management."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/orm/hibernate.adoc:516
+msgid ""
+"Hibernate is synchronized to the JTA transaction, so the transaction is "
+"called back through an `afterCompletion` callback by the JTA transaction "
+"manager and can properly clear its cache."
+msgstr ""

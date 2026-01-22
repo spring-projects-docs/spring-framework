@@ -1,0 +1,345 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:2
+#, no-wrap
+msgid "Using `@Value`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:5
+msgid "`@Value` is typically used to inject externalized properties:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:8
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:36
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:72
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:121
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:152
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:190
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:219
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:14
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:127
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:196
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:225
+#, no-wrap
+msgid ""
+"\t@Component\n"
+"\tpublic class MovieRecommender {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:16
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:129
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:198
+#, no-wrap
+msgid "\t\tprivate final String catalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:21
+#, no-wrap
+msgid ""
+"\t\tpublic MovieRecommender(@Value(\"${catalog.name}\") String catalog) {\n"
+"\t\t\tthis.catalog = catalog;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:23
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:45
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:86
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:136
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:168
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:205
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:235
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:29
+#, no-wrap
+msgid ""
+"\t@Component\n"
+"\tclass MovieRecommender(@Value(\"\\${catalog.name}\") private val catalog: "
+"String)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:33
+msgid "With the following configuration:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:43
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@PropertySource(\"classpath:application.properties\")\n"
+"\tpublic class AppConfig { }\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:52
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@PropertySource(\"classpath:application.properties\")\n"
+"\tclass AppConfig\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:56
+msgid "And the following `application.properties` file:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:60
+#, no-wrap
+msgid "\tcatalog.name=MovieCatalog\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:63
+msgid ""
+"In that case, the `catalog` parameter and field will be equal to the "
+"`MovieCatalog` value."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:69
+msgid ""
+"A default lenient embedded value resolver is provided by Spring. It will try "
+"to resolve the property value and if it cannot be resolved, the property "
+"name (for example `${catalog.name}`)  will be injected as the value. If you "
+"want to maintain strict control over nonexistent values, you should declare "
+"a `PropertySourcesPlaceholderConfigurer` bean, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:78
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:158
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:84
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic static PropertySourcesPlaceholderConfigurer "
+"propertyPlaceholderConfigurer() {\n"
+"\t\t\treturn new PropertySourcesPlaceholderConfigurer();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:92
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:174
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:96
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun propertyPlaceholderConfigurer() = "
+"PropertySourcesPlaceholderConfigurer()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:101
+msgid ""
+"When configuring a `PropertySourcesPlaceholderConfigurer` using JavaConfig, "
+"the `@Bean` method must be `static`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:109
+msgid ""
+"Using the above configuration ensures Spring initialization failure if any "
+"`${}` placeholder could not be resolved. It is also possible to use methods "
+"like `setPlaceholderPrefix()`, `setPlaceholderSuffix()`, "
+"`setValueSeparator()`, or `setEscapeCharacter()` to customize the "
+"placeholder syntax. In addition, the default escape character can be changed "
+"or disabled globally by setting the "
+"`spring.placeholder.escapeCharacter.default` property via a JVM system "
+"property (or via the "
+"xref:appendix.adoc#appendix-spring-properties[`SpringProperties`] "
+"mechanism)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:112
+msgid ""
+"Spring Boot configures by default a `PropertySourcesPlaceholderConfigurer` "
+"bean that will get properties from `application.properties` and "
+"`application.yml` files."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:116
+msgid ""
+"Built-in converter support provided by Spring allows simple type conversion "
+"(to `Integer` or `int` for example) to be automatically handled. Multiple "
+"comma-separated values can be automatically converted to `String` array "
+"without extra effort."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:118
+msgid "It is possible to provide a default value as following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:134
+#, no-wrap
+msgid ""
+"\t\tpublic MovieRecommender(@Value(\"${catalog.name:defaultCatalog}\") "
+"String catalog) {\n"
+"\t\t\tthis.catalog = catalog;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:142
+#, no-wrap
+msgid ""
+"\t@Component\n"
+"\tclass MovieRecommender(@Value(\"\\${catalog.name:defaultCatalog}\") "
+"private val catalog: String)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:149
+msgid ""
+"A Spring `BeanPostProcessor` uses a `ConversionService` behind the scenes to "
+"handle the process for converting the `String` value in `@Value` to the "
+"target type. If you want to provide conversion support for your own custom "
+"type, you can provide your own `ConversionService` bean instance as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:166
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic ConversionService conversionService() {\n"
+"\t\t\tDefaultFormattingConversionService conversionService = new "
+"DefaultFormattingConversionService();\n"
+"\t\t\tconversionService.addConverter(new MyCustomConverter());\n"
+"\t\t\treturn conversionService;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:182
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun conversionService(): ConversionService {\n"
+"\t\t\treturn DefaultFormattingConversionService().apply {\n"
+"\t\t\t\taddConverter(MyCustomConverter())\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:187
+msgid ""
+"When `@Value` contains a xref:core/expressions.adoc[`SpEL` expression] the "
+"value will be dynamically computed at runtime as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:203
+#, no-wrap
+msgid ""
+"\t\tpublic MovieRecommender(@Value(\"#{systemProperties['user.catalog'] + "
+"'Catalog' }\") String catalog) {\n"
+"\t\t\tthis.catalog = catalog;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:212
+#, no-wrap
+msgid ""
+"\t@Component\n"
+"\tclass MovieRecommender(\n"
+"\t\t@Value(\"#{systemProperties['user.catalog'] + 'Catalog' }\") private val "
+"catalog: String)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:216
+msgid "SpEL also enables the use of more complex data structures:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:227
+#, no-wrap
+msgid "\t\tprivate final Map<String, Integer> countOfMoviesPerCatalog;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:233
+#, no-wrap
+msgid ""
+"\t\tpublic MovieRecommender(\n"
+"\t\t\t\t@Value(\"#{{'Thriller': 100, 'Comedy': 300}}\") Map<String, Integer> "
+"countOfMoviesPerCatalog) {\n"
+"\t\t\tthis.countOfMoviesPerCatalog = countOfMoviesPerCatalog;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/annotation-config/value-annotations.adoc:242
+#, no-wrap
+msgid ""
+"\t@Component\n"
+"\tclass MovieRecommender(\n"
+"\t\t@Value(\"#{{'Thriller': 100, 'Comedy': 300}}\") private val "
+"countOfMoviesPerCatalog: Map<String, Int>)\n"
+msgstr ""

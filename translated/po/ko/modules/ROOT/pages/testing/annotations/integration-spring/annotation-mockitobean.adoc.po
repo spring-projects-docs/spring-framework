@@ -1,0 +1,560 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:2
+#, no-wrap
+msgid "`@MockitoBean` and `@MockitoSpyBean`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:9
+msgid ""
+"{spring-framework-api}/test/context/bean/override/mockito/MockitoBean.html[`@MockitoBean`] "
+"and "
+"{spring-framework-api}/test/context/bean/override/mockito/MockitoSpyBean.html[`@MockitoSpyBean`] "
+"can be used in test classes to override a bean in the test's "
+"`ApplicationContext` with a Mockito _mock_ or _spy_, respectively. In the "
+"latter case, an early instance of the original bean is captured and wrapped "
+"by the spy."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:11
+msgid "The annotations can be applied in the following ways."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:13
+msgid "On a non-static field in a test class or any of its superclasses."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:15
+msgid ""
+"On a non-static field in an enclosing class for a `@Nested` test class or in "
+"any class in the type hierarchy or enclosing class hierarchy above the "
+"`@Nested` test class."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:17
+msgid ""
+"At the type level on a test class or any superclass or implemented interface "
+"in the type hierarchy above the test class."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:20
+msgid ""
+"At the type level on an enclosing class for a `@Nested` test class or on any "
+"class or interface in the type hierarchy or enclosing class hierarchy above "
+"the `@Nested` test class."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:27
+msgid ""
+"When `@MockitoBean` or `@MockitoSpyBean` is declared on a field, the bean to "
+"mock or spy is inferred from the type of the annotated field. If multiple "
+"candidates exist in the `ApplicationContext`, a `@Qualifier` annotation can "
+"be declared on the field to help disambiguate. In the absence of a "
+"`@Qualifier` annotation, the name of the annotated field will be used as a "
+"_fallback qualifier_. Alternatively, you can explicitly specify a bean name "
+"to mock or spy by setting the `value` or `name` attribute in the annotation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:35
+msgid ""
+"When `@MockitoBean` or `@MockitoSpyBean` is declared at the type level, the "
+"type of bean (or beans) to mock or spy must be supplied via the `types` "
+"attribute in the annotation – for example, `@MockitoBean(types = "
+"{OrderService.class, UserService.class})`. If multiple candidates exist in "
+"the `ApplicationContext`, you can explicitly specify a bean name to mock or "
+"spy by setting the `name` attribute. Note, however, that the `types` "
+"attribute must contain a single type if an explicit bean `name` is "
+"configured – for example, `@MockitoBean(name = \"ps1\", types = "
+"PrintingService.class)`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:41
+msgid ""
+"To support reuse of mock configuration, `@MockitoBean` and `@MockitoSpyBean` "
+"may be used as meta-annotations to create custom _composed annotations_ – "
+"for example, to define common mock or spy configuration in a single "
+"annotation that can be reused across a test suite. `@MockitoBean` and "
+"`@MockitoSpyBean` can also be used as repeatable annotations at the type "
+"level — for example, to mock or spy several beans by name."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:48
+msgid ""
+"Qualifiers, including the name of a field, are used to determine if a "
+"separate `ApplicationContext` needs to be created. If you are using this "
+"feature to mock or spy the same bean in several test classes, make sure to "
+"name the fields consistently to avoid creating unnecessary contexts."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:59
+msgid ""
+"Using `@MockitoBean` or `@MockitoSpyBean` in conjunction with "
+"`@ContextHierarchy` can lead to undesirable results since each "
+"`@MockitoBean` or `@MockitoSpyBean` will be applied to all context hierarchy "
+"levels by default. To ensure that a particular `@MockitoBean` or "
+"`@MockitoSpyBean` is applied to a single context hierarchy level, set the "
+"`contextName` attribute to match a configured `@ContextConfiguration` name – "
+"for example, `@MockitoBean(contextName = \"app-config\")` or "
+"`@MockitoSpyBean(contextName = \"app-config\")`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:63
+msgid ""
+"See "
+"xref:testing/testcontext-framework/ctx-management/hierarchies.adoc#testcontext-ctx-management-ctx-hierarchies-with-bean-overrides[context "
+"hierarchies with bean overrides] for further details and examples."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:66
+msgid ""
+"Each annotation also defines Mockito-specific attributes to fine-tune the "
+"mocking behavior."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:72
+msgid ""
+"The `@MockitoBean` annotation uses the `REPLACE_OR_CREATE` "
+"xref:testing/testcontext-framework/bean-overriding.adoc#testcontext-bean-overriding-strategy[strategy "
+"for bean overrides].  If a corresponding bean does not exist, a new bean "
+"will be created. However, you can switch to the `REPLACE` strategy by "
+"setting the `enforceOverride` attribute to `true` – for example, "
+"`@MockitoBean(enforceOverride = true)`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:77
+msgid ""
+"The `@MockitoSpyBean` annotation uses the `WRAP` "
+"xref:testing/testcontext-framework/bean-overriding.adoc#testcontext-bean-overriding-strategy[strategy], "
+"and the original instance is wrapped in a Mockito spy. This strategy "
+"requires that exactly one candidate bean exists."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:83
+msgid ""
+"As stated in the documentation for Mockito, there are times when using "
+"`Mockito.when()` is inappropriate for stubbing a spy – for example, if "
+"calling a real method on a spy results in undesired side effects."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:87
+msgid ""
+"To avoid such undesired side effects, consider using "
+"`Mockito.doReturn(...).when(spy)...`, `Mockito.doThrow(...).when(spy)...`, "
+"`Mockito.doNothing().when(spy)...`, and similar methods."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:95
+msgid ""
+"When using `@MockitoBean` to mock a non-singleton bean, the non-singleton "
+"bean will be replaced with a singleton mock, and the corresponding bean "
+"definition will be converted to a `singleton`. Consequently, if you mock a "
+"`prototype` or scoped bean, the mock will be treated as a `singleton`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:99
+msgid ""
+"Similarly, when using `@MockitoSpyBean` to create a spy for a non-singleton "
+"bean, the corresponding bean definition will be converted to a "
+"`singleton`. Consequently, if you create a spy for a `prototype` or scoped "
+"bean, the spy will be treated as a `singleton`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:102
+msgid ""
+"When using `@MockitoBean` to mock a bean created by a `FactoryBean`, the "
+"`FactoryBean` will be replaced with a singleton mock of the type of object "
+"created by the `FactoryBean`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:105
+msgid ""
+"Similarly, when using `@MockitoSpyBean` to create a spy for a `FactoryBean`, "
+"a spy will be created for the object created by the `FactoryBean`, not for "
+"the `FactoryBean` itself."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:109
+msgid ""
+"Furthermore, `@MockitoSpyBean` cannot be used to spy on a scoped proxy — for "
+"example, a bean annotated with `@Scope(proxyMode = "
+"ScopedProxyMode.TARGET_CLASS)`. Any attempt to do so will fail with an "
+"exception."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:115
+msgid ""
+"There are no restrictions on the visibility of `@MockitoBean` and "
+"`@MockitoSpyBean` fields."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:118
+msgid ""
+"Such fields can therefore be `public`, `protected`, package-private (default "
+"visibility), or `private` depending on the needs or coding practices of the "
+"project."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:122
+#, no-wrap
+msgid "`@MockitoBean` Examples"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:126
+msgid ""
+"The following example shows how to use the default behavior of the "
+"`@MockitoBean` annotation."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:129
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:156
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:177
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:196
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:235
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:260
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:280
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:299
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:135
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:162
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:241
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:266
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig.class)\n"
+"\tclass BeanOverrideTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:138
+#, no-wrap
+msgid ""
+"\t\t@MockitoBean // <1>\n"
+"\t\tCustomService customService;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:141
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:247
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:272
+#, no-wrap
+msgid ""
+"\t\t// tests...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:143
+msgid "Replace the bean with type `CustomService` with a Mockito mock."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:150
+msgid ""
+"In the example above, we are creating a mock for `CustomService`. If more "
+"than one bean of that type exists, the bean named `customService` is "
+"considered. Otherwise, the test will fail, and you will need to provide a "
+"qualifier of some sort to identify which of the `CustomService` beans you "
+"want to override. If no such bean exists, a bean will be created with an "
+"auto-generated bean name."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:153
+msgid ""
+"The following example uses a by-name lookup, rather than a by-type "
+"lookup. If no bean named `service` exists, one is created."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:165
+#, no-wrap
+msgid ""
+"\t\t@MockitoBean(\"service\") // <1>\n"
+"\t\tCustomService customService;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:167
+#, no-wrap
+msgid "\t\t// tests...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:169
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:171
+msgid "Replace the bean named `service` with a Mockito mock."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:174
+msgid ""
+"The following `@SharedMocks` annotation registers two mocks by-type and one "
+"mock by-name."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:187
+#, no-wrap
+msgid ""
+"\t@Target(ElementType.TYPE)\n"
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t@MockitoBean(types = {OrderService.class, UserService.class}) // <1>\n"
+"\t@MockitoBean(name = \"ps1\", types = PrintingService.class) // <2>\n"
+"\tpublic @interface SharedMocks {\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:189
+msgid "Register `OrderService` and `UserService` mocks by-type."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:190
+msgid "Register `PrintingService` mock by-name."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:193
+msgid "The following demonstrates how `@SharedMocks` can be used on a test class."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:203
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig.class)\n"
+"\t@SharedMocks // <1>\n"
+"\tclass BeanOverrideTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:205
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:308
+#, no-wrap
+msgid "\t\t@Autowired OrderService orderService; // <2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:207
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:310
+#, no-wrap
+msgid "\t\t@Autowired UserService userService; // <2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:209
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:312
+#, no-wrap
+msgid "\t\t@Autowired PrintingService ps1; // <2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:211
+#, no-wrap
+msgid "\t\t// Inject other components that rely on the mocks.\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:217
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:320
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tvoid testThatDependsOnMocks() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:219
+msgid "Register common mocks via the custom `@SharedMocks` annotation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:220
+msgid "Optionally inject mocks to _stub_ or _verify_ them."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:225
+msgid ""
+"The mocks can also be injected into `@Configuration` classes or other "
+"test-related components in the `ApplicationContext` in order to configure "
+"them with Mockito's stubbing APIs."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:228
+#, no-wrap
+msgid "`@MockitoSpyBean` Examples"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:232
+msgid ""
+"The following example shows how to use the default behavior of the "
+"`@MockitoSpyBean` annotation."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:244
+#, no-wrap
+msgid ""
+"\t\t@MockitoSpyBean // <1>\n"
+"\t\tCustomService customService;\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:249
+msgid "Wrap the bean with type `CustomService` with a Mockito spy."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:255
+msgid ""
+"In the example above, we are wrapping the bean with type `CustomService`. If "
+"more than one bean of that type exists, the bean named `customService` is "
+"considered. Otherwise, the test will fail, and you will need to provide a "
+"qualifier of some sort to identify which of the `CustomService` beans you "
+"want to spy."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:257
+msgid "The following example uses a by-name lookup, rather than a by-type lookup."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:269
+#, no-wrap
+msgid ""
+"\t\t@MockitoSpyBean(\"service\") // <1>\n"
+"\t\tCustomService customService;\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:274
+msgid "Wrap the bean named `service` with a Mockito spy."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:277
+msgid ""
+"The following `@SharedSpies` annotation registers two spies by-type and one "
+"spy by-name."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:290
+#, no-wrap
+msgid ""
+"\t@Target(ElementType.TYPE)\n"
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t@MockitoSpyBean(types = {OrderService.class, UserService.class}) // <1>\n"
+"\t@MockitoSpyBean(name = \"ps1\", types = PrintingService.class) // <2>\n"
+"\tpublic @interface SharedSpies {\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:292
+msgid "Register `OrderService` and `UserService` spies by-type."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:293
+msgid "Register `PrintingService` spy by-name."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:296
+msgid "The following demonstrates how `@SharedSpies` can be used on a test class."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:306
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(TestConfig.class)\n"
+"\t@SharedSpies // <1>\n"
+"\tclass BeanOverrideTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:314
+#, no-wrap
+msgid "\t\t// Inject other components that rely on the spies.\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:322
+msgid "Register common spies via the custom `@SharedSpies` annotation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:323
+msgid "Optionally inject spies to _stub_ or _verify_ them."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-spring/annotation-mockitobean.adoc:327
+msgid ""
+"The spies can also be injected into `@Configuration` classes or other "
+"test-related components in the `ApplicationContext` in order to configure "
+"them with Mockito's stubbing APIs."
+msgstr ""

@@ -1,0 +1,249 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:2
+#, no-wrap
+msgid "Matrix Variables"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/controller/ann-methods/matrix-variables.adoc[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:10
+msgid ""
+"{rfc-site}/rfc3986#section-3.3[RFC 3986] discusses name-value pairs in path "
+"segments. In Spring MVC, we refer to those as \"`matrix variables`\" based "
+"on an https://www.w3.org/DesignIssues/MatrixURIs.html[\"`old post`\"] by Tim "
+"Berners-Lee, but they can be also be referred to as URI path parameters."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:15
+msgid ""
+"Matrix variables can appear in any path segment, with each variable "
+"separated by a semicolon and multiple values separated by comma (for "
+"example, `/cars;color=red,green;year=2012`). Multiple values can also be "
+"specified through repeated variable names (for example, "
+"`color=red;color=green;color=blue`)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:20
+msgid ""
+"If a URL is expected to contain matrix variables, the request mapping for a "
+"controller method must use a URI variable to mask that variable content and "
+"ensure the request can be matched successfully independent of matrix "
+"variable order and presence.  The following example uses a matrix variable:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:23
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:58
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:96
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:127
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:28
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:42
+#, no-wrap
+msgid "\t// GET /pets/42;q=11;r=22\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:31
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/pets/{petId}\")\n"
+"\tpublic void findPet(@PathVariable String petId, @MatrixVariable int q) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:35
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:49
+#, no-wrap
+msgid ""
+"\t\t// petId == 42\n"
+"\t\t// q == 11\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:37
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:74
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:109
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:143
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:45
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/pets/{petId}\")\n"
+"\tfun findPet(@PathVariable petId: String, @MatrixVariable q: Int) {\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:55
+msgid ""
+"Given that all path segments may contain matrix variables, you may sometimes "
+"need to disambiguate which path variable the matrix variable is expected to "
+"be in.  The following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:63
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:79
+#, no-wrap
+msgid "\t// GET /owners/42;q=11/pets/21;q=22\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:68
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/owners/{ownerId}/pets/{petId}\")\n"
+"\tpublic void findPet(\n"
+"\t\t\t@MatrixVariable(name=\"q\", pathVar=\"ownerId\") int q1,\n"
+"\t\t\t@MatrixVariable(name=\"q\", pathVar=\"petId\") int q2) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:72
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:88
+#, no-wrap
+msgid ""
+"\t\t// q1 == 11\n"
+"\t\t// q2 == 22\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:84
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/owners/{ownerId}/pets/{petId}\")\n"
+"\tfun findPet(\n"
+"\t\t\t@MatrixVariable(name = \"q\", pathVar = \"ownerId\") q1: Int,\n"
+"\t\t\t@MatrixVariable(name = \"q\", pathVar = \"petId\") q2: Int) {\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:93
+msgid ""
+"A matrix variable may be defined as optional and a default value specified, "
+"as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:101
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:114
+#, no-wrap
+msgid "\t// GET /pets/42\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:104
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/pets/{petId}\")\n"
+"\tpublic void findPet(@MatrixVariable(required=false, defaultValue=\"1\") "
+"int q) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:107
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:120
+#, no-wrap
+msgid ""
+"\t\t// q == 1\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:117
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/pets/{petId}\")\n"
+"\tfun findPet(@MatrixVariable(required = false, defaultValue = \"1\") q: "
+"Int) {\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:124
+msgid ""
+"To get all matrix variables, you can use a `MultiValueMap`, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:132
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:148
+#, no-wrap
+msgid "\t// GET /owners/42;q=11;r=12/pets/21;q=22;s=23\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:137
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/owners/{ownerId}/pets/{petId}\")\n"
+"\tpublic void findPet(\n"
+"\t\t\t@MatrixVariable MultiValueMap<String, String> matrixVars,\n"
+"\t\t\t@MatrixVariable(pathVar=\"petId\") MultiValueMap<String, String> "
+"petMatrixVars) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:141
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:157
+#, no-wrap
+msgid ""
+"\t\t// matrixVars: [\"q\" : [11,22], \"r\" : 12, \"s\" : 23]\n"
+"\t\t// petMatrixVars: [\"q\" : 22, \"s\" : 23]\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:153
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/owners/{ownerId}/pets/{petId}\")\n"
+"\tfun findPet(\n"
+"\t\t\t@MatrixVariable matrixVars: MultiValueMap<String, String>,\n"
+"\t\t\t@MatrixVariable(pathVar=\"petId\") petMatrixVars: "
+"MultiValueMap<String, String>) {\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc:161
+msgid ""
+"Note that you need to enable the use of matrix variables. In the MVC XML "
+"namespace, you can set `<mvc:annotation-driven "
+"enable-matrix-variables=\"true\"/>`."
+msgstr ""

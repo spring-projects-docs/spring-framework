@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:2
+#, no-wrap
+msgid "Jackson"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:5
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:12
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:30
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-view-httpmessagewriter[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:7
+msgid "Spring offers support for the Jackson JSON library."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:10
+#, no-wrap
+msgid "Jackson-based JSON MVC Views"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:20
+msgid ""
+"The `JacksonJsonView` uses the Jackson library's `JsonMapper` to render the "
+"response content as JSON. By default, the entire contents of the model map "
+"(with the exception of framework-specific classes) are encoded as JSON. For "
+"cases where the contents of the map need to be filtered, you can specify a "
+"specific set of model attributes to encode by using the `modelKeys` "
+"property. You can also use the `extractValueFromSingleKeyModel` property to "
+"have the value in single-key models extracted and serialized directly rather "
+"than as a map of model attributes."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:25
+msgid ""
+"You can customize JSON mapping as needed by using Jackson's provided "
+"annotations. When you need further control, you can inject a custom "
+"`JsonMapper` through the `JsonMapper` or `JsonMapper.Builder` constructor "
+"parameters, for cases where you need to provide custom JSON serializers and "
+"deserializers for specific types."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:28
+#, no-wrap
+msgid "Jackson-based XML Views"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:36
+msgid ""
+"`JacksonXmlView` uses the "
+"{jackson-github-org}/jackson-dataformat-xml[Jackson XML extension's] "
+"`XmlMapper` to render the response content as XML. If the model contains "
+"multiple entries, you should explicitly set the object to be serialized by "
+"using the `modelKey` bean property. If the model contains a single entry, it "
+"is serialized automatically."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-jackson.adoc:40
+msgid ""
+"You can customize XML mapping as needed by using JAXB or Jackson's provided "
+"annotations. When you need further control, you can inject a custom "
+"`XmlMapper` created via `XmlMapper.Builder` for cases where custom XML you "
+"need to provide serializers and deserializers for specific types."
+msgstr ""

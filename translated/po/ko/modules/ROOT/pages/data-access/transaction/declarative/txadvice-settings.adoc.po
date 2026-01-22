@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/txadvice-settings.adoc:2
+#, no-wrap
+msgid "<tx:advice/> Settings"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/txadvice-settings.adoc:6
+msgid ""
+"This section summarizes the various transactional settings that you can "
+"specify by using the `<tx:advice/>` tag. The default `<tx:advice/>` settings "
+"are:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/txadvice-settings.adoc:8
+msgid ""
+"The xref:data-access/transaction/declarative/tx-propagation.adoc[propagation "
+"setting] is `REQUIRED.`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/txadvice-settings.adoc:9
+msgid "The isolation level is `DEFAULT.`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/txadvice-settings.adoc:10
+msgid "The transaction is read-write."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/txadvice-settings.adoc:12
+msgid ""
+"The transaction timeout defaults to the default timeout of the underlying "
+"transaction system or none if timeouts are not supported."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/txadvice-settings.adoc:13
+msgid ""
+"Any `RuntimeException` triggers rollback, and any checked `Exception` does "
+"not."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/txadvice-settings.adoc:16
+msgid ""
+"You can change these default settings. The following table summarizes the "
+"various attributes of the `<tx:method/>` tags that are nested within "
+"`<tx:advice/>` and `<tx:attributes/>` tags:"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/txadvice-settings.adoc:18
+#, no-wrap
+msgid "<tx:method/> settings"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/txadvice-settings.adoc:61
+#, no-wrap
+msgid ""
+"| Attribute| Required?| Default| Description\n"
+"\n"
+"| `name`\n"
+"| Yes\n"
+"|\n"
+"| Method names with which the transaction attributes are to be "
+"associated. The\n"
+"  wildcard ({asterisk}) character can be used to associate the same "
+"transaction attribute\n"
+"  settings with a number of methods (for example, `get*`, `handle*`, "
+"`on*Event`, and so\n"
+"  forth).\n"
+"\n"
+"| `propagation`\n"
+"| No\n"
+"| `REQUIRED`\n"
+"| Transaction propagation behavior.\n"
+"\n"
+"| `isolation`\n"
+"| No\n"
+"| `DEFAULT`\n"
+"| Transaction isolation level. Only applicable to propagation settings of "
+"`REQUIRED` or `REQUIRES_NEW`.\n"
+"\n"
+"| `timeout`\n"
+"| No\n"
+"| -1\n"
+"| Transaction timeout (seconds). Only applicable to propagation `REQUIRED` "
+"or `REQUIRES_NEW`.\n"
+"\n"
+"| `read-only`\n"
+"| No\n"
+"| false\n"
+"| Read-write versus read-only transaction. Applies only to `REQUIRED` or "
+"`REQUIRES_NEW`.\n"
+"\n"
+"| `rollback-for`\n"
+"| No\n"
+"|\n"
+"| Comma-delimited list of `Exception` instances that trigger rollback. For "
+"example,\n"
+"  `com.foo.MyBusinessException,ServletException`.\n"
+"\n"
+"| `no-rollback-for`\n"
+"| No\n"
+"|\n"
+"| Comma-delimited list of `Exception` instances that do not trigger "
+"rollback. For example,\n"
+"  `com.foo.MyBusinessException,ServletException`.\n"
+msgstr ""

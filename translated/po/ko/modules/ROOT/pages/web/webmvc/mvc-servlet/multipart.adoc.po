@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:2
+#, no-wrap
+msgid "Multipart Resolver"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/reactive-spring.adoc#webflux-multipart[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:9
+msgid ""
+"`MultipartResolver` from the `org.springframework.web.multipart` package is "
+"a strategy for parsing multipart requests including file uploads. There is a "
+"container-based `StandardServletMultipartResolver` implementation for "
+"Servlet multipart request parsing."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:16
+msgid ""
+"To enable multipart handling, you need to declare a `MultipartResolver` bean "
+"in your `DispatcherServlet` Spring configuration with a name of "
+"`multipartResolver`.  The `DispatcherServlet` detects it and applies it to "
+"the incoming request. When a POST with a content type of "
+"`multipart/form-data` is received, the resolver parses the content wraps the "
+"current `HttpServletRequest` as a `MultipartHttpServletRequest` to provide "
+"access to resolved files in addition to exposing parts as request "
+"parameters."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:19
+#, no-wrap
+msgid "Servlet Multipart Parsing"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:23
+msgid ""
+"Servlet multipart parsing needs to be enabled through Servlet container "
+"configuration.  To do so:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:25
+msgid "In Java, set a `MultipartConfigElement` on the Servlet registration."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:26
+msgid ""
+"In `web.xml`, add a `\"<multipart-config>\"` section to the servlet "
+"declaration."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:28
+msgid ""
+"The following example shows how to set a `MultipartConfigElement` on the "
+"Servlet registration:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:33
+msgid ""
+"Once the Servlet multipart configuration is in place, you can add a bean of "
+"type `StandardServletMultipartResolver` with a name of `multipartResolver`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-servlet/multipart.adoc:42
+msgid ""
+"This resolver variant uses your Servlet container's multipart parser as-is, "
+"potentially exposing the application to container implementation "
+"differences.  By default, it will try to parse any `multipart/` content type "
+"with any HTTP method but this may not be supported across all Servlet "
+"containers. See the "
+"{spring-framework-api}/web/multipart/support/StandardServletMultipartResolver.html[`StandardServletMultipartResolver`] "
+"javadoc for details and configuration options."
+msgstr ""

@@ -1,0 +1,164 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:2
+#, no-wrap
+msgid "`retrieve()`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:5
+msgid ""
+"The `retrieve()` method can be used to declare how to extract the "
+"response. For example:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:8
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:37
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:66
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:93
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:13
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:42
+#, no-wrap
+msgid "\tWebClient client = WebClient.create(\"https://example.org\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:18
+#, no-wrap
+msgid ""
+"\tMono<ResponseEntity<Person>> result = client.get()\n"
+"\t\t\t.uri(\"/persons/{id}\", id).accept(MediaType.APPLICATION_JSON)\n"
+"\t\t\t.retrieve()\n"
+"\t\t\t.toEntity(Person.class);\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:20
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:49
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:76
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:105
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:25
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:54
+#, no-wrap
+msgid "\tval client = WebClient.create(\"https://example.org\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:30
+#, no-wrap
+msgid ""
+"\tval result = client.get()\n"
+"\t\t\t.uri(\"/persons/{id}\", id).accept(MediaType.APPLICATION_JSON)\n"
+"\t\t\t.retrieve()\n"
+"\t\t\t.toEntity<Person>().awaitSingle()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:34
+msgid "Or to get only the body:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:47
+#, no-wrap
+msgid ""
+"\tMono<Person> result = client.get()\n"
+"\t\t\t.uri(\"/persons/{id}\", id).accept(MediaType.APPLICATION_JSON)\n"
+"\t\t\t.retrieve()\n"
+"\t\t\t.bodyToMono(Person.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:59
+#, no-wrap
+msgid ""
+"\tval result = client.get()\n"
+"\t\t\t.uri(\"/persons/{id}\", id).accept(MediaType.APPLICATION_JSON)\n"
+"\t\t\t.retrieve()\n"
+"\t\t\t.awaitBody<Person>()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:63
+msgid "To get a stream of decoded objects:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:74
+#, no-wrap
+msgid ""
+"\tFlux<Quote> result = client.get()\n"
+"\t\t\t.uri(\"/quotes\").accept(MediaType.TEXT_EVENT_STREAM)\n"
+"\t\t\t.retrieve()\n"
+"\t\t\t.bodyToFlux(Quote.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:84
+#, no-wrap
+msgid ""
+"\tval result = client.get()\n"
+"\t\t\t.uri(\"/quotes\").accept(MediaType.TEXT_EVENT_STREAM)\n"
+"\t\t\t.retrieve()\n"
+"\t\t\t.bodyToFlow<Quote>()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:90
+msgid ""
+"By default, 4xx or 5xx responses result in an `WebClientResponseException`, "
+"including sub-classes for specific HTTP status codes. To customize the "
+"handling of error responses, use `onStatus` handlers as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:103
+#, no-wrap
+msgid ""
+"\tMono<Person> result = client.get()\n"
+"\t\t\t.uri(\"/persons/{id}\", id).accept(MediaType.APPLICATION_JSON)\n"
+"\t\t\t.retrieve()\n"
+"\t\t\t.onStatus(HttpStatusCode::is4xxClientError, response -> ...)\n"
+"\t\t\t.onStatus(HttpStatusCode::is5xxServerError, response -> ...)\n"
+"\t\t\t.bodyToMono(Person.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-retrieve.adoc:115
+#, no-wrap
+msgid ""
+"\tval result = client.get()\n"
+"\t\t\t.uri(\"/persons/{id}\", id).accept(MediaType.APPLICATION_JSON)\n"
+"\t\t\t.retrieve()\n"
+"\t\t\t.onStatus(HttpStatusCode::is4xxClientError) { ... }\n"
+"\t\t\t.onStatus(HttpStatusCode::is5xxServerError) { ... }\n"
+"\t\t\t.awaitBody<Person>()\n"
+msgstr ""

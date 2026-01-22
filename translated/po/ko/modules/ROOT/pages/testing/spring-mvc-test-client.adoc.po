@@ -1,0 +1,372 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:2
+#, no-wrap
+msgid "Testing Client Applications"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:12
+msgid ""
+"To test code that uses the `RestClient` or `RestTemplate`, you can use a "
+"mock web server, such as "
+"https://github.com/square/okhttp#mockwebserver[OkHttp MockWebServer] or "
+"https://wiremock.org/[WireMock]. Mock web servers accept requests over HTTP "
+"like a regular server, and that means you can test with the same HTTP client "
+"that is also configured in the same way as in production, which is important "
+"because there are often subtle differences in the way different clients "
+"handle network I/O. Another advantage of mock web servers is the ability to "
+"simulate specific network issues and conditions at the transport level, in "
+"combination with the client used in production."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:18
+msgid ""
+"In addition to dedicated mock web servers, historically the Spring Framework "
+"has provided a built-in option to test `RestClient` or `RestTemplate` "
+"through `MockRestServiceServer`.  This relies on configuring the client "
+"under test with a custom `ClientHttpRequestFactory` backed by the mock "
+"server that is in turn set up to expect requests and send \"`stub`\" "
+"responses so that you can focus on testing the code in isolation, without "
+"running a server."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:22
+msgid ""
+"`MockRestServiceServer` predates the existence of mock web servers. At "
+"present, we recommend using mock web servers for more complete testing of "
+"the transport layer and network conditions."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:24
+msgid "The following example shows an example of using `MockRestServiceServer`:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:27
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:72
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:94
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:139
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:166
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:32
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:99
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:171
+#, no-wrap
+msgid "\tRestTemplate restTemplate = new RestTemplate();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:35
+#, no-wrap
+msgid ""
+"\tMockRestServiceServer mockServer = "
+"MockRestServiceServer.bindTo(restTemplate).build();\n"
+"\tmockServer.expect(requestTo(\"/greeting\")).andRespond(withSuccess());\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:37
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:51
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:147
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:157
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:180
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:198
+#, no-wrap
+msgid "\t// Test code that uses the above RestTemplate ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:39
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:107
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:182
+#, no-wrap
+msgid "\tmockServer.verify();\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:41
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:79
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:109
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:149
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:184
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:46
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:114
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:189
+#, no-wrap
+msgid "\tval restTemplate = RestTemplate()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:49
+#, no-wrap
+msgid ""
+"\tval mockServer = MockRestServiceServer.bindTo(restTemplate).build()\n"
+"\tmockServer.expect(requestTo(\"/greeting\")).andRespond(withSuccess())\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:53
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:122
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:200
+#, no-wrap
+msgid "\tmockServer.verify()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:64
+msgid ""
+"In the preceding example, `MockRestServiceServer` (the central class for "
+"client-side REST tests) configures the `RestTemplate` with a custom "
+"`ClientHttpRequestFactory` that asserts actual requests against expectations "
+"and returns \"`stub`\" responses. In this case, we expect a request to "
+"`/greeting` and want to return a 200 response with `text/plain` content. We "
+"can define additional expected requests and stub responses as needed. When "
+"we define expected requests and stub responses, the `RestTemplate` can be "
+"used in client-side code as usual. At the end of testing, "
+"`mockServer.verify()` can be used to verify that all expectations have been "
+"satisfied."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:69
+msgid ""
+"By default, requests are expected in the order in which expectations were "
+"declared. You can set the `ignoreExpectOrder` option when building the "
+"server, in which case all expectations are checked (in order) to find a "
+"match for a given request. That means requests are allowed to come in any "
+"order. The following example uses `ignoreExpectOrder`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:77
+#, no-wrap
+msgid ""
+"\tserver = "
+"MockRestServiceServer.bindTo(restTemplate).ignoreExpectOrder(true).build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:84
+#, no-wrap
+msgid ""
+"\tserver = "
+"MockRestServiceServer.bindTo(restTemplate).ignoreExpectOrder(true).build()\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:91
+msgid ""
+"Even with unordered requests by default, each request is allowed to run once "
+"only.  The `expect` method provides an overloaded variant that accepts an "
+"`ExpectedCount` argument that specifies a count range (for example, `once`, "
+"`manyTimes`, `max`, `min`, `between`, and so on). The following example uses "
+"`times`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:103
+#, no-wrap
+msgid ""
+"\tMockRestServiceServer mockServer = "
+"MockRestServiceServer.bindTo(restTemplate).build();\n"
+"\tmockServer.expect(times(2), "
+"requestTo(\"/something\")).andRespond(withSuccess());\n"
+"\tmockServer.expect(times(3), "
+"requestTo(\"/somewhere\")).andRespond(withSuccess());\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:105
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:120
+#, no-wrap
+msgid "\t// ...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:118
+#, no-wrap
+msgid ""
+"\tval mockServer = MockRestServiceServer.bindTo(restTemplate).build()\n"
+"\tmockServer.expect(times(2), "
+"requestTo(\"/something\")).andRespond(withSuccess())\n"
+"\tmockServer.expect(times(3), "
+"requestTo(\"/somewhere\")).andRespond(withSuccess())\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:131
+msgid ""
+"Note that, when `ignoreExpectOrder` is not set (the default), and, "
+"therefore, requests are expected in order of declaration, then that order "
+"applies only to the first of any expected request. For example if "
+"\"/something\" is expected two times followed by \"/somewhere\" three times, "
+"then there should be a request to \"/something\" before there is a request "
+"to \"/somewhere\", but, aside from that subsequent \"/something\" and "
+"\"/somewhere\", requests can come at any time."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:136
+msgid ""
+"As an alternative to all of the above, the client-side test support also "
+"provides a `ClientHttpRequestFactory` implementation that you can configure "
+"into a `RestTemplate` to bind it to a `MockMvc` instance. That allows "
+"processing requests using actual server-side logic but without running a "
+"server. The following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:145
+#, no-wrap
+msgid ""
+"\tMockMvc mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();\n"
+"\tthis.restTemplate = new RestTemplate(new "
+"MockMvcClientHttpRequestFactory(mockMvc));\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:155
+#, no-wrap
+msgid ""
+"\tval mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build()\n"
+"\trestTemplate = RestTemplate(MockMvcClientHttpRequestFactory(mockMvc))\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:163
+msgid ""
+"In some cases it may be necessary to perform an actual call to a remote "
+"service instead of mocking the response. The following example shows how to "
+"do that through `ExecutingResponseCreator`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:174
+#, no-wrap
+msgid ""
+"\t// Create ExecutingResponseCreator with the original request factory\n"
+"\tExecutingResponseCreator withActualResponse = new "
+"ExecutingResponseCreator(restTemplate.getRequestFactory());\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:178
+#, no-wrap
+msgid ""
+"\tMockRestServiceServer mockServer = "
+"MockRestServiceServer.bindTo(restTemplate).build();\n"
+"\tmockServer.expect(requestTo(\"/profile\")).andRespond(withSuccess());\n"
+"\tmockServer.expect(requestTo(\"/quoteOfTheDay\")).andRespond(withActualResponse);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:192
+#, no-wrap
+msgid ""
+"\t// Create ExecutingResponseCreator with the original request factory\n"
+"\tval withActualResponse = new "
+"ExecutingResponseCreator(restTemplate.getRequestFactory())\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:196
+#, no-wrap
+msgid ""
+"\tval mockServer = MockRestServiceServer.bindTo(restTemplate).build()\n"
+"\tmockServer.expect(requestTo(\"/profile\")).andRespond(withSuccess())\n"
+"\tmockServer.expect(requestTo(\"/quoteOfTheDay\")).andRespond(withActualResponse)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:207
+msgid ""
+"In the preceding example, we create the `ExecutingResponseCreator` using the "
+"`ClientHttpRequestFactory` from the `RestTemplate` _before_ "
+"`MockRestServiceServer` replaces it with a different one that mocks "
+"responses.  Then we define expectations with two kinds of responses:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:209
+msgid ""
+"a stub `200` response for the `/profile` endpoint (no actual request will be "
+"executed)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:210
+msgid "a response obtained through a call to the `/quoteOfTheDay` endpoint"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:214
+msgid ""
+"In the second case, the request is executed through the "
+"`ClientHttpRequestFactory` that was captured earlier. This generates a "
+"response that could, for example, come from an actual remote server, "
+"depending on how the `RestTemplate` was originally configured."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:217
+#, no-wrap
+msgid "Static Imports"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:226
+msgid ""
+"As with server-side tests, the fluent API for client-side tests requires a "
+"few static imports. Those are easy to find by searching for "
+"`MockRest*`. Eclipse users should add `MockRestRequestMatchers.{asterisk}` "
+"and `MockRestResponseCreators.{asterisk}` as \"`favorite static members`\" "
+"in the Eclipse preferences under Java -> Editor -> Content Assist -> "
+"Favorites. That allows using content assist after typing the first character "
+"of the static method name. Other IDEs (such IntelliJ) may not require any "
+"additional configuration. Check for the support for code completion on "
+"static members."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:228
+#, no-wrap
+msgid "Further Examples of Client-side REST Tests"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/spring-mvc-test-client.adoc:232
+msgid ""
+"Spring MVC Test's own tests include "
+"{spring-framework-code}/spring-test/src/test/java/org/springframework/test/web/client/samples[example "
+"tests] of client-side REST tests."
+msgstr ""

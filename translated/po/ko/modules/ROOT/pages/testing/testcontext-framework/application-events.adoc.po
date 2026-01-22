@@ -1,0 +1,180 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:2
+#, no-wrap
+msgid "Application Events"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:10
+msgid ""
+"The TestContext framework provides support for recording "
+"xref:core/beans/context-introduction.adoc#context-functionality-events[application "
+"events] published in the `ApplicationContext` so that assertions can be "
+"performed against those events within tests. All events published during the "
+"execution of a single test are made available via the `ApplicationEvents` "
+"API which allows you to process the events as a `java.util.Stream`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:12
+msgid "To use `ApplicationEvents` in your tests, do the following."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:15
+msgid ""
+"Ensure that your test class is annotated or meta-annotated with "
+"xref:testing/annotations/integration-spring/annotation-recordapplicationevents.adoc[`@RecordApplicationEvents`]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:19
+msgid ""
+"Ensure that the `ApplicationEventsTestExecutionListener` is "
+"registered. Note, however, that `ApplicationEventsTestExecutionListener` is "
+"registered by default and only needs to be manually registered if you have "
+"custom configuration via `@TestExecutionListeners` that does not include the "
+"default listeners."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:23
+msgid ""
+"When using the "
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit-jupiter-extension[SpringExtension "
+"for JUnit Jupiter], declare a method parameter of type `ApplicationEvents` "
+"in a `@Test`, `@BeforeEach`, or `@AfterEach` method."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:25
+msgid ""
+"Since `ApplicationEvents` is scoped to the lifecycle of the current test "
+"method, this is the recommended approach."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:27
+msgid ""
+"Alternatively, you can annotate a field of type `ApplicationEvents` with "
+"`@Autowired` and use that instance of `ApplicationEvents` in your test and "
+"lifecycle methods."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:32
+msgid ""
+"`ApplicationEvents` is registered with the `ApplicationContext` as a "
+"_resolvable dependency_ which is scoped to the lifecycle of the current test "
+"method. Consequently, `ApplicationEvents` cannot be accessed outside the "
+"lifecycle of a test method and cannot be `@Autowired` into the constructor "
+"of a test class."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:36
+msgid ""
+"The following test class uses the `SpringExtension` for JUnit Jupiter and "
+"{assertj-docs}[AssertJ] to assert the types of application events published "
+"while invoking a method in a Spring-managed component:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:40
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:47
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:69
+#, no-wrap
+msgid ""
+"\t@SpringJUnitConfig(/* ... */)\n"
+"\t@RecordApplicationEvents // <1>\n"
+"\tclass OrderServiceTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:57
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tvoid submitOrder(@Autowired OrderService service, ApplicationEvents "
+"events) { // <2>\n"
+"\t\t\t// Invoke method in OrderService that publishes an event\n"
+"\t\t\tservice.submitOrder(new Order(/* ... */));\n"
+"\t\t\t// Verify that an OrderSubmitted event was published\n"
+"\t\t\tlong numEvents = events.stream(OrderSubmitted.class).count(); // <3>\n"
+"\t\t\tassertThat(numEvents).isEqualTo(1);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:59
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:81
+msgid "Annotate the test class with `@RecordApplicationEvents`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:60
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:82
+msgid "Inject the `ApplicationEvents` instance for the current test."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:61
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:83
+msgid ""
+"Use the `ApplicationEvents` API to count how many `OrderSubmitted` events "
+"were published."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:62
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:79
+#, no-wrap
+msgid ""
+"\t\t@Test\n"
+"\t\tfun submitOrder(@Autowired service: OrderService, events: "
+"ApplicationEvents) { // <2>\n"
+"\t\t\t// Invoke method in OrderService that publishes an event\n"
+"\t\t\tservice.submitOrder(Order(/* ... */))\n"
+"\t\t\t// Verify that an OrderSubmitted event was published\n"
+"\t\t\tval numEvents = events.stream(OrderSubmitted::class).count() // <3>\n"
+"\t\t\tassertThat(numEvents).isEqualTo(1)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/application-events.adoc:87
+msgid ""
+"See the "
+"{spring-framework-api}/test/context/event/ApplicationEvents.html[`ApplicationEvents` "
+"javadoc] for further details regarding the `ApplicationEvents` API."
+msgstr ""

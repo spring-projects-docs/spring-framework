@@ -1,0 +1,1125 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:2
+#, no-wrap
+msgid "XML Schemas"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:5
+msgid "This part of the appendix lists XML schemas related to the core container."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:8
+#, no-wrap
+msgid "The `util` Schema"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:15
+msgid ""
+"As the name implies, the `util` tags deal with common, utility configuration "
+"issues, such as configuring collections, referencing constants, and so "
+"forth.  To use the tags in the `util` schema, you need to have the following "
+"preamble at the top of your Spring XML configuration file (the text in the "
+"snippet references the correct schema so that the tags in the `util` "
+"namespace are available to you):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:25
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:util=\"http://www.springframework.org/schema/util\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans "
+"https://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/util "
+"https://www.springframework.org/schema/util/spring-util.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:27
+#, no-wrap
+msgid "\t\t\t<!-- bean definitions here -->\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:29
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:522
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:547
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:645
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:32
+#, no-wrap
+msgid "Using `<util:constant/>`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:35
+msgid "Consider the following bean definition:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:44
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:106
+#, no-wrap
+msgid ""
+"\t<bean id=\"...\" class=\"...\">\n"
+"\t\t<property name=\"isolation\">\n"
+"\t\t\t<bean id=\"java.sql.Connection.TRANSACTION_SERIALIZABLE\"\n"
+"\t\t\t\t\tclass=\"org.springframework.beans.factory.config.FieldRetrievingFactoryBean\" "
+"/>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:51
+msgid ""
+"The preceding configuration uses a Spring `FactoryBean` implementation (the "
+"`FieldRetrievingFactoryBean`) to set the value of the `isolation` property "
+"on a bean to the value of the `java.sql.Connection.TRANSACTION_SERIALIZABLE` "
+"constant. This is all well and good, but it is verbose and (unnecessarily) "
+"exposes Spring's internal plumbing to the end user."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:54
+msgid ""
+"The following XML Schema-based version is more concise, clearly expresses "
+"the developer's intent (\"`inject this constant value`\"), and it reads "
+"better:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:62
+#, no-wrap
+msgid ""
+"\t<bean id=\"...\" class=\"...\">\n"
+"\t\t<property name=\"isolation\">\n"
+"\t\t\t<util:constant "
+"static-field=\"java.sql.Connection.TRANSACTION_SERIALIZABLE\"/>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:65
+#, no-wrap
+msgid "Setting a Bean Property or Constructor Argument from a Field Value"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:71
+msgid ""
+"{spring-framework-api}/beans/factory/config/FieldRetrievingFactoryBean.html[`FieldRetrievingFactoryBean`] "
+"is a `FactoryBean` that retrieves a `static` or non-static field value. It "
+"is typically used for retrieving `public` `static` `final` constants, which "
+"may then be used to set a property value or constructor argument for another "
+"bean."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:75
+msgid ""
+"The following example shows how a `static` field is exposed, by using the "
+"{spring-framework-api}/beans/factory/config/FieldRetrievingFactoryBean.html#setStaticField(java.lang.String)[`staticField`] "
+"property:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:82
+#, no-wrap
+msgid ""
+"\t<bean id=\"myField\"\n"
+"\t\t\tclass=\"org.springframework.beans.factory.config.FieldRetrievingFactoryBean\">\n"
+"\t\t<property name=\"staticField\" "
+"value=\"java.sql.Connection.TRANSACTION_SERIALIZABLE\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:86
+msgid ""
+"There is also a convenience usage form where the `static` field is specified "
+"as the bean name, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:91
+#, no-wrap
+msgid ""
+"\t<bean id=\"java.sql.Connection.TRANSACTION_SERIALIZABLE\"\n"
+"\t\t\tclass=\"org.springframework.beans.factory.config.FieldRetrievingFactoryBean\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:97
+msgid ""
+"This does mean that there is no longer any choice in what the bean `id` is "
+"(so any other bean that refers to it also has to use this longer name), but "
+"this form is very concise to define and very convenient to use as an inner "
+"bean since the `id` does not have to be specified for the bean reference, as "
+"the following example shows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:112
+msgid ""
+"You can also access a non-static (instance) field of another bean, as "
+"described in the API documentation for the "
+"{spring-framework-api}/beans/factory/config/FieldRetrievingFactoryBean.html[`FieldRetrievingFactoryBean`] "
+"class."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:117
+msgid ""
+"Injecting enumeration values into beans as either property or constructor "
+"arguments is easy to do in Spring. You do not actually have to do anything "
+"or know anything about the Spring internals (or even about classes such as "
+"the `FieldRetrievingFactoryBean`).  The following example enumeration shows "
+"how easy injecting an enum value is:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:120
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:151
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:125
+#, no-wrap
+msgid "\tpackage jakarta.persistence;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:127
+#, no-wrap
+msgid "\tpublic enum PersistenceContextType {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:131
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:144
+#, no-wrap
+msgid ""
+"\t\tTRANSACTION,\n"
+"\t\tEXTENDED\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:133
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:167
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:138
+#, no-wrap
+msgid "\tpackage jakarta.persistence\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:140
+#, no-wrap
+msgid "\tenum class PersistenceContextType {\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:148
+msgid ""
+"Now consider the following setter of type `PersistenceContextType` and the "
+"corresponding bean definition:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:156
+#, no-wrap
+msgid "\tpackage example;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:158
+#, no-wrap
+msgid "\tpublic class Client {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:160
+#, no-wrap
+msgid "\t\tprivate PersistenceContextType persistenceContextType;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:165
+#, no-wrap
+msgid ""
+"\t\tpublic void setPersistenceContextType(PersistenceContextType type) {\n"
+"\t\t\tthis.persistenceContextType = type;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:172
+#, no-wrap
+msgid "\tpackage example\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:174
+#, no-wrap
+msgid "\tclass Client {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:177
+#, no-wrap
+msgid ""
+"\t\tlateinit var persistenceContextType: PersistenceContextType\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:185
+#, no-wrap
+msgid ""
+"\t<bean class=\"example.Client\">\n"
+"\t\t<property name=\"persistenceContextType\" value=\"TRANSACTION\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:188
+#, no-wrap
+msgid "Using `<util:property-path/>`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:191
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:312
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:337
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:391
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:445
+msgid "Consider the following example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:203
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:225
+#, no-wrap
+msgid ""
+"\t<!-- target bean to be referenced by name -->\n"
+"\t<bean id=\"testBean\" class=\"org.springframework.beans.TestBean\" "
+"scope=\"prototype\">\n"
+"\t\t<property name=\"age\" value=\"10\"/>\n"
+"\t\t<property name=\"spouse\">\n"
+"\t\t\t<bean class=\"org.springframework.beans.TestBean\">\n"
+"\t\t\t\t<property name=\"age\" value=\"11\"/>\n"
+"\t\t\t</bean>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:206
+#, no-wrap
+msgid ""
+"\t<!-- results in 10, which is the value of property 'age' of bean "
+"'testBean' -->\n"
+"\t<bean id=\"testBean.age\" "
+"class=\"org.springframework.beans.factory.config.PropertyPathFactoryBean\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:211
+msgid ""
+"The preceding configuration uses a Spring `FactoryBean` implementation (the "
+"`PropertyPathFactoryBean`) to create a bean (of type `int`) called "
+"`testBean.age` that has a value equal to the `age` property of the "
+"`testBean` bean."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:213
+msgid ""
+"Now consider the following example, which adds a `<util:property-path/>` "
+"element:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:228
+#, no-wrap
+msgid ""
+"\t<!-- results in 10, which is the value of property 'age' of bean "
+"'testBean' -->\n"
+"\t<util:property-path id=\"name\" path=\"testBean.age\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:233
+msgid ""
+"The value of the `path` attribute of the `<property-path/>` element follows "
+"the form of `beanName.beanProperty`. In this case, it picks up the `age` "
+"property of the bean named `testBean`. The value of that `age` property is "
+"`10`."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:235
+#, no-wrap
+msgid "Using `<util:property-path/>` to Set a Bean Property or Constructor Argument"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:241
+msgid ""
+"`PropertyPathFactoryBean` is a `FactoryBean` that evaluates a property path "
+"on a given target object. The target object can be specified directly or by "
+"a bean name. You can then use this value in another bean definition as a "
+"property value or constructor argument."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:243
+msgid "The following example shows a path being used against another bean, by name:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:255
+#, no-wrap
+msgid ""
+"\t<!-- target bean to be referenced by name -->\n"
+"\t<bean id=\"person\" class=\"org.springframework.beans.TestBean\" "
+"scope=\"prototype\">\n"
+"\t\t<property name=\"age\" value=\"10\"/>\n"
+"\t\t<property name=\"spouse\">\n"
+"\t\t\t<bean class=\"org.springframework.beans.TestBean\">\n"
+"\t\t\t\t<property name=\"age\" value=\"11\"/>\n"
+"\t\t\t</bean>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:262
+#, no-wrap
+msgid ""
+"\t<!-- results in 11, which is the value of property 'spouse.age' of bean "
+"'person' -->\n"
+"\t<bean id=\"theAge\"\n"
+"\t\t\tclass=\"org.springframework.beans.factory.config.PropertyPathFactoryBean\">\n"
+"\t\t<property name=\"targetBeanName\" value=\"person\"/>\n"
+"\t\t<property name=\"propertyPath\" value=\"spouse.age\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:265
+msgid "In the following example, a path is evaluated against an inner bean:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:278
+#, no-wrap
+msgid ""
+"\t<!-- results in 12, which is the value of property 'age' of the inner bean "
+"-->\n"
+"\t<bean id=\"theAge\"\n"
+"\t\t\tclass=\"org.springframework.beans.factory.config.PropertyPathFactoryBean\">\n"
+"\t\t<property name=\"targetObject\">\n"
+"\t\t\t<bean class=\"org.springframework.beans.TestBean\">\n"
+"\t\t\t\t<property name=\"age\" value=\"12\"/>\n"
+"\t\t\t</bean>\n"
+"\t\t</property>\n"
+"\t\t<property name=\"propertyPath\" value=\"age\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:282
+msgid ""
+"There is also a shortcut form, where the bean name is the property path.  "
+"The following example shows the shortcut form:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:288
+#, no-wrap
+msgid ""
+"\t<!-- results in 10, which is the value of property 'age' of bean 'person' "
+"-->\n"
+"\t<bean id=\"person.age\"\n"
+"\t\t\tclass=\"org.springframework.beans.factory.config.PropertyPathFactoryBean\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:293
+msgid ""
+"This form does mean that there is no choice in the name of the bean. Any "
+"reference to it also has to use the same `id`, which is the path. If used as "
+"an inner bean, there is no need to refer to it at all, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:302
+#, no-wrap
+msgid ""
+"\t<bean id=\"...\" class=\"...\">\n"
+"\t\t<property name=\"age\">\n"
+"\t\t\t<bean id=\"person.age\"\n"
+"\t\t\t\t\tclass=\"org.springframework.beans.factory.config.PropertyPathFactoryBean\"/>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:307
+msgid ""
+"You can specifically set the result type in the actual definition. This is "
+"not necessary for most use cases, but it can sometimes be useful. See the "
+"javadoc for more info on this feature."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:309
+#, no-wrap
+msgid "Using `<util:properties/>`"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:319
+#, no-wrap
+msgid ""
+"\t<!-- creates a java.util.Properties instance with values loaded from the "
+"supplied location -->\n"
+"\t<bean id=\"jdbcConfiguration\" "
+"class=\"org.springframework.beans.factory.config.PropertiesFactoryBean\">\n"
+"\t\t<property name=\"location\" "
+"value=\"classpath:com/foo/jdbc-production.properties\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:324
+msgid ""
+"The preceding configuration uses a Spring `FactoryBean` implementation (the "
+"`PropertiesFactoryBean`) to instantiate a `java.util.Properties` instance "
+"with values loaded from the supplied "
+"xref:web/webflux-webclient/client-builder.adoc#webflux-client-builder-reactor-resources[`Resource`] "
+"location)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:326
+msgid ""
+"The following example uses a `util:properties` element to make a more "
+"concise representation:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:331
+#, no-wrap
+msgid ""
+"\t<!-- creates a java.util.Properties instance with values loaded from the "
+"supplied location -->\n"
+"\t<util:properties id=\"jdbcConfiguration\" "
+"location=\"classpath:com/foo/jdbc-production.properties\"/>\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:334
+#, no-wrap
+msgid "Using `<util:list/>`"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:351
+#, no-wrap
+msgid ""
+"\t<!-- creates a java.util.List instance with values loaded from the "
+"supplied 'sourceList' -->\n"
+"\t<bean id=\"emails\" "
+"class=\"org.springframework.beans.factory.config.ListFactoryBean\">\n"
+"\t\t<property name=\"sourceList\">\n"
+"\t\t\t<list>\n"
+"\t\t\t\t<value>pechorin@hero.org</value>\n"
+"\t\t\t\t<value>raskolnikov@slums.org</value>\n"
+"\t\t\t\t<value>stavrogin@gov.org</value>\n"
+"\t\t\t\t<value>porfiry@gov.org</value>\n"
+"\t\t\t</list>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:356
+msgid ""
+"The preceding configuration uses a Spring `FactoryBean` implementation (the "
+"`ListFactoryBean`) to create a `java.util.List` instance and initialize it "
+"with values taken from the supplied `sourceList`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:358
+msgid ""
+"The following example uses a `<util:list/>` element to make a more concise "
+"representation:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:368
+#, no-wrap
+msgid ""
+"\t<!-- creates a java.util.List instance with the supplied values -->\n"
+"\t<util:list id=\"emails\">\n"
+"\t\t<value>pechorin@hero.org</value>\n"
+"\t\t<value>raskolnikov@slums.org</value>\n"
+"\t\t<value>stavrogin@gov.org</value>\n"
+"\t\t<value>porfiry@gov.org</value>\n"
+"\t</util:list>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:374
+msgid ""
+"You can also explicitly control the exact type of `List` that is "
+"instantiated and populated by using the `list-class` attribute on the "
+"`<util:list/>` element. For example, if we really need a "
+"`java.util.LinkedList` to be instantiated, we could use the following "
+"configuration:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:383
+#, no-wrap
+msgid ""
+"\t<util:list id=\"emails\" list-class=\"java.util.LinkedList\">\n"
+"\t\t<value>jackshaftoe@vagabond.org</value>\n"
+"\t\t<value>eliza@thinkingmanscrumpet.org</value>\n"
+"\t\t<value>vanhoek@pirate.org</value>\n"
+"\t\t<value>d'Arcachon@nemesis.org</value>\n"
+"\t</util:list>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:386
+msgid ""
+"If no `list-class` attribute is supplied, the container chooses a `List` "
+"implementation."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:388
+#, no-wrap
+msgid "Using `<util:map/>`"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:405
+#, no-wrap
+msgid ""
+"\t<!-- creates a java.util.Map instance with values loaded from the supplied "
+"'sourceMap' -->\n"
+"\t<bean id=\"emails\" "
+"class=\"org.springframework.beans.factory.config.MapFactoryBean\">\n"
+"\t\t<property name=\"sourceMap\">\n"
+"\t\t\t<map>\n"
+"\t\t\t\t<entry key=\"pechorin\" value=\"pechorin@hero.org\"/>\n"
+"\t\t\t\t<entry key=\"raskolnikov\" value=\"raskolnikov@slums.org\"/>\n"
+"\t\t\t\t<entry key=\"stavrogin\" value=\"stavrogin@gov.org\"/>\n"
+"\t\t\t\t<entry key=\"porfiry\" value=\"porfiry@gov.org\"/>\n"
+"\t\t\t</map>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:410
+msgid ""
+"The preceding configuration uses a Spring `FactoryBean` implementation (the "
+"`MapFactoryBean`) to create a `java.util.Map` instance initialized with "
+"key-value pairs taken from the supplied `'sourceMap'`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:412
+msgid ""
+"The following example uses a `<util:map/>` element to make a more concise "
+"representation:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:422
+#, no-wrap
+msgid ""
+"\t<!-- creates a java.util.Map instance with the supplied key-value pairs "
+"-->\n"
+"\t<util:map id=\"emails\">\n"
+"\t\t<entry key=\"pechorin\" value=\"pechorin@hero.org\"/>\n"
+"\t\t<entry key=\"raskolnikov\" value=\"raskolnikov@slums.org\"/>\n"
+"\t\t<entry key=\"stavrogin\" value=\"stavrogin@gov.org\"/>\n"
+"\t\t<entry key=\"porfiry\" value=\"porfiry@gov.org\"/>\n"
+"\t</util:map>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:428
+msgid ""
+"You can also explicitly control the exact type of `Map` that is instantiated "
+"and populated by using the `'map-class'` attribute on the `<util:map/>` "
+"element. For example, if we really need a `java.util.TreeMap` to be "
+"instantiated, we could use the following configuration:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:437
+#, no-wrap
+msgid ""
+"\t<util:map id=\"emails\" map-class=\"java.util.TreeMap\">\n"
+"\t\t<entry key=\"pechorin\" value=\"pechorin@hero.org\"/>\n"
+"\t\t<entry key=\"raskolnikov\" value=\"raskolnikov@slums.org\"/>\n"
+"\t\t<entry key=\"stavrogin\" value=\"stavrogin@gov.org\"/>\n"
+"\t\t<entry key=\"porfiry\" value=\"porfiry@gov.org\"/>\n"
+"\t</util:map>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:440
+msgid ""
+"If no `'map-class'` attribute is supplied, the container chooses a `Map` "
+"implementation."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:442
+#, no-wrap
+msgid "Using `<util:set/>`"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:459
+#, no-wrap
+msgid ""
+"\t<!-- creates a java.util.Set instance with values loaded from the supplied "
+"'sourceSet' -->\n"
+"\t<bean id=\"emails\" "
+"class=\"org.springframework.beans.factory.config.SetFactoryBean\">\n"
+"\t\t<property name=\"sourceSet\">\n"
+"\t\t\t<set>\n"
+"\t\t\t\t<value>pechorin@hero.org</value>\n"
+"\t\t\t\t<value>raskolnikov@slums.org</value>\n"
+"\t\t\t\t<value>stavrogin@gov.org</value>\n"
+"\t\t\t\t<value>porfiry@gov.org</value>\n"
+"\t\t\t</set>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:464
+msgid ""
+"The preceding configuration uses a Spring `FactoryBean` implementation (the "
+"`SetFactoryBean`) to create a `java.util.Set` instance initialized with "
+"values taken from the supplied `sourceSet`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:466
+msgid ""
+"The following example uses a `<util:set/>` element to make a more concise "
+"representation:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:476
+#, no-wrap
+msgid ""
+"\t<!-- creates a java.util.Set instance with the supplied values -->\n"
+"\t<util:set id=\"emails\">\n"
+"\t\t<value>pechorin@hero.org</value>\n"
+"\t\t<value>raskolnikov@slums.org</value>\n"
+"\t\t<value>stavrogin@gov.org</value>\n"
+"\t\t<value>porfiry@gov.org</value>\n"
+"\t</util:set>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:482
+msgid ""
+"You can also explicitly control the exact type of `Set` that is instantiated "
+"and populated by using the `set-class` attribute on the `<util:set/>` "
+"element. For example, if we really need a `java.util.TreeSet` to be "
+"instantiated, we could use the following configuration:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:491
+#, no-wrap
+msgid ""
+"\t<util:set id=\"emails\" set-class=\"java.util.TreeSet\">\n"
+"\t\t<value>pechorin@hero.org</value>\n"
+"\t\t<value>raskolnikov@slums.org</value>\n"
+"\t\t<value>stavrogin@gov.org</value>\n"
+"\t\t<value>porfiry@gov.org</value>\n"
+"\t</util:set>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:494
+msgid ""
+"If no `set-class` attribute is supplied, the container chooses a `Set` "
+"implementation."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:497
+#, no-wrap
+msgid "The `aop` Schema"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:503
+msgid ""
+"The `aop` tags deal with configuring all things AOP in Spring, including "
+"Spring's own proxy-based AOP framework and Spring's integration with the "
+"AspectJ AOP framework.  These tags are comprehensively covered in the "
+"chapter entitled xref:core/aop.adoc[Aspect Oriented Programming with Spring] "
+"."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:508
+msgid ""
+"In the interest of completeness, to use the tags in the `aop` schema, you "
+"need to have the following preamble at the top of your Spring XML "
+"configuration file (the text in the snippet references the correct schema so "
+"that the tags in the `aop` namespace are available to you):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:518
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:aop=\"http://www.springframework.org/schema/aop\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans "
+"https://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/aop "
+"https://www.springframework.org/schema/aop/spring-aop.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:520
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:545
+#, no-wrap
+msgid "\t\t<!-- bean definitions here -->\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:526
+#, no-wrap
+msgid "The `context` Schema"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:529
+msgid ""
+"The `context` tags deal with `ApplicationContext` configuration that relates "
+"to plumbing"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:533
+msgid ""
+"that is, not usually beans that are important to an end-user but rather "
+"beans that do a lot of the \"`grunt`\" work in Spring, such as "
+"`BeanfactoryPostProcessors`. The following snippet references the correct "
+"schema so that the elements in the `context` namespace are available to you:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:543
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:context=\"http://www.springframework.org/schema/context\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans "
+"https://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/context "
+"https://www.springframework.org/schema/context/spring-context.xsd\">\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:550
+#, no-wrap
+msgid "Using `<property-placeholder/>`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:557
+#, no-wrap
+msgid ""
+"This element activates the replacement of `${...}` placeholders, which are "
+"resolved against a\n"
+"specified properties file (as a "
+"xref:web/webflux-webclient/client-builder.adoc#webflux-client-builder-reactor-resources[Spring "
+"resource location]). This element\n"
+"is a convenience mechanism that sets up a "
+"xref:core/beans/factory-extension.adoc#beans-factory-placeholderconfigurer[`PropertySourcesPlaceholderConfigurer`]\n"
+" for you. If you need more control over the specific\n"
+"`PropertySourcesPlaceholderConfigurer` setup, you can explicitly define it "
+"as a bean yourself.\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:563
+msgid ""
+"Only one such element should be defined for a given application with the "
+"properties that it needs. Several property placeholders can be configured as "
+"long as they have distinct placeholder syntax (`${...}`)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:568
+msgid ""
+"If you need to modularize the source of properties used for the replacement, "
+"you should not create multiple properties placeholders. Rather, each module "
+"should contribute a `PropertySource` to the `Environment`. Alternatively, "
+"you can create your own `PropertySourcesPlaceholderConfigurer` bean that "
+"gathers the properties to use."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:571
+#, no-wrap
+msgid "Using `<annotation-config/>`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:574
+msgid ""
+"This element activates the Spring infrastructure to detect annotations in "
+"bean classes:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:576
+msgid ""
+"Spring's "
+"xref:core/beans/basics.adoc#beans-factory-metadata[`@Configuration`] model"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:577
+msgid ""
+"xref:core/beans/annotation-config.adoc[`@Autowired`/`@Inject`], `@Value`, "
+"and `@Lookup`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:578
+msgid "JSR-250's `@Resource`, `@PostConstruct`, and `@PreDestroy` (if available)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:579
+msgid "JAX-WS's `@WebServiceRef` and EJB 3's `@EJB` (if available)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:580
+msgid "JPA's `@PersistenceContext` and `@PersistenceUnit` (if available)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:581
+msgid ""
+"Spring's "
+"xref:core/beans/context-introduction.adoc#context-functionality-events-annotation[`@EventListener`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:584
+msgid ""
+"Alternatively, you can choose to explicitly activate the individual "
+"`BeanPostProcessors` for those annotations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:591
+msgid ""
+"This element does not activate processing of Spring's "
+"xref:data-access/transaction/declarative/annotations.adoc[`@Transactional`] "
+"annotation; you can use the <<data-access.adoc#tx-decl-explained, "
+"`<tx:annotation-driven/>`>> element for that purpose. Similarly, Spring's "
+"xref:integration/cache/annotations.adoc[caching annotations] need to be "
+"explicitly "
+"xref:integration/cache/annotations.adoc#cache-annotation-enable[enabled] as "
+"well."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:593
+#, no-wrap
+msgid "Using `<component-scan/>`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:596
+msgid ""
+"This element is detailed in the section on "
+"xref:core/beans/annotation-config.adoc[annotation-based container "
+"configuration]."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:598
+#, no-wrap
+msgid "Using `<load-time-weaver/>`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:601
+msgid ""
+"This element is detailed in the section on "
+"xref:core/aop/using-aspectj.adoc#aop-aj-ltw[load-time weaving with AspectJ "
+"in the Spring Framework]."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:603
+#, no-wrap
+msgid "Using `<spring-configured/>`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:606
+msgid ""
+"This element is detailed in the section on "
+"xref:core/aop/using-aspectj.adoc#aop-atconfigurable[using AspectJ to "
+"dependency inject domain objects with Spring]."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:608
+#, no-wrap
+msgid "Using `<mbean-export/>`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:611
+msgid ""
+"This element is detailed in the section on "
+"xref:integration/jmx/naming.adoc#jmx-context-mbeanexport[configuring "
+"annotation-based MBean export]."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:614
+#, no-wrap
+msgid "The Beans Schema"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:621
+msgid ""
+"Last but not least, we have the elements in the `beans` schema. These "
+"elements have been in Spring since the very dawn of the framework. Examples "
+"of the various elements in the `beans` schema are not shown here because "
+"they are quite comprehensively covered in "
+"xref:core/beans/dependencies/factory-properties-detailed.adoc[dependencies "
+"and configuration in detail] (and, indeed, in that entire "
+"xref:web/webmvc-view/mvc-xslt.adoc#mvc-view-xslt-beandefs[chapter])."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:626
+msgid ""
+"Note that you can add zero or more key-value pairs to `<bean/>` XML "
+"definitions.  What, if anything, is done with this extra metadata is totally "
+"up to your own custom logic (and so is typically only of use if you write "
+"your own custom elements as described in the appendix entitled "
+"xref:core/appendix/xml-custom.adoc[XML Schema Authoring])."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:630
+msgid ""
+"The following example shows the `<meta/>` element in the context of a "
+"surrounding `<bean/>` (note that, without any logic to interpret it, the "
+"metadata is effectively useless as it stands)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:638
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans "
+"https://www.springframework.org/schema/beans/spring-beans.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:643
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"foo\" class=\"x.y.Foo\">\n"
+"\t\t\t<meta key=\"cacheName\" value=\"foo\"/> <1>\n"
+"\t\t\t<property name=\"name\" value=\"Rick\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:647
+msgid "This is the example `meta` element"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/appendix/xsd-schemas.adoc:649
+msgid ""
+"In the case of the preceding example, you could assume that there is some "
+"logic that consumes the bean definition and sets up some caching "
+"infrastructure that uses the supplied metadata."
+msgstr ""

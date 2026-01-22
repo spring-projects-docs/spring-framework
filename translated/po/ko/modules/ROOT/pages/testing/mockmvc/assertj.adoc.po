@@ -1,0 +1,60 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj.adoc:2
+#, no-wrap
+msgid "AssertJ Integration"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj.adoc:6
+msgid ""
+"The AssertJ integration builds on top of plain `MockMvc` with several "
+"differences:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj.adoc:9
+msgid ""
+"There is no need to use static imports as both the requests and assertions "
+"can be crafted using a fluent API."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj.adoc:11
+msgid ""
+"Unresolved exceptions are handled consistently so that your tests do not "
+"need to throw (or catch) `Exception`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj.adoc:13
+msgid ""
+"By default, the result to assert is complete whether the processing is "
+"asynchronous or not. In other words, there is no need for special handling "
+"for Async requests."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/mockmvc/assertj.adoc:16
+msgid ""
+"`MockMvcTester` is the entry point for the AssertJ support. It allows to "
+"craft the request and return a result that is AssertJ compatible so that it "
+"can be wrapped in a standard `assertThat()` method."
+msgstr ""

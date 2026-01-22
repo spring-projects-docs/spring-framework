@@ -1,0 +1,210 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:2
+#, no-wrap
+msgid "Choosing which AOP Declaration Style to Use"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:9
+msgid ""
+"Once you have decided that an aspect is the best approach for implementing a "
+"given requirement, how do you decide between using Spring AOP or AspectJ and "
+"between the Aspect language (code) style, the @AspectJ annotation style, or "
+"the Spring XML style? These decisions are influenced by a number of factors "
+"including application requirements, development tools, and team familiarity "
+"with AOP."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:12
+#, no-wrap
+msgid "Spring AOP or Full AspectJ?"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:21
+msgid ""
+"Use the simplest thing that can work. Spring AOP is simpler than using full "
+"AspectJ, as there is no requirement to introduce the AspectJ compiler / "
+"weaver into your development and build processes. If you only need to advise "
+"the execution of operations on Spring beans, Spring AOP is the right "
+"choice. If you need to advise objects not managed by the Spring container "
+"(such as domain objects, typically), you need to use AspectJ. You also need "
+"to use AspectJ if you wish to advise join points other than simple method "
+"executions (for example, field get or set join points and so on)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:31
+msgid ""
+"When you use AspectJ, you have the choice of the AspectJ language syntax "
+"(also known as the \"code style\") or the @AspectJ annotation style. If "
+"aspects play a large role in your design, and you are able to use the "
+"https://www.eclipse.org/ajdt/[AspectJ Development Tools (AJDT)] plugin for "
+"Eclipse, the AspectJ language syntax is the preferred option. It is cleaner "
+"and simpler because the language was purposefully designed for writing "
+"aspects. If you do not use Eclipse or have only a few aspects that do not "
+"play a major role in your application, you may want to consider using the "
+"@AspectJ style, sticking with regular Java compilation in your IDE, and "
+"adding an aspect weaving phase to your build script."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:34
+#, no-wrap
+msgid "@AspectJ or XML for Spring AOP?"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:38
+msgid ""
+"If you have chosen to use Spring AOP, you have a choice of @AspectJ or XML "
+"style.  There are various tradeoffs to consider."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:44
+msgid ""
+"The XML style may be most familiar to existing Spring users, and it is "
+"backed by genuine POJOs. When using AOP as a tool to configure enterprise "
+"services, XML can be a good choice (a good test is whether you consider the "
+"pointcut expression to be a part of your configuration that you might want "
+"to change independently). With the XML style, it is arguably clearer from "
+"your configuration which aspects are present in the system."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:55
+msgid ""
+"The XML style has two disadvantages. First, it does not fully encapsulate "
+"the implementation of the requirement it addresses in a single place. The "
+"DRY principle says that there should be a single, unambiguous, authoritative "
+"representation of any piece of knowledge within a system. When using the XML "
+"style, the knowledge of how a requirement is implemented is split across the "
+"declaration of the backing bean class and the XML in the configuration "
+"file. When you use the @AspectJ style, this information is encapsulated in a "
+"single module: the aspect. Secondly, the XML style is slightly more limited "
+"in what it can express than the @AspectJ style: Only the \"singleton\" "
+"aspect instantiation model is supported, and it is not possible to combine "
+"named pointcuts declared in XML.  For example, in the @AspectJ style you can "
+"write something like the following:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:58
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:64
+#, no-wrap
+msgid ""
+"\t@Pointcut(\"execution(* get*())\")\n"
+"\tpublic void propertyAccess() {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:67
+#, no-wrap
+msgid ""
+"\t@Pointcut(\"execution(com.xyz.Account+ *(..))\")\n"
+"\tpublic void operationReturningAnAccount() {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:70
+#, no-wrap
+msgid ""
+"\t@Pointcut(\"propertyAccess() && operationReturningAnAccount()\")\n"
+"\tpublic void accountPropertyAccess() {}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:72
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:78
+#, no-wrap
+msgid ""
+"\t@Pointcut(\"execution(* get*())\")\n"
+"\tfun propertyAccess() {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:81
+#, no-wrap
+msgid ""
+"\t@Pointcut(\"execution(com.xyz.Account+ *(..))\")\n"
+"\tfun operationReturningAnAccount() {}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:84
+#, no-wrap
+msgid ""
+"\t@Pointcut(\"propertyAccess() && operationReturningAnAccount()\")\n"
+"\tfun accountPropertyAccess() {}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:88
+msgid "In the XML style you can declare the first two pointcuts:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:93
+#, no-wrap
+msgid ""
+"\t<aop:pointcut id=\"propertyAccess\"\n"
+"\t\t\texpression=\"execution(* get*())\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:96
+#, no-wrap
+msgid ""
+"\t<aop:pointcut id=\"operationReturningAnAccount\"\n"
+"\t\t\texpression=\"execution(com.xyz.Account+ *(..))\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:100
+msgid ""
+"The downside of the XML approach is that you cannot define the "
+"`accountPropertyAccess` pointcut by combining these definitions."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop/choosing.adoc:107
+msgid ""
+"The @AspectJ style supports additional instantiation models and richer "
+"pointcut composition. It has the advantage of keeping the aspect as a "
+"modular unit. It also has the advantage that the @AspectJ aspects can be "
+"understood (and thus consumed) both by Spring AOP and by AspectJ. So, if you "
+"later decide you need the capabilities of AspectJ to implement additional "
+"requirements, you can easily migrate to a classic AspectJ setup.  In "
+"general, the Spring team prefers the @AspectJ style for custom aspects "
+"beyond simple configuration of enterprise services."
+msgstr ""

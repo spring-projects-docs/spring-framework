@@ -1,0 +1,404 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:2
+#, no-wrap
+msgid "Exporting Your Beans to JMX"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:7
+msgid ""
+"The core class in Spring's JMX framework is the `MBeanExporter`. This class "
+"is responsible for taking your Spring beans and registering them with a JMX "
+"`MBeanServer`.  For example, consider the following class:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:13
+msgid ""
+"To expose the properties and methods of this bean as attributes and "
+"operations of an MBean, you can configure an instance of the `MBeanExporter` "
+"class in your configuration file and pass in the bean, as the following "
+"example shows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:21
+msgid ""
+"The pertinent bean definition from the preceding configuration snippet is "
+"the `exporter` bean. The `beans` property tells the `MBeanExporter` exactly "
+"which of your beans must be exported to the JMX `MBeanServer`. In the "
+"default configuration, the key of each entry in the `beans` `Map` is used as "
+"the `ObjectName` for the bean referenced by the corresponding entry "
+"value. You can change this behavior, as described in "
+"xref:integration/jmx/naming.adoc[Controlling `ObjectName` Instances for Your "
+"Beans]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:26
+msgid ""
+"With this configuration, the `testBean` bean is exposed as an MBean under "
+"the `ObjectName` `bean:name=testBean1`. By default, all `public` properties "
+"of the bean are exposed as attributes and all `public` methods (except those "
+"inherited from the `Object` class) are exposed as operations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:31
+msgid ""
+"`MBeanExporter` is a `Lifecycle` bean (see "
+"xref:core/beans/factory-nature.adoc#beans-factory-lifecycle-processor[Startup "
+"and Shutdown Callbacks] ). By default, MBeans are exported as late as "
+"possible during the application lifecycle. You can configure the `phase` at "
+"which the export happens or disable automatic registration by setting the "
+"`autoStartup` flag."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:34
+#, no-wrap
+msgid "Creating an MBeanServer"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:42
+msgid ""
+"The configuration shown in the xref:integration/jmx/exporting.adoc[preceding "
+"section] assumes that the application is running in an environment that has "
+"one (and only one) `MBeanServer` already running. In this case, Spring tries "
+"to locate the running `MBeanServer` and register your beans with that server "
+"(if any). This behavior is useful when your application runs inside a "
+"container (such as Tomcat or IBM WebSphere) that has its own `MBeanServer`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:50
+msgid ""
+"However, this approach is of no use in a standalone environment or when "
+"running inside a container that does not provide an `MBeanServer`. To "
+"address this, you can create an `MBeanServer` instance declaratively by "
+"adding an instance of the "
+"`org.springframework.jmx.support.MBeanServerFactoryBean` class to your "
+"configuration.  You can also ensure that a specific `MBeanServer` is used by "
+"setting the value of the `MBeanExporter` instance's `server` property to the "
+"`MBeanServer` value returned by an `MBeanServerFactoryBean`, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:54
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:217
+#, no-wrap
+msgid "\t<beans>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:56
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"mbeanServer\" "
+"class=\"org.springframework.jmx.support.MBeanServerFactoryBean\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:69
+#, no-wrap
+msgid ""
+"\t\t<!--\n"
+"\t\tthis bean needs to be eagerly pre-instantiated in order for the "
+"exporting to occur;\n"
+"\t\tthis means that it must not be marked as lazily initialized\n"
+"\t\t-->\n"
+"\t\t<bean id=\"exporter\" "
+"class=\"org.springframework.jmx.export.MBeanExporter\">\n"
+"\t\t\t<property name=\"beans\">\n"
+"\t\t\t\t<map>\n"
+"\t\t\t\t\t<entry key=\"bean:name=testBean1\" value-ref=\"testBean\"/>\n"
+"\t\t\t\t</map>\n"
+"\t\t\t</property>\n"
+"\t\t\t<property name=\"server\" ref=\"mbeanServer\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:74
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:231
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"testBean\" class=\"org.springframework.jmx.JmxTestBean\">\n"
+"\t\t\t<property name=\"name\" value=\"TEST\"/>\n"
+"\t\t\t<property name=\"age\" value=\"100\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:76
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:128
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:233
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:83
+msgid ""
+"In the preceding example, an instance of `MBeanServer` is created by the "
+"`MBeanServerFactoryBean` and is supplied to the `MBeanExporter` through the "
+"`server` property. When you supply your own `MBeanServer` instance, the "
+"`MBeanExporter` does not try to locate a running `MBeanServer` and uses the "
+"supplied `MBeanServer` instance. For this to work correctly, you must have a "
+"JMX implementation on your classpath."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:86
+#, no-wrap
+msgid "Reusing an Existing `MBeanServer`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:93
+msgid ""
+"If no server is specified, the `MBeanExporter` tries to automatically detect "
+"a running `MBeanServer`. This works in most environments, where only one "
+"`MBeanServer` instance is used. However, when multiple instances exist, the "
+"exporter might pick the wrong server.  In such cases, you should use the "
+"`MBeanServer` `agentId` to indicate which instance to be used, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:108
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<bean id=\"mbeanServer\" "
+"class=\"org.springframework.jmx.support.MBeanServerFactoryBean\">\n"
+"\t\t\t<!-- indicate to first look for a server -->\n"
+"\t\t\t<property name=\"locateExistingServerIfPossible\" value=\"true\"/>\n"
+"\t\t\t<!-- search for the MBeanServer instance with the given agentId -->\n"
+"\t\t\t<property name=\"agentId\" value=\"MBeanServer_instance_agentId>\"/>\n"
+"\t\t</bean>\n"
+"\t\t<bean id=\"exporter\" "
+"class=\"org.springframework.jmx.export.MBeanExporter\">\n"
+"\t\t\t<property name=\"server\" ref=\"mbeanServer\"/>\n"
+"\t\t\t...\n"
+"\t\t</bean>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:114
+msgid ""
+"For platforms or cases where the existing `MBeanServer` has a dynamic (or "
+"unknown)  `agentId` that is retrieved through lookup methods, you should use "
+"xref:core/beans/definition.adoc#beans-factory-class-static-factory-method[factory-method], "
+"as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:124
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<bean id=\"exporter\" "
+"class=\"org.springframework.jmx.export.MBeanExporter\">\n"
+"\t\t\t<property name=\"server\">\n"
+"\t\t\t\t<!-- Custom MBeanServerLocator -->\n"
+"\t\t\t\t<bean class=\"platform.package.MBeanServerLocator\" "
+"factory-method=\"locateMBeanServer\"/>\n"
+"\t\t\t</property>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:126
+#, no-wrap
+msgid "\t\t<!-- other beans here -->\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:132
+#, no-wrap
+msgid "Lazily Initialized MBeans"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:138
+msgid ""
+"If you configure a bean with an `MBeanExporter` that is also configured for "
+"lazy initialization, the `MBeanExporter` does not break this contract and "
+"avoids instantiating the bean. Instead, it registers a proxy with the "
+"`MBeanServer` and defers obtaining the bean from the container until the "
+"first invocation on the proxy occurs."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:142
+msgid ""
+"This also affects `FactoryBean` resolution where `MBeanExporter` will "
+"regularly introspect the produced object, effectively triggering "
+"`FactoryBean.getObject()`.  In order to avoid this, mark the corresponding "
+"bean definition as lazy-init."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:145
+#, no-wrap
+msgid "Automatic Registration of MBeans"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:151
+msgid ""
+"Any beans that are exported through the `MBeanExporter` and are already "
+"valid MBeans are registered as-is with the `MBeanServer` without further "
+"intervention from Spring.  You can cause MBeans to be automatically detected "
+"by the `MBeanExporter` by setting the `autodetect` property to `true`, as "
+"the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:157
+#, no-wrap
+msgid ""
+"\t<bean id=\"exporter\" "
+"class=\"org.springframework.jmx.export.MBeanExporter\">\n"
+"\t\t<property name=\"autodetect\" value=\"true\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:159
+#, no-wrap
+msgid ""
+"\t<bean name=\"spring:mbean=true\" "
+"class=\"org.springframework.jmx.export.TestDynamicMBean\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:165
+msgid ""
+"In the preceding example, the bean called `spring:mbean=true` is already a "
+"valid JMX MBean and is automatically registered by Spring. By default, a "
+"bean that is autodetected for JMX registration has its bean name used as the "
+"`ObjectName`. You can override this behavior, as detailed in "
+"xref:integration/jmx/naming.adoc[Controlling `ObjectName` Instances for Your "
+"Beans]."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:168
+#, no-wrap
+msgid "Controlling the Registration Behavior"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:174
+msgid ""
+"Consider the scenario where a Spring `MBeanExporter` attempts to register an "
+"`MBean` with an `MBeanServer` by using the `ObjectName` "
+"`bean:name=testBean1`. If an `MBean` instance has already been registered "
+"under that same `ObjectName`, the default behavior is to fail (and throw an "
+"`InstanceAlreadyExistsException`)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:180
+msgid ""
+"You can control exactly what happens when an `MBean` is registered with an "
+"`MBeanServer`. Spring's JMX support allows for three different registration "
+"behaviors to control the registration behavior when the registration process "
+"finds that an `MBean` has already been registered under the same "
+"`ObjectName`.  The following table summarizes these registration behaviors:"
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:182
+#, no-wrap
+msgid "Registration Behaviors"
+msgstr ""
+
+#. type: Table
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:204
+#, no-wrap
+msgid ""
+"| Registration behavior | Explanation\n"
+"\n"
+"| `FAIL_ON_EXISTING`\n"
+"| This is the default registration behavior. If an `MBean` instance has "
+"already been\n"
+"  registered under the same `ObjectName`, the `MBean` that is being "
+"registered is not\n"
+"  registered, and an `InstanceAlreadyExistsException` is thrown. The "
+"existing\n"
+"  `MBean` is unaffected.\n"
+"\n"
+"| `IGNORE_EXISTING`\n"
+"| If an `MBean` instance has already been registered under the same "
+"`ObjectName`, the\n"
+"  `MBean` that is being registered is not registered. The existing `MBean` "
+"is\n"
+"  unaffected, and no `Exception` is thrown. This is useful in settings "
+"where\n"
+"  multiple applications want to share a common `MBean` in a shared "
+"`MBeanServer`.\n"
+"\n"
+"| `REPLACE_EXISTING`\n"
+"| If an `MBean` instance has already been registered under the same "
+"`ObjectName`, the\n"
+"  existing `MBean` that was previously registered is unregistered, and the "
+"new\n"
+"  `MBean` is registered in its place (the new `MBean` effectively replaces "
+"the\n"
+"  previous instance).\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:210
+msgid ""
+"The values in the preceding table are defined as enums on the "
+"`RegistrationPolicy` class.  If you want to change the default registration "
+"behavior, you need to set the value of the `registrationPolicy` property on "
+"your `MBeanExporter` definition to one of those values."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:213
+msgid ""
+"The following example shows how to change from the default registration "
+"behavior to the `REPLACE_EXISTING` behavior:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/jmx/exporting.adoc:226
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"exporter\" "
+"class=\"org.springframework.jmx.export.MBeanExporter\">\n"
+"\t\t\t<property name=\"beans\">\n"
+"\t\t\t\t<map>\n"
+"\t\t\t\t\t<entry key=\"bean:name=testBean1\" value-ref=\"testBean\"/>\n"
+"\t\t\t\t</map>\n"
+"\t\t\t</property>\n"
+"\t\t\t<property name=\"registrationPolicy\" value=\"REPLACE_EXISTING\"/>\n"
+"\t\t</bean>\n"
+msgstr ""

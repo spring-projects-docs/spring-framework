@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-dependson.adoc:2
+#, no-wrap
+msgid "Using `depends-on`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-dependson.adoc:8
+msgid ""
+"If a bean is a dependency of another bean, that usually means that one bean "
+"is set as a property of another. Typically you accomplish this with the "
+"xref:core/beans/dependencies/factory-properties-detailed.adoc#beans-ref-element[`<ref/>` "
+"element] in XML-based metadata or through "
+"xref:core/beans/dependencies/factory-autowire.adoc[autowiring]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-dependson.adoc:14
+msgid ""
+"However, sometimes dependencies between beans are less direct. An example is "
+"when a static initializer in a class needs to be triggered, such as for "
+"database driver registration.  The `depends-on` attribute or `@DependsOn` "
+"annotation can explicitly force one or more beans to be initialized before "
+"the bean using this element is initialized. The following example uses the "
+"`depends-on` attribute to express a dependency on a single bean:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-dependson.adoc:19
+#, no-wrap
+msgid ""
+"\t<bean id=\"beanOne\" class=\"ExampleBean\" depends-on=\"manager\"/>\n"
+"\t<bean id=\"manager\" class=\"ManagerBean\" />\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-dependson.adoc:24
+msgid ""
+"To express a dependency on multiple beans, supply a list of bean names as "
+"the value of the `depends-on` attribute (commas, whitespace, and semicolons "
+"are valid delimiters):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-dependson.adoc:30
+#, no-wrap
+msgid ""
+"\t<bean id=\"beanOne\" class=\"ExampleBean\" "
+"depends-on=\"manager,accountDao\">\n"
+"\t\t<property name=\"manager\" ref=\"manager\" />\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-dependson.adoc:33
+#, no-wrap
+msgid ""
+"\t<bean id=\"manager\" class=\"ManagerBean\" />\n"
+"\t<bean id=\"accountDao\" class=\"x.y.jdbc.JdbcAccountDao\" />\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/dependencies/factory-dependson.adoc:39
+msgid ""
+"The `depends-on` attribute can specify both an initialization-time "
+"dependency and, in the case of "
+"xref:core/beans/factory-scopes.adoc#beans-factory-scopes-singleton[singleton] "
+"beans only, a corresponding destruction-time dependency. Dependent beans "
+"that define a `depends-on` relationship with a given bean are destroyed "
+"first, prior to the given bean itself being destroyed. Thus, `depends-on` "
+"can also control shutdown order."
+msgstr ""

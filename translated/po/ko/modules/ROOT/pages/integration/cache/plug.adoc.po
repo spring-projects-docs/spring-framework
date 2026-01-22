@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/cache/plug.adoc:2
+#, no-wrap
+msgid "Plugging-in Different Back-end Caches"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/integration/cache/plug.adoc:12
+msgid ""
+"Clearly, there are plenty of caching products out there that you can use as "
+"a backing store. For those that do not support JSR-107 you need to provide a "
+"`CacheManager` and a `Cache` implementation. This may sound harder than it "
+"is, since, in practice, the classes tend to be simple "
+"https://en.wikipedia.org/wiki/Adapter_pattern[adapters] that map the caching "
+"abstraction framework on top of the storage API, as the _Caffeine_ classes "
+"do.  Most `CacheManager` classes can use the classes in the "
+"`org.springframework.cache.support` package (such as `AbstractCacheManager` "
+"which takes care of the boiler-plate code, leaving only the actual mapping "
+"to be completed)."
+msgstr ""

@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:2
+#, no-wrap
+msgid "Creating AOP Proxies Programmatically with the `ProxyFactory`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:6
+msgid ""
+"It is easy to create AOP proxies programmatically with Spring. This lets you "
+"use Spring AOP without dependency on Spring IoC."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:10
+msgid ""
+"The interfaces implemented by the target object are automatically "
+"proxied. The following listing shows creation of a proxy for a target "
+"object, with one interceptor and one advisor:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:13
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:21
+#, no-wrap
+msgid ""
+"\tProxyFactory factory = new ProxyFactory(myBusinessInterfaceImpl);\n"
+"\tfactory.addAdvice(myMethodInterceptor);\n"
+"\tfactory.addAdvisor(myAdvisor);\n"
+"\tMyBusinessInterface tb = (MyBusinessInterface) factory.getProxy();\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:23
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:31
+#, no-wrap
+msgid ""
+"\tval factory = ProxyFactory(myBusinessInterfaceImpl)\n"
+"\tfactory.addAdvice(myMethodInterceptor)\n"
+"\tfactory.addAdvisor(myAdvisor)\n"
+"\tval tb = factory.proxy as MyBusinessInterface\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:38
+msgid ""
+"The first step is to construct an object of type "
+"`org.springframework.aop.framework.ProxyFactory`. You can create this with a "
+"target object, as in the preceding example, or specify the interfaces to be "
+"proxied in an alternate constructor."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:43
+msgid ""
+"You can add advice (with interceptors as a specialized kind of advice), "
+"advisors, or both and manipulate them for the life of the `ProxyFactory`. If "
+"you add an `IntroductionInterceptionAroundAdvisor`, you can cause the proxy "
+"to implement additional interfaces."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:47
+msgid ""
+"There are also convenience methods on `ProxyFactory` (inherited from "
+"`AdvisedSupport`)  that let you add other advice types, such as before and "
+"throws advice.  `AdvisedSupport` is the superclass of both `ProxyFactory` "
+"and `ProxyFactoryBean`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop-api/prog.adoc:51
+msgid ""
+"Integrating AOP proxy creation with the IoC framework is best practice in "
+"most applications. We recommend that you externalize configuration from Java "
+"code with AOP, as you should in general."
+msgstr ""

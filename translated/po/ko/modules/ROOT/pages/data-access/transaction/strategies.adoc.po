@@ -1,0 +1,549 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:2
+#, no-wrap
+msgid "Understanding the Spring Framework Transaction Abstraction"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:11
+msgid ""
+"The key to the Spring transaction abstraction is the notion of a transaction "
+"strategy. A transaction strategy is defined by a `TransactionManager`, "
+"specifically the "
+"`org.springframework.transaction.PlatformTransactionManager` interface for "
+"imperative transaction management and the "
+"`org.springframework.transaction.ReactiveTransactionManager` interface for "
+"reactive transaction management. The following listing shows the definition "
+"of the `PlatformTransactionManager` API:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:15
+#, no-wrap
+msgid "\tpublic interface PlatformTransactionManager extends TransactionManager {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:17
+#, no-wrap
+msgid ""
+"\t\tTransactionStatus getTransaction(TransactionDefinition definition) "
+"throws TransactionException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:19
+#, no-wrap
+msgid "\t\tvoid commit(TransactionStatus status) throws TransactionException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:22
+#, no-wrap
+msgid ""
+"\t\tvoid rollback(TransactionStatus status) throws TransactionException;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:32
+msgid ""
+"This is primarily a service provider interface (SPI), although you can use "
+"it "
+"xref:data-access/transaction/programmatic.adoc#transaction-programmatic-ptm[programmatically] "
+"from your application code. Because `PlatformTransactionManager` is an "
+"interface, it can be easily mocked or stubbed as necessary. It is not tied "
+"to a lookup strategy, such as JNDI.  `PlatformTransactionManager` "
+"implementations are defined like any other object (or bean)  in the Spring "
+"Framework IoC container. This benefit alone makes Spring Framework "
+"transactions a worthwhile abstraction, even when you work with JTA. You can "
+"test transactional code much more easily than if it used JTA directly."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:40
+msgid ""
+"Again, in keeping with Spring's philosophy, the `TransactionException` that "
+"can be thrown by any of the `PlatformTransactionManager` interface's methods "
+"is unchecked (that is, it extends the `java.lang.RuntimeException` "
+"class). Transaction infrastructure failures are almost invariably fatal. In "
+"rare cases where application code can actually recover from a transaction "
+"failure, the application developer can still choose to catch and handle "
+"`TransactionException`. The salient point is that developers are not "
+"_forced_ to do so."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:47
+msgid ""
+"The `getTransaction(..)` method returns a `TransactionStatus` object, "
+"depending on a `TransactionDefinition` parameter. The returned "
+"`TransactionStatus` might represent a new transaction or can represent an "
+"existing transaction, if a matching transaction exists in the current call "
+"stack. The implication in this latter case is that, as with Jakarta EE "
+"transaction contexts, a `TransactionStatus` is associated with a thread of "
+"execution."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:52
+msgid ""
+"Spring also provides a transaction management abstraction for reactive "
+"applications that make use of reactive types or Kotlin Coroutines. The "
+"following listing shows the transaction strategy defined by "
+"`org.springframework.transaction.ReactiveTransactionManager`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:56
+#, no-wrap
+msgid "\tpublic interface ReactiveTransactionManager extends TransactionManager {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:58
+#, no-wrap
+msgid ""
+"\t\tMono<ReactiveTransaction> getReactiveTransaction(TransactionDefinition "
+"definition) throws TransactionException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:60
+#, no-wrap
+msgid ""
+"\t\tMono<Void> commit(ReactiveTransaction status) throws "
+"TransactionException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:63
+#, no-wrap
+msgid ""
+"\t\tMono<Void> rollback(ReactiveTransaction status) throws "
+"TransactionException;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:69
+msgid ""
+"The reactive transaction manager is primarily a service provider interface "
+"(SPI), although you can use it "
+"xref:data-access/transaction/programmatic.adoc#transaction-programmatic-rtm[programmatically] "
+"from your application code. Because `ReactiveTransactionManager` is an "
+"interface, it can be easily mocked or stubbed as necessary."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:71
+msgid "The `TransactionDefinition` interface specifies:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:79
+msgid ""
+"Propagation: Typically, all code within a transaction scope runs in that "
+"transaction. However, you can specify the behavior if a transactional method "
+"is run when a transaction context already exists. For example, code can "
+"continue running in the existing transaction (the common case), or the "
+"existing transaction can be suspended and a new transaction created. Spring "
+"offers all of the transaction propagation options familiar from EJB CMT. To "
+"read about the semantics of transaction propagation in Spring, see "
+"xref:data-access/transaction/declarative/tx-propagation.adoc[Transaction "
+"Propagation]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:82
+msgid ""
+"Isolation: The degree to which this transaction is isolated from the work of "
+"other transactions. For example, can this transaction see uncommitted writes "
+"from other transactions?"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:84
+msgid ""
+"Timeout: How long this transaction runs before timing out and being "
+"automatically rolled back by the underlying transaction infrastructure."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:87
+msgid ""
+"Read-only status: You can use a read-only transaction when your code reads "
+"but does not modify data. Read-only transactions can be a useful "
+"optimization in some cases, such as when you use Hibernate."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:92
+msgid ""
+"These settings reflect standard transactional concepts. If necessary, refer "
+"to resources that discuss transaction isolation levels and other core "
+"transaction concepts.  Understanding these concepts is essential to using "
+"the Spring Framework or any transaction management solution."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:97
+msgid ""
+"The `TransactionStatus` interface provides a simple way for transactional "
+"code to control transaction execution and query transaction status. The "
+"concepts should be familiar, as they are common to all transaction APIs. The "
+"following listing shows the `TransactionStatus` interface:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:101
+#, no-wrap
+msgid ""
+"\tpublic interface TransactionStatus extends TransactionExecution, "
+"SavepointManager, Flushable {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:104
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tboolean isNewTransaction();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:106
+#, no-wrap
+msgid "\t\tboolean hasSavepoint();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:109
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tvoid setRollbackOnly();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:112
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tboolean isRollbackOnly();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:114
+#, no-wrap
+msgid "\t\tvoid flush();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:118
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tboolean isCompleted();\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:123
+msgid ""
+"Regardless of whether you opt for declarative or programmatic transaction "
+"management in Spring, defining the correct `TransactionManager` "
+"implementation is absolutely essential.  You typically define this "
+"implementation through dependency injection."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:128
+msgid ""
+"`TransactionManager` implementations normally require knowledge of the "
+"environment in which they work: JDBC, JTA, Hibernate, and so on. The "
+"following examples show how you can define a local "
+"`PlatformTransactionManager` implementation (in this case, with plain JDBC.)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:130
+msgid ""
+"You can define a JDBC `DataSource` by creating a bean similar to the "
+"following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:139
+#, no-wrap
+msgid ""
+"\t<bean id=\"dataSource\" class=\"org.apache.commons.dbcp.BasicDataSource\" "
+"destroy-method=\"close\">\n"
+"\t\t<property name=\"driverClassName\" value=\"${jdbc.driverClassName}\" "
+"/>\n"
+"\t\t<property name=\"url\" value=\"${jdbc.url}\" />\n"
+"\t\t<property name=\"username\" value=\"${jdbc.username}\" />\n"
+"\t\t<property name=\"password\" value=\"${jdbc.password}\" />\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:143
+msgid ""
+"The related `PlatformTransactionManager` bean definition then has a "
+"reference to the `DataSource` definition. It should resemble the following "
+"example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:149
+#, no-wrap
+msgid ""
+"\t<bean id=\"txManager\" "
+"class=\"org.springframework.jdbc.datasource.DataSourceTransactionManager\">\n"
+"\t\t<property name=\"dataSource\" ref=\"dataSource\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:154
+msgid ""
+"If you use JTA in a Jakarta EE container, then you use a container "
+"`DataSource`, obtained through JNDI, in conjunction with Spring's "
+"`JtaTransactionManager`. The following example shows what the JTA and JNDI "
+"lookup version would look like:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:166
+#, no-wrap
+msgid ""
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:jee=\"http://www.springframework.org/schema/jee\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/jee\n"
+"\t\t\thttps://www.springframework.org/schema/jee/spring-jee.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:168
+#, no-wrap
+msgid "\t\t<jee:jndi-lookup id=\"dataSource\" jndi-name=\"jdbc/jpetstore\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:170
+#, no-wrap
+msgid ""
+"\t\t<bean id=\"txManager\" "
+"class=\"org.springframework.transaction.jta.JtaTransactionManager\" />\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:172
+#, no-wrap
+msgid "\t\t<!-- other <bean/> definitions here -->\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:174
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:179
+msgid ""
+"The `JtaTransactionManager` does not need to know about the `DataSource` (or "
+"any other specific resources) because it uses the container's global "
+"transaction management infrastructure."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:183
+msgid ""
+"The preceding definition of the `dataSource` bean uses the `<jndi-lookup/>` "
+"tag from the `jee` namespace. For more information see "
+"xref:integration/appendix.adoc#xsd-schemas-jee[The JEE Schema]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:188
+msgid ""
+"If you use JTA, your transaction manager definition should look the same, "
+"regardless of what data access technology you use, be it JDBC, Hibernate "
+"JPA, or any other supported technology. This is due to the fact that JTA "
+"transactions are global transactions, which can enlist any transactional "
+"resource."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:192
+msgid ""
+"In all Spring transaction setups, application code does not need to "
+"change. You can change how transactions are managed merely by changing "
+"configuration, even if that change means moving from local to global "
+"transactions or vice versa."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:195
+#, no-wrap
+msgid "Hibernate Transaction Setup"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:200
+msgid ""
+"You can also easily use Hibernate local transactions, as shown in the "
+"following examples.  In this case, you need to define a Hibernate "
+"`LocalSessionFactoryBean`, which your application code can use to obtain "
+"Hibernate `Session` instances."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:203
+msgid ""
+"The `DataSource` bean definition is similar to the local JDBC example shown "
+"previously and, thus, is not shown in the following example."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:207
+msgid ""
+"If the `DataSource` (used by any non-JTA transaction manager) is looked up "
+"through JNDI and managed by a Jakarta EE container, it should be "
+"non-transactional, because the Spring Framework (rather than the Jakarta EE "
+"container) manages the transactions."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:212
+msgid ""
+"The `txManager` bean in this case is of the `HibernateTransactionManager` "
+"type. In the same way as the `DataSourceTransactionManager` needs a "
+"reference to the `DataSource`, the `HibernateTransactionManager` needs a "
+"reference to the `SessionFactory`. The following example declares "
+"`sessionFactory` and `txManager` beans:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:228
+#, no-wrap
+msgid ""
+"\t<bean id=\"sessionFactory\" "
+"class=\"org.springframework.orm.jpa.hibernate.LocalSessionFactoryBean\">\n"
+"\t\t<property name=\"dataSource\" ref=\"dataSource\"/>\n"
+"\t\t<property name=\"mappingResources\">\n"
+"\t\t\t<list>\n"
+"\t\t\t\t<value>org/springframework/samples/petclinic/hibernate/petclinic.hbm.xml</value>\n"
+"\t\t\t</list>\n"
+"\t\t</property>\n"
+"\t\t<property name=\"hibernateProperties\">\n"
+"\t\t\t<value>\n"
+"\t\t\t\thibernate.dialect=${hibernate.dialect}\n"
+"\t\t\t</value>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:232
+#, no-wrap
+msgid ""
+"\t<bean id=\"txManager\" "
+"class=\"org.springframework.orm.jpa.hibernate.HibernateTransactionManager\">\n"
+"\t\t<property name=\"sessionFactory\" ref=\"sessionFactory\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:238
+msgid ""
+"If you use Hibernate and Jakarta EE container-managed JTA transactions, you "
+"should use the same `JtaTransactionManager` as in the previous JTA example "
+"for JDBC, as the following example shows. Also, it is recommended to make "
+"Hibernate aware of JTA through its transaction coordinator and possibly also "
+"its connection release mode configuration:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:256
+#, no-wrap
+msgid ""
+"\t<bean id=\"sessionFactory\" "
+"class=\"org.springframework.orm.jpa.hibernate.LocalSessionFactoryBean\">\n"
+"\t\t<property name=\"dataSource\" ref=\"dataSource\"/>\n"
+"\t\t<property name=\"mappingResources\">\n"
+"\t\t\t<list>\n"
+"\t\t\t\t<value>org/springframework/samples/petclinic/hibernate/petclinic.hbm.xml</value>\n"
+"\t\t\t</list>\n"
+"\t\t</property>\n"
+"\t\t<property name=\"hibernateProperties\">\n"
+"\t\t\t<value>\n"
+"\t\t\t\thibernate.dialect=${hibernate.dialect}\n"
+"\t\t\t\thibernate.transaction.coordinator_class=jta\n"
+"\t\t\t\thibernate.connection.handling_mode=DELAYED_ACQUISITION_AND_RELEASE_AFTER_STATEMENT\n"
+"\t\t\t</value>\n"
+"\t\t</property>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:258
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:281
+#, no-wrap
+msgid ""
+"\t<bean id=\"txManager\" "
+"class=\"org.springframework.transaction.jta.JtaTransactionManager\"/>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:262
+msgid ""
+"Or alternatively, you may pass the `JtaTransactionManager` into your "
+"`LocalSessionFactoryBean` for enforcing the same defaults:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/strategies.adoc:279
+#, no-wrap
+msgid ""
+"\t<bean id=\"sessionFactory\" "
+"class=\"org.springframework.orm.jpa.hibernate.LocalSessionFactoryBean\">\n"
+"\t\t<property name=\"dataSource\" ref=\"dataSource\"/>\n"
+"\t\t<property name=\"mappingResources\">\n"
+"\t\t\t<list>\n"
+"\t\t\t\t<value>org/springframework/samples/petclinic/hibernate/petclinic.hbm.xml</value>\n"
+"\t\t\t</list>\n"
+"\t\t</property>\n"
+"\t\t<property name=\"hibernateProperties\">\n"
+"\t\t\t<value>\n"
+"\t\t\t\thibernate.dialect=${hibernate.dialect}\n"
+"\t\t\t</value>\n"
+"\t\t</property>\n"
+"\t\t<property name=\"jtaTransactionManager\" ref=\"txManager\"/>\n"
+"\t</bean>\n"
+msgstr ""

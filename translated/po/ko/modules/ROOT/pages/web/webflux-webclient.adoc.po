@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient.adoc:2
+#, no-wrap
+msgid "WebClient"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient.adoc:11
+msgid ""
+"Spring WebFlux includes a client to perform HTTP requests. `WebClient` has a "
+"functional, fluent API based on Reactor (see "
+"xref:web/webflux-reactive-libraries.adoc[Reactive Libraries])  which enables "
+"declarative composition of asynchronous logic without the need to deal with "
+"threads or concurrency. It is fully non-blocking, supports streaming, and "
+"relies on the same "
+"xref:web/webflux/reactive-spring.adoc#webflux-codecs[codecs] that are also "
+"used to encode and decode request and response content on the server side."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient.adoc:14
+msgid ""
+"`WebClient` needs an HTTP client library to perform requests. There is "
+"built-in support for the following:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient.adoc:16
+msgid "{reactor-github-org}/reactor-netty[Reactor Netty]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient.adoc:17
+msgid "{java-api}/java.net.http/java/net/http/HttpClient.html[JDK HttpClient]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient.adoc:18
+msgid ""
+"https://github.com/jetty-project/jetty-reactive-httpclient[Jetty Reactive "
+"HttpClient]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient.adoc:19
+msgid "https://hc.apache.org/index.html[Apache HttpComponents]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient.adoc:19
+msgid "Others can be plugged in via `ClientHttpConnector`."
+msgstr ""

@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:2
+#, no-wrap
+msgid "`DataBinder`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-initbinder.adoc[See equivalent "
+"in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:8
+msgid ""
+"`@Controller` or `@ControllerAdvice` classes can have `@InitBinder` methods "
+"to initialize `WebDataBinder` instances that in turn can:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:10
+msgid "Bind request parameters to a model object."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:11
+msgid "Convert request values from string to object property types."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:12
+msgid "Format model object properties as strings when rendering HTML forms."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:16
+msgid ""
+"In an `@Controller`, `DataBinder` customizations apply locally within the "
+"controller, or even to a specific model attribute referenced by name through "
+"the annotation.  In an `@ControllerAdvice` customizations can apply to all "
+"or a subset of controllers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:21
+msgid ""
+"You can register `PropertyEditor`, `Converter`, and `Formatter` components "
+"in the `DataBinder` for type conversion. Alternatively, you can use the "
+"xref:web/webflux/config.adoc#webflux-config-conversion[WebFlux config] to "
+"register `Converter` and `Formatter` components in a globally shared "
+"`FormattingConversionService`."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:25
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:72
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:31
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:78
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\tpublic class FormController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:38
+#, no-wrap
+msgid ""
+"\t\t@InitBinder // <1>\n"
+"\t\tpublic void initBinder(WebDataBinder binder) {\n"
+"\t\t\tSimpleDateFormat dateFormat = new SimpleDateFormat(\"yyyy-MM-dd\");\n"
+"\t\t\tdateFormat.setLenient(false);\n"
+"\t\t\tbinder.registerCustomEditor(Date.class, new "
+"CustomDateEditor(dateFormat, false));\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:41
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:60
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:86
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:103
+#, no-wrap
+msgid ""
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:43
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:62
+msgid "Using the `@InitBinder` annotation."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:44
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:89
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:50
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:95
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\tclass FormController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:57
+#, no-wrap
+msgid ""
+"\t\t@InitBinder // <1>\n"
+"\t\tfun initBinder(binder: WebDataBinder) {\n"
+"\t\t\tval dateFormat = SimpleDateFormat(\"yyyy-MM-dd\")\n"
+"\t\t\tdateFormat.isLenient = false\n"
+"\t\t\tbinder.registerCustomEditor(Date::class.java, "
+"CustomDateEditor(dateFormat, false))\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:68
+msgid ""
+"Alternatively, when using a `Formatter`-based setup through a shared "
+"`FormattingConversionService`, you could re-use the same approach and "
+"register controller-specific `Formatter` instances, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:83
+#, no-wrap
+msgid ""
+"\t\t@InitBinder\n"
+"\t\tprotected void initBinder(WebDataBinder binder) {\n"
+"\t\t\tbinder.addCustomFormatter(new DateFormatter(\"yyyy-MM-dd\")); <1>\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:88
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:105
+msgid "Adding a custom formatter (a `DateFormatter`, in this case)."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:100
+#, no-wrap
+msgid ""
+"\t\t@InitBinder\n"
+"\t\tfun initBinder(binder: WebDataBinder) {\n"
+"\t\t\tbinder.addCustomFormatter(DateFormatter(\"yyyy-MM-dd\")) // <1>\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:110
+#, no-wrap
+msgid "Model Design"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-initbinder.adoc:112
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-initbinder.adoc#mvc-ann-initbinder-model-design[See "
+"equivalent in the Servlet stack]#"
+msgstr ""

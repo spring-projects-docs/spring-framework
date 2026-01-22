@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop.adoc:2
+#, no-wrap
+msgid "Aspect Oriented Programming with Spring"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop.adoc:10
+msgid ""
+"Aspect-oriented Programming (AOP) complements Object-oriented Programming "
+"(OOP) by providing another way of thinking about program structure. The key "
+"unit of modularity in OOP is the class, whereas in AOP the unit of "
+"modularity is the aspect. Aspects enable the modularization of concerns "
+"(such as transaction management) that cut across multiple types and "
+"objects. (Such concerns are often termed \"crosscutting\" concerns in AOP "
+"literature.)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop.adoc:14
+msgid ""
+"One of the key components of Spring is the AOP framework. While the Spring "
+"IoC container does not depend on AOP (meaning you do not need to use AOP if "
+"you don't want to), AOP complements Spring IoC to provide a very capable "
+"middleware solution."
+msgstr ""
+
+#. type: Block title
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop.adoc:15
+#, no-wrap
+msgid "Spring AOP with AspectJ pointcuts"
+msgstr ""
+
+#. type: delimited block *
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop.adoc:21
+msgid ""
+"Spring provides simple and powerful ways of writing custom aspects by using "
+"either a xref:core/aop/schema.adoc[schema-based approach] or the "
+"xref:core/aop/ataspectj.adoc[@AspectJ annotation style].  Both of these "
+"styles offer fully typed advice and use of the AspectJ pointcut language "
+"while still using Spring AOP for weaving."
+msgstr ""
+
+#. type: delimited block *
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop.adoc:24
+msgid ""
+"This chapter discusses the schema- and @AspectJ-based AOP support.  The "
+"lower-level AOP support is discussed in xref:core/aop-api.adoc[the following "
+"chapter]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop.adoc:27
+msgid "AOP is used in the Spring Framework to:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop.adoc:30
+msgid ""
+"Provide declarative enterprise services. The most important such service is "
+"xref:data-access/transaction/declarative.adoc[declarative transaction "
+"management]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop.adoc:31
+msgid "Let users implement custom aspects, complementing their use of OOP with AOP."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/aop.adoc:34
+msgid ""
+"If you are interested only in generic declarative services or other "
+"pre-packaged declarative middleware services such as pooling, you do not "
+"need to work directly with Spring AOP, and can skip most of this chapter."
+msgstr ""

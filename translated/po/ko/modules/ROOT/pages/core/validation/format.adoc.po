@@ -1,0 +1,762 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:2
+#, no-wrap
+msgid "Spring Field Formatting"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:12
+msgid ""
+"As discussed in the previous section, "
+"xref:core/validation/convert.adoc[`core.convert`] is a general-purpose type "
+"conversion system. It provides a unified `ConversionService` API as well as "
+"a strongly typed `Converter` SPI for implementing conversion logic from one "
+"type to another. A Spring container uses this system to bind bean property "
+"values. In addition, both the Spring Expression Language (SpEL) and "
+"`DataBinder` use this system to bind field values. For example, when SpEL "
+"needs to coerce a `Short` to a `Long` to complete an "
+"`expression.setValue(Object bean, Object value)` attempt, the `core.convert` "
+"system performs the coercion."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:21
+msgid ""
+"Now consider the type conversion requirements of a typical client "
+"environment, such as a web or desktop application. In such environments, you "
+"typically convert from `String` to support the client postback process, as "
+"well as back to `String` to support the view rendering process. In addition, "
+"you often need to localize `String` values. The more general `core.convert` "
+"`Converter` SPI does not address such formatting requirements directly. To "
+"directly address them, Spring provides a convenient `Formatter` SPI that "
+"provides a simple and robust alternative to `PropertyEditor` implementations "
+"for client environments."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:27
+msgid ""
+"In general, you can use the `Converter` SPI when you need to implement "
+"general-purpose type conversion logic -- for example, for converting between "
+"a `java.util.Date` and a `Long`.  You can use the `Formatter` SPI when you "
+"work in a client environment (such as a web application) and need to parse "
+"and print localized field values. The `ConversionService` provides a unified "
+"type conversion API for both SPIs."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:30
+#, no-wrap
+msgid "The `Formatter` SPI"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:34
+msgid ""
+"The `Formatter` SPI to implement field formatting logic is simple and "
+"strongly typed. The following listing shows the `Formatter` interface "
+"definition:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:38
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:155
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:351
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:386
+#, no-wrap
+msgid "\tpackage org.springframework.format;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:41
+#, no-wrap
+msgid ""
+"\tpublic interface Formatter<T> extends Printer<T>, Parser<T> {\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:45
+msgid ""
+"`Formatter` extends from the `Printer` and `Parser` building-block "
+"interfaces. The following listing shows the definitions of those two "
+"interfaces:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:49
+#, no-wrap
+msgid "\tpublic interface Printer<T> {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:52
+#, no-wrap
+msgid ""
+"\t\tString print(T fieldValue, Locale locale);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:57
+#, no-wrap
+msgid "\timport java.text.ParseException;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:59
+#, no-wrap
+msgid "\tpublic interface Parser<T> {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:62
+#, no-wrap
+msgid ""
+"\t\tT parse(String clientValue, Locale locale) throws ParseException;\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:71
+msgid ""
+"To create your own `Formatter`, implement the `Formatter` interface shown "
+"earlier.  Parameterize `T` to be the type of object you wish to format -- "
+"for example, `java.util.Date`. Implement the `print()` operation to print an "
+"instance of `T` for display in the client locale. Implement the `parse()` "
+"operation to parse an instance of `T` from the formatted representation "
+"returned from the client locale. Your `Formatter` should throw a "
+"`ParseException` or an `IllegalArgumentException` if a parse attempt "
+"fails. Take care to ensure that your `Formatter` implementation is "
+"thread-safe."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:78
+msgid ""
+"The `format` subpackages provide several `Formatter` implementations as a "
+"convenience.  The `number` package provides `NumberStyleFormatter`, "
+"`CurrencyStyleFormatter`, and `PercentStyleFormatter` to format `Number` "
+"objects that use a `java.text.NumberFormat`.  The `datetime` package "
+"provides a `DateFormatter` to format `java.util.Date` objects with a "
+"`java.text.DateFormat`, as well as a `DurationFormatter` to format "
+"`Duration` objects in different styles defined in the "
+"`@DurationFormat.Style` enum (see <<format-annotations-api>>)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:80
+msgid "The following `DateFormatter` is an example `Formatter` implementation:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:83
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:179
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:255
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:290
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:88
+#, no-wrap
+msgid "\tpackage org.springframework.format.datetime;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:90
+#, no-wrap
+msgid "\tpublic final class DateFormatter implements Formatter<Date> {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:92
+#, no-wrap
+msgid "\t\tprivate String pattern;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:96
+#, no-wrap
+msgid ""
+"\t\tpublic DateFormatter(String pattern) {\n"
+"\t\t\tthis.pattern = pattern;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:103
+#, no-wrap
+msgid ""
+"\t\tpublic String print(Date date, Locale locale) {\n"
+"\t\t\tif (date == null) {\n"
+"\t\t\t\treturn \"\";\n"
+"\t\t\t}\n"
+"\t\t\treturn getDateFormat(locale).format(date);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:110
+#, no-wrap
+msgid ""
+"\t\tpublic Date parse(String formatted, Locale locale) throws ParseException "
+"{\n"
+"\t\t\tif (formatted.length() == 0) {\n"
+"\t\t\t\treturn null;\n"
+"\t\t\t}\n"
+"\t\t\treturn getDateFormat(locale).parse(formatted);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:117
+#, no-wrap
+msgid ""
+"\t\tprotected DateFormat getDateFormat(Locale locale) {\n"
+"\t\t\tDateFormat dateFormat = new SimpleDateFormat(this.pattern, locale);\n"
+"\t\t\tdateFormat.setLenient(false);\n"
+"\t\t\treturn dateFormat;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:119
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:216
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:266
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:301
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:124
+#, no-wrap
+msgid "\tclass DateFormatter(private val pattern: String) : Formatter<Date> {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:127
+#, no-wrap
+msgid ""
+"\t\toverride fun print(date: Date, locale: Locale)\n"
+"\t\t\t\t= getDateFormat(locale).format(date)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:131
+#, no-wrap
+msgid ""
+"\t\t@Throws(ParseException::class)\n"
+"\t\toverride fun parse(formatted: String, locale: Locale)\n"
+"\t\t\t\t= getDateFormat(locale).parse(formatted)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:138
+#, no-wrap
+msgid ""
+"\t\tprotected fun getDateFormat(locale: Locale): DateFormat {\n"
+"\t\t\tval dateFormat = SimpleDateFormat(this.pattern, locale)\n"
+"\t\t\tdateFormat.isLenient = false\n"
+"\t\t\treturn dateFormat\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:143
+msgid ""
+"The Spring team welcomes community-driven `Formatter` contributions. See "
+"{spring-framework-issues}[GitHub Issues] to contribute."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:146
+#, no-wrap
+msgid "Annotation-driven Formatting"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:151
+msgid ""
+"Field formatting can be configured by field type or annotation. To bind an "
+"annotation to a `Formatter`, implement `AnnotationFormatterFactory`. The "
+"following listing shows the definition of the `AnnotationFormatterFactory` "
+"interface:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:157
+#, no-wrap
+msgid "\tpublic interface AnnotationFormatterFactory<A extends Annotation> {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:159
+#, no-wrap
+msgid "\t\tSet<Class<?>> getFieldTypes();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:161
+#, no-wrap
+msgid "\t\tPrinter<?> getPrinter(A annotation, Class<?> fieldType);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:164
+#, no-wrap
+msgid ""
+"\t\tParser<?> getParser(A annotation, Class<?> fieldType);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:167
+msgid "To create an implementation:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:170
+msgid ""
+"Parameterize `A` to be the field `annotationType` with which you wish to "
+"associate formatting logic -- for example "
+"`org.springframework.format.annotation.DateTimeFormat`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:171
+msgid ""
+"Have `getFieldTypes()` return the types of fields on which the annotation "
+"can be used."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:172
+msgid ""
+"Have `getPrinter()` return a `Printer` to print the value of an annotated "
+"field."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:173
+msgid ""
+"Have `getParser()` return a `Parser` to parse a `clientValue` for an "
+"annotated field."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:176
+msgid ""
+"The following example `AnnotationFormatterFactory` implementation binds the "
+"`@NumberFormat` annotation to a formatter to let a number style or pattern "
+"be specified:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:185
+#, no-wrap
+msgid ""
+"\tpublic final class NumberFormatAnnotationFormatterFactory\n"
+"\t\t\timplements AnnotationFormatterFactory<NumberFormat> {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:189
+#, no-wrap
+msgid ""
+"\t\tprivate static final Set<Class<?>> FIELD_TYPES = Set.of(Short.class,\n"
+"\t\t\t\tInteger.class, Long.class, Float.class, Double.class,\n"
+"\t\t\t\tBigDecimal.class, BigInteger.class);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:193
+#, no-wrap
+msgid ""
+"\t\tpublic Set<Class<?>> getFieldTypes() {\n"
+"\t\t\treturn FIELD_TYPES;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:197
+#, no-wrap
+msgid ""
+"\t\tpublic Printer<Number> getPrinter(NumberFormat annotation, Class<?> "
+"fieldType) {\n"
+"\t\t\treturn configureFormatterFrom(annotation, fieldType);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:201
+#, no-wrap
+msgid ""
+"\t\tpublic Parser<Number> getParser(NumberFormat annotation, Class<?> "
+"fieldType) {\n"
+"\t\t\treturn configureFormatterFrom(annotation, fieldType);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:214
+#, no-wrap
+msgid ""
+"\t\tprivate Formatter<Number> configureFormatterFrom(NumberFormat "
+"annotation, Class<?> fieldType) {\n"
+"\t\t\tif (!annotation.pattern().isEmpty()) {\n"
+"\t\t\t\treturn new NumberStyleFormatter(annotation.pattern());\n"
+"\t\t\t}\n"
+"\t\t\t// else\n"
+"\t\t\treturn switch(annotation.style()) {\n"
+"\t\t\t\tcase Style.PERCENT -> new PercentStyleFormatter();\n"
+"\t\t\t\tcase Style.CURRENCY -> new CurrencyStyleFormatter();\n"
+"\t\t\t\tdefault -> new NumberStyleFormatter();\n"
+"\t\t\t};\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:221
+#, no-wrap
+msgid ""
+"\tclass NumberFormatAnnotationFormatterFactory : "
+"AnnotationFormatterFactory<NumberFormat> {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:225
+#, no-wrap
+msgid ""
+"\t\toverride fun getFieldTypes(): Set<Class<*>> {\n"
+"\t\t\treturn setOf(Short::class.java, Int::class.java, Long::class.java, "
+"Float::class.java, Double::class.java, BigDecimal::class.java, "
+"BigInteger::class.java)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:229
+#, no-wrap
+msgid ""
+"\t\toverride fun getPrinter(annotation: NumberFormat, fieldType: Class<*>): "
+"Printer<Number> {\n"
+"\t\t\treturn configureFormatterFrom(annotation, fieldType)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:233
+#, no-wrap
+msgid ""
+"\t\toverride fun getParser(annotation: NumberFormat, fieldType: Class<*>): "
+"Parser<Number> {\n"
+"\t\t\treturn configureFormatterFrom(annotation, fieldType)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:247
+#, no-wrap
+msgid ""
+"\t\tprivate fun configureFormatterFrom(annotation: NumberFormat, fieldType: "
+"Class<*>): Formatter<Number> {\n"
+"\t\t\treturn if (annotation.pattern.isNotEmpty()) {\n"
+"\t\t\t\tNumberStyleFormatter(annotation.pattern)\n"
+"\t\t\t} else {\n"
+"\t\t\t\tval style = annotation.style\n"
+"\t\t\t\twhen {\n"
+"\t\t\t\t\tstyle === NumberFormat.Style.PERCENT -> PercentStyleFormatter()\n"
+"\t\t\t\t\tstyle === NumberFormat.Style.CURRENCY -> "
+"CurrencyStyleFormatter()\n"
+"\t\t\t\t\telse -> NumberStyleFormatter()\n"
+"\t\t\t\t}\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:252
+msgid ""
+"To trigger formatting, you can annotate fields with `@NumberFormat`, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:260
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:295
+#, no-wrap
+msgid "\tpublic class MyModel {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:264
+#, no-wrap
+msgid ""
+"\t\t@NumberFormat(style=Style.CURRENCY)\n"
+"\t\tprivate BigDecimal decimal;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:273
+#, no-wrap
+msgid ""
+"\tclass MyModel(\n"
+"\t\t@field:NumberFormat(style = Style.CURRENCY) private val decimal: "
+"BigDecimal\n"
+"\t)\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:277
+#, no-wrap
+msgid "Format Annotation API"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:284
+msgid ""
+"A portable format annotation API exists in the "
+"`org.springframework.format.annotation` package. You can use `@NumberFormat` "
+"to format `Number` fields such as `Double` and `Long`, `@DurationFormat` to "
+"format `Duration` fields in ISO-8601 and simplified styles, and "
+"`@DateTimeFormat` to format fields such as `java.util.Date`, "
+"`java.util.Calendar`, and `Long` (for millisecond timestamps) as well as "
+"JSR-310 `java.time` types."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:287
+msgid ""
+"The following example uses `@DateTimeFormat` to format a `java.util.Date` as "
+"an ISO date (yyyy-MM-dd):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:299
+#, no-wrap
+msgid ""
+"\t\t@DateTimeFormat(iso=ISO.DATE)\n"
+"\t\tprivate Date date;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:308
+#, no-wrap
+msgid ""
+"\tclass MyModel(\n"
+"\t\t@DateTimeFormat(iso=ISO.DATE) private val date: Date\n"
+"\t)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:315
+msgid ""
+"For further details, see the javadoc for "
+"{spring-framework-api}/format/annotation/DateTimeFormat.html[`@DateTimeFormat`], "
+"{spring-framework-api}/format/annotation/DurationFormat.html[`@DurationFormat`], "
+"and "
+"{spring-framework-api}/format/annotation/NumberFormat.html[`@NumberFormat`]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:322
+msgid ""
+"Style-based formatting and parsing rely on locale-sensitive patterns which "
+"may change depending on the Java runtime. Specifically, applications that "
+"rely on date, time, or number parsing and formatting may encounter "
+"incompatible changes in behavior when running on JDK 20 or higher."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:326
+msgid ""
+"Using an ISO standardized format or a concrete pattern that you control "
+"allows for reliable system-independent and locale-independent parsing and "
+"formatting of date, time, and number values."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:329
+msgid ""
+"For `@DateTimeFormat`, the use of fallback patterns can also help to address "
+"compatibility issues."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:333
+msgid ""
+"For further details, see the "
+"https://github.com/spring-projects/spring-framework/wiki/Date-and-Time-Formatting-with-JDK-20-and-higher[Date "
+"and Time Formatting with JDK 20 and higher] page in the Spring Framework "
+"wiki."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:337
+#, no-wrap
+msgid "The `FormatterRegistry` SPI"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:345
+msgid ""
+"The `FormatterRegistry` is an SPI for registering formatters and "
+"converters.  `FormattingConversionService` is an implementation of "
+"`FormatterRegistry` suitable for most environments. You can programmatically "
+"or declaratively configure this variant as a Spring bean, for example, by "
+"using `FormattingConversionServiceFactoryBean`. Because this implementation "
+"also implements `ConversionService`, you can directly configure it for use "
+"with Spring's `DataBinder` and the Spring Expression Language (SpEL)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:347
+msgid "The following listing shows the `FormatterRegistry` SPI:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:353
+#, no-wrap
+msgid "\tpublic interface FormatterRegistry extends ConverterRegistry {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:355
+#, no-wrap
+msgid "\t\tvoid addPrinter(Printer<?> printer);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:357
+#, no-wrap
+msgid "\t\tvoid addParser(Parser<?> parser);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:359
+#, no-wrap
+msgid "\t\tvoid addFormatter(Formatter<?> formatter);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:361
+#, no-wrap
+msgid ""
+"\t\tvoid addFormatterForFieldType(Class<?> fieldType, Formatter<?> "
+"formatter);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:363
+#, no-wrap
+msgid ""
+"\t\tvoid addFormatterForFieldType(Class<?> fieldType, Printer<?> printer, "
+"Parser<?> parser);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:366
+#, no-wrap
+msgid ""
+"\t\tvoid addFormatterForFieldAnnotation(AnnotationFormatterFactory<? extends "
+"Annotation> annotationFormatterFactory);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:369
+msgid ""
+"As shown in the preceding listing, you can register formatters by field type "
+"or by annotation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:375
+msgid ""
+"The `FormatterRegistry` SPI lets you configure formatting rules centrally, "
+"instead of duplicating such configuration across your controllers. For "
+"example, you might want to enforce that all date fields are formatted a "
+"certain way or that fields with a specific annotation are formatted in a "
+"certain way. With a shared `FormatterRegistry`, you define these rules once, "
+"and they are applied whenever formatting is needed."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:378
+#, no-wrap
+msgid "The `FormatterRegistrar` SPI"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:382
+msgid ""
+"`FormatterRegistrar` is an SPI for registering formatters and converters "
+"through the FormatterRegistry. The following listing shows its interface "
+"definition:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:388
+#, no-wrap
+msgid "\tpublic interface FormatterRegistrar {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:391
+#, no-wrap
+msgid ""
+"\t\tvoid registerFormatters(FormatterRegistry registry);\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:399
+msgid ""
+"A `FormatterRegistrar` is useful when registering multiple related "
+"converters and formatters for a given formatting category, such as date "
+"formatting. It can also be useful where declarative registration is "
+"insufficient -- for example, when a formatter needs to be indexed under a "
+"specific field type different from its own `<T>` or when registering a "
+"`Printer`/`Parser` pair. The next section provides more information on "
+"converter and formatter registration."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:402
+#, no-wrap
+msgid "Configuring Formatting in Spring MVC"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/format.adoc:404
+msgid ""
+"See xref:web/webmvc/mvc-config/conversion.adoc[Conversion and Formatting] in "
+"the Spring MVC chapter."
+msgstr ""

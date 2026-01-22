@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:2
+#, no-wrap
+msgid "Exceptions"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-exceptionhandler.adoc[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:9
+msgid ""
+"`@Controller` and "
+"xref:web/webflux/controller/ann-advice.adoc[@ControllerAdvice] classes can "
+"have `@ExceptionHandler` methods to handle exceptions from controller "
+"methods. The following example includes such a handler method:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:15
+msgid ""
+"The exception can match against a top-level exception being propagated (that "
+"is, a direct `IOException` being thrown) or against the immediate cause "
+"within a top-level wrapper exception (for example, an `IOException` wrapped "
+"inside an `IllegalStateException`)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:22
+msgid ""
+"For matching exception types, preferably declare the target exception as a "
+"method argument, as shown in the preceding example. Alternatively, the "
+"annotation declaration can narrow the exception types to match. We generally "
+"recommend being as specific as possible in the argument signature and to "
+"declare your primary root exception mappings on a `@ControllerAdvice` "
+"prioritized with a corresponding order.  See "
+"xref:web/webmvc/mvc-controller/ann-exceptionhandler.adoc[the MVC section] "
+"for details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:26
+msgid ""
+"An `@ExceptionHandler` method in WebFlux supports the same method arguments "
+"and return values as a `@RequestMapping` method, with the exception of "
+"request body- and `@ModelAttribute`-related method arguments."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:30
+msgid ""
+"Support for `@ExceptionHandler` methods in Spring WebFlux is provided by the "
+"`HandlerAdapter` for `@RequestMapping` methods. See "
+"xref:web/webflux/dispatcher-handler.adoc[`DispatcherHandler`] for more "
+"detail."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:33
+#, no-wrap
+msgid "Media Type Mapping"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:35
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-exceptionhandler.adoc#mvc-ann-exceptionhandler-media[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:38
+msgid ""
+"In addition to exception types, `@ExceptionHandler` methods can also declare "
+"producible media types.  This allows to refine error responses depending on "
+"the media types requested by HTTP clients, typically in the \"Accept\" HTTP "
+"request header."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:40
+msgid ""
+"Applications can declare producible media types directly on annotations, for "
+"the same exception type:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:47
+msgid ""
+"Here, methods handle the same exception type but will not be rejected as "
+"duplicates.  Instead, API clients requesting \"application/json\" will "
+"receive a JSON error, and browsers will get an HTML error view.  Each "
+"`@ExceptionHandler` annotation can declare several producible media types, "
+"the content negotiation during the error handling phase will decide which "
+"content type will be used."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:50
+#, no-wrap
+msgid "Method Arguments"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:52
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-exceptionhandler.adoc#mvc-ann-exceptionhandler-args[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:55
+msgid ""
+"`@ExceptionHandler` methods support the same "
+"xref:web/webflux/controller/ann-methods/arguments.adoc[method arguments] as "
+"`@RequestMapping` methods, except the request body might have been consumed "
+"already."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:58
+#, no-wrap
+msgid "Return Values"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:60
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-exceptionhandler.adoc#mvc-ann-exceptionhandler-return-values[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-exceptions.adoc:62
+msgid ""
+"`@ExceptionHandler` methods support the same "
+"xref:web/webflux/controller/ann-methods/return-types.adoc[return values] as "
+"`@RequestMapping` methods."
+msgstr ""

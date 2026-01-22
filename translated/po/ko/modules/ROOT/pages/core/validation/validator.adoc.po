@@ -1,0 +1,354 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:2
+#, no-wrap
+msgid "Validation Using Spring's Validator Interface"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:7
+msgid ""
+"Spring features a `Validator` interface that you can use to validate "
+"objects. The `Validator` interface works by using an `Errors` object so "
+"that, while validating, validators can report validation failures to the "
+"`Errors` object."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:9
+msgid "Consider the following example of a small data object:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:12
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:46
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:115
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:17
+#, no-wrap
+msgid "\tpublic class Person {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:20
+#, no-wrap
+msgid ""
+"\t\tprivate String name;\n"
+"\t\tprivate int age;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:23
+#, no-wrap
+msgid ""
+"\t\t// the usual getters and setters...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:25
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:71
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:156
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:30
+#, no-wrap
+msgid "\tclass Person(val name: String, val age: Int)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:35
+msgid ""
+"The next example provides validation behavior for the `Person` class by "
+"implementing the following two methods of the "
+"`org.springframework.validation.Validator` interface:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:37
+msgid ""
+"`supports(Class)`: Can this `Validator` validate instances of the supplied "
+"`Class`?"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:39
+msgid ""
+"`validate(Object, org.springframework.validation.Errors)`: Validates the "
+"given object and, in case of validation errors, registers those with the "
+"given `Errors` object."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:43
+msgid ""
+"Implementing a `Validator` is fairly straightforward, especially when you "
+"know of the `ValidationUtils` helper class that the Spring Framework also "
+"provides. The following example implements `Validator` for `Person` "
+"instances:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:51
+#, no-wrap
+msgid "\tpublic class PersonValidator implements Validator {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:58
+#, no-wrap
+msgid ""
+"\t\t/**\n"
+"\t\t * This Validator validates only Person instances\n"
+"\t\t */\n"
+"\t\tpublic boolean supports(Class clazz) {\n"
+"\t\t\treturn Person.class.equals(clazz);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:69
+#, no-wrap
+msgid ""
+"\t\tpublic void validate(Object obj, Errors e) {\n"
+"\t\t\tValidationUtils.rejectIfEmpty(e, \"name\", \"name.empty\");\n"
+"\t\t\tPerson p = (Person) obj;\n"
+"\t\t\tif (p.getAge() < 0) {\n"
+"\t\t\t\te.rejectValue(\"age\", \"negativevalue\");\n"
+"\t\t\t} else if (p.getAge() > 110) {\n"
+"\t\t\t\te.rejectValue(\"age\", \"too.darn.old\");\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:76
+#, no-wrap
+msgid "\tclass PersonValidator : Validator {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:83
+#, no-wrap
+msgid ""
+"\t\t/\\**\n"
+"\t\t * This Validator validates only Person instances\n"
+"\t\t */\n"
+"\t\toverride fun supports(clazz: Class<*>): Boolean {\n"
+"\t\t\treturn Person::class.java == clazz\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:94
+#, no-wrap
+msgid ""
+"\t\toverride fun validate(obj: Any, e: Errors) {\n"
+"\t\t\tValidationUtils.rejectIfEmpty(e, \"name\", \"name.empty\")\n"
+"\t\t\tval p = obj as Person\n"
+"\t\t\tif (p.age < 0) {\n"
+"\t\t\t\te.rejectValue(\"age\", \"negativevalue\")\n"
+"\t\t\t} else if (p.age > 110) {\n"
+"\t\t\t\te.rejectValue(\"age\", \"too.darn.old\")\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:101
+msgid ""
+"The `static` `rejectIfEmpty(..)` method on the `ValidationUtils` class is "
+"used to reject the `name` property if it is `null` or the empty string. Have "
+"a look at the "
+"{spring-framework-api}/validation/ValidationUtils.html[`ValidationUtils`] "
+"javadoc to see what functionality it provides besides the example shown "
+"previously."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:112
+msgid ""
+"While it is certainly possible to implement a single `Validator` class to "
+"validate each of the nested objects in a rich object, it may be better to "
+"encapsulate the validation logic for each nested class of object in its own "
+"`Validator` implementation. A simple example of a \"`rich`\" object would be "
+"a `Customer` that is composed of two `String` properties (a first and a "
+"second name) and a complex `Address` object. `Address` objects may be used "
+"independently of `Customer` objects, so a distinct `AddressValidator` has "
+"been implemented. If you want your `CustomerValidator` to reuse the logic "
+"contained within the `AddressValidator` class without resorting to "
+"copy-and-paste, you can dependency-inject or instantiate an "
+"`AddressValidator` within your `CustomerValidator`, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:120
+#, no-wrap
+msgid "\tpublic class CustomerValidator implements Validator {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:122
+#, no-wrap
+msgid "\t\tprivate final Validator addressValidator;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:134
+#, no-wrap
+msgid ""
+"\t\tpublic CustomerValidator(Validator addressValidator) {\n"
+"\t\t\tif (addressValidator == null) {\n"
+"\t\t\t\tthrow new IllegalArgumentException(\"The supplied [Validator] is \" "
+"+\n"
+"\t\t\t\t\t\"required and must not be null.\");\n"
+"\t\t\t}\n"
+"\t\t\tif (!addressValidator.supports(Address.class)) {\n"
+"\t\t\t\tthrow new IllegalArgumentException(\"The supplied [Validator] must "
+"\" +\n"
+"\t\t\t\t\t\"support the validation of [Address] instances.\");\n"
+"\t\t\t}\n"
+"\t\t\tthis.addressValidator = addressValidator;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:141
+#, no-wrap
+msgid ""
+"\t\t/**\n"
+"\t\t * This Validator validates Customer instances, and any subclasses of "
+"Customer too\n"
+"\t\t */\n"
+"\t\tpublic boolean supports(Class clazz) {\n"
+"\t\t\treturn Customer.class.isAssignableFrom(clazz);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:154
+#, no-wrap
+msgid ""
+"\t\tpublic void validate(Object target, Errors errors) {\n"
+"\t\t\tValidationUtils.rejectIfEmptyOrWhitespace(errors, \"firstName\", "
+"\"field.required\");\n"
+"\t\t\tValidationUtils.rejectIfEmptyOrWhitespace(errors, \"surname\", "
+"\"field.required\");\n"
+"\t\t\tCustomer customer = (Customer) target;\n"
+"\t\t\ttry {\n"
+"\t\t\t\terrors.pushNestedPath(\"address\");\n"
+"\t\t\t\tValidationUtils.invokeValidator(this.addressValidator, "
+"customer.getAddress(), errors);\n"
+"\t\t\t} finally {\n"
+"\t\t\t\terrors.popNestedPath();\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:161
+#, no-wrap
+msgid ""
+"\tclass CustomerValidator(private val addressValidator: Validator) : "
+"Validator {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:170
+#, no-wrap
+msgid ""
+"\t\tinit {\n"
+"\t\t\tif (addressValidator == null) {\n"
+"\t\t\t\tthrow IllegalArgumentException(\"The supplied [Validator] is "
+"required and must not be null.\")\n"
+"\t\t\t}\n"
+"\t\t\tif (!addressValidator.supports(Address::class.java)) {\n"
+"\t\t\t\tthrow IllegalArgumentException(\"The supplied [Validator] must "
+"support the validation of [Address] instances.\")\n"
+"\t\t\t}\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:177
+#, no-wrap
+msgid ""
+"\t\t/**\n"
+"\t\t* This Validator validates Customer instances, and any subclasses of "
+"Customer too\n"
+"\t\t*/\n"
+"\t\toverride fun supports(clazz: Class<*>): Boolean {\n"
+"\t\t\treturn Customer::class.java.isAssignableFrom(clazz)\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:190
+#, no-wrap
+msgid ""
+"\t\toverride fun validate(target: Any, errors: Errors) {\n"
+"\t\t\tValidationUtils.rejectIfEmptyOrWhitespace(errors, \"firstName\", "
+"\"field.required\")\n"
+"\t\t\tValidationUtils.rejectIfEmptyOrWhitespace(errors, \"surname\", "
+"\"field.required\")\n"
+"\t\t\tval customer = target as Customer\n"
+"\t\t\ttry {\n"
+"\t\t\t\terrors.pushNestedPath(\"address\")\n"
+"\t\t\t\tValidationUtils.invokeValidator(this.addressValidator, "
+"customer.address, errors)\n"
+"\t\t\t} finally {\n"
+"\t\t\t\terrors.popNestedPath()\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:197
+msgid ""
+"Validation errors are reported to the `Errors` object passed to the "
+"validator. In the case of Spring Web MVC, you can use the `<spring:bind/>` "
+"tag to inspect the error messages, but you can also inspect the `Errors` "
+"object yourself. More information about the methods it offers can be found "
+"in the {spring-framework-api}/validation/Errors.html[javadoc]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/validation/validator.adoc:203
+msgid ""
+"Validators may also get locally invoked for the immediate validation of a "
+"given object, not involving a binding process. As of 6.1, this has been "
+"simplified through a new `Validator.validateObject(Object)` method which is "
+"available by default now, returning a simple `Errors` representation which "
+"can be inspected: typically calling `hasErrors()` or the new `failOnError` "
+"method for turning the error summary message into an exception (for example, "
+"`validator.validateObject(myObject).failOnError(IllegalArgumentException::new)`)."
+msgstr ""

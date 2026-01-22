@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-testing.adoc:2
+#, no-wrap
+msgid "Testing"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-testing.adoc:13
+msgid ""
+"To test code that uses the `WebClient`, you can use a mock web server, such "
+"as https://github.com/square/okhttp#mockwebserver[OkHttp MockWebServer] or "
+"https://wiremock.org/[WireMock]. Mock web servers accept requests over HTTP "
+"like a regular server, and that means you can test with the same HTTP client "
+"that is also configured in the same way as in production, which is important "
+"because there are often subtle differences in the way different clients "
+"handle network I/O. Another advantage of mock web servers is the ability to "
+"simulate specific network issues and conditions at the transport level, in "
+"combination with the client used in production."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-webclient/client-testing.adoc:18
+msgid ""
+"For example use of MockWebServer, see "
+"{spring-framework-code}/spring-webflux/src/test/java/org/springframework/web/reactive/function/client/WebClientIntegrationTests.java[`WebClientIntegrationTests`] "
+"in the Spring Framework test suite or the "
+"https://github.com/square/okhttp/tree/master/samples/static-server[`static-server`] "
+"sample in the OkHttp repository."
+msgstr ""

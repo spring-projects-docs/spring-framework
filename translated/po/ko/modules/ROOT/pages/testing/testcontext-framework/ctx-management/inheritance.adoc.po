@@ -1,0 +1,287 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:2
+#, no-wrap
+msgid "Context Configuration Inheritance"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:14
+msgid ""
+"`@ContextConfiguration` supports boolean `inheritLocations` and "
+"`inheritInitializers` attributes that denote whether resource locations or "
+"component classes and context initializers declared by superclasses should "
+"be inherited. The default value for both flags is `true`. This means that a "
+"test class inherits the resource locations or component classes as well as "
+"the context initializers declared by any superclasses.  Specifically, the "
+"resource locations or component classes for a test class are appended to the "
+"list of resource locations or annotated classes declared by superclasses.  "
+"Similarly, the initializers for a given test class are added to the set of "
+"initializers defined by test superclasses. Thus, subclasses have the option "
+"of extending the resource locations, component classes, or context "
+"initializers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:19
+msgid ""
+"If the `inheritLocations` or `inheritInitializers` attribute in "
+"`@ContextConfiguration` is set to `false`, the resource locations or "
+"component classes and the context initializers, respectively, for the test "
+"class shadow and effectively replace the configuration defined by "
+"superclasses."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:22
+msgid ""
+"Test configuration may also be inherited from enclosing classes. See "
+"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit-jupiter-nested-test-configuration[`@Nested` "
+"test class configuration] for details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:28
+msgid ""
+"In the next example, which uses XML resource locations, the "
+"`ApplicationContext` for `ExtendedTest` is loaded from `base-config.xml` and "
+"`extended-config.xml`, in that order.  Beans defined in "
+"`extended-config.xml` can, therefore, override (that is, replace) those "
+"defined in `base-config.xml`. The following example shows how one class can "
+"extend another and use both its own configuration file and the superclass's "
+"configuration file:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:31
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:85
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:134
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:42
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension.class)\n"
+"\t// ApplicationContext will be loaded from \"/base-config.xml\"\n"
+"\t// in the root of the classpath\n"
+"\t@ContextConfiguration(\"/base-config.xml\") <1>\n"
+"\tclass BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:49
+#, no-wrap
+msgid ""
+"\t// ApplicationContext will be loaded from \"/base-config.xml\" and\n"
+"\t// \"/extended-config.xml\" in the root of the classpath\n"
+"\t@ContextConfiguration(\"/extended-config.xml\") <2>\n"
+"\tclass ExtendedTest extends BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:51
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:73
+msgid "Configuration file defined in the superclass."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:52
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:74
+msgid "Configuration file defined in the subclass."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:53
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:104
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:154
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:64
+#, no-wrap
+msgid ""
+"\t@ExtendWith(SpringExtension::class)\n"
+"\t// ApplicationContext will be loaded from \"/base-config.xml\"\n"
+"\t// in the root of the classpath\n"
+"\t@ContextConfiguration(\"/base-config.xml\") // <1>\n"
+"\topen class BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:71
+#, no-wrap
+msgid ""
+"\t// ApplicationContext will be loaded from \"/base-config.xml\" and\n"
+"\t// \"/extended-config.xml\" in the root of the classpath\n"
+"\t@ContextConfiguration(\"/extended-config.xml\") // <2>\n"
+"\tclass ExtendedTest : BaseTest() {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:82
+msgid ""
+"Similarly, in the next example, which uses component classes, the "
+"`ApplicationContext` for `ExtendedTest` is loaded from the `BaseConfig` and "
+"`ExtendedConfig` classes, in that order. Beans defined in `ExtendedConfig` "
+"can, therefore, override (that is, replace)  those defined in "
+"`BaseConfig`. The following example shows how one class can extend another "
+"and use both its own configuration class and the superclass's configuration "
+"class:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:94
+#, no-wrap
+msgid ""
+"\t// ApplicationContext will be loaded from BaseConfig\n"
+"\t@SpringJUnitConfig(BaseConfig.class) // <1>\n"
+"\tclass BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:100
+#, no-wrap
+msgid ""
+"\t// ApplicationContext will be loaded from BaseConfig and ExtendedConfig\n"
+"\t@SpringJUnitConfig(ExtendedConfig.class) // <2>\n"
+"\tclass ExtendedTest extends BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:102
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:121
+msgid "Configuration class defined in the superclass."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:103
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:122
+msgid "Configuration class defined in the subclass."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:113
+#, no-wrap
+msgid ""
+"\t// ApplicationContext will be loaded from BaseConfig\n"
+"\t@SpringJUnitConfig(BaseConfig::class) // <1>\n"
+"\topen class BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:119
+#, no-wrap
+msgid ""
+"\t// ApplicationContext will be loaded from BaseConfig and ExtendedConfig\n"
+"\t@SpringJUnitConfig(ExtendedConfig::class) // <2>\n"
+"\tclass ExtendedTest : BaseTest() {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:131
+msgid ""
+"In the next example, which uses context initializers, the "
+"`ApplicationContext` for `ExtendedTest` is initialized by using "
+"`BaseInitializer` and `ExtendedInitializer`. Note, however, that the order "
+"in which the initializers are invoked depends on whether they implement "
+"Spring's `Ordered` interface or are annotated with Spring's `@Order` "
+"annotation or the standard `@Priority` annotation. The following example "
+"shows how one class can extend another and use both its own initializer and "
+"the superclass's initializer:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:143
+#, no-wrap
+msgid ""
+"\t// ApplicationContext will be initialized by BaseInitializer\n"
+"\t@SpringJUnitConfig(initializers = BaseInitializer.class) // <1>\n"
+"\tclass BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:150
+#, no-wrap
+msgid ""
+"\t// ApplicationContext will be initialized by BaseInitializer\n"
+"\t// and ExtendedInitializer\n"
+"\t@SpringJUnitConfig(initializers = ExtendedInitializer.class) // <2>\n"
+"\tclass ExtendedTest extends BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:152
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:172
+msgid "Initializer defined in the superclass."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:153
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:173
+msgid "Initializer defined in the subclass."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:163
+#, no-wrap
+msgid ""
+"\t// ApplicationContext will be initialized by BaseInitializer\n"
+"\t@SpringJUnitConfig(initializers = [BaseInitializer::class]) // <1>\n"
+"\topen class BaseTest {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/inheritance.adoc:170
+#, no-wrap
+msgid ""
+"\t// ApplicationContext will be initialized by BaseInitializer\n"
+"\t// and ExtendedInitializer\n"
+"\t@SpringJUnitConfig(initializers = [ExtendedInitializer::class]) // <2>\n"
+"\tclass ExtendedTest : BaseTest() {\n"
+"\t\t// class body...\n"
+"\t}\n"
+msgstr ""

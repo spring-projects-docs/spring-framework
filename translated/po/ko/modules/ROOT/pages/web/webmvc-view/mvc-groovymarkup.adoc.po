@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-groovymarkup.adoc:2
+#, no-wrap
+msgid "Groovy Markup"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-groovymarkup.adoc:8
+msgid ""
+"The https://groovy-lang.org/templating.html#_the_markuptemplateengine[Groovy "
+"Markup Template Engine] is primarily aimed at generating XML-like markup "
+"(XML, XHTML, HTML5, and others), but you can use it to generate any "
+"text-based content. The Spring Framework has a built-in integration for "
+"using Spring MVC with Groovy Markup."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-groovymarkup.adoc:10
+msgid "The Groovy Markup Template engine requires Groovy 2.3.1+."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-groovymarkup.adoc:13
+#, no-wrap
+msgid "Configuration"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-groovymarkup.adoc:16
+msgid ""
+"The following example shows how to configure the Groovy Markup Template "
+"Engine:"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-groovymarkup.adoc:20
+#, no-wrap
+msgid "Example"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-groovymarkup.adoc:24
+msgid ""
+"Unlike traditional template engines, Groovy Markup relies on a DSL that uses "
+"a builder syntax. The following example shows a sample template for an HTML "
+"page:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-groovymarkup.adoc:37
+#, no-wrap
+msgid ""
+"\tyieldUnescaped '<!DOCTYPE html>'\n"
+"\thtml(lang:'en') {\n"
+"\t\thead {\n"
+"\t\t\tmeta('http-equiv':'\"Content-Type\" content=\"text/html; "
+"charset=utf-8\"')\n"
+"\t\t\ttitle('My page')\n"
+"\t\t}\n"
+"\t\tbody {\n"
+"\t\t\tp('This is an example of HTML contents')\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""

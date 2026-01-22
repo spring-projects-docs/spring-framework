@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/ordered-messages.adoc:2
+#, no-wrap
+msgid "Order of Messages"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/ordered-messages.adoc:8
+msgid ""
+"Messages from the broker are published to the `clientOutboundChannel`, from "
+"where they are written to WebSocket sessions. As the channel is backed by a "
+"`ThreadPoolExecutor`, messages are processed in different threads, and the "
+"resulting sequence received by the client may not match the exact order of "
+"publication."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/ordered-messages.adoc:10
+msgid ""
+"To enable ordered publishing, set the `setPreservePublishOrder` flag as "
+"follows:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/ordered-messages.adoc:16
+msgid ""
+"When the flag is set, messages within the same client session are published "
+"to the `clientOutboundChannel` one at a time, so that the order of "
+"publication is guaranteed.  Note that this incurs a small performance "
+"overhead, so you should enable it only if it is required."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/ordered-messages.adoc:21
+msgid ""
+"The same also applies to messages from the client, which are sent to the "
+"`clientInboundChannel`, from where they are handled according to their "
+"destination prefix. As the channel is backed by a `ThreadPoolExecutor`, "
+"messages are processed in different threads, and the resulting sequence of "
+"handling may not match the exact order in which they were received."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/ordered-messages.adoc:23
+msgid ""
+"To enable ordered receiving, set the `setPreserveReceiveOrder` flag as "
+"follows:"
+msgstr ""

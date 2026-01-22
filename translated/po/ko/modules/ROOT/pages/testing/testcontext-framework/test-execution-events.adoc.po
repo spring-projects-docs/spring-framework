@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:2
+#, no-wrap
+msgid "Test Execution Events"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:9
+msgid ""
+"The `EventPublishingTestExecutionListener` offers an alternative approach to "
+"implementing a custom `TestExecutionListener`. Components in the test's "
+"`ApplicationContext` can listen to the following events published by the "
+"`EventPublishingTestExecutionListener`, each of which corresponds to a "
+"method in the `TestExecutionListener` API."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:11
+msgid "`BeforeTestClassEvent`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:12
+msgid "`PrepareTestInstanceEvent`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:13
+msgid "`BeforeTestMethodEvent`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:14
+msgid "`BeforeTestExecutionEvent`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:15
+msgid "`AfterTestExecutionEvent`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:16
+msgid "`AfterTestMethodEvent`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:17
+msgid "`AfterTestClassEvent`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:24
+msgid ""
+"These events may be consumed for various reasons, such as resetting mock "
+"beans or tracing test execution. One advantage of consuming test execution "
+"events rather than implementing a custom `TestExecutionListener` is that "
+"test execution events may be consumed by any Spring bean registered in the "
+"test `ApplicationContext`, and such beans may benefit directly from "
+"dependency injection and other features of the `ApplicationContext`. In "
+"contrast, a `TestExecutionListener` is not a bean in the "
+"`ApplicationContext`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:30
+msgid ""
+"The `EventPublishingTestExecutionListener` is registered by default; "
+"however, it only publishes events if the `ApplicationContext` has _already "
+"been loaded_. This prevents the `ApplicationContext` from being loaded "
+"unnecessarily or too early."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:40
+msgid ""
+"Consequently, a `BeforeTestClassEvent` will not be published until after the "
+"`ApplicationContext` has been loaded by another `TestExecutionListener`. For "
+"example, with the default set of `TestExecutionListener` implementations "
+"registered, a `BeforeTestClassEvent` will not be published for the first "
+"test class that uses a particular test `ApplicationContext`, but a "
+"`BeforeTestClassEvent` _will_ be published for any subsequent test class in "
+"the same test suite that uses the same test `ApplicationContext` since the "
+"context will already have been loaded when subsequent test classes run (as "
+"long as the context has not been removed from the `ContextCache` via "
+"`@DirtiesContext` or the max-size eviction policy)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:45
+msgid ""
+"If you wish to ensure that a `BeforeTestClassEvent` is always published for "
+"every test class, you need to register a `TestExecutionListener` that loads "
+"the `ApplicationContext` in the `beforeTestClass` callback, and that "
+"`TestExecutionListener` must be registered _before_ the "
+"`EventPublishingTestExecutionListener`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:49
+msgid ""
+"Similarly, if `@DirtiesContext` is used to remove the `ApplicationContext` "
+"from the context cache after the last test method in a given test class, the "
+"`AfterTestClassEvent` will not be published for that test class."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:60
+msgid ""
+"In order to listen to test execution events, a Spring bean may choose to "
+"implement the `org.springframework.context.ApplicationListener` "
+"interface. Alternatively, listener methods can be annotated with "
+"`@EventListener` and configured to listen to one of the particular event "
+"types listed above (see "
+"xref:core/beans/context-introduction.adoc#context-functionality-events-annotation[Annotation-based "
+"Event Listeners]).  Due to the popularity of this approach, Spring provides "
+"the following dedicated `@EventListener` annotations to simplify "
+"registration of test execution event listeners.  These annotations reside in "
+"the `org.springframework.test.context.event.annotation` package."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:62
+msgid "`@BeforeTestClass`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:63
+msgid "`@PrepareTestInstance`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:64
+msgid "`@BeforeTestMethod`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:65
+msgid "`@BeforeTestExecution`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:66
+msgid "`@AfterTestExecution`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:67
+msgid "`@AfterTestMethod`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:68
+msgid "`@AfterTestClass`"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:71
+#, no-wrap
+msgid "Exception Handling"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:80
+msgid ""
+"By default, if a test execution event listener throws an exception while "
+"consuming an event, that exception will propagate to the underlying testing "
+"framework in use (such as JUnit or TestNG). For example, if the consumption "
+"of a `BeforeTestMethodEvent` results in an exception, the corresponding test "
+"method will fail as a result of the exception. In contrast, if an "
+"asynchronous test execution event listener throws an exception, the "
+"exception will not propagate to the underlying testing framework. For "
+"further details on asynchronous exception handling, consult the class-level "
+"javadoc for `@EventListener`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:83
+#, no-wrap
+msgid "Asynchronous Listeners"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/test-execution-events.adoc:88
+msgid ""
+"If you want a particular test execution event listener to process events "
+"asynchronously, you can use Spring's "
+"xref:integration/scheduling.adoc#scheduling-annotation-support-async[regular "
+"`@Async` support].  For further details, consult the class-level javadoc for "
+"`@EventListener`."
+msgstr ""

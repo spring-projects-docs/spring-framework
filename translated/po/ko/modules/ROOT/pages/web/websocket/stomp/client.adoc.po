@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:2
+#, no-wrap
+msgid "STOMP Client"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:5
+msgid "Spring provides a STOMP over WebSocket client and a STOMP over TCP client."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:7
+msgid ""
+"To begin, you can create and configure `WebSocketStompClient`, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:14
+#, no-wrap
+msgid ""
+"\tWebSocketClient webSocketClient = new StandardWebSocketClient();\n"
+"\tWebSocketStompClient stompClient = new "
+"WebSocketStompClient(webSocketClient);\n"
+"\tstompClient.setMessageConverter(new StringMessageConverter());\n"
+"\tstompClient.setTaskScheduler(taskScheduler); // for heartbeats\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:20
+msgid ""
+"In the preceding example, you could replace `StandardWebSocketClient` with "
+"`SockJsClient`, since that is also an implementation of "
+"`WebSocketClient`. The `SockJsClient` can use WebSocket or HTTP-based "
+"transport as a fallback. For more details, see "
+"xref:web/websocket/fallback.adoc#websocket-fallback-sockjs-client[`SockJsClient`]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:23
+msgid ""
+"Next, you can establish a connection and provide a handler for the STOMP "
+"session, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:29
+#, no-wrap
+msgid ""
+"\tString url = \"ws://127.0.0.1:8080/endpoint\";\n"
+"\tStompSessionHandler sessionHandler = new MyStompSessionHandler();\n"
+"\tstompClient.connect(url, sessionHandler);\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:32
+msgid ""
+"When the session is ready for use, the handler is notified, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:36
+#, no-wrap
+msgid "public class MyStompSessionHandler extends StompSessionHandlerAdapter {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:42
+#, no-wrap
+msgid ""
+"\t@Override\n"
+"\tpublic void afterConnected(StompSession session, StompHeaders "
+"connectedHeaders) {\n"
+"\t\t// ...\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:46
+msgid ""
+"Once the session is established, any payload can be sent and is serialized "
+"with the configured `MessageConverter`, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:50
+#, no-wrap
+msgid "session.send(\"/topic/something\", \"payload\");\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:56
+msgid ""
+"You can also subscribe to destinations. The `subscribe` methods require a "
+"handler for messages on the subscription and returns a `Subscription` handle "
+"that you can use to unsubscribe. For each received message, the handler can "
+"specify the target `Object` type to which the payload should be "
+"deserialized, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:60
+#, no-wrap
+msgid "session.subscribe(\"/topic/something\", new StompFrameHandler() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:65
+#, no-wrap
+msgid ""
+"\t@Override\n"
+"\tpublic Type getPayloadType(StompHeaders headers) {\n"
+"\t\treturn String.class;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:70
+#, no-wrap
+msgid ""
+"\t@Override\n"
+"\tpublic void handleFrame(StompHeaders headers, Object payload) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:72
+#, no-wrap
+msgid "});\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:78
+msgid ""
+"To enable STOMP heartbeat, you can configure `WebSocketStompClient` with a "
+"`TaskScheduler` and optionally customize the heartbeat intervals (10 seconds "
+"for write inactivity, which causes a heartbeat to be sent, and 10 seconds "
+"for read inactivity, which closes the connection)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:86
+msgid ""
+"`WebSocketStompClient` sends a heartbeat only in case of inactivity, "
+"i.e. when no other messages are sent. This can present a challenge when "
+"using an external broker since messages with a non-broker destination "
+"represent activity but aren't actually forwarded to the broker. In that case "
+"you can configure a `TaskScheduler` when initializing the "
+"xref:web/websocket/stomp/handle-broker-relay.adoc[External Broker] which "
+"ensures a heartbeat is forwarded to the broker also when only messages with "
+"a non-broker destination are sent."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:91
+msgid ""
+"When you use `WebSocketStompClient` for performance tests to simulate "
+"thousands of clients from the same machine, consider turning off heartbeats, "
+"since each connection schedules its own heartbeat tasks and that is not "
+"optimized for a large number of clients running on the same machine."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:102
+msgid ""
+"The STOMP protocol also supports receipts, where the client must add a "
+"`receipt` header to which the server responds with a RECEIPT frame after the "
+"send or subscribe are processed. To support this, the `StompSession` offers "
+"`setAutoReceipt(boolean)` that causes a `receipt` header to be added on "
+"every subsequent send or subscribe event.  Alternatively, you can also "
+"manually add a receipt header to the `StompHeaders`.  Both send and "
+"subscribe return an instance of `Receiptable` that you can use to register "
+"for receipt success and failure callbacks.  For this feature, you must "
+"configure the client with a `TaskScheduler` and the amount of time before a "
+"receipt expires (15 seconds by default)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:107
+msgid ""
+"Note that `StompSessionHandler` itself is a `StompFrameHandler`, which lets "
+"it handle ERROR frames in addition to the `handleException` callback for "
+"exceptions from the handling of messages and `handleTransportError` for "
+"transport-level errors including `ConnectionLostException`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:114
+msgid ""
+"You can use the `inboundMessageSizeLimit` and `outboundMessageSizeLimit` "
+"properties of `WebSocketStompClient` to limit the maximum size of inbound "
+"and outbound WebSocket messages. When an outbound STOMP message exceeds the "
+"limit, it is split into partial frames, which the receiver would have to "
+"reassemble. By default, there is no size limit for outbound messages. When "
+"an inbound STOMP message size exceeds the configured limit, a "
+"`StompConversionException` is thrown. The default size limit for inbound "
+"messages is `64KB`."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/websocket/stomp/client.adoc:121
+#, no-wrap
+msgid ""
+"\tWebSocketClient webSocketClient = new StandardWebSocketClient();\n"
+"\tWebSocketStompClient stompClient = new "
+"WebSocketStompClient(webSocketClient);\n"
+"\tstompClient.setInboundMessageSizeLimit(64 * 1024); // 64KB\n"
+"\tstompClient.setOutboundMessageSizeLimit(64 * 1024); // 64KB\n"
+msgstr ""

@@ -1,0 +1,1176 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:2
+#, no-wrap
+msgid "Environment Abstraction"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:8
+msgid ""
+"The {spring-framework-api}/core/env/Environment.html[`Environment`] "
+"interface is an abstraction integrated in the container that models two key "
+"aspects of the application environment: "
+"xref:core/beans/environment.adoc#beans-definition-profiles[profiles] and "
+"xref:core/beans/environment.adoc#beans-property-source-abstraction[properties]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:14
+msgid ""
+"A profile is a named, logical group of bean definitions to be registered "
+"with the container only if the given profile is active. Beans may be "
+"assigned to a profile whether defined in XML or with annotations. The role "
+"of the `Environment` object with relation to profiles is in determining "
+"which profiles (if any) are currently active, and which profiles (if any) "
+"should be active by default."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:21
+msgid ""
+"Properties play an important role in almost all applications and may "
+"originate from a variety of sources: properties files, JVM system "
+"properties, system environment variables, JNDI, servlet context parameters, "
+"ad-hoc `Properties` objects, `Map` objects, and so on. The role of the "
+"`Environment` object with relation to properties is to provide the user with "
+"a convenient service interface for configuring property sources and "
+"resolving properties from them."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:24
+#, no-wrap
+msgid "Bean Definition Profiles"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:30
+msgid ""
+"Bean definition profiles provide a mechanism in the core container that "
+"allows for registration of different beans in different environments. The "
+"word, \"`environment,`\" can mean different things to different users, and "
+"this feature can help with many use cases, including:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:33
+msgid ""
+"Working against an in-memory datasource in development versus looking up "
+"that same datasource from JNDI when in QA or production."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:35
+msgid ""
+"Registering monitoring infrastructure only when deploying an application "
+"into a performance environment."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:37
+msgid ""
+"Registering customized implementations of beans for customer A versus "
+"customer B deployments."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:40
+msgid ""
+"Consider the first use case in a practical application that requires a "
+"`DataSource`. In a test environment, the configuration might resemble the "
+"following:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:43
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:79
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:127
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:170
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:232
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:271
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:451
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:488
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:519
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:573
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:638
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:678
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:723
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:55
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\tpublic DataSource dataSource() {\n"
+"\t\treturn new EmbeddedDatabaseBuilder()\n"
+"\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t.addScript(\"my-schema.sql\")\n"
+"\t\t\t.addScript(\"my-test-data.sql\")\n"
+"\t\t\t.build();\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:57
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:90
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:146
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:187
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:243
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:299
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:461
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:495
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:537
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:583
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:647
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:698
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:743
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:69
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\tfun dataSource(): DataSource {\n"
+"\t\treturn EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t.addScript(\"my-schema.sql\")\n"
+"\t\t\t\t.addScript(\"my-test-data.sql\")\n"
+"\t\t\t\t.build()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:76
+msgid ""
+"Now consider how this application can be deployed into a QA or production "
+"environment, assuming that the datasource for the application is registered "
+"with the production application server's JNDI directory. Our `dataSource` "
+"bean now looks like the following listing:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:88
+#, no-wrap
+msgid ""
+"\t@Bean(destroyMethod = \"\")\n"
+"\tpublic DataSource dataSource() throws Exception {\n"
+"\t\tContext ctx = new InitialContext();\n"
+"\t\treturn (DataSource) ctx.lookup(\"java:comp/env/jdbc/datasource\");\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:99
+#, no-wrap
+msgid ""
+"\t@Bean(destroyMethod = \"\")\n"
+"\tfun dataSource(): DataSource {\n"
+"\t\tval ctx = InitialContext()\n"
+"\t\treturn ctx.lookup(\"java:comp/env/jdbc/datasource\") as DataSource\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:109
+msgid ""
+"The problem is how to switch between using these two variations based on the "
+"current environment. Over time, Spring users have devised a number of ways "
+"to get this done, usually relying on a combination of system environment "
+"variables and XML `<import/>` statements containing pass:q[`${placeholder}`] "
+"tokens that resolve to the correct configuration file path depending on the "
+"value of an environment variable. Bean definition profiles is a core "
+"container feature that provides a solution to this problem."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:115
+msgid ""
+"If we generalize the use case shown in the preceding example of "
+"environment-specific bean definitions, we end up with the need to register "
+"certain bean definitions in certain contexts but not in others. You could "
+"say that you want to register a certain profile of bean definitions in "
+"situation A and a different profile in situation B. We start by updating our "
+"configuration to reflect this need."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:117
+#, no-wrap
+msgid "Using `@Profile`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:123
+msgid ""
+"The {spring-framework-api}/context/annotation/Profile.html[`@Profile`] "
+"annotation lets you indicate that a component is eligible for registration "
+"when one or more specified profiles are active. Using our preceding example, "
+"we can rewrite the `dataSource` configuration as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:134
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"development\")\n"
+"\tpublic class StandaloneDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:144
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic DataSource dataSource() {\n"
+"\t\t\treturn new EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t.addScript(\"classpath:com/bank/config/sql/schema.sql\")\n"
+"\t\t\t\t.addScript(\"classpath:com/bank/config/sql/test-data.sql\")\n"
+"\t\t\t\t.build();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:153
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"development\")\n"
+"\tclass StandaloneDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:163
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\treturn EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t\t.addScript(\"classpath:com/bank/config/sql/schema.sql\")\n"
+"\t\t\t\t\t.addScript(\"classpath:com/bank/config/sql/test-data.sql\")\n"
+"\t\t\t\t\t.build()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:177
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"production\")\n"
+"\tpublic class JndiDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:184
+#, no-wrap
+msgid ""
+"\t\t@Bean(destroyMethod = \"\") // <1>\n"
+"\t\tpublic DataSource dataSource() throws Exception {\n"
+"\t\t\tContext ctx = new InitialContext();\n"
+"\t\t\treturn (DataSource) ctx.lookup(\"java:comp/env/jdbc/datasource\");\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:186
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:203
+msgid "`@Bean(destroyMethod = \"\")` disables default destroy method inference."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:194
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"production\")\n"
+"\tclass JndiDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:201
+#, no-wrap
+msgid ""
+"\t\t@Bean(destroyMethod = \"\") // <1>\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\tval ctx = InitialContext()\n"
+"\t\t\treturn ctx.lookup(\"java:comp/env/jdbc/datasource\") as DataSource\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:210
+msgid ""
+"As mentioned earlier, with `@Bean` methods, you typically choose to use "
+"programmatic JNDI lookups, by using either Spring's "
+"`JndiTemplate`/`JndiLocatorDelegate` helpers or the straight JNDI "
+"`InitialContext` usage shown earlier but not the `JndiObjectFactoryBean` "
+"variant, which would force you to declare the return type as the "
+"`FactoryBean` type."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:215
+msgid ""
+"The profile string may contain a simple profile name (for example, "
+"`production`) or a profile expression. A profile expression allows for more "
+"complicated profile logic to be expressed (for example, `production & "
+"us-east`). The following operators are supported in profile expressions:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:217
+msgid "`!`: A logical `NOT` of the profile"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:218
+msgid "`&`: A logical `AND` of the profiles"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:219
+msgid "`|`: A logical `OR` of the profiles"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:223
+msgid ""
+"You cannot mix the `&` and `|` operators without using parentheses. For "
+"example, `production & us-east | eu-central` is not a valid expression. It "
+"must be expressed as `production & (us-east | eu-central)`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:228
+msgid ""
+"You can use `@Profile` as a "
+"xref:core/beans/classpath-scanning.adoc#beans-meta-annotations[meta-annotation] "
+"for the purpose of creating a custom composed annotation. The following "
+"example defines a custom `@Production` annotation that you can use as a "
+"drop-in replacement for `@Profile(\"production\")`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:241
+#, no-wrap
+msgid ""
+"\t@Target(ElementType.TYPE)\n"
+"\t@Retention(RetentionPolicy.RUNTIME)\n"
+"\t@Profile(\"production\")\n"
+"\tpublic @interface Production {\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:251
+#, no-wrap
+msgid ""
+"\t@Target(AnnotationTarget.CLASS)\n"
+"\t@Retention(AnnotationRetention.RUNTIME)\n"
+"\t@Profile(\"production\")\n"
+"\tannotation class Production\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:263
+msgid ""
+"If a `@Configuration` class is marked with `@Profile`, all of the `@Bean` "
+"methods and `@Import` annotations associated with that class are bypassed "
+"unless one or more of the specified profiles are active. If a `@Component` "
+"or `@Configuration` class is marked with `@Profile({\"p1\", \"p2\"})`, that "
+"class is not registered or processed unless profiles 'p1' or 'p2' have been "
+"activated. If a given profile is prefixed with the NOT operator (`!`), the "
+"annotated element is registered only if the profile is not active. For "
+"example, given `@Profile({\"p1\", \"!p2\"})`, registration will occur if "
+"profile 'p1' is active or if profile 'p2' is not active."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:267
+msgid ""
+"`@Profile` can also be declared at the method level to include only one "
+"particular bean of a configuration class (for example, for alternative "
+"variants of a particular bean), as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:277
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:287
+#, no-wrap
+msgid ""
+"\t\t@Bean(\"dataSource\")\n"
+"\t\t@Profile(\"development\") // <1>\n"
+"\t\tpublic DataSource standaloneDataSource() {\n"
+"\t\t\treturn new EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t.addScript(\"classpath:com/bank/config/sql/schema.sql\")\n"
+"\t\t\t\t.addScript(\"classpath:com/bank/config/sql/test-data.sql\")\n"
+"\t\t\t\t.build();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:295
+#, no-wrap
+msgid ""
+"\t\t@Bean(\"dataSource\")\n"
+"\t\t@Profile(\"production\") // <2>\n"
+"\t\tpublic DataSource jndiDataSource() throws Exception {\n"
+"\t\t\tContext ctx = new InitialContext();\n"
+"\t\t\treturn (DataSource) ctx.lookup(\"java:comp/env/jdbc/datasource\");\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:297
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:323
+msgid ""
+"The `standaloneDataSource` method is available only in the `development` "
+"profile."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:298
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:324
+msgid "The `jndiDataSource` method is available only in the `production` profile."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:305
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:315
+#, no-wrap
+msgid ""
+"\t\t@Bean(\"dataSource\")\n"
+"\t\t@Profile(\"development\") // <1>\n"
+"\t\tfun standaloneDataSource(): DataSource {\n"
+"\t\t\treturn EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t\t.addScript(\"classpath:com/bank/config/sql/schema.sql\")\n"
+"\t\t\t\t\t.addScript(\"classpath:com/bank/config/sql/test-data.sql\")\n"
+"\t\t\t\t\t.build()\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:321
+#, no-wrap
+msgid ""
+"\t\t@Bean(\"dataSource\")\n"
+"\t\t@Profile(\"production\") // <2>\n"
+"\t\tfun jndiDataSource() =\n"
+"\t\t\tInitialContext().lookup(\"java:comp/env/jdbc/datasource\") as "
+"DataSource\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:337
+msgid ""
+"With `@Profile` on `@Bean` methods, a special scenario may apply: In the "
+"case of overloaded `@Bean` methods of the same Java method name (analogous "
+"to constructor overloading), a `@Profile` condition needs to be consistently "
+"declared on all overloaded methods. If the conditions are inconsistent, only "
+"the condition on the first declaration among the overloaded methods "
+"matters. Therefore, `@Profile` can not be used to select an overloaded "
+"method with a particular argument signature over another. Resolution between "
+"all factory methods for the same bean follows Spring's constructor "
+"resolution algorithm at creation time."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:344
+msgid ""
+"If you want to define alternative beans with different profile conditions, "
+"use distinct Java method names that point to the same bean name by using the "
+"`@Bean` name attribute, as shown in the preceding example. If the argument "
+"signatures are all the same (for example, all of the variants have no-arg "
+"factory methods), this is the only way to represent such an arrangement in a "
+"valid Java class in the first place (since there can only be one method of a "
+"particular name and argument signature)."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:347
+#, no-wrap
+msgid "XML Bean Definition Profiles"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:351
+msgid ""
+"The XML counterpart is the `profile` attribute of the `<beans>` element. Our "
+"preceding sample configuration can be rewritten in two XML files, as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:359
+#, no-wrap
+msgid ""
+"\t<beans profile=\"development\"\n"
+"\t\txmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:jdbc=\"http://www.springframework.org/schema/jdbc\"\n"
+"\t\txsi:schemaLocation=\"...\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:365
+#, no-wrap
+msgid ""
+"\t\t<jdbc:embedded-database id=\"dataSource\">\n"
+"\t\t\t<jdbc:script location=\"classpath:com/bank/config/sql/schema.sql\"/>\n"
+"\t\t\t<jdbc:script "
+"location=\"classpath:com/bank/config/sql/test-data.sql\"/>\n"
+"\t\t</jdbc:embedded-database>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:374
+#, no-wrap
+msgid ""
+"\t<beans profile=\"production\"\n"
+"\t\txmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:jee=\"http://www.springframework.org/schema/jee\"\n"
+"\t\txsi:schemaLocation=\"...\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:377
+#, no-wrap
+msgid ""
+"\t\t<jee:jndi-lookup id=\"dataSource\" "
+"jndi-name=\"java:comp/env/jdbc/datasource\"/>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:381
+msgid ""
+"It is also possible to avoid that split and nest `<beans/>` elements within "
+"the same file, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:389
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:422
+#, no-wrap
+msgid ""
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:jdbc=\"http://www.springframework.org/schema/jdbc\"\n"
+"\t\txmlns:jee=\"http://www.springframework.org/schema/jee\"\n"
+"\t\txsi:schemaLocation=\"...\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:391
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:424
+#, no-wrap
+msgid "\t\t<!-- other bean definitions -->\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:398
+#, no-wrap
+msgid ""
+"\t\t<beans profile=\"development\">\n"
+"\t\t\t<jdbc:embedded-database id=\"dataSource\">\n"
+"\t\t\t\t<jdbc:script "
+"location=\"classpath:com/bank/config/sql/schema.sql\"/>\n"
+"\t\t\t\t<jdbc:script "
+"location=\"classpath:com/bank/config/sql/test-data.sql\"/>\n"
+"\t\t\t</jdbc:embedded-database>\n"
+"\t\t</beans>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:403
+#, no-wrap
+msgid ""
+"\t\t<beans profile=\"production\">\n"
+"\t\t\t<jee:jndi-lookup id=\"dataSource\" "
+"jndi-name=\"java:comp/env/jdbc/datasource\"/>\n"
+"\t\t</beans>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:408
+msgid ""
+"The `spring-bean.xsd` has been constrained to allow such elements only as "
+"the last ones in the file. This should help provide flexibility without "
+"incurring clutter in the XML files."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:414
+msgid ""
+"The XML counterpart does not support the profile expressions described "
+"earlier. It is possible, however, to negate a profile by using the `!` "
+"operator. It is also possible to apply a logical \"`and`\" by nesting the "
+"profiles, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:431
+#, no-wrap
+msgid ""
+"\t\t<beans profile=\"production\">\n"
+"\t\t\t<beans profile=\"us-east\">\n"
+"\t\t\t\t<jee:jndi-lookup id=\"dataSource\" "
+"jndi-name=\"java:comp/env/jdbc/datasource\"/>\n"
+"\t\t\t</beans>\n"
+"\t\t</beans>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:435
+msgid ""
+"In the preceding example, the `dataSource` bean is exposed if both the "
+"`production` and `us-east` profiles are active."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:438
+#, no-wrap
+msgid "Activating a Profile"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:444
+msgid ""
+"Now that we have updated our configuration, we still need to instruct Spring "
+"which profile is active. If we started our sample application right now, we "
+"would see a `NoSuchBeanDefinitionException` thrown, because the container "
+"could not find the Spring bean named `dataSource`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:448
+msgid ""
+"Activating a profile can be done in several ways, but the most "
+"straightforward is to do it programmatically against the `Environment` API "
+"which is available through an `ApplicationContext`. The following example "
+"shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:459
+#, no-wrap
+msgid ""
+"\tAnnotationConfigApplicationContext ctx = new "
+"AnnotationConfigApplicationContext();\n"
+"\tctx.getEnvironment().setActiveProfiles(\"development\");\n"
+"\tctx.register(SomeConfig.class, StandaloneDataConfig.class, "
+"JndiDataConfig.class);\n"
+"\tctx.refresh();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:470
+#, no-wrap
+msgid ""
+"\tval ctx = AnnotationConfigApplicationContext().apply {\n"
+"\t\tenvironment.setActiveProfiles(\"development\")\n"
+"\t\tregister(SomeConfig::class.java, StandaloneDataConfig::class.java, "
+"JndiDataConfig::class.java)\n"
+"\t\trefresh()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:480
+msgid ""
+"In addition, you can also declaratively activate profiles through the "
+"`spring.profiles.active` property, which may be specified through system "
+"environment variables, JVM system properties, servlet context parameters in "
+"`web.xml`, or even as an entry in JNDI (see "
+"xref:core/beans/environment.adoc#beans-property-source-abstraction[`PropertySource` "
+"Abstraction]). In integration tests, active profiles can be declared by "
+"using the `@ActiveProfiles` annotation in the `spring-test` module (see "
+"xref:testing/testcontext-framework/ctx-management/env-profiles.adoc[context "
+"configuration with environment profiles] )."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:485
+msgid ""
+"Note that profiles are not an \"`either-or`\" proposition. You can activate "
+"multiple profiles at once. Programmatically, you can provide multiple "
+"profile names to the `setActiveProfiles()` method, which accepts `String...` "
+"varargs. The following example activates multiple profiles:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:493
+#, no-wrap
+msgid "\tctx.getEnvironment().setActiveProfiles(\"profile1\", \"profile2\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:500
+#, no-wrap
+msgid "\tctx.getEnvironment().setActiveProfiles(\"profile1\", \"profile2\")\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:505
+msgid ""
+"Declaratively, `spring.profiles.active` may accept a comma-separated list of "
+"profile names, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:509
+#, no-wrap
+msgid "\t-Dspring.profiles.active=\"profile1,profile2\"\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:512
+#, no-wrap
+msgid "Default Profile"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:516
+msgid ""
+"The default profile represents the profile that is enabled if no profile is "
+"active. Consider the following example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:526
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"default\")\n"
+"\tpublic class DefaultDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:535
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic DataSource dataSource() {\n"
+"\t\t\treturn new EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t.addScript(\"classpath:com/bank/config/sql/schema.sql\")\n"
+"\t\t\t\t.build();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:544
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@Profile(\"default\")\n"
+"\tclass DefaultDataConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:553
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\treturn EmbeddedDatabaseBuilder()\n"
+"\t\t\t\t\t.setType(EmbeddedDatabaseType.HSQL)\n"
+"\t\t\t\t\t.addScript(\"classpath:com/bank/config/sql/schema.sql\")\n"
+"\t\t\t\t\t.build()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:559
+msgid ""
+"If xref:#beans-definition-profiles-enable[no profile is active], the "
+"`dataSource` is created. You can see this as a way to provide a default "
+"definition for one or more beans. If any profile is enabled, the default "
+"profile does not apply."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:563
+msgid ""
+"The name of the default profile is `default`. You can change the name of the "
+"default profile by using `setDefaultProfiles()` on the `Environment` or, "
+"declaratively, by using the `spring.profiles.default` property."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:566
+#, no-wrap
+msgid "`PropertySource` Abstraction"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:570
+msgid ""
+"Spring's `Environment` abstraction provides search operations over a "
+"configurable hierarchy of property sources. Consider the following listing:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:581
+#, no-wrap
+msgid ""
+"\tApplicationContext ctx = new GenericApplicationContext();\n"
+"\tEnvironment env = ctx.getEnvironment();\n"
+"\tboolean containsMyProperty = env.containsProperty(\"my-property\");\n"
+"\tSystem.out.println(\"Does my environment contain the 'my-property' "
+"property? \" + containsMyProperty);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:591
+#, no-wrap
+msgid ""
+"\tval ctx = GenericApplicationContext()\n"
+"\tval env = ctx.environment\n"
+"\tval containsMyProperty = env.containsProperty(\"my-property\")\n"
+"\tprintln(\"Does my environment contain the 'my-property' property? "
+"$containsMyProperty\")\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:602
+msgid ""
+"In the preceding snippet, we see a high-level way of asking Spring whether "
+"the `my-property` property is defined for the current environment. To answer "
+"this question, the `Environment` object performs a search over a set of "
+"{spring-framework-api}/core/env/PropertySource.html[`PropertySource`] "
+"objects. A `PropertySource` is a simple abstraction over any source of "
+"key-value pairs, and Spring's "
+"{spring-framework-api}/core/env/StandardEnvironment.html[`StandardEnvironment`] "
+"is configured with two PropertySource objects -- one representing the set of "
+"JVM system properties (`System.getProperties()`) and one representing the "
+"set of system environment variables (`System.getenv()`)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:608
+msgid ""
+"These default property sources are present for `StandardEnvironment`, for "
+"use in standalone "
+"applications. "
+"{spring-framework-api}/web/context/support/StandardServletEnvironment.html[`StandardServletEnvironment`] "
+"is populated with additional default property sources including servlet "
+"config, servlet context parameters, and a "
+"{spring-framework-api}/jndi/JndiPropertySource.html[`JndiPropertySource`] if "
+"JNDI is available."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:612
+msgid ""
+"Concretely, when you use the `StandardEnvironment`, the call to "
+"`env.containsProperty(\"my-property\")` returns true if a `my-property` "
+"system property or `my-property` environment variable is present at runtime."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:620
+msgid ""
+"The search performed is hierarchical. By default, system properties have "
+"precedence over environment variables. So, if the `my-property` property "
+"happens to be set in both places during a call to "
+"`env.getProperty(\"my-property\")`, the system property value \"`wins`\" and "
+"is returned.  Note that property values are not merged but rather completely "
+"overridden by a preceding entry."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:623
+msgid ""
+"For a common `StandardServletEnvironment`, the full hierarchy is as follows, "
+"with the highest-precedence entries at the top:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:625
+msgid ""
+"ServletConfig parameters (if applicable -- for example, in case of a "
+"`DispatcherServlet` context)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:626
+msgid "ServletContext parameters (web.xml context-param entries)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:627
+msgid "JNDI environment variables (`java:comp/env/` entries)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:628
+msgid "JVM system properties (`-D` command-line arguments)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:629
+msgid "JVM system environment (operating system environment variables)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:635
+msgid ""
+"Most importantly, the entire mechanism is configurable. Perhaps you have a "
+"custom source of properties that you want to integrate into this search. To "
+"do so, implement and instantiate your own `PropertySource` and add it to the "
+"set of `PropertySources` for the current `Environment`. The following "
+"example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:645
+#, no-wrap
+msgid ""
+"ConfigurableApplicationContext ctx = new GenericApplicationContext();\n"
+"MutablePropertySources sources = "
+"ctx.getEnvironment().getPropertySources();\n"
+"sources.addFirst(new MyPropertySource());\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:654
+#, no-wrap
+msgid ""
+"\tval ctx = GenericApplicationContext()\n"
+"\tval sources = ctx.environment.propertySources\n"
+"\tsources.addFirst(MyPropertySource())\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:663
+msgid ""
+"In the preceding code, `MyPropertySource` has been added with highest "
+"precedence in the search. If it contains a `my-property` property, the "
+"property is detected and returned, in favor of any `my-property` property in "
+"any other `PropertySource`. The "
+"{spring-framework-api}/core/env/MutablePropertySources.html[`MutablePropertySources`] "
+"API exposes a number of methods that allow for precise manipulation of the "
+"set of property sources."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:666
+#, no-wrap
+msgid "Using `@PropertySource`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:671
+msgid ""
+"The "
+"{spring-framework-api}/context/annotation/PropertySource.html[`@PropertySource`] "
+"annotation provides a convenient and declarative mechanism for adding a "
+"`PropertySource` to Spring's `Environment`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:675
+msgid ""
+"Given a file called `app.properties` that contains the key-value pair "
+"`testbean.name=myTestBean`, the following `@Configuration` class uses "
+"`@PropertySource` in such a way that a call to `testBean.getName()` returns "
+"`myTestBean`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:685
+#, no-wrap
+msgid ""
+"   @Configuration\n"
+"   @PropertySource(\"classpath:/com/myco/app.properties\")\n"
+"   public class AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:688
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:733
+#, no-wrap
+msgid ""
+"\t   @Autowired\n"
+"\t   Environment env;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:696
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:741
+#, no-wrap
+msgid ""
+"\t   @Bean\n"
+"\t   public TestBean testBean() {\n"
+"\t\t   TestBean testBean = new TestBean();\n"
+"\t\t   testBean.setName(env.getProperty(\"testbean.name\"));\n"
+"\t\t   return testBean;\n"
+"\t   }\n"
+"   }\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:705
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@PropertySource(\"classpath:/com/myco/app.properties\")\n"
+"\tclass AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:708
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:753
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tprivate lateinit var env: Environment\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:714
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:759
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun testBean() = TestBean().apply {\n"
+"\t\t\tname = env.getProperty(\"testbean.name\")!!\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:720
+msgid ""
+"Any `${...}` placeholders present in a `@PropertySource` resource location "
+"are resolved against the set of property sources already registered against "
+"the environment, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:730
+#, no-wrap
+msgid ""
+"   @Configuration\n"
+"   "
+"@PropertySource(\"classpath:/com/${my.placeholder:default/path}/app.properties\")\n"
+"   public class AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:750
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@PropertySource(\"classpath:/com/\\${my.placeholder:default/path}/app.properties\")\n"
+"\tclass AppConfig {\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:767
+msgid ""
+"Assuming that `my.placeholder` is present in one of the property sources "
+"already registered (for example, system properties or environment "
+"variables), the placeholder is resolved to the corresponding value. If not, "
+"then `default/path` is used as a default. If no default is specified and a "
+"property cannot be resolved, an `IllegalArgumentException` is thrown."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:771
+msgid ""
+"`@PropertySource` can be used as a repeatable annotation. `@PropertySource` "
+"may also be used as a meta-annotation to create custom composed annotations "
+"with attribute overrides."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:774
+#, no-wrap
+msgid "Placeholder Resolution in Statements"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:783
+msgid ""
+"Historically, the value of placeholders in elements could be resolved only "
+"against JVM system properties or environment variables. This is no longer "
+"the case. Because the `Environment` abstraction is integrated throughout the "
+"container, it is easy to route resolution of placeholders through it. This "
+"means that you may configure the resolution process in any way you like. You "
+"can change the precedence of searching through system properties and "
+"environment variables or remove them entirely. You can also add your own "
+"property sources to the mix, as appropriate."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:786
+msgid ""
+"Concretely, the following statement works regardless of where the `customer` "
+"property is defined, as long as it is available in the `Environment`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/environment.adoc:792
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<import resource=\"com/bank/service/${customer}-config.xml\"/>\n"
+"\t</beans>\n"
+msgstr ""

@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config.adoc:2
+#, no-wrap
+msgid "MVC Config"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config.adoc:6
+msgid ""
+"[.small]#xref:web/webflux/dispatcher-handler.adoc#webflux-framework-config[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config.adoc:9
+msgid ""
+"The MVC Java configuration and the MVC XML namespace provide default "
+"configuration suitable for most applications and a configuration API to "
+"customize it."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config.adoc:12
+msgid ""
+"For more advanced customizations, which are not available in the "
+"configuration API, see "
+"xref:web/webmvc/mvc-config/advanced-java.adoc[Advanced Java Config] and "
+"xref:web/webmvc/mvc-config/advanced-xml.adoc[Advanced XML Config]."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-config.adoc:15
+msgid ""
+"You do not need to understand the underlying beans created by the MVC Java "
+"configuration and the MVC namespace. If you want to learn more, see "
+"xref:web/webmvc/mvc-servlet/special-bean-types.adoc[Special Bean Types] and "
+"xref:web/webmvc/mvc-servlet/config.adoc[Web MVC Config]."
+msgstr ""

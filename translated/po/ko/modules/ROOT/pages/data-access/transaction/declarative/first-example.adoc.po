@@ -1,0 +1,773 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:2
+#, no-wrap
+msgid "Example of Declarative Transaction Implementation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:12
+msgid ""
+"Consider the following interface and its attendant implementation. This "
+"example uses `Foo` and `Bar` classes as placeholders so that you can "
+"concentrate on the transaction usage without focusing on a particular domain "
+"model. For the purposes of this example, the fact that the "
+"`DefaultFooService` class throws `UnsupportedOperationException` instances "
+"in the body of each implemented method is good. That behavior lets you see "
+"transactions being created and then rolled back in response to the "
+"`UnsupportedOperationException` instance. The following listing shows the "
+"`FooService` interface:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:15
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:61
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:232
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:304
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:350
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:20
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:41
+#, no-wrap
+msgid "\t// the service interface that we want to make transactional\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:22
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:66
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:311
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:355
+#, no-wrap
+msgid "\tpackage x.y.service;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:24
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:313
+#, no-wrap
+msgid "\tpublic interface FooService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:26
+#, no-wrap
+msgid "\t\tFoo getFoo(String fooName);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:28
+#, no-wrap
+msgid "\t\tFoo getFoo(String fooName, String barName);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:30
+#, no-wrap
+msgid "\t\tvoid insertFoo(Foo foo);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:32
+#, no-wrap
+msgid "\t\tvoid updateFoo(Foo foo);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:34
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:323
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:36
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:91
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:246
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:325
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:380
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:43
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:96
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:332
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:385
+#, no-wrap
+msgid "\tpackage x.y.service\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:45
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:334
+#, no-wrap
+msgid "\tinterface FooService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:47
+#, no-wrap
+msgid "\t\tfun getFoo(fooName: String): Foo\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:49
+#, no-wrap
+msgid "\t\tfun getFoo(fooName: String, barName: String): Foo\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:51
+#, no-wrap
+msgid "\t\tfun insertFoo(foo: Foo)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:54
+#, no-wrap
+msgid ""
+"\t\tfun updateFoo(foo: Foo)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:58
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:347
+msgid "The following example shows an implementation of the preceding interface:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:68
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:357
+#, no-wrap
+msgid "\tpublic class DefaultFooService implements FooService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:73
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic Foo getFoo(String fooName) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:78
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic Foo getFoo(String fooName, String barName) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:83
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void insertFoo(Foo foo) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:89
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void updateFoo(Foo foo) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:98
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:387
+#, no-wrap
+msgid "\tclass DefaultFooService : FooService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:102
+#, no-wrap
+msgid ""
+"\t\toverride fun getFoo(fooName: String): Foo {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:106
+#, no-wrap
+msgid ""
+"\t\toverride fun getFoo(fooName: String, barName: String): Foo {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:110
+#, no-wrap
+msgid ""
+"\t\toverride fun insertFoo(foo: Foo) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:115
+#, no-wrap
+msgid ""
+"\t\toverride fun updateFoo(foo: Foo) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:123
+msgid ""
+"Assume that the first two methods of the `FooService` interface, "
+"`getFoo(String)` and `getFoo(String, String)`, must run in the context of a "
+"transaction with read-only semantics and that the other methods, "
+"`insertFoo(Foo)` and `updateFoo(Foo)`, must run in the context of a "
+"transaction with read-write semantics. The following configuration is "
+"explained in detail in the next few paragraphs:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:139
+#, no-wrap
+msgid ""
+"\t<!-- from the file 'context.xml' -->\n"
+"\t<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"\t<beans xmlns=\"http://www.springframework.org/schema/beans\"\n"
+"\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+"\t\txmlns:aop=\"http://www.springframework.org/schema/aop\"\n"
+"\t\txmlns:tx=\"http://www.springframework.org/schema/tx\"\n"
+"\t\txsi:schemaLocation=\"\n"
+"\t\t\thttp://www.springframework.org/schema/beans\n"
+"\t\t\thttps://www.springframework.org/schema/beans/spring-beans.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/tx\n"
+"\t\t\thttps://www.springframework.org/schema/tx/spring-tx.xsd\n"
+"\t\t\thttp://www.springframework.org/schema/aop\n"
+"\t\t\thttps://www.springframework.org/schema/aop/spring-aop.xsd\">\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:142
+#, no-wrap
+msgid ""
+"\t\t<!-- this is the service object that we want to make transactional -->\n"
+"\t\t<bean id=\"fooService\" class=\"x.y.service.DefaultFooService\"/>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:153
+#, no-wrap
+msgid ""
+"\t\t<!-- the transactional advice (what 'happens'; see the <aop:advisor/> "
+"bean below) -->\n"
+"\t\t<tx:advice id=\"txAdvice\" transaction-manager=\"txManager\">\n"
+"\t\t\t<!-- the transactional semantics... -->\n"
+"\t\t\t<tx:attributes>\n"
+"\t\t\t\t<!-- all methods starting with 'get' are read-only -->\n"
+"\t\t\t\t<tx:method name=\"get*\" read-only=\"true\"/>\n"
+"\t\t\t\t<!-- other methods use the default transaction settings (see below) "
+"-->\n"
+"\t\t\t\t<tx:method name=\"*\"/>\n"
+"\t\t\t</tx:attributes>\n"
+"\t\t</tx:advice>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:160
+#, no-wrap
+msgid ""
+"\t\t<!-- ensure that the above transactional advice runs for any execution\n"
+"\t\t\tof an operation defined by the FooService interface -->\n"
+"\t\t<aop:config>\n"
+"\t\t\t<aop:pointcut id=\"fooServiceOperation\" expression=\"execution(* "
+"x.y.service.FooService.*(..))\"/>\n"
+"\t\t\t<aop:advisor advice-ref=\"txAdvice\" "
+"pointcut-ref=\"fooServiceOperation\"/>\n"
+"\t\t</aop:config>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:168
+#, no-wrap
+msgid ""
+"\t\t<!-- don't forget the DataSource -->\n"
+"\t\t<bean id=\"dataSource\" "
+"class=\"org.apache.commons.dbcp.BasicDataSource\" "
+"destroy-method=\"close\">\n"
+"\t\t\t<property name=\"driverClassName\" "
+"value=\"oracle.jdbc.driver.OracleDriver\"/>\n"
+"\t\t\t<property name=\"url\" "
+"value=\"jdbc:oracle:thin:@rj-t42:1521:elvis\"/>\n"
+"\t\t\t<property name=\"username\" value=\"scott\"/>\n"
+"\t\t\t<property name=\"password\" value=\"tiger\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:173
+#, no-wrap
+msgid ""
+"\t\t<!-- similarly, don't forget the TransactionManager -->\n"
+"\t\t<bean id=\"txManager\" "
+"class=\"org.springframework.jdbc.datasource.DataSourceTransactionManager\">\n"
+"\t\t\t<property name=\"dataSource\" ref=\"dataSource\"/>\n"
+"\t\t</bean>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:175
+#, no-wrap
+msgid "\t\t<!-- other <bean/> definitions here -->\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:177
+#, no-wrap
+msgid "\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:187
+msgid ""
+"Examine the preceding configuration. It assumes that you want to make a "
+"service object, the `fooService` bean, transactional. The transaction "
+"semantics to apply are encapsulated in the `<tx:advice/>` definition. The "
+"`<tx:advice/>` definition reads as \"all methods starting with `get` are to "
+"run in the context of a read-only transaction, and all other methods are to "
+"run with the default transaction semantics\". The `transaction-manager` "
+"attribute of the `<tx:advice/>` tag is set to the name of the "
+"`TransactionManager` bean that is going to drive the transactions (in this "
+"case, the `txManager` bean)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:193
+msgid ""
+"You can omit the `transaction-manager` attribute in the transactional advice "
+"(`<tx:advice/>`) if the bean name of the `TransactionManager` that you want "
+"to wire in has the name `transactionManager`. If the `TransactionManager` "
+"bean that you want to wire in has any other name, you must use the "
+"`transaction-manager` attribute explicitly, as in the preceding example."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:200
+msgid ""
+"The `<aop:config/>` definition ensures that the transactional advice defined "
+"by the `txAdvice` bean runs at the appropriate points in the program. First, "
+"you define a pointcut that matches the execution of any operation defined in "
+"the `FooService` interface (`fooServiceOperation`). Then you associate the "
+"pointcut with the `txAdvice` by using an advisor. The result indicates that, "
+"at the execution of a `fooServiceOperation`, the advice defined by "
+"`txAdvice` is run."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:204
+msgid ""
+"The expression defined within the `<aop:pointcut/>` element is an AspectJ "
+"pointcut expression. See xref:core/aop.adoc[the AOP section] for more "
+"details on pointcut expressions in Spring."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:208
+msgid ""
+"A common requirement is to make an entire service layer transactional. The "
+"best way to do this is to change the pointcut expression to match any "
+"operation in your service layer. The following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:215
+#, no-wrap
+msgid ""
+"\t<aop:config>\n"
+"\t\t<aop:pointcut id=\"fooServiceMethods\" expression=\"execution(* "
+"x.y.service.*.*(..))\"/>\n"
+"\t\t<aop:advisor advice-ref=\"txAdvice\" "
+"pointcut-ref=\"fooServiceMethods\"/>\n"
+"\t</aop:config>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:219
+msgid ""
+"In the preceding example, it is assumed that all your service interfaces are "
+"defined in the `x.y.service` package. See xref:core/aop.adoc[the AOP "
+"section] for more details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:222
+msgid ""
+"Now that we have analyzed the configuration, you may be asking yourself, "
+"\"What does all this configuration actually do?\""
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:229
+msgid ""
+"The configuration shown earlier is used to create a transactional proxy "
+"around the object that is created from the `fooService` bean definition. The "
+"proxy is configured with the transactional advice so that, when an "
+"appropriate method is invoked on the proxy, a transaction is started, "
+"suspended, marked as read-only, and so on, depending on the transaction "
+"configuration associated with that method. Consider the following program "
+"that test drives the configuration shown earlier:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:237
+#, no-wrap
+msgid "\tpublic final class Boot {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:244
+#, no-wrap
+msgid ""
+"\t\tpublic static void main(final String[] args) throws Exception {\n"
+"\t\t\tApplicationContext ctx = new "
+"ClassPathXmlApplicationContext(\"context.xml\");\n"
+"\t\t\tFooService fooService = ctx.getBean(FooService.class);\n"
+"\t\t\tfooService.insertFoo(new Foo());\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:251
+#, no-wrap
+msgid "\timport org.springframework.beans.factory.getBean\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:257
+#, no-wrap
+msgid ""
+"\tfun main() {\n"
+"\t\tval ctx = ClassPathXmlApplicationContext(\"context.xml\")\n"
+"\t\tval fooService = ctx.getBean<FooService>(\"fooService\")\n"
+"\t\tfooService.insertFoo(Foo())\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:263
+msgid ""
+"The output from running the preceding program should resemble the following "
+"(the Log4J output and the stack trace from the "
+"`UnsupportedOperationException` thrown by the `insertFoo(..)` method of the "
+"`DefaultFooService` class have been truncated for clarity):"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:268
+#, no-wrap
+msgid ""
+"\t<!-- the Spring container is starting up... -->\n"
+"\t[AspectJInvocationContextExposingAdvisorAutoProxyCreator] - Creating "
+"implicit proxy for bean 'fooService' with 0 common interceptors and 1 "
+"specific interceptors\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:271
+#, no-wrap
+msgid ""
+"\t<!-- the DefaultFooService is actually proxied -->\n"
+"\t[JdkDynamicAopProxy] - Creating JDK dynamic proxy for "
+"[x.y.service.DefaultFooService]\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:274
+#, no-wrap
+msgid ""
+"\t<!-- ... the insertFoo(..) method is now being invoked on the proxy -->\n"
+"\t[TransactionInterceptor] - Getting transaction for "
+"x.y.service.FooService.insertFoo\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:278
+#, no-wrap
+msgid ""
+"\t<!-- the transactional advice kicks in here... -->\n"
+"\t[DataSourceTransactionManager] - Creating new transaction with name "
+"[x.y.service.FooService.insertFoo]\n"
+"\t[DataSourceTransactionManager] - Acquired Connection "
+"[org.apache.commons.dbcp.PoolableConnection@a53de4] for JDBC transaction\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:282
+#, no-wrap
+msgid ""
+"\t<!-- the insertFoo(..) method from DefaultFooService throws an "
+"exception... -->\n"
+"\t[RuleBasedTransactionAttribute] - Applying rules to determine whether "
+"transaction should rollback on java.lang.UnsupportedOperationException\n"
+"\t[TransactionInterceptor] - Invoking rollback for transaction on "
+"x.y.service.FooService.insertFoo due to throwable "
+"[java.lang.UnsupportedOperationException]\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:287
+#, no-wrap
+msgid ""
+"\t<!-- and the transaction is rolled back (by default, RuntimeException "
+"instances cause rollback) -->\n"
+"\t[DataSourceTransactionManager] - Rolling back JDBC transaction on "
+"Connection [org.apache.commons.dbcp.PoolableConnection@a53de4]\n"
+"\t[DataSourceTransactionManager] - Releasing JDBC Connection after "
+"transaction\n"
+"\t[DataSourceUtils] - Returning JDBC Connection to DataSource\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:292
+#, no-wrap
+msgid ""
+"\tException in thread \"main\" java.lang.UnsupportedOperationException at "
+"x.y.service.DefaultFooService.insertFoo(DefaultFooService.java:14)\n"
+"\t<!-- AOP infrastructure stack trace elements removed for clarity -->\n"
+"\tat $Proxy0.insertFoo(Unknown Source)\n"
+"\tat Boot.main(Boot.java:11)\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:295
+msgid "To use reactive transaction management the code has to use reactive types."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:298
+msgid ""
+"Spring Framework uses the `ReactiveAdapterRegistry` to determine whether a "
+"method return type is reactive."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:301
+msgid ""
+"The following listing shows a modified version of the previously used "
+"`FooService`, but this time the code uses reactive types:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:309
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:330
+#, no-wrap
+msgid "\t// the reactive service interface that we want to make transactional\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:315
+#, no-wrap
+msgid "\t\tFlux<Foo> getFoo(String fooName);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:317
+#, no-wrap
+msgid "\t\tPublisher<Foo> getFoo(String fooName, String barName);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:319
+#, no-wrap
+msgid "\t\tMono<Void> insertFoo(Foo foo);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:321
+#, no-wrap
+msgid "\t\tMono<Void> updateFoo(Foo foo);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:336
+#, no-wrap
+msgid "\t\tfun getFoo(fooName: String): Flow<Foo>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:338
+#, no-wrap
+msgid "\t\tfun getFoo(fooName: String, barName: String): Publisher<Foo>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:340
+#, no-wrap
+msgid "\t\tfun insertFoo(foo: Foo) : Mono<Void>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:343
+#, no-wrap
+msgid ""
+"\t\tfun updateFoo(foo: Foo) : Mono<Void>\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:362
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic Flux<Foo> getFoo(String fooName) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:367
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic Publisher<Foo> getFoo(String fooName, String barName) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:372
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic Mono<Void> insertFoo(Foo foo) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:378
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic Mono<Void> updateFoo(Foo foo) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:391
+#, no-wrap
+msgid ""
+"\t\toverride fun getFoo(fooName: String): Flow<Foo> {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:395
+#, no-wrap
+msgid ""
+"\t\toverride fun getFoo(fooName: String, barName: String): Publisher<Foo> "
+"{\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:399
+#, no-wrap
+msgid ""
+"\t\toverride fun insertFoo(foo: Foo): Mono<Void> {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:404
+#, no-wrap
+msgid ""
+"\t\toverride fun updateFoo(foo: Foo): Mono<Void> {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:414
+msgid ""
+"Imperative and reactive transaction management share the same semantics for "
+"transaction boundary and transaction attribute definitions. The main "
+"difference between imperative and reactive transactions is the deferred "
+"nature of the latter. `TransactionInterceptor` decorates the returned "
+"reactive type with a transactional operator to begin and clean up the "
+"transaction. Therefore, calling a transactional reactive method defers the "
+"actual transaction management to a subscription type that activates "
+"processing of the reactive type."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:417
+msgid ""
+"Another aspect of reactive transaction management relates to data escaping "
+"which is a natural consequence of the programming model."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:421
+msgid ""
+"Method return values of imperative transactions are returned from "
+"transactional methods upon successful termination of a method so that "
+"partially computed results do not escape the method closure."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:424
+msgid ""
+"Reactive transaction methods return a reactive wrapper type which represents "
+"a computation sequence along with a promise to begin and complete the "
+"computation."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/declarative/first-example.adoc:427
+msgid ""
+"A `Publisher` can emit data while a transaction is ongoing but not "
+"necessarily completed.  Therefore, methods that depend upon successful "
+"completion of an entire transaction need to ensure completion and buffer "
+"results in the calling code."
+msgstr ""

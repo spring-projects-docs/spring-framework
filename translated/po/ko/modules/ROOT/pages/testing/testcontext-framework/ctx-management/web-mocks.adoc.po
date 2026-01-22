@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:2
+#, no-wrap
+msgid "Working with Web Mocks"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:13
+msgid ""
+"To provide comprehensive web testing support, the TestContext framework has "
+"a `ServletTestExecutionListener` that is enabled by default. When testing "
+"against a `WebApplicationContext`, this "
+"xref:testing/testcontext-framework/key-abstractions.adoc[`TestExecutionListener`] "
+"sets up default thread-local state by using Spring Web's "
+"`RequestContextHolder` before each test method and creates a "
+"`MockHttpServletRequest`, a `MockHttpServletResponse`, and a "
+"`ServletWebRequest` based on the base resource path configured with "
+"`@WebAppConfiguration`. `ServletTestExecutionListener` also ensures that the "
+"`MockHttpServletResponse` and `ServletWebRequest` can be injected into the "
+"test instance, and, once the test is complete, it cleans up thread-local "
+"state."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:20
+msgid ""
+"Once you have a `WebApplicationContext` loaded for your test, you might find "
+"that you need to interact with the web mocks -- for example, to set up your "
+"test fixture or to perform assertions after invoking your web component. The "
+"following example shows which mocks can be autowired into your test "
+"instance. Note that the `WebApplicationContext` and `MockServletContext` are "
+"both cached across the test suite, whereas the other mocks are managed per "
+"test method by the `ServletTestExecutionListener`."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:23
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:29
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:58
+#, no-wrap
+msgid ""
+"\t@SpringJUnitWebConfig\n"
+"\tclass WacTests {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:32
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tWebApplicationContext wac; // cached\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:35
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tMockServletContext servletContext; // cached\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:38
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tMockHttpSession session;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:41
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tMockHttpServletRequest request;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:44
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tMockHttpServletResponse response;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:47
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tServletWebRequest webRequest;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:50
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:79
+#, no-wrap
+msgid ""
+"\t\t//...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:52
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:61
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var wac: WebApplicationContext // cached\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:64
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var servletContext: MockServletContext // cached\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:67
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var session: MockHttpSession\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:70
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var request: MockHttpServletRequest\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:73
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var response: MockHttpServletResponse\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/ctx-management/web-mocks.adoc:76
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tlateinit var webRequest: ServletWebRequest\n"
+msgstr ""

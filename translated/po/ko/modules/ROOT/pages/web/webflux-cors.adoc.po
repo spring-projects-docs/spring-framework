@@ -1,0 +1,726 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:2
+#, no-wrap
+msgid "CORS"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:5
+msgid "[.small]#xref:web/webmvc-cors.adoc[See equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:8
+msgid ""
+"Spring WebFlux lets you handle CORS (Cross-Origin Resource Sharing). This "
+"section describes how to do so."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:11
+#, no-wrap
+msgid "Introduction"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:13
+msgid ""
+"[.small]#xref:web/webmvc-cors.adoc#mvc-cors-intro[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:18
+msgid ""
+"For security reasons, browsers prohibit AJAX calls to resources outside the "
+"current origin.  For example, you could have your bank account in one tab "
+"and evil.com in another. Scripts from evil.com should not be able to make "
+"AJAX requests to your bank API with your credentials -- for example, "
+"withdrawing money from your account!"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:23
+msgid ""
+"Cross-Origin Resource Sharing (CORS) is a https://www.w3.org/TR/cors/[W3C "
+"specification] implemented by https://caniuse.com/#feat=cors[most browsers] "
+"that lets you specify what kind of cross-domain requests are authorized, "
+"rather than using less secure and less powerful workarounds based on IFRAME "
+"or JSONP."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:26
+#, no-wrap
+msgid "Processing"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:28
+msgid ""
+"[.small]#xref:web/webmvc-cors.adoc#mvc-cors-processing[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:33
+msgid ""
+"The CORS specification distinguishes between preflight, simple, and actual "
+"requests.  To learn how CORS works, you can read "
+"https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS[this article], among "
+"many others, or see the specification for more details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:39
+msgid ""
+"Spring WebFlux `HandlerMapping` implementations provide built-in support for "
+"CORS. After successfully mapping a request to a handler, a `HandlerMapping` "
+"checks the CORS configuration for the given request and handler and takes "
+"further actions. Preflight requests are handled directly, while simple and "
+"actual CORS requests are intercepted, validated, and have the required CORS "
+"response headers set."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:45
+msgid ""
+"In order to enable cross-origin requests (that is, the `Origin` header is "
+"present and differs from the host of the request), you need to have some "
+"explicitly declared CORS configuration. If no matching CORS configuration is "
+"found, no CORS headers are added to the responses to preflight, simple and "
+"actual CORS requests and, consequently, browsers reject them."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:51
+msgid ""
+"Each `HandlerMapping` can be "
+"{spring-framework-api}/web/reactive/handler/AbstractHandlerMapping.html#setCorsConfigurations(java.util.Map)[configured] "
+"individually with URL pattern-based `CorsConfiguration` mappings. In most "
+"cases, applications use the WebFlux Java configuration to declare such "
+"mappings, which results in a single, global map passed to all "
+"`HandlerMapping` implementations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:56
+msgid ""
+"You can combine global CORS configuration at the `HandlerMapping` level with "
+"more fine-grained, handler-level CORS configuration. For example, annotated "
+"controllers can use class- or method-level `@CrossOrigin` annotations (other "
+"handlers can implement `CorsConfigurationSource`)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:62
+msgid ""
+"The rules for combining global and local configuration are generally "
+"additive -- for example, all global and all local origins. For those "
+"attributes where only a single value can be accepted, such as "
+"`allowCredentials` and `maxAge`, the local overrides the global value. See "
+"{spring-framework-api}/web/cors/CorsConfiguration.html#combine(org.springframework.web.cors.CorsConfiguration)[`CorsConfiguration#combine(CorsConfiguration)`] "
+"for more details."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:66
+msgid "To learn more from the source or to make advanced customizations, see:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:68
+msgid "`CorsConfiguration`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:69
+msgid "`CorsProcessor` and `DefaultCorsProcessor`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:70
+msgid "`AbstractHandlerMapping`"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:74
+#, no-wrap
+msgid "Credentialed Requests"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:76
+msgid ""
+"[.small]#xref:web/webmvc-cors.adoc#mvc-cors-credentialed-requests[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:81
+msgid ""
+"Using CORS with credentialed requests requires enabling "
+"`allowedCredentials`. Be aware that this option establishes a high level of "
+"trust with the configured domains and also increases the surface of attack "
+"of the web application by exposing sensitive user-specific information such "
+"as cookies and CSRF tokens."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:83
+msgid ""
+"Enabling credentials also impacts how the configured `\"*\"` CORS wildcards "
+"are processed:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:86
+msgid ""
+"Wildcards are not authorized in `allowOrigins`, but alternatively the "
+"`allowOriginPatterns` property may be used to match to a dynamic set of "
+"origins."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:89
+msgid ""
+"When set on `allowedHeaders` or `allowedMethods`, the "
+"`Access-Control-Allow-Headers` and `Access-Control-Allow-Methods` response "
+"headers are handled by copying the related headers and method specified in "
+"the CORS preflight request."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:95
+msgid ""
+"When set on `exposedHeaders`, `Access-Control-Expose-Headers` response "
+"header is set either to the configured list of headers or to the wildcard "
+"character. While the CORS spec does not allow the wildcard character when "
+"`Access-Control-Allow-Credentials` is set to `true`, most browsers support "
+"it and the response headers are not all available during the CORS "
+"processing, so as a consequence the wildcard character is the header value "
+"used when specified regardless of the value of the `allowCredentials` "
+"property."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:98
+msgid ""
+"While such wildcard configuration can be handy, it is recommended when "
+"possible to configure a finite set of values instead to provide a higher "
+"level of security."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:101
+#, no-wrap
+msgid "`@CrossOrigin`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:103
+msgid ""
+"[.small]#xref:web/webmvc-cors.adoc#mvc-cors-controller[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:107
+msgid ""
+"The "
+"{spring-framework-api}/web/bind/annotation/CrossOrigin.html[`@CrossOrigin`] "
+"annotation enables cross-origin requests on annotated controller methods, as "
+"the following example shows:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:111
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:175
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:225
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:303
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:365
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:118
+#, no-wrap
+msgid ""
+"\t@RestController\n"
+"\t@RequestMapping(\"/account\")\n"
+"\tpublic class AccountController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:124
+#, no-wrap
+msgid ""
+"\t\t@CrossOrigin\n"
+"\t\t@GetMapping(\"/{id}\")\n"
+"\t\tpublic Mono<Account> retrieve(@PathVariable Long id) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:130
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:194
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:245
+#, no-wrap
+msgid ""
+"\t\t@DeleteMapping(\"/{id}\")\n"
+"\t\tpublic Mono<Void> remove(@PathVariable Long id) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:132
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:196
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:249
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:325
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:389
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:139
+#, no-wrap
+msgid ""
+"\t@RestController\n"
+"\t@RequestMapping(\"/account\")\n"
+"\tclass AccountController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:145
+#, no-wrap
+msgid ""
+"\t\t@CrossOrigin\n"
+"\t\t@GetMapping(\"/{id}\")\n"
+"\t\tsuspend fun retrieve(@PathVariable id: Long): Account {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:151
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:215
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:269
+#, no-wrap
+msgid ""
+"\t\t@DeleteMapping(\"/{id}\")\n"
+"\t\tsuspend fun remove(@PathVariable id: Long) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:156
+msgid "By default, `@CrossOrigin` allows:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:158
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:287
+msgid "All origins."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:159
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:288
+msgid "All headers."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:160
+msgid "All HTTP methods to which the controller method is mapped."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:166
+msgid ""
+"`allowCredentials` is not enabled by default, since that establishes a trust "
+"level that exposes sensitive user-specific information (such as cookies and "
+"CSRF tokens) and should be used only where appropriate. When it is enabled "
+"either `allowOrigins` must be set to one or more specific domain (but not "
+"the special value `\"*\"`) or alternatively the `allowOriginPatterns` "
+"property may be used to match to a dynamic set of origins."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:168
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:297
+msgid "`maxAge` is set to 30 minutes."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:171
+msgid ""
+"`@CrossOrigin` is supported at the class level, too, and inherited by all "
+"methods.  The following example specifies a certain domain and sets `maxAge` "
+"to an hour:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:183
+#, no-wrap
+msgid ""
+"\t@CrossOrigin(origins = \"https://domain2.com\", maxAge = 3600)\n"
+"\t@RestController\n"
+"\t@RequestMapping(\"/account\")\n"
+"\tpublic class AccountController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:188
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(\"/{id}\")\n"
+"\t\tpublic Mono<Account> retrieve(@PathVariable Long id) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:204
+#, no-wrap
+msgid ""
+"\t@CrossOrigin(\"https://domain2.com\", maxAge = 3600)\n"
+"\t@RestController\n"
+"\t@RequestMapping(\"/account\")\n"
+"\tclass AccountController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:209
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(\"/{id}\")\n"
+"\t\tsuspend fun retrieve(@PathVariable id: Long): Account {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:221
+msgid ""
+"You can use `@CrossOrigin` at both the class and the method level, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:233
+#, no-wrap
+msgid ""
+"\t@CrossOrigin(maxAge = 3600) // <1>\n"
+"\t@RestController\n"
+"\t@RequestMapping(\"/account\")\n"
+"\tpublic class AccountController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:239
+#, no-wrap
+msgid ""
+"\t\t@CrossOrigin(\"https://domain2.com\") // <2>\n"
+"\t\t@GetMapping(\"/{id}\")\n"
+"\t\tpublic Mono<Account> retrieve(@PathVariable Long id) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:247
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:271
+msgid "Using `@CrossOrigin` at the class level."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:248
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:272
+msgid "Using `@CrossOrigin` at the method level."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:257
+#, no-wrap
+msgid ""
+"\t@CrossOrigin(maxAge = 3600) // <1>\n"
+"\t@RestController\n"
+"\t@RequestMapping(\"/account\")\n"
+"\tclass AccountController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:263
+#, no-wrap
+msgid ""
+"\t\t@CrossOrigin(\"https://domain2.com\") // <2>\n"
+"\t\t@GetMapping(\"/{id}\")\n"
+"\t\tsuspend fun retrieve(@PathVariable id: Long): Account {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:276
+#, no-wrap
+msgid "Global Configuration"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:278
+msgid ""
+"[.small]#xref:web/webmvc-cors.adoc#mvc-cors-global[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:283
+msgid ""
+"In addition to fine-grained, controller method-level configuration, you "
+"probably want to define some global CORS configuration, too. You can set "
+"URL-based `CorsConfiguration` mappings individually on any "
+"`HandlerMapping`. Most applications, however, use the WebFlux Java "
+"configuration to do that."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:285
+msgid "By default global configuration enables the following:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:289
+msgid "`GET`, `HEAD`, and `POST` methods."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:295
+msgid ""
+"`allowedCredentials` is not enabled by default, since that establishes a "
+"trust level that exposes sensitive user-specific information (such as "
+"cookies and CSRF tokens) and should be used only where appropriate. When it "
+"is enabled either `allowOrigins` must be set to one or more specific domain "
+"(but not the special value `\"*\"`) or alternatively the "
+"`allowOriginPatterns` property may be used to match to a dynamic set of "
+"origins."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:300
+msgid ""
+"To enable CORS in the WebFlux Java configuration, you can use the "
+"`CorsRegistry` callback, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:309
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class WebConfig implements WebFluxConfigurer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:312
+#, no-wrap
+msgid ""
+"\t\t@Override\n"
+"\t\tpublic void addCorsMappings(CorsRegistry registry) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:319
+#, no-wrap
+msgid ""
+"\t\t\tregistry.addMapping(\"/api/**\")\n"
+"\t\t\t\t.allowedOrigins(\"https://domain2.com\")\n"
+"\t\t\t\t.allowedMethods(\"PUT\", \"DELETE\")\n"
+"\t\t\t\t.allowedHeaders(\"header1\", \"header2\", \"header3\")\n"
+"\t\t\t\t.exposedHeaders(\"header1\", \"header2\")\n"
+"\t\t\t\t.allowCredentials(true).maxAge(3600);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:323
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:344
+#, no-wrap
+msgid ""
+"\t\t\t// Add more mappings...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:331
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass WebConfig : WebFluxConfigurer {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:333
+#, no-wrap
+msgid "\t\toverride fun addCorsMappings(registry: CorsRegistry) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:340
+#, no-wrap
+msgid ""
+"\t\t\tregistry.addMapping(\"/api/**\")\n"
+"\t\t\t\t\t.allowedOrigins(\"https://domain2.com\")\n"
+"\t\t\t\t\t.allowedMethods(\"PUT\", \"DELETE\")\n"
+"\t\t\t\t\t.allowedHeaders(\"header1\", \"header2\", \"header3\")\n"
+"\t\t\t\t\t.exposedHeaders(\"header1\", \"header2\")\n"
+"\t\t\t\t\t.allowCredentials(true).maxAge(3600)\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:349
+#, no-wrap
+msgid "CORS `WebFilter`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:351
+msgid ""
+"[.small]#xref:web/webmvc-cors.adoc#mvc-cors-filter[See equivalent in the "
+"Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:355
+msgid ""
+"You can apply CORS support through the built-in "
+"{spring-framework-api}/web/cors/reactive/CorsWebFilter.html[`CorsWebFilter`], "
+"which is a good fit with xref:web/webflux-functional.adoc[functional "
+"endpoints]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:359
+msgid ""
+"If you try to use the `CorsFilter` with Spring Security, keep in mind that "
+"Spring Security has "
+"{docs-spring-security}/servlet/integrations/cors.html[built-in support] for "
+"CORS."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:362
+msgid ""
+"To configure the filter, you can declare a `CorsWebFilter` bean and pass a "
+"`CorsConfigurationSource` to its constructor, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:371
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\tCorsWebFilter corsFilter() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:373
+#, no-wrap
+msgid "\t\tCorsConfiguration config = new CorsConfiguration();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:376
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:400
+#, no-wrap
+msgid ""
+"\t\t// Possibly...\n"
+"\t\t// config.applyPermitDefaultValues()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:381
+#, no-wrap
+msgid ""
+"\t\tconfig.setAllowCredentials(true);\n"
+"\t\tconfig.addAllowedOrigin(\"https://domain1.com\");\n"
+"\t\tconfig.addAllowedHeader(\"*\");\n"
+"\t\tconfig.addAllowedMethod(\"*\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:384
+#, no-wrap
+msgid ""
+"\t\tUrlBasedCorsConfigurationSource source = new "
+"UrlBasedCorsConfigurationSource();\n"
+"\t\tsource.registerCorsConfiguration(\"/**\", config);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:387
+#, no-wrap
+msgid ""
+"\t\treturn new CorsWebFilter(source);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:395
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\tfun corsFilter(): CorsWebFilter {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:397
+#, no-wrap
+msgid "\t\tval config = CorsConfiguration()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:405
+#, no-wrap
+msgid ""
+"\t\tconfig.allowCredentials = true\n"
+"\t\tconfig.addAllowedOrigin(\"https://domain1.com\")\n"
+"\t\tconfig.addAllowedHeader(\"*\")\n"
+"\t\tconfig.addAllowedMethod(\"*\")\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux-cors.adoc:411
+#, no-wrap
+msgid ""
+"\t\tval source = UrlBasedCorsConfigurationSource().apply {\n"
+"\t\t\tregisterCorsConfiguration(\"/**\", config)\n"
+"\t\t}\n"
+"\t\treturn CorsWebFilter(source)\n"
+"\t}\n"
+msgstr ""

@@ -1,0 +1,856 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:2
+#, no-wrap
+msgid "Using the `@Bean` Annotation"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:6
+msgid ""
+"`@Bean` is a method-level annotation and a direct analog of the XML "
+"`<bean/>` element.  The annotation supports some of the attributes offered "
+"by `<bean/>`, such as:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:8
+msgid "xref:core/beans/factory-nature.adoc#beans-factory-lifecycle-initializingbean[init-method]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:9
+msgid "xref:core/beans/factory-nature.adoc#beans-factory-lifecycle-disposablebean[destroy-method]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:10
+msgid "xref:core/beans/dependencies/factory-autowire.adoc[autowiring]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:11
+msgid "`name`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:14
+msgid ""
+"You can use the `@Bean` annotation in a `@Configuration`-annotated or in a "
+"`@Component`-annotated class."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:17
+#, no-wrap
+msgid "Declaring a Bean"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:23
+msgid ""
+"To declare a bean, you can annotate a method with the `@Bean` "
+"annotation. You use this method to register a bean definition within an "
+"`ApplicationContext` of the type specified as the method's return value. By "
+"default, the bean name is the same as the method name. The following example "
+"shows a `@Bean` method declaration:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:26
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:76
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:100
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:154
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:212
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:292
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:327
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:383
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:432
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:481
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:519
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:561
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:32
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:106
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:160
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:232
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:333
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:487
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:525
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:567
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:38
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic TransferServiceImpl transferService() {\n"
+"\t\t\treturn new TransferServiceImpl();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:40
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:114
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:168
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:245
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:302
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:345
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:398
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:452
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:495
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:533
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:576
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:46
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:120
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:174
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:351
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:501
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:539
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:582
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:50
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun transferService() = TransferServiceImpl()\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:54
+msgid ""
+"The preceding configuration is exactly equivalent to the following Spring "
+"XML:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:60
+#, no-wrap
+msgid ""
+"\t<beans>\n"
+"\t\t<bean id=\"transferService\" class=\"com.acme.TransferServiceImpl\"/>\n"
+"\t</beans>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:65
+msgid ""
+"Both declarations make a bean named `transferService` available in the "
+"`ApplicationContext`, bound to an object instance of type "
+"`TransferServiceImpl`, as the following text image shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:69
+#, no-wrap
+msgid "transferService -> com.acme.TransferServiceImpl\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:73
+msgid ""
+"You can also use default methods to define beans. This allows composition of "
+"bean configurations by implementing interfaces with bean definitions on "
+"default methods."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:81
+#, no-wrap
+msgid "\tpublic interface BaseConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:87
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tdefault TransferServiceImpl transferService() {\n"
+"\t\t\treturn new TransferServiceImpl();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:90
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class AppConfig implements BaseConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:92
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:97
+msgid ""
+"You can also declare your `@Bean` method with an interface (or base class)  "
+"return type, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:112
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic TransferService transferService() {\n"
+"\t\t\treturn new TransferServiceImpl();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:126
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun transferService(): TransferService {\n"
+"\t\t\treturn TransferServiceImpl()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:136
+msgid ""
+"However, this limits the visibility for advance type prediction to the "
+"specified interface type (`TransferService`). Then, with the full type "
+"(`TransferServiceImpl`)  known to the container only once the affected "
+"singleton bean has been instantiated.  Non-lazy singleton beans get "
+"instantiated according to their declaration order, so you may see different "
+"type matching results depending on when another component tries to match by "
+"a non-declared type (such as `@Autowired TransferServiceImpl`, which "
+"resolves only once the `transferService` bean has been instantiated)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:142
+msgid ""
+"If you consistently refer to your types by a declared service interface, "
+"your `@Bean` return types may safely join that design decision. However, for "
+"components that implement several interfaces or for components potentially "
+"referred to by their implementation type, it is safer to declare the most "
+"specific return type possible (at least as specific as required by the "
+"injection points that refer to your bean)."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:145
+#, no-wrap
+msgid "Bean Dependencies"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:151
+msgid ""
+"A `@Bean`-annotated method can have an arbitrary number of parameters that "
+"describe the dependencies required to build that bean. For instance, if our "
+"`TransferService` requires an `AccountRepository`, we can materialize that "
+"dependency with a method parameter, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:166
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic TransferService transferService(AccountRepository "
+"accountRepository) {\n"
+"\t\t\treturn new TransferServiceImpl(accountRepository);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:180
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun transferService(accountRepository: AccountRepository): "
+"TransferService {\n"
+"\t\t\treturn TransferServiceImpl(accountRepository)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:187
+msgid ""
+"The resolution mechanism is pretty much identical to constructor-based "
+"dependency injection. See "
+"xref:core/beans/dependencies/factory-collaborators.adoc#beans-constructor-injection[the "
+"relevant section] for more details."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:190
+#, no-wrap
+msgid "Receiving Lifecycle Callbacks"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:196
+msgid ""
+"Any classes defined with the `@Bean` annotation support the regular "
+"lifecycle callbacks and can use the `@PostConstruct` and `@PreDestroy` "
+"annotations from JSR-250. See "
+"xref:core/beans/annotation-config/postconstruct-and-predestroy-annotations.adoc[JSR-250 "
+"annotations] for further details."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:200
+msgid ""
+"The regular Spring xref:core/beans/factory-nature.adoc[lifecycle] callbacks "
+"are fully supported as well. If a bean implements `InitializingBean`, "
+"`DisposableBean`, or `Lifecycle`, their respective methods are called by the "
+"container."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:205
+msgid ""
+"The standard set of `*Aware` interfaces (such as "
+"xref:core/beans/beanfactory.adoc[BeanFactoryAware], "
+"xref:core/beans/factory-nature.adoc#beans-factory-aware[BeanNameAware], "
+"xref:core/beans/context-introduction.adoc#context-functionality-messagesource[MessageSourceAware], "
+"xref:core/beans/factory-nature.adoc#beans-factory-aware[ApplicationContextAware], "
+"and so on) are also fully supported."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:209
+msgid ""
+"The `@Bean` annotation supports specifying arbitrary initialization and "
+"destruction callback methods, much like Spring XML's `init-method` and "
+"`destroy-method` attributes on the `bean` element, as the following example "
+"shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:217
+#, no-wrap
+msgid "\tpublic class BeanOne {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:222
+#, no-wrap
+msgid ""
+"\t\tpublic void init() {\n"
+"\t\t\t// initialization logic\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:224
+#, no-wrap
+msgid "\tpublic class BeanTwo {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:229
+#, no-wrap
+msgid ""
+"\t\tpublic void cleanup() {\n"
+"\t\t\t// destruction logic\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:237
+#, no-wrap
+msgid ""
+"\t\t@Bean(initMethod = \"init\")\n"
+"\t\tpublic BeanOne beanOne() {\n"
+"\t\t\treturn new BeanOne();\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:243
+#, no-wrap
+msgid ""
+"\t\t@Bean(destroyMethod = \"cleanup\")\n"
+"\t\tpublic BeanTwo beanTwo() {\n"
+"\t\t\treturn new BeanTwo();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:250
+#, no-wrap
+msgid "class BeanOne {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:255
+#, no-wrap
+msgid ""
+"\tfun init() {\n"
+"\t\t// initialization logic\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:257
+#, no-wrap
+msgid "class BeanTwo {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:262
+#, no-wrap
+msgid ""
+"\tfun cleanup() {\n"
+"\t\t// destruction logic\n"
+"\t}\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:265
+#, no-wrap
+msgid ""
+"@Configuration\n"
+"class AppConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:268
+#, no-wrap
+msgid ""
+"\t@Bean(initMethod = \"init\")\n"
+"\tfun beanOne() = BeanOne()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:272
+#, no-wrap
+msgid ""
+"\t@Bean(destroyMethod = \"cleanup\")\n"
+"\tfun beanTwo() = BeanTwo()\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:282
+msgid ""
+"By default, beans defined with Java configuration that have a public `close` "
+"or `shutdown` method are automatically enlisted with a destruction "
+"callback. If you have a public `close` or `shutdown` method and you do not "
+"wish for it to be called when the container shuts down, you can add "
+"`@Bean(destroyMethod = \"\")` to your bean definition to disable the default "
+"`(inferred)` mode."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:286
+msgid ""
+"You may want to do that by default for a resource that you acquire with "
+"JNDI, as its lifecycle is managed outside the application. In particular, "
+"make sure to always do it for a `DataSource`, as it is known to be "
+"problematic on Jakarta EE application servers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:289
+msgid ""
+"The following example shows how to prevent an automatic destruction callback "
+"for a `DataSource`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:300
+#, no-wrap
+msgid ""
+"\t@Bean(destroyMethod = \"\")\n"
+"\tpublic DataSource dataSource() throws NamingException {\n"
+"\t\treturn (DataSource) jndiTemplate.lookup(\"MyDS\");\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:310
+#, no-wrap
+msgid ""
+"\t@Bean(destroyMethod = \"\")\n"
+"\tfun dataSource(): DataSource {\n"
+"\t\treturn jndiTemplate.lookup(\"MyDS\") as DataSource\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:319
+msgid ""
+"Also, with `@Bean` methods, you typically use programmatic JNDI lookups, "
+"either by using Spring's `JndiTemplate` or `JndiLocatorDelegate` helpers or "
+"straight JNDI `InitialContext` usage but not the `JndiObjectFactoryBean` "
+"variant (which would force you to declare the return type as the "
+"`FactoryBean` type instead of the actual target type, making it harder to "
+"use for cross-reference calls in other `@Bean` methods that intend to refer "
+"to the provided resource here)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:324
+msgid ""
+"In the case of `BeanOne` from the example above the preceding note, it would "
+"be equally valid to call the `init()` method directly during construction, "
+"as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:340
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tpublic BeanOne beanOne() {\n"
+"\t\t\tBeanOne beanOne = new BeanOne();\n"
+"\t\t\tbeanOne.init();\n"
+"\t\t\treturn beanOne;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:343
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:359
+#, no-wrap
+msgid ""
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:356
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\tfun beanOne() = BeanOne().apply {\n"
+"\t\t\tinit()\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:364
+msgid ""
+"When you work directly in Java, you can do anything you like with your "
+"objects and do not always need to rely on the container lifecycle."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:367
+#, no-wrap
+msgid "Specifying Bean Scope"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:370
+msgid ""
+"Spring includes the `@Scope` annotation so that you can specify the scope of "
+"a bean."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:372
+#, no-wrap
+msgid "Using the `@Scope` Annotation"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:377
+msgid ""
+"You can specify that your beans defined with the `@Bean` annotation should "
+"have a specific scope. You can use any of the standard scopes specified in "
+"the xref:core/beans/factory-scopes.adoc[Bean Scopes] section."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:380
+msgid ""
+"The default scope is `singleton`, but you can override this with the "
+"`@Scope` annotation, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:389
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class MyConfiguration {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:396
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\t@Scope(\"prototype\")\n"
+"\t\tpublic Encryptor encryptor() {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:404
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass MyConfiguration {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:411
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\t@Scope(\"prototype\")\n"
+"\t\tfun encryptor(): Encryptor {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:415
+#, no-wrap
+msgid "`@Scope` and `scoped-proxy`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:425
+msgid ""
+"Spring offers a convenient way of working with scoped dependencies through "
+"xref:core/beans/factory-scopes.adoc#beans-factory-scopes-other-injection[scoped "
+"proxies]. The easiest way to create such a proxy when using the XML "
+"configuration is the `<aop:scoped-proxy/>` element.  Configuring your beans "
+"in Java with a `@Scope` annotation offers equivalent support with the "
+"`proxyMode` attribute. The default is `ScopedProxyMode.DEFAULT`, which "
+"typically indicates that no scoped proxy should be created unless a "
+"different default has been configured at the component-scan instruction "
+"level. You can specify `ScopedProxyMode.TARGET_CLASS`, "
+"`ScopedProxyMode.INTERFACES` or `ScopedProxyMode.NO`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:429
+msgid ""
+"If you port the scoped proxy example from the XML reference documentation "
+"(see "
+"xref:core/beans/factory-scopes.adoc#beans-factory-scopes-other-injection[scoped "
+"proxies]) to our `@Bean` using Java, it resembles the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:442
+#, no-wrap
+msgid ""
+"\t// an HTTP Session-scoped bean exposed as a proxy\n"
+"\t@Bean\n"
+"\t@SessionScope\n"
+"\tpublic UserPreferences userPreferences() {\n"
+"\t\treturn new UserPreferences();\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:450
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\tpublic Service userService() {\n"
+"\t\tUserService service = new SimpleUserService();\n"
+"\t\t// a reference to the proxied userPreferences bean\n"
+"\t\tservice.setUserPreferences(userPreferences());\n"
+"\t\treturn service;\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:460
+#, no-wrap
+msgid ""
+"\t// an HTTP Session-scoped bean exposed as a proxy\n"
+"\t@Bean\n"
+"\t@SessionScope\n"
+"\tfun userPreferences() = UserPreferences()\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:468
+#, no-wrap
+msgid ""
+"\t@Bean\n"
+"\tfun userService(): Service {\n"
+"\t\treturn SimpleUserService().apply {\n"
+"\t\t\t// a reference to the proxied userPreferences bean\n"
+"\t\t\tsetUserPreferences(userPreferences())\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:473
+#, no-wrap
+msgid "Customizing Bean Naming"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:478
+msgid ""
+"By default, configuration classes use a `@Bean` method's name as the name of "
+"the resulting bean. This functionality can be overridden, however, with the "
+"`name` attribute, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:493
+#, no-wrap
+msgid ""
+"\t\t@Bean(\"myThing\")\n"
+"\t\tpublic Thing thing() {\n"
+"\t\t\treturn new Thing();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:505
+#, no-wrap
+msgid ""
+"\t\t@Bean(\"myThing\")\n"
+"\t\tfun thing() = Thing()\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:510
+#, no-wrap
+msgid "Bean Aliasing"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:516
+msgid ""
+"As discussed in xref:core/beans/definition.adoc#beans-beanname[Naming "
+"Beans], it is sometimes desirable to give a single bean multiple names, "
+"otherwise known as bean aliasing.  The `name` attribute of the `@Bean` "
+"annotation accepts a String array for this purpose.  The following example "
+"shows how to set a number of aliases for a bean:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:531
+#, no-wrap
+msgid ""
+"\t\t@Bean({\"dataSource\", \"subsystemA-dataSource\", "
+"\"subsystemB-dataSource\"})\n"
+"\t\tpublic DataSource dataSource() {\n"
+"\t\t\t// instantiate, configure and return DataSource bean...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:545
+#, no-wrap
+msgid ""
+"\t\t@Bean(\"dataSource\", \"subsystemA-dataSource\", "
+"\"subsystemB-dataSource\")\n"
+"\t\tfun dataSource(): DataSource {\n"
+"\t\t\t// instantiate, configure and return DataSource bean...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:550
+#, no-wrap
+msgid "Bean Description"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:554
+msgid ""
+"Sometimes, it is helpful to provide a more detailed textual description of a "
+"bean. This can be particularly useful when beans are exposed (perhaps "
+"through JMX) for monitoring purposes."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:558
+msgid ""
+"To add a description to a `@Bean`, you can use the "
+"{spring-framework-api}/context/annotation/Description.html[`@Description`] "
+"annotation, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:574
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\t@Description(\"Provides a basic example of a bean\")\n"
+"\t\tpublic Thing thing() {\n"
+"\t\t\treturn new Thing();\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/java/bean-annotation.adoc:587
+#, no-wrap
+msgid ""
+"\t\t@Bean\n"
+"\t\t@Description(\"Provides a basic example of a bean\")\n"
+"\t\tfun thing() = Thing()\n"
+"\t}\n"
+msgstr ""

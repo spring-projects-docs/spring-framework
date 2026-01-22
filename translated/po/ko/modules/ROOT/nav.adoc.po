@@ -1,0 +1,2371 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:54+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:2
+msgid "xref:overview.adoc[Overview]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:3
+msgid "xref:core.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:4
+msgid "xref:core/beans.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:5
+msgid "xref:core/beans/introduction.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:6
+msgid "xref:core/beans/basics.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:7
+msgid "xref:core/beans/definition.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:8
+msgid "xref:core/beans/dependencies.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:9
+msgid "xref:core/beans/dependencies/factory-collaborators.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:10
+msgid "xref:core/beans/dependencies/factory-properties-detailed.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:11
+msgid "xref:core/beans/dependencies/factory-dependson.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:12
+msgid "xref:core/beans/dependencies/factory-lazy-init.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:13
+msgid "xref:core/beans/dependencies/factory-autowire.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:14
+msgid "xref:core/beans/dependencies/factory-method-injection.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:15
+msgid "xref:core/beans/factory-scopes.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:16
+msgid "xref:core/beans/factory-nature.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:17
+msgid "xref:core/beans/child-bean-definitions.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:18
+msgid "xref:core/beans/factory-extension.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:19
+msgid "xref:core/beans/annotation-config.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:20
+msgid "xref:core/beans/annotation-config/autowired.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:21
+msgid "xref:core/beans/annotation-config/autowired-primary.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:22
+msgid "xref:core/beans/annotation-config/autowired-qualifiers.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:23
+msgid "xref:core/beans/annotation-config/generics-as-qualifiers.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:24
+msgid "xref:core/beans/annotation-config/custom-autowire-configurer.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:25
+msgid "xref:core/beans/annotation-config/resource.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:26
+msgid "xref:core/beans/annotation-config/value-annotations.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:27
+msgid ""
+"xref:core/beans/annotation-config/postconstruct-and-predestroy-annotations."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:28
+msgid "xref:core/beans/classpath-scanning.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:29
+msgid "xref:core/beans/standard-annotations.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:30
+msgid "xref:core/beans/java.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:31
+msgid "xref:core/beans/java/basic-concepts.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:32
+msgid "xref:core/beans/java/instantiating-container.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:33
+msgid "xref:core/beans/java/bean-annotation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:34
+msgid "xref:core/beans/java/configuration-annotation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:35
+msgid "xref:core/beans/java/composing-configuration-classes.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:36
+msgid "xref:core/beans/java/programmatic-bean-registration.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:37
+msgid "xref:core/beans/environment.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:38
+msgid "xref:core/beans/context-load-time-weaver.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:39
+msgid "xref:core/beans/context-introduction.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:40
+msgid "xref:core/beans/beanfactory.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:41
+msgid "xref:core/resources.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:42
+msgid "xref:core/validation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:43
+msgid "xref:core/validation/validator.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:44
+msgid "xref:core/validation/data-binding.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:45
+msgid "xref:core/validation/error-code-resolution.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:46
+msgid "xref:core/validation/convert.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:47
+msgid "xref:core/validation/format.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:48
+msgid ""
+"xref:core/validation/format-configuring-formatting-globaldatetimeformat."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:49
+msgid "xref:core/validation/beanvalidation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:50
+msgid "xref:core/expressions.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:51
+msgid "xref:core/expressions/evaluation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:52
+msgid "xref:core/expressions/beandef.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:53
+msgid "xref:core/expressions/language-ref.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:54
+msgid "xref:core/expressions/language-ref/literal.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:55
+msgid "xref:core/expressions/language-ref/properties-arrays.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:56
+msgid "xref:core/expressions/language-ref/inline-lists.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:57
+msgid "xref:core/expressions/language-ref/inline-maps.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:58
+msgid "xref:core/expressions/language-ref/array-construction.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:59
+msgid "xref:core/expressions/language-ref/methods.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:60
+msgid "xref:core/expressions/language-ref/operators.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:61
+msgid "xref:core/expressions/language-ref/types.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:62
+msgid "xref:core/expressions/language-ref/constructors.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:63
+msgid "xref:core/expressions/language-ref/variables.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:64
+msgid "xref:core/expressions/language-ref/functions.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:65
+msgid "xref:core/expressions/language-ref/varargs.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:66
+msgid "xref:core/expressions/language-ref/bean-references.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:67
+msgid "xref:core/expressions/language-ref/operator-ternary.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:68
+msgid "xref:core/expressions/language-ref/operator-elvis.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:69
+msgid "xref:core/expressions/language-ref/operator-safe-navigation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:70
+msgid "xref:core/expressions/language-ref/collection-selection.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:71
+msgid "xref:core/expressions/language-ref/collection-projection.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:72
+msgid "xref:core/expressions/language-ref/templating.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:73
+msgid "xref:core/expressions/example-classes.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:74
+msgid "xref:core/aop.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:75
+msgid "xref:core/aop/introduction-defn.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:76
+msgid "xref:core/aop/introduction-spring-defn.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:77
+msgid "xref:core/aop/introduction-proxies.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:78
+msgid "xref:core/aop/ataspectj.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:79
+msgid "xref:core/aop/ataspectj/aspectj-support.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:80
+msgid "xref:core/aop/ataspectj/at-aspectj.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:81
+msgid "xref:core/aop/ataspectj/pointcuts.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:82
+msgid "xref:core/aop/ataspectj/advice.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:83
+msgid "xref:core/aop/ataspectj/introductions.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:84
+msgid "xref:core/aop/ataspectj/instantiation-models.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:85
+msgid "xref:core/aop/ataspectj/example.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:86
+msgid "xref:core/aop/schema.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:87
+msgid "xref:core/aop/choosing.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:88
+msgid "xref:core/aop/mixing-styles.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:89
+msgid "xref:core/aop/proxying.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:90
+msgid "xref:core/aop/aspectj-programmatic.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:91
+msgid "xref:core/aop/using-aspectj.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:92
+msgid "xref:core/aop/resources.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:93
+msgid "xref:core/aop-api.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:94
+msgid "xref:core/aop-api/pointcuts.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:95
+msgid "xref:core/aop-api/advice.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:96
+msgid "xref:core/aop-api/advisor.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:97
+msgid "xref:core/aop-api/pfb.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:98
+msgid "xref:core/aop-api/concise-proxy.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:99
+msgid "xref:core/aop-api/prog.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:100
+msgid "xref:core/aop-api/advised.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:101
+msgid "xref:core/aop-api/autoproxy.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:102
+msgid "xref:core/aop-api/targetsource.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:103
+msgid "xref:core/aop-api/extensibility.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:104
+msgid "xref:core/resilience.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:105
+msgid "xref:core/null-safety.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:106
+msgid "xref:core/databuffer-codec.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:107
+msgid "xref:core/aot.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:108
+msgid "xref:core/appendix.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:109
+msgid "xref:core/appendix/xsd-schemas.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:110
+msgid "xref:core/appendix/xml-custom.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:111
+msgid "xref:core/appendix/application-startup-steps.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:112
+msgid "xref:data-access.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:113
+msgid "xref:data-access/transaction.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:114
+msgid "xref:data-access/transaction/motivation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:115
+msgid "xref:data-access/transaction/strategies.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:116
+msgid "xref:data-access/transaction/tx-resource-synchronization.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:117
+msgid "xref:data-access/transaction/declarative.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:118
+msgid "xref:data-access/transaction/declarative/tx-decl-explained.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:119
+msgid "xref:data-access/transaction/declarative/first-example.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:120
+msgid "xref:data-access/transaction/declarative/rolling-back.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:121
+msgid "xref:data-access/transaction/declarative/diff-tx.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:122
+msgid "xref:data-access/transaction/declarative/txadvice-settings.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:123
+msgid "xref:data-access/transaction/declarative/annotations.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:124
+msgid "xref:data-access/transaction/declarative/tx-propagation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:125
+msgid ""
+"xref:data-access/transaction/declarative/applying-more-than-just-tx-advice."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:126
+msgid "xref:data-access/transaction/declarative/aspectj.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:127
+msgid "xref:data-access/transaction/programmatic.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:128
+msgid "xref:data-access/transaction/tx-decl-vs-prog.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:129
+msgid "xref:data-access/transaction/event.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:130
+msgid "xref:data-access/transaction/application-server-integration.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:131
+msgid "xref:data-access/transaction/solutions-to-common-problems.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:132
+msgid "xref:data-access/transaction/resources.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:133
+msgid "xref:data-access/dao.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:134
+msgid "xref:data-access/jdbc.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:135
+msgid "xref:data-access/jdbc/choose-style.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:136
+msgid "xref:data-access/jdbc/packages.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:137
+msgid "xref:data-access/jdbc/core.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:138
+msgid "xref:data-access/jdbc/connections.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:139
+msgid "xref:data-access/jdbc/advanced.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:140
+msgid "xref:data-access/jdbc/simple.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:141
+msgid "xref:data-access/jdbc/object.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:142
+msgid "xref:data-access/jdbc/parameter-handling.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:143
+msgid "xref:data-access/jdbc/embedded-database-support.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:144
+msgid "xref:data-access/jdbc/initializing-datasource.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:145
+msgid "xref:data-access/r2dbc.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:146
+msgid "xref:data-access/orm.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:147
+msgid "xref:data-access/orm/introduction.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:148
+msgid "xref:data-access/orm/general.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:149
+msgid "xref:data-access/orm/hibernate.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:150
+msgid "xref:data-access/orm/jpa.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:151
+msgid "xref:data-access/oxm.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:152
+msgid "xref:data-access/appendix.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:153
+msgid "xref:web.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:154
+msgid "xref:web/webmvc.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:155
+msgid "xref:web/webmvc/mvc-servlet.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:156
+msgid "xref:web/webmvc/mvc-servlet/context-hierarchy.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:157
+msgid "xref:web/webmvc/mvc-servlet/special-bean-types.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:158
+msgid "xref:web/webmvc/mvc-servlet/config.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:159
+msgid "xref:web/webmvc/mvc-servlet/container-config.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:160
+msgid "xref:web/webmvc/mvc-servlet/sequence.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:161
+msgid "xref:web/webmvc/mvc-servlet/handlermapping-path.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:162
+msgid "xref:web/webmvc/mvc-servlet/handlermapping-interceptor.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:163
+msgid "xref:web/webmvc/mvc-servlet/exceptionhandlers.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:164
+msgid "xref:web/webmvc/mvc-servlet/viewresolver.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:165
+msgid "xref:web/webmvc/mvc-servlet/localeresolver.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:166
+msgid "xref:web/webmvc/mvc-servlet/multipart.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:167
+msgid "xref:web/webmvc/mvc-servlet/logging.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:168
+msgid "xref:web/webmvc/filters.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:169
+msgid "xref:web/webmvc/message-converters.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:170
+msgid "xref:web/webmvc/mvc-controller.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:171
+msgid "xref:web/webmvc/mvc-controller/ann.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:172
+msgid "xref:web/webmvc/mvc-controller/ann-requestmapping.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:173
+msgid "xref:web/webmvc/mvc-controller/ann-methods.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:174
+msgid "xref:web/webmvc/mvc-controller/ann-methods/arguments.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:175
+msgid "xref:web/webmvc/mvc-controller/ann-methods/return-types.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:176
+msgid "xref:web/webmvc/mvc-controller/ann-methods/typeconversion.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:177
+msgid "xref:web/webmvc/mvc-controller/ann-methods/matrix-variables.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:178
+msgid "xref:web/webmvc/mvc-controller/ann-methods/requestparam.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:179
+msgid "xref:web/webmvc/mvc-controller/ann-methods/requestheader.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:180
+msgid "xref:web/webmvc/mvc-controller/ann-methods/cookievalue.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:181
+msgid ""
+"xref:web/webmvc/mvc-controller/ann-methods/modelattrib-method-args.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:182
+msgid "xref:web/webmvc/mvc-controller/ann-methods/sessionattributes.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:183
+msgid "xref:web/webmvc/mvc-controller/ann-methods/sessionattribute.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:184
+msgid "xref:web/webmvc/mvc-controller/ann-methods/requestattrib.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:185
+msgid ""
+"xref:web/webmvc/mvc-controller/ann-methods/redirecting-passing-data.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:186
+msgid "xref:web/webmvc/mvc-controller/ann-methods/flash-attributes.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:187
+msgid "xref:web/webmvc/mvc-controller/ann-methods/multipart-forms.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:188
+msgid "xref:web/webmvc/mvc-controller/ann-methods/requestbody.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:189
+msgid "xref:web/webmvc/mvc-controller/ann-methods/httpentity.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:190
+msgid "xref:web/webmvc/mvc-controller/ann-methods/responsebody.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:191
+msgid "xref:web/webmvc/mvc-controller/ann-methods/responseentity.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:192
+msgid "xref:web/webmvc/mvc-controller/ann-methods/jackson.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:193
+msgid "xref:web/webmvc/mvc-controller/ann-modelattrib-methods.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:194
+msgid "xref:web/webmvc/mvc-controller/ann-initbinder.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:195
+msgid "xref:web/webmvc/mvc-controller/ann-validation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:196
+msgid "xref:web/webmvc/mvc-controller/ann-exceptionhandler.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:197
+msgid "xref:web/webmvc/mvc-controller/ann-advice.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:198
+msgid "xref:web/webmvc-functional.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:199
+msgid "xref:web/webmvc/mvc-uri-building.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:200
+msgid "xref:web/webmvc/mvc-ann-async.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:201
+msgid "xref:web/webmvc/mvc-range.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:202
+msgid "xref:web/webmvc-cors.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:203
+msgid "xref:web/webmvc-versioning.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:204
+msgid "xref:web/webmvc/mvc-ann-rest-exceptions.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:205
+msgid "xref:web/webmvc/mvc-security.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:206
+msgid "xref:web/webmvc/mvc-caching.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:207
+msgid "xref:web/webmvc-view.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:208
+msgid "xref:web/webmvc-view/mvc-thymeleaf.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:209
+msgid "xref:web/webmvc-view/mvc-freemarker.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:210
+msgid "xref:web/webmvc-view/mvc-groovymarkup.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:211
+msgid "xref:web/webmvc-view/mvc-script.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:212
+msgid "xref:web/webmvc-view/mvc-fragments.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:213
+msgid "xref:web/webmvc-view/mvc-jsp.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:214
+msgid "xref:web/webmvc-view/mvc-feeds.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:215
+msgid "xref:web/webmvc-view/mvc-document.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:216
+msgid "xref:web/webmvc-view/mvc-jackson.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:217
+msgid "xref:web/webmvc-view/mvc-xml-marshalling.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:218
+msgid "xref:web/webmvc-view/mvc-xslt.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:219
+msgid "xref:web/webmvc/mvc-config.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:220
+msgid "xref:web/webmvc/mvc-config/enable.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:221
+msgid "xref:web/webmvc/mvc-config/customize.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:222
+msgid "xref:web/webmvc/mvc-config/conversion.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:223
+msgid "xref:web/webmvc/mvc-config/validation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:224
+msgid "xref:web/webmvc/mvc-config/interceptors.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:225
+msgid "xref:web/webmvc/mvc-config/content-negotiation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:226
+msgid "xref:web/webmvc/mvc-config/message-converters.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:227
+msgid "xref:web/webmvc/mvc-config/view-controller.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:228
+msgid "xref:web/webmvc/mvc-config/view-resolvers.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:229
+msgid "xref:web/webmvc/mvc-config/static-resources.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:230
+msgid "xref:web/webmvc/mvc-config/default-servlet-handler.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:231
+msgid "xref:web/webmvc/mvc-config/path-matching.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:232
+msgid "xref:web/webmvc/mvc-config/api-version.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:233
+msgid "xref:web/webmvc/mvc-config/advanced-java.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:234
+msgid "xref:web/webmvc/mvc-config/advanced-xml.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:235
+msgid "xref:web/webmvc/mvc-http2.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:236
+msgid "xref:web/webmvc-client.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:237
+msgid "xref:web/webmvc-test.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:238
+msgid "xref:web/websocket.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:239
+msgid "xref:web/websocket/server.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:240
+msgid "xref:web/websocket/fallback.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:241
+msgid "xref:web/websocket/stomp.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:242
+msgid "xref:web/websocket/stomp/overview.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:243
+msgid "xref:web/websocket/stomp/benefits.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:244
+msgid "xref:web/websocket/stomp/enable.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:245
+msgid "xref:web/websocket/stomp/server-config.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:246
+msgid "xref:web/websocket/stomp/message-flow.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:247
+msgid "xref:web/websocket/stomp/handle-annotations.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:248
+msgid "xref:web/websocket/stomp/handle-send.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:249
+msgid "xref:web/websocket/stomp/handle-simple-broker.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:250
+msgid "xref:web/websocket/stomp/handle-broker-relay.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:251
+msgid "xref:web/websocket/stomp/handle-broker-relay-configure.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:252
+msgid "xref:web/websocket/stomp/destination-separator.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:253
+msgid "xref:web/websocket/stomp/authentication.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:254
+msgid "xref:web/websocket/stomp/authentication-token-based.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:255
+msgid "xref:web/websocket/stomp/authorization.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:256
+msgid "xref:web/websocket/stomp/user-destination.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:257
+msgid "xref:web/websocket/stomp/ordered-messages.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:258
+msgid "xref:web/websocket/stomp/application-context-events.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:259
+msgid "xref:web/websocket/stomp/interceptors.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:260
+msgid "xref:web/websocket/stomp/client.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:261
+msgid "xref:web/websocket/stomp/scope.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:262
+msgid "xref:web/websocket/stomp/configuration-performance.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:263
+msgid "xref:web/websocket/stomp/stats.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:264
+msgid "xref:web/websocket/stomp/testing.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:265
+msgid "xref:web-reactive.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:266
+msgid "xref:web/webflux.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:267
+msgid "xref:web/webflux/new-framework.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:268
+msgid "xref:web/webflux/reactive-spring.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:269
+msgid "xref:web/webflux/dispatcher-handler.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:270
+msgid "xref:web/webflux/controller.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:271
+msgid "xref:web/webflux/controller/ann.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:272
+msgid "xref:web/webflux/controller/ann-requestmapping.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:273
+msgid "xref:web/webflux/controller/ann-methods.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:274
+msgid "xref:web/webflux/controller/ann-methods/arguments.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:275
+msgid "xref:web/webflux/controller/ann-methods/return-types.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:276
+msgid "xref:web/webflux/controller/ann-methods/typeconversion.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:277
+msgid "xref:web/webflux/controller/ann-methods/matrix-variables.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:278
+msgid "xref:web/webflux/controller/ann-methods/requestparam.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:279
+msgid "xref:web/webflux/controller/ann-methods/requestheader.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:280
+msgid "xref:web/webflux/controller/ann-methods/cookievalue.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:281
+msgid "xref:web/webflux/controller/ann-methods/modelattrib-method-args.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:282
+msgid "xref:web/webflux/controller/ann-methods/sessionattributes.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:283
+msgid "xref:web/webflux/controller/ann-methods/sessionattribute.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:284
+msgid "xref:web/webflux/controller/ann-methods/requestattrib.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:285
+msgid "xref:web/webflux/controller/ann-methods/multipart-forms.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:286
+msgid "xref:web/webflux/controller/ann-methods/requestbody.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:287
+msgid "xref:web/webflux/controller/ann-methods/httpentity.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:288
+msgid "xref:web/webflux/controller/ann-methods/responsebody.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:289
+msgid "xref:web/webflux/controller/ann-methods/responseentity.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:290
+msgid "xref:web/webflux/controller/ann-methods/jackson.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:291
+msgid "xref:web/webflux/controller/ann-modelattrib-methods.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:292
+msgid "xref:web/webflux/controller/ann-initbinder.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:293
+msgid "xref:web/webflux/controller/ann-validation.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:294
+msgid "xref:web/webflux/controller/ann-exceptions.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:295
+msgid "xref:web/webflux/controller/ann-advice.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:296
+msgid "xref:web/webflux-functional.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:297
+msgid "xref:web/webflux/uri-building.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:298
+msgid "xref:web/webflux/range.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:299
+msgid "xref:web/webflux-cors.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:300
+msgid "xref:web/webflux-versioning.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:301
+msgid "xref:web/webflux/ann-rest-exceptions.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:302
+msgid "xref:web/webflux/security.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:303
+msgid "xref:web/webflux/caching.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:304
+msgid "xref:web/webflux-view.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:305
+msgid "xref:web/webflux/config.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:306
+msgid "xref:web/webflux/http2.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:307
+msgid "xref:web/webflux-webclient.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:308
+msgid "xref:web/webflux-webclient/client-builder.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:309
+msgid "xref:web/webflux-webclient/client-retrieve.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:310
+msgid "xref:web/webflux-webclient/client-exchange.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:311
+msgid "xref:web/webflux-webclient/client-body.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:312
+msgid "xref:web/webflux-webclient/client-filter.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:313
+msgid "xref:web/webflux-webclient/client-attributes.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:314
+msgid "xref:web/webflux-webclient/client-context.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:315
+msgid "xref:web/webflux-webclient/client-synchronous.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:316
+msgid "xref:web/webflux-webclient/client-testing.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:317
+msgid "xref:web/webflux-http-service-client.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:318
+msgid "xref:web/webflux-websocket.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:319
+msgid "xref:web/webflux-test.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:320
+msgid "xref:rsocket.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:321
+msgid "xref:web/webflux-reactive-libraries.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:322
+msgid "xref:testing.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:323
+msgid "xref:testing/introduction.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:324
+msgid "xref:testing/unit.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:325
+msgid "xref:testing/integration.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:326
+msgid "xref:testing/support-jdbc.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:327
+msgid "xref:testing/testcontext-framework.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:328
+msgid "xref:testing/testcontext-framework/key-abstractions.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:329
+msgid "xref:testing/testcontext-framework/bootstrapping.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:330
+msgid "xref:testing/testcontext-framework/tel-config.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:331
+msgid "xref:testing/testcontext-framework/application-events.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:332
+msgid "xref:testing/testcontext-framework/test-execution-events.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:333
+msgid "xref:testing/testcontext-framework/ctx-management.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:334
+msgid "xref:testing/testcontext-framework/ctx-management/xml.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:335
+msgid "xref:testing/testcontext-framework/ctx-management/groovy.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:336
+msgid "xref:testing/testcontext-framework/ctx-management/javaconfig.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:337
+msgid "xref:testing/testcontext-framework/ctx-management/mixed-config.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:338
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/context-customizers.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:339
+msgid "xref:testing/testcontext-framework/ctx-management/initializers.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:340
+msgid "xref:testing/testcontext-framework/ctx-management/inheritance.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:341
+msgid "xref:testing/testcontext-framework/ctx-management/env-profiles.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:342
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/property-sources.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:343
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/dynamic-property-sources."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:344
+msgid "xref:testing/testcontext-framework/ctx-management/web.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:345
+msgid "xref:testing/testcontext-framework/ctx-management/web-mocks.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:346
+msgid "xref:testing/testcontext-framework/ctx-management/caching.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:347
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/context-pausing.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:348
+msgid ""
+"xref:testing/testcontext-framework/ctx-management/failure-threshold.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:349
+msgid "xref:testing/testcontext-framework/ctx-management/hierarchies.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:350
+msgid "xref:testing/testcontext-framework/fixture-di.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:351
+msgid "xref:testing/testcontext-framework/bean-overriding.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:352
+msgid "xref:testing/testcontext-framework/web-scoped-beans.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:353
+msgid "xref:testing/testcontext-framework/tx.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:354
+msgid "xref:testing/testcontext-framework/executing-sql.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:355
+msgid "xref:testing/testcontext-framework/parallel-test-execution.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:356
+msgid "xref:testing/testcontext-framework/support-classes.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:357
+msgid "xref:testing/testcontext-framework/aot.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:358
+msgid "xref:testing/webtestclient.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:359
+msgid "xref:testing/resttestclient.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:360
+msgid "xref:testing/mockmvc.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:361
+msgid "xref:testing/mockmvc/overview.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:362
+msgid "xref:testing/mockmvc/setup-options.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:363
+msgid "xref:testing/mockmvc/hamcrest.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:364
+msgid "xref:testing/mockmvc/hamcrest/static-imports.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:365
+msgid "xref:testing/mockmvc/hamcrest/setup.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:366
+msgid "xref:testing/mockmvc/hamcrest/setup-steps.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:367
+msgid "xref:testing/mockmvc/hamcrest/requests.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:368
+msgid "xref:testing/mockmvc/hamcrest/expectations.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:369
+msgid "xref:testing/mockmvc/hamcrest/async-requests.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:370
+msgid "xref:testing/mockmvc/hamcrest/vs-streaming-response.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:371
+msgid "xref:testing/mockmvc/hamcrest/filters.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:372
+msgid "xref:testing/mockmvc/assertj.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:373
+msgid "xref:testing/mockmvc/assertj/setup.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:374
+msgid "xref:testing/mockmvc/assertj/requests.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:375
+msgid "xref:testing/mockmvc/assertj/assertions.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:376
+msgid "xref:testing/mockmvc/assertj/integration.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:377
+msgid "xref:testing/mockmvc/htmlunit.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:378
+msgid "xref:testing/mockmvc/htmlunit/why.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:379
+msgid "xref:testing/mockmvc/htmlunit/mah.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:380
+msgid "xref:testing/mockmvc/htmlunit/webdriver.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:381
+msgid "xref:testing/mockmvc/htmlunit/geb.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:382
+msgid "xref:testing/mockmvc/vs-end-to-end-integration-tests.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:383
+msgid "xref:testing/mockmvc/resources.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:384
+msgid "xref:testing/spring-mvc-test-client.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:385
+msgid "xref:testing/appendix.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:386
+msgid "xref:testing/annotations.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:387
+msgid "xref:testing/annotations/integration-standard.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:388
+msgid "xref:testing/annotations/integration-spring.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:389
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-bootstrapwith.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:390
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-contextconfiguration."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:391
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-webappconfiguration."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:392
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-contexthierarchy."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:393
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-"
+"contextcustomizerfactories.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:394
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-activeprofiles.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:395
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-testpropertysource."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:396
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-dynamicpropertysource."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:397
+msgid "xref:testing/annotations/integration-spring/annotation-testbean.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:398
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-mockitobean.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:399
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-dirtiescontext.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:400
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-"
+"testexecutionlisteners.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:401
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-"
+"recordapplicationevents.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:402
+msgid "xref:testing/annotations/integration-spring/annotation-commit.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:403
+msgid "xref:testing/annotations/integration-spring/annotation-rollback.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:404
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-beforetransaction."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:405
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-aftertransaction."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:406
+msgid "xref:testing/annotations/integration-spring/annotation-sql.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:407
+msgid "xref:testing/annotations/integration-spring/annotation-sqlconfig.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:408
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-sqlmergemode.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:409
+msgid "xref:testing/annotations/integration-spring/annotation-sqlgroup.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:410
+msgid ""
+"xref:testing/annotations/integration-spring/annotation-disabledinaotmode."
+"adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:411
+msgid "xref:testing/annotations/integration-junit4.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:412
+msgid "xref:testing/annotations/integration-junit-jupiter.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:413
+msgid "xref:testing/annotations/integration-meta.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:414
+msgid "xref:testing/resources.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:415
+msgid "xref:integration.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:416
+msgid "xref:integration/rest-clients.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:417
+msgid "xref:integration/jms.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:418
+msgid "xref:integration/jms/using.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:419
+msgid "xref:integration/jms/sending.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:420
+msgid "xref:integration/jms/receiving.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:421
+msgid "xref:integration/jms/jca-message-endpoint-manager.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:422
+msgid "xref:integration/jms/annotated.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:423
+msgid "xref:integration/jms/namespace.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:424
+msgid "xref:integration/jmx.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:425
+msgid "xref:integration/jmx/exporting.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:426
+msgid "xref:integration/jmx/interface.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:427
+msgid "xref:integration/jmx/naming.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:428
+msgid "xref:integration/jmx/jsr160.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:429
+msgid "xref:integration/jmx/proxy.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:430
+msgid "xref:integration/jmx/notifications.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:431
+msgid "xref:integration/jmx/resources.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:432
+msgid "xref:integration/email.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:433
+msgid "xref:integration/scheduling.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:434
+msgid "xref:integration/cache.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:435
+msgid "xref:integration/cache/strategies.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:436
+msgid "xref:integration/cache/annotations.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:437
+msgid "xref:integration/cache/jsr-107.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:438
+msgid "xref:integration/cache/declarative-xml.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:439
+msgid "xref:integration/cache/store-configuration.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:440
+msgid "xref:integration/cache/plug.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:441
+msgid "xref:integration/cache/specific-config.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:442
+msgid "xref:integration/observability.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:443
+msgid "xref:integration/aot-cache.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:444
+msgid "xref:integration/checkpoint-restore.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:445
+msgid "xref:integration/appendix.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:446
+msgid "xref:languages.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:447
+msgid "xref:languages/kotlin.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:448
+msgid "xref:languages/kotlin/requirements.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:449
+msgid "xref:languages/kotlin/extensions.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:450
+msgid "xref:languages/kotlin/null-safety.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:451
+msgid "xref:languages/kotlin/classes-interfaces.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:452
+msgid "xref:languages/kotlin/annotations.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:453
+msgid "xref:languages/kotlin/bean-registration-dsl.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:454
+msgid "xref:languages/kotlin/web.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:455
+msgid "xref:languages/kotlin/coroutines.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:456
+msgid "xref:languages/kotlin/spring-projects-in.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:457
+msgid "xref:languages/kotlin/getting-started.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:458
+msgid "xref:languages/kotlin/resources.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:459
+msgid "xref:languages/groovy.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:460
+msgid "xref:appendix.adoc[]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:461
+msgid ""
+"{spring-framework-docs-root}/{spring-version}/javadoc-api/[Java API,"
+"window=_blank, role=link-external]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:462
+msgid ""
+"{spring-framework-api-kdoc}/[Kotlin API,window=_blank, role=link-external]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/nav.adoc:462
+msgid "{spring-framework-wiki}[Wiki, window=_blank, role=link-external]"
+msgstr ""

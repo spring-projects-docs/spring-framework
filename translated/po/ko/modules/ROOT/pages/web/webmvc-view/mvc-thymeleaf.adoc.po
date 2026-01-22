@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-thymeleaf.adoc:2
+#, no-wrap
+msgid "Thymeleaf"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-thymeleaf.adoc:6
+msgid ""
+"[.small]#xref:web/webflux-view.adoc#webflux-view-thymeleaf[See equivalent in "
+"the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-thymeleaf.adoc:14
+msgid ""
+"Thymeleaf is a modern server-side Java template engine that emphasizes "
+"natural HTML templates that can be previewed in a browser by "
+"double-clicking, which is very helpful for independent work on UI templates "
+"(for example, by a designer) without the need for a running server. If you "
+"want to replace JSPs, Thymeleaf offers one of the most extensive sets of "
+"features to make such a transition easier. Thymeleaf is actively developed "
+"and maintained. For a more complete introduction, see the "
+"https://www.thymeleaf.org/[Thymeleaf] project home page."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc-view/mvc-thymeleaf.adoc:18
+msgid ""
+"The Thymeleaf integration with Spring MVC is managed by the Thymeleaf "
+"project.  The configuration involves a few bean declarations, such as "
+"`ServletContextTemplateResolver`, `SpringTemplateEngine`, and "
+"`ThymeleafViewResolver`.  See "
+"https://www.thymeleaf.org/documentation.html[Thymeleaf+Spring] for more "
+"details."
+msgstr ""

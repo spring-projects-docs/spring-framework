@@ -1,0 +1,1244 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:2
+#, no-wrap
+msgid "Mapping Requests"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:5
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:7
+msgid "This section discusses request mapping for annotated controllers."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:10
+#, no-wrap
+msgid "`@RequestMapping`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:13
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-annotation[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:18
+msgid ""
+"The `@RequestMapping` annotation is used to map requests to controllers "
+"methods. It has various attributes to match by URL, HTTP method, request "
+"parameters, headers, and media types. You can use it at the class level to "
+"express shared mappings or at the method level to narrow down to a specific "
+"endpoint mapping."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:20
+msgid "There are also HTTP method specific shortcut variants of `@RequestMapping`:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:22
+msgid "`@GetMapping`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:23
+msgid "`@PostMapping`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:24
+msgid "`@PutMapping`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:25
+msgid "`@DeleteMapping`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:26
+msgid "`@PatchMapping`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:31
+msgid ""
+"The preceding annotations are "
+"xref:web/webflux/controller/ann-requestmapping.adoc#webflux-ann-requestmapping-composed[Custom "
+"Annotations] that are provided because, arguably, most controller methods "
+"should be mapped to a specific HTTP method versus using `@RequestMapping`, "
+"which, by default, matches to all HTTP methods. At the same time, a "
+"`@RequestMapping` is still needed at the class level to express shared "
+"mappings."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:37
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:511
+msgid ""
+"`@RequestMapping` cannot be used in conjunction with other `@RequestMapping` "
+"annotations that are declared on the same element (class, interface, or "
+"method). If multiple `@RequestMapping` annotations are detected on the same "
+"element, a warning will be logged, and only the first mapping will be "
+"used. This also applies to composed `@RequestMapping` annotations such as "
+"`@GetMapping`, `@PostMapping`, etc."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:39
+msgid "The following example uses type and method level mappings:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:42
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:99
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:126
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:183
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:247
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:288
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:332
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:359
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:408
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:528
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:598
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:49
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:70
+#, no-wrap
+msgid ""
+"\t@RestController\n"
+"\t@RequestMapping(\"/persons\")\n"
+"\tclass PersonController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:54
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(\"/{id}\")\n"
+"\t\tpublic Person getPerson(@PathVariable Long id) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:61
+#, no-wrap
+msgid ""
+"\t\t@PostMapping\n"
+"\t\t@ResponseStatus(HttpStatus.CREATED)\n"
+"\t\tpublic void add(@RequestBody Person person) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:63
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:109
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:143
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:193
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:257
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:299
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:343
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:370
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:554
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:626
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:75
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(\"/{id}\")\n"
+"\t\tfun getPerson(@PathVariable id: Long): Person {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:82
+#, no-wrap
+msgid ""
+"\t\t@PostMapping\n"
+"\t\t@ResponseStatus(HttpStatus.CREATED)\n"
+"\t\tfun add(@RequestBody person: Person) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:87
+#, no-wrap
+msgid "URI Patterns"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:89
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-uri-templates[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:91
+msgid "You can map requests by using glob patterns and wildcards:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:95
+msgid ""
+"Captured URI variables can be accessed with `@PathVariable`, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:107
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/owners/{ownerId}/pets/{petId}\")\n"
+"\tpublic Pet findPet(@PathVariable Long ownerId, @PathVariable Long petId) "
+"{\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:117
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/owners/{ownerId}/pets/{petId}\")\n"
+"\tfun findPet(@PathVariable ownerId: Long, @PathVariable petId: Long): Pet "
+"{\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:122
+msgid ""
+"You can declare URI variables at the class and method levels, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:133
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\t@RequestMapping(\"/owners/{ownerId}\") // <1>\n"
+"\tpublic class OwnerController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:139
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(\"/pets/{petId}\") // <2>\n"
+"\t\tpublic Pet findPet(@PathVariable Long ownerId, @PathVariable Long petId) "
+"{\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:141
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:158
+msgid "Class-level URI mapping."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:142
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:159
+msgid "Method-level URI mapping."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:150
+#, no-wrap
+msgid ""
+"\t@Controller\n"
+"\t@RequestMapping(\"/owners/{ownerId}\") // <1>\n"
+"\tclass OwnerController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:156
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(\"/pets/{petId}\") // <2>\n"
+"\t\tfun findPet(@PathVariable ownerId: Long, @PathVariable petId: Long): Pet "
+"{\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:167
+msgid ""
+"URI variables are automatically converted to the appropriate type or a "
+"`TypeMismatchException` is raised. Simple types (`int`, `long`, `Date`, and "
+"so on) are supported by default and you can register support for any other "
+"data type.  See "
+"xref:web/webflux/controller/ann-methods/typeconversion.adoc[Type Conversion] "
+"and xref:web/webflux/controller/ann-initbinder.adoc[`DataBinder`]."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:171
+msgid ""
+"URI variables can be named explicitly (for example, "
+"`@PathVariable(\"customId\")`), but you can leave that detail out if the "
+"names are the same and you compile your code with the `-parameters` compiler "
+"flag."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:175
+msgid ""
+"The syntax `{*varName}` declares a URI variable that matches zero or more "
+"remaining path segments. For example `/resources/{*path}` matches all files "
+"under `/resources/`, and the `\"path\"` variable captures the complete path "
+"under `/resources`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:179
+msgid ""
+"The syntax `{varName:regex}` declares a URI variable with a regular "
+"expression that has the syntax: `{varName:regex}`. For example, given a URL "
+"of `/spring-web-3.0.5.jar`, the following method extracts the name, version, "
+"and file extension:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:191
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/{name:[a-z-]+}-{version:\\\\d\\\\.\\\\d\\\\.\\\\d}{ext:\\\\.[a-z]+}\")\n"
+"\tpublic void handle(@PathVariable String version, @PathVariable String ext) "
+"{\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:201
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/{name:[a-z-]+}-{version:\\\\d\\\\.\\\\d\\\\.\\\\d}{ext:\\\\.[a-z]+}\")\n"
+"\tfun handle(@PathVariable version: String, @PathVariable ext: String) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:206
+msgid "URI path patterns can also have:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:211
+msgid ""
+"Embedded `${...}` placeholders that are resolved on startup via "
+"`PropertySourcesPlaceholderConfigurer` against local, system, environment, "
+"and other property sources. This is useful, for example, to parameterize a "
+"base URL based on external configuration."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:212
+msgid "SpEL expressions `#{...}`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:216
+msgid ""
+"Spring WebFlux uses `PathPattern` and the `PathPatternParser` for URI path "
+"matching support.  Both classes are located in `spring-web` and are "
+"expressly designed for use with HTTP URL paths in web applications where a "
+"large number of URI path patterns are matched at runtime."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:221
+msgid ""
+"Spring WebFlux does not support suffix pattern matching -- unlike Spring "
+"MVC, where a mapping such as `/person` also matches to "
+"`/person.{asterisk}`. For URL-based content negotiation, if needed, we "
+"recommend using a query parameter, which is simpler, more explicit, and less "
+"vulnerable to URL path based exploits."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:224
+#, no-wrap
+msgid "Pattern Comparison"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:226
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-pattern-comparison[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:229
+msgid ""
+"When multiple patterns match a URL, they must be compared to find the best "
+"match. This is done with `PathPattern.SPECIFICITY_COMPARATOR`, which looks "
+"for patterns that are more specific."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:233
+msgid ""
+"For every pattern, a score is computed, based on the number of URI variables "
+"and wildcards, where a URI variable scores lower than a wildcard. A pattern "
+"with a lower total score wins. If two patterns have the same score, the "
+"longer is chosen."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:236
+msgid ""
+"Catch-all patterns (for example, `**`, `{*varName}`) are excluded from the "
+"scoring and are always sorted last instead. If two patterns are both "
+"catch-all, the longer is chosen."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:239
+#, no-wrap
+msgid "Consumable Media Types"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:241
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-consumes[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:244
+msgid ""
+"You can narrow the request mapping based on the `Content-Type` of the "
+"request, as the following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:255
+#, no-wrap
+msgid ""
+"\t@PostMapping(path = \"/pets\", consumes = \"application/json\")\n"
+"\tpublic void addPet(@RequestBody Pet pet) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:265
+#, no-wrap
+msgid ""
+"\t@PostMapping(\"/pets\", consumes = [\"application/json\"])\n"
+"\tfun addPet(@RequestBody pet: Pet) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:270
+msgid ""
+"The consumes attribute also supports negation expressions -- for example, "
+"`!text/plain` means any content type other than `text/plain`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:274
+msgid ""
+"You can declare a shared `consumes` attribute at the class level. Unlike "
+"most other request mapping attributes, however, when used at the class "
+"level, a method-level `consumes` attribute overrides rather than extends the "
+"class-level declaration."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:277
+msgid ""
+"`MediaType` provides constants for commonly used media types -- for example, "
+"`APPLICATION_JSON_VALUE` and `APPLICATION_XML_VALUE`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:280
+#, no-wrap
+msgid "Producible Media Types"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:282
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-produces[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:285
+msgid ""
+"You can narrow the request mapping based on the `Accept` request header and "
+"the list of content types that a controller method produces, as the "
+"following example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:297
+#, no-wrap
+msgid ""
+"\t@GetMapping(path = \"/pets/{petId}\", produces = \"application/json\")\n"
+"\t@ResponseBody\n"
+"\tpublic Pet getPet(@PathVariable String petId) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:308
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/pets/{petId}\", produces = [\"application/json\"])\n"
+"\t@ResponseBody\n"
+"\tfun getPet(@PathVariable petId: String): Pet {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:313
+msgid ""
+"The media type can specify a character set. Negated expressions are "
+"supported -- for example, `!text/plain` means any content type other than "
+"`text/plain`."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:317
+msgid ""
+"You can declare a shared `produces` attribute at the class level. Unlike "
+"most other request mapping attributes, however, when used at the class "
+"level, a method-level `produces` attribute overrides rather than extend the "
+"class level declaration."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:320
+msgid ""
+"`MediaType` provides constants for commonly used media types -- for example, "
+"`APPLICATION_JSON_VALUE`, `APPLICATION_XML_VALUE`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:323
+#, no-wrap
+msgid "Parameters and Headers"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:325
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-params-and-headers[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:329
+msgid ""
+"You can narrow request mappings based on query parameter conditions. You can "
+"test for the presence of a query parameter (`myParam`), for its absence "
+"(`!myParam`), or for a specific value (`myParam=myValue`). The following "
+"examples tests for a parameter with a value:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:340
+#, no-wrap
+msgid ""
+"\t@GetMapping(path = \"/pets/{petId}\", params = \"myParam=myValue\") // "
+"<1>\n"
+"\tpublic void findPet(@PathVariable String petId) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:342
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:353
+msgid "Check that `myParam` equals `myValue`."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:351
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/pets/{petId}\", params = [\"myParam=myValue\"]) // <1>\n"
+"\tfun findPet(@PathVariable petId: String) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:356
+msgid ""
+"You can also use the same with request header conditions, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:367
+#, no-wrap
+msgid ""
+"\t@GetMapping(path = \"/pets/{petId}\", headers = \"myHeader=myValue\") // "
+"<1>\n"
+"\tpublic void findPet(@PathVariable String petId) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:369
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:380
+msgid "Check that `myHeader` equals `myValue`."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:378
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/pets/{petId}\", headers = [\"myHeader=myValue\"]) // <1>\n"
+"\tfun findPet(@PathVariable petId: String) {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:384
+#, no-wrap
+msgid "API Version"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:386
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-version[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:392
+msgid ""
+"There is no standard way to specify an API version, so when you enable API "
+"versioning in the "
+"xref:web/webflux/config.adoc#webflux-config-api-version[WebFlux Config] you "
+"need to specify how to resolve the version. The WebFlux Config creates an "
+"xref:web/webflux-versioning.adoc#webflux-versioning-strategy[ApiVersionStrategy] "
+"that in turn is used to map requests."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:395
+msgid ""
+"Once API versioning is enabled, you can begin to map requests with "
+"versions.  The `@RequestMapping` `version` attribute supports the following:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:397
+msgid "Fixed version (\"1.2\") -- matches the given version only"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:398
+msgid "Baseline version (\"1.2+\") -- matches the given version and above"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:399
+msgid ""
+"No value -- matches any version, but is superseded by a more specific "
+"version match"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:403
+msgid ""
+"If multiple controller methods have a version less than or equal to the "
+"request version, the highest of those, and closest to the request version, "
+"is the one considered, in effect superseding the rest."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:405
+msgid "To illustrate this, consider the following mappings:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:415
+#, no-wrap
+msgid ""
+"\t@RestController\n"
+"\t@RequestMapping(\"/account/{id}\")\n"
+"\tpublic class AccountController {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:419
+#, no-wrap
+msgid ""
+"\t\t@GetMapping // <1>\n"
+"\t\tpublic Account getAccount() {\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:423
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(version = \"1.1\") // <2>\n"
+"\t\tpublic Account getAccount1_1() {\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:427
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(version = \"1.2+\") // <3>\n"
+"\t\tpublic Account getAccount1_2() {\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:432
+#, no-wrap
+msgid ""
+"\t\t@GetMapping(version = \"1.5\") // <4>\n"
+"\t\tpublic Account getAccount1_5() {\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:434
+msgid "match any version"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:435
+msgid "match version 1.1"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:436
+msgid "match version 1.2 and above"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:437
+msgid "match version 1.5"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:440
+msgid "For request with version `\"1.3\"`:"
+msgstr ""
+
+#. type: Bullet: '(1) '
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:442
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:449
+msgid "matches as it matches any version"
+msgstr ""
+
+#. type: Bullet: '(2) '
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:443
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:450
+msgid "does not match"
+msgstr ""
+
+#. type: Bullet: '(3) '
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:444
+msgid "matches as it matches 1.2 and above, and is *chosen* as the highest match"
+msgstr ""
+
+#. type: Bullet: '(4) '
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:445
+msgid "is higher and does not match"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:447
+msgid "For request with version `\"1.5\"`:"
+msgstr ""
+
+#. type: Bullet: '(3) '
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:451
+msgid "matches as it matches 1.2 and above"
+msgstr ""
+
+#. type: Bullet: '(4) '
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:452
+msgid "matches and is *chosen* as the highest match"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:456
+msgid ""
+"A request with version `\"1.6\"` does not have a match. (1) and (3) do "
+"match, but are superseded by (4), which allows only a strict match, and "
+"therefore does not match.  In this scenario, a "
+"`NotAcceptableApiVersionException` results in a 400 response."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:461
+msgid ""
+"Controller methods without a version are intended to support clients created "
+"before a versioned alternative was introduced. Therefore, even though an "
+"unversioned controller method is considered a match for any version, it is "
+"in fact given the lowest priority, and is effectively superseded by any "
+"alternative controller method with a version."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:465
+msgid ""
+"The above assumes the request version is a "
+"xref:web/webflux/config.adoc#webflux-config-api-version[\"supported\" "
+"version], or otherwise it would fail."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:468
+msgid ""
+"See xref:web/webflux-versioning.adoc[API Versioning] for more details on "
+"underlying infrastructure and support for API Versioning."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:471
+#, no-wrap
+msgid "HTTP HEAD, OPTIONS"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:473
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-head-options[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:478
+msgid ""
+"`@GetMapping` and `@RequestMapping(method=HttpMethod.GET)` support HTTP HEAD "
+"transparently for request mapping purposes. Controller methods need not "
+"change.  A response wrapper, applied in the `HttpHandler` server adapter, "
+"ensures a `Content-Length` header is set to the number of bytes written "
+"without actually writing to the response."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:481
+msgid ""
+"By default, HTTP OPTIONS is handled by setting the `Allow` response header "
+"to the list of HTTP methods listed in all `@RequestMapping` methods with "
+"matching URL patterns."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:486
+msgid ""
+"For a `@RequestMapping` without HTTP method declarations, the `Allow` header "
+"is set to `GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS`. Controller methods "
+"should always declare the supported HTTP methods (for example, by using the "
+"HTTP method specific variants -- `@GetMapping`, `@PostMapping`, and others)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:489
+msgid ""
+"You can explicitly map a `@RequestMapping` method to HTTP HEAD and HTTP "
+"OPTIONS, but that is not necessary in the common case."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:492
+#, no-wrap
+msgid "Custom Annotations"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:494
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-composed[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:499
+msgid ""
+"Spring WebFlux supports the use of "
+"xref:core/beans/classpath-scanning.adoc#beans-meta-annotations[composed "
+"annotations] for request mapping. Those are annotations that are themselves "
+"meta-annotated with `@RequestMapping` and composed to redeclare a subset (or "
+"all) of the `@RequestMapping` attributes with a narrower, more specific "
+"purpose."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:505
+msgid ""
+"`@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and "
+"`@PatchMapping` are examples of composed annotations. They are provided, "
+"because, arguably, most controller methods should be mapped to a specific "
+"HTTP method versus using `@RequestMapping`, which, by default, matches to "
+"all HTTP methods. If you need an example of how to implement a composed "
+"annotation, look at how those are declared."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:516
+msgid ""
+"Spring WebFlux also supports custom request mapping attributes with custom "
+"request matching logic. This is a more advanced option that requires "
+"sub-classing `RequestMappingHandlerMapping` and overriding the "
+"`getCustomMethodCondition` method, where you can check the custom attribute "
+"and return your own `RequestCondition`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:519
+#, no-wrap
+msgid "Explicit Registrations"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:521
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-requestmapping-registration[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:525
+msgid ""
+"You can programmatically register Handler methods, which can be used for "
+"dynamic registrations or for advanced cases, such as different instances of "
+"the same handler under different URLs. The following example shows how to do "
+"so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:534
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tpublic class MyConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:538
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tpublic void setHandlerMapping(RequestMappingHandlerMapping mapping, "
+"UserHandler handler) // <1>\n"
+"\t\t\t\tthrows NoSuchMethodException {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:541
+#, no-wrap
+msgid ""
+"\t\t\tRequestMappingInfo info = RequestMappingInfo\n"
+"\t\t\t\t\t.paths(\"/user/{id}\").methods(RequestMethod.GET).build(); // "
+"<2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:543
+#, no-wrap
+msgid ""
+"\t\t\tMethod method = UserHandler.class.getMethod(\"getUser\", Long.class); "
+"// <3>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:546
+#, no-wrap
+msgid ""
+"\t\t\tmapping.registerMapping(info, handler, method); // <4>\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:548
+#, no-wrap
+msgid "\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:550
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:573
+msgid "Inject target handlers and the handler mapping for controllers."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:551
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:574
+msgid "Prepare the request mapping metadata."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:552
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:575
+msgid "Get the handler method."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:553
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:576
+msgid "Add the registration."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:560
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\tclass MyConfig {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:563
+#, no-wrap
+msgid ""
+"\t\t@Autowired\n"
+"\t\tfun setHandlerMapping(mapping: RequestMappingHandlerMapping, handler: "
+"UserHandler) { // <1>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:565
+#, no-wrap
+msgid ""
+"\t\t\tval info = "
+"RequestMappingInfo.paths(\"/user/{id}\").methods(RequestMethod.GET).build() "
+"// <2>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:567
+#, no-wrap
+msgid ""
+"\t\t\tval method = UserHandler::class.java.getMethod(\"getUser\", "
+"Long::class.java) // <3>\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:571
+#, no-wrap
+msgid ""
+"\t\t\tmapping.registerMapping(info, handler, method) // <4>\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:580
+#, no-wrap
+msgid "`@HttpExchange`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:582
+msgid ""
+"[.small]#xref:web/webmvc/mvc-controller/ann-requestmapping.adoc#mvc-ann-httpexchange-annotation[See "
+"equivalent in the Servlet stack]#"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:593
+msgid ""
+"While the main purpose of `@HttpExchange` is for an HTTP Service "
+"xref:integration/rest-clients.adoc#rest-http-service-client[client with a "
+"generated proxy], the HTTP Service interface on which such annotations are "
+"placed is a contract neutral to client vs server use. In addition to "
+"simplifying client code, there are also cases where an HTTP Service "
+"interface may be a convenient way for servers to expose their API for client "
+"access. This leads to increased coupling between client and server and is "
+"often not a good choice, especially for public API's, but may be exactly the "
+"goal for an internal API. It is an approach commonly used in Spring Cloud, "
+"and it is why `@HttpExchange` is supported as an alternative to "
+"`@RequestMapping` for server side handling in controller classes."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:595
+msgid "For example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:604
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:632
+#, no-wrap
+msgid ""
+"\t@HttpExchange(\"/persons\")\n"
+"\tinterface PersonService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:607
+#, no-wrap
+msgid ""
+"\t\t@GetExchange(\"/{id}\")\n"
+"\t\tPerson getPerson(@PathVariable Long id);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:611
+#, no-wrap
+msgid ""
+"\t\t@PostExchange\n"
+"\t\tvoid add(@RequestBody Person person);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:614
+#, no-wrap
+msgid ""
+"\t@RestController\n"
+"\tclass PersonController implements PersonService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:618
+#, no-wrap
+msgid ""
+"\t\tpublic Person getPerson(@PathVariable Long id) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:624
+#, no-wrap
+msgid ""
+"\t\t@ResponseStatus(HttpStatus.CREATED)\n"
+"\t\tpublic void add(@RequestBody Person person) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:635
+#, no-wrap
+msgid ""
+"\t\t@GetExchange(\"/{id}\")\n"
+"\t\tfun getPerson(@PathVariable id: Long): Person\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:639
+#, no-wrap
+msgid ""
+"\t\t@PostExchange\n"
+"\t\tfun add(@RequestBody person: Person)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:642
+#, no-wrap
+msgid ""
+"\t@RestController\n"
+"\tclass PersonController : PersonService {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:646
+#, no-wrap
+msgid ""
+"\t\toverride fun getPerson(@PathVariable id: Long): Person {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:652
+#, no-wrap
+msgid ""
+"\t\t@ResponseStatus(HttpStatus.CREATED)\n"
+"\t\toverride fun add(@RequestBody person: Person) {\n"
+"\t\t\t// ...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:659
+msgid ""
+"`@HttpExchange` and `@RequestMapping` have differences.  `@RequestMapping` "
+"can map to any number of requests by path patterns, HTTP methods, and more, "
+"while `@HttpExchange` declares a single endpoint with a concrete HTTP "
+"method, path, and content types."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webflux/controller/ann-requestmapping.adoc:664
+msgid ""
+"For method parameters and returns values, generally, `@HttpExchange` "
+"supports a subset of the method parameters that `@RequestMapping` "
+"does. Notably, it excludes any server-side specific parameter types. For "
+"details, see the list for "
+"xref:integration/rest-clients.adoc#rest-http-service-client-method-parameters[@HttpExchange] "
+"and xref:web/webflux/controller/ann-methods/arguments.adoc[@RequestMapping]."
+msgstr ""

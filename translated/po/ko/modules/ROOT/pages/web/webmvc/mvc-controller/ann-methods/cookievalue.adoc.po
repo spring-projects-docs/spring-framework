@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:2
+#, no-wrap
+msgid "`@CookieValue`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:5
+msgid ""
+"[.small]#xref:web/webflux/controller/ann-methods/cookievalue.adoc[See "
+"equivalent in the Reactive stack]#"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:8
+msgid ""
+"You can use the `@CookieValue` annotation to bind the value of an HTTP "
+"cookie to a method argument in a controller."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:10
+msgid "Consider a request with the following cookie:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:14
+#, no-wrap
+msgid "JSESSIONID=415A4AC178C59DACE0B2C9CA727CDD84\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:17
+msgid "The following example shows how to get the cookie value:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:20
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:28
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/demo\")\n"
+"\tpublic void handle(@CookieValue(\"JSESSIONID\") String cookie) { <1>\n"
+"\t\t//...\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:30
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:41
+msgid "Get the value of the `JSESSIONID` cookie."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:31
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:39
+#, no-wrap
+msgid ""
+"\t@GetMapping(\"/demo\")\n"
+"\tfun handle(@CookieValue(\"JSESSIONID\") cookie: String) { // <1>\n"
+"\t\t//...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/mvc-controller/ann-methods/cookievalue.adoc:44
+msgid ""
+"If the target method parameter type is not `String`, type conversion is "
+"applied automatically.  See "
+"xref:web/webmvc/mvc-controller/ann-methods/typeconversion.adoc[Type "
+"Conversion]."
+msgstr ""

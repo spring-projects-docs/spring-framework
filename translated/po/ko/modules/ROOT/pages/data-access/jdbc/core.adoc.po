@@ -1,0 +1,1682 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:2
+#, no-wrap
+msgid ""
+"Using the JDBC Core Classes to Control Basic JDBC Processing and Error "
+"Handling"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:6
+msgid ""
+"This section covers how to use the JDBC core classes to control basic JDBC "
+"processing, including error handling. It includes the following topics:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:8
+msgid "xref:data-access/jdbc/core.adoc#jdbc-JdbcTemplate[Using `JdbcTemplate`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:9
+msgid ""
+"xref:data-access/jdbc/core.adoc#jdbc-NamedParameterJdbcTemplate[Using "
+"`NamedParameterJdbcTemplate`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:10
+msgid ""
+"xref:data-access/jdbc/core.adoc#jdbc-JdbcClient[Unified JDBC Query/Update "
+"Operations: `JdbcClient`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:11
+msgid ""
+"xref:data-access/jdbc/core.adoc#jdbc-SQLExceptionTranslator[Using "
+"`SQLExceptionTranslator`]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:12
+msgid ""
+"xref:data-access/jdbc/core.adoc#jdbc-statements-executing[Running "
+"Statements]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:13
+msgid "xref:data-access/jdbc/core.adoc#jdbc-statements-querying[Running Queries]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:14
+msgid "xref:data-access/jdbc/core.adoc#jdbc-updates[Updating the Database]"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:15
+msgid ""
+"xref:data-access/jdbc/core.adoc#jdbc-auto-generated-keys[Retrieving "
+"Auto-generated Keys]"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:18
+#, no-wrap
+msgid "Using `JdbcTemplate`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:25
+msgid ""
+"`JdbcTemplate` is the central class in the JDBC core package. It handles the "
+"creation and release of resources, which helps you avoid common errors, such "
+"as forgetting to close the connection. It performs the basic tasks of the "
+"core JDBC workflow (such as statement creation and execution), leaving "
+"application code to provide SQL and extract results. The `JdbcTemplate` "
+"class:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:27
+msgid "Runs SQL queries"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:28
+msgid "Updates statements and stored procedure calls"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:29
+msgid ""
+"Performs iteration over `ResultSet` instances and extraction of returned "
+"parameter values."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:31
+msgid ""
+"Catches JDBC exceptions and translates them to the generic, more "
+"informative, exception hierarchy defined in the `org.springframework.dao` "
+"package. (See xref:data-access/dao.adoc#dao-exceptions[Consistent Exception "
+"Hierarchy].)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:38
+msgid ""
+"When you use the `JdbcTemplate` for your code, you need only to implement "
+"callback interfaces, giving them a clearly defined contract. Given a "
+"`Connection` provided by the `JdbcTemplate` class, the "
+"`PreparedStatementCreator` callback interface creates a prepared statement, "
+"providing SQL and any necessary parameters. The same is true for the "
+"`CallableStatementCreator` interface, which creates callable statements. The "
+"`RowCallbackHandler` interface extracts values from each row of a "
+"`ResultSet`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:42
+msgid ""
+"You can use `JdbcTemplate` within a DAO implementation through direct "
+"instantiation with a `DataSource` reference, or you can configure it in a "
+"Spring IoC container and give it to DAOs as a bean reference."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:46
+msgid ""
+"The `DataSource` should always be configured as a bean in the Spring IoC "
+"container. In the first case the bean is given to the service directly; in "
+"the second case it is given to the prepared template."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:51
+msgid ""
+"All SQL issued by this class is logged at the `DEBUG` level under the "
+"category corresponding to the fully qualified class name of the template "
+"instance (typically `JdbcTemplate`, but it may be different if you use a "
+"custom subclass of the `JdbcTemplate` class)."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:55
+msgid ""
+"The following sections provide some examples of `JdbcTemplate` usage. These "
+"examples are not an exhaustive list of all of the functionality exposed by "
+"the `JdbcTemplate`.  See the attendant "
+"{spring-framework-api}/jdbc/core/JdbcTemplate.html[javadoc] for that."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:57
+#, no-wrap
+msgid "Querying (`SELECT`)"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:60
+msgid "The following query gets the number of rows in a relation:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:63
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:82
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:104
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:127
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:158
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:188
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:228
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:251
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:274
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:301
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:320
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:399
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:444
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:495
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:534
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:747
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:787
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:847
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:898
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:951
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:993
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1052
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:68
+#, no-wrap
+msgid ""
+"\tint rowCount = this.jdbcTemplate.queryForObject(\"select count(*) from "
+"t_actor\", Integer.class);\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:70
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:90
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:113
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:142
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:172
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:204
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:237
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:260
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:283
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:308
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:329
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:417
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:462
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:521
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:553
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:762
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:812
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:868
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:923
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:966
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1014
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1069
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:75
+#, no-wrap
+msgid ""
+"\tval rowCount = jdbcTemplate.queryForObject<Int>(\"select count(*) from "
+"t_actor\")!!\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:79
+msgid "The following query uses a bind variable:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:88
+#, no-wrap
+msgid ""
+"\tint countOfActorsNamedJoe = this.jdbcTemplate.queryForObject(\n"
+"\t\t\t\"select count(*) from t_actor where first_name = ?\", Integer.class, "
+"\"Joe\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:96
+#, no-wrap
+msgid ""
+"\tval countOfActorsNamedJoe = jdbcTemplate.queryForObject<Int>(\n"
+"\t\t\t\"select count(*) from t_actor where first_name = ?\", "
+"arrayOf(\"Joe\"))!!\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:101
+msgid "The following query looks for a `String`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:111
+#, no-wrap
+msgid ""
+"\tString lastName = this.jdbcTemplate.queryForObject(\n"
+"\t\t\t\"select last_name from t_actor where id = ?\",\n"
+"\t\t\tString.class, 1212L);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:120
+#, no-wrap
+msgid ""
+"\tval lastName = this.jdbcTemplate.queryForObject<String>(\n"
+"\t\t\t\"select last_name from t_actor where id = ?\",\n"
+"\t\t\tarrayOf(1212L))!!\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:124
+msgid "The following query finds and populates a single domain object:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:140
+#, no-wrap
+msgid ""
+"\tActor actor = jdbcTemplate.queryForObject(\n"
+"\t\t\t\"select first_name, last_name from t_actor where id = ?\",\n"
+"\t\t\t(resultSet, rowNum) -> {\n"
+"\t\t\t\tActor newActor = new Actor();\n"
+"\t\t\t\tnewActor.setFirstName(resultSet.getString(\"first_name\"));\n"
+"\t\t\t\tnewActor.setLastName(resultSet.getString(\"last_name\"));\n"
+"\t\t\t\treturn newActor;\n"
+"\t\t\t},\n"
+"\t\t\t1212L);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:151
+#, no-wrap
+msgid ""
+"\tval actor = jdbcTemplate.queryForObject(\n"
+"\t\t\t\t\"select first_name, last_name from t_actor where id = ?\",\n"
+"\t\t\t\tarrayOf(1212L)) { rs, _ ->\n"
+"\t\t\tActor(rs.getString(\"first_name\"), rs.getString(\"last_name\"))\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:155
+msgid "The following query finds and populates a list of domain objects:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:170
+#, no-wrap
+msgid ""
+"\tList<Actor> actors = this.jdbcTemplate.query(\n"
+"\t\t\t\"select first_name, last_name from t_actor\",\n"
+"\t\t\t(resultSet, rowNum) -> {\n"
+"\t\t\t\tActor actor = new Actor();\n"
+"\t\t\t\tactor.setFirstName(resultSet.getString(\"first_name\"));\n"
+"\t\t\t\tactor.setLastName(resultSet.getString(\"last_name\"));\n"
+"\t\t\t\treturn actor;\n"
+"\t\t\t});\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:178
+#, no-wrap
+msgid ""
+"\tval actors = jdbcTemplate.query(\"select first_name, last_name from "
+"t_actor\") { rs, _ ->\n"
+"\t\t\tActor(rs.getString(\"first_name\"), rs.getString(\"last_name\"))\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:185
+msgid ""
+"If the last two snippets of code actually existed in the same application, "
+"it would make sense to remove the duplication present in the two `RowMapper` "
+"lambda expressions and extract them out into a single field that could then "
+"be referenced by DAO methods as needed.  For example, it may be better to "
+"write the preceding code snippet as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:198
+#, no-wrap
+msgid ""
+"\tprivate final RowMapper<Actor> actorRowMapper = (resultSet, rowNum) -> {\n"
+"\t\tActor actor = new Actor();\n"
+"\t\tactor.setFirstName(resultSet.getString(\"first_name\"));\n"
+"\t\tactor.setLastName(resultSet.getString(\"last_name\"));\n"
+"\t\treturn actor;\n"
+"\t};\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:202
+#, no-wrap
+msgid ""
+"\tpublic List<Actor> findAllActors() {\n"
+"\t\treturn this.jdbcTemplate.query(\"select first_name, last_name from "
+"t_actor\", actorRowMapper);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:211
+#, no-wrap
+msgid ""
+"\tval actorMapper = RowMapper<Actor> { rs: ResultSet, rowNum: Int ->\n"
+"\t\tActor(rs.getString(\"first_name\"), rs.getString(\"last_name\"))\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:215
+#, no-wrap
+msgid ""
+"\tfun findAllActors(): List<Actor> {\n"
+"\t\treturn jdbcTemplate.query(\"select first_name, last_name from t_actor\", "
+"actorMapper)\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:219
+#, no-wrap
+msgid "Updating (`INSERT`, `UPDATE`, and `DELETE`) with `JdbcTemplate`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:223
+msgid ""
+"You can use the `update(..)` method to perform insert, update, and delete "
+"operations.  Parameter values are usually provided as variable arguments or, "
+"alternatively, as an object array."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:225
+msgid "The following example inserts a new entry:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:235
+#, no-wrap
+msgid ""
+"\tthis.jdbcTemplate.update(\n"
+"\t\t\t\"insert into t_actor (first_name, last_name) values (?, ?)\",\n"
+"\t\t\t\"Leonor\", \"Watling\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:244
+#, no-wrap
+msgid ""
+"\tjdbcTemplate.update(\n"
+"\t\t\t\"insert into t_actor (first_name, last_name) values (?, ?)\",\n"
+"\t\t\t\"Leonor\", \"Watling\")\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:248
+msgid "The following example updates an existing entry:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:258
+#, no-wrap
+msgid ""
+"\tthis.jdbcTemplate.update(\n"
+"\t\t\t\"update t_actor set last_name = ? where id = ?\",\n"
+"\t\t\t\"Banjo\", 5276L);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:267
+#, no-wrap
+msgid ""
+"\tjdbcTemplate.update(\n"
+"\t\t\t\"update t_actor set last_name = ? where id = ?\",\n"
+"\t\t\t\"Banjo\", 5276L)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:271
+msgid "The following example deletes an entry:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:281
+#, no-wrap
+msgid ""
+"\tthis.jdbcTemplate.update(\n"
+"\t\t\t\"delete from t_actor where id = ?\",\n"
+"\t\t\tLong.valueOf(actorId));\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:288
+#, no-wrap
+msgid ""
+"\tjdbcTemplate.update(\"delete from t_actor where id = ?\", "
+"actorId.toLong())\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:292
+#, no-wrap
+msgid "Other `JdbcTemplate` Operations"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:298
+msgid ""
+"You can use the `execute(..)` method to run any arbitrary SQL. Consequently, "
+"the method is often used for DDL statements. It is heavily overloaded with "
+"variants that take callback interfaces, binding variable arrays, and so "
+"on. The following example creates a table:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:306
+#, no-wrap
+msgid ""
+"\tthis.jdbcTemplate.execute(\"create table mytable (id integer, name "
+"varchar(100))\");\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:313
+#, no-wrap
+msgid ""
+"\tjdbcTemplate.execute(\"create table mytable (id integer, name "
+"varchar(100))\")\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:317
+msgid "The following example invokes a stored procedure:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:327
+#, no-wrap
+msgid ""
+"\tthis.jdbcTemplate.update(\n"
+"\t\t\t\"call SUPPORT.REFRESH_ACTORS_SUMMARY(?)\",\n"
+"\t\t\tLong.valueOf(unionId));\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:336
+#, no-wrap
+msgid ""
+"\tjdbcTemplate.update(\n"
+"\t\t\t\"call SUPPORT.REFRESH_ACTORS_SUMMARY(?)\",\n"
+"\t\t\tunionId.toLong())\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:341
+msgid ""
+"More sophisticated stored procedure support is "
+"xref:data-access/jdbc/object.adoc#jdbc-StoredProcedure[covered later]."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:343
+#, no-wrap
+msgid "`JdbcTemplate` Best Practices"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:350
+msgid ""
+"Instances of the `JdbcTemplate` class are thread-safe, once configured. This "
+"is important because it means that you can configure a single instance of a "
+"`JdbcTemplate` and then safely inject this shared reference into multiple "
+"DAOs (or repositories).  The `JdbcTemplate` is stateful, in that it "
+"maintains a reference to a `DataSource`, but this state is not "
+"conversational state."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:356
+msgid ""
+"A common practice when using the `JdbcTemplate` class (and the associated "
+"xref:data-access/jdbc/core.adoc#jdbc-NamedParameterJdbcTemplate[`NamedParameterJdbcTemplate`] "
+"class) is to configure a `DataSource` in your Spring configuration file and "
+"then dependency-inject that shared `DataSource` bean into your DAO "
+"classes. The `JdbcTemplate` is created in the setter for the `DataSource` or "
+"in the constructor. This leads to DAOs that resemble the following:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:360
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:370
+msgid "The following example shows the corresponding configuration:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:366
+msgid ""
+"An alternative to explicit configuration is to use component-scanning and "
+"annotation support for dependency injection. In this case, you can annotate "
+"the class with `@Repository` (which makes it a candidate for "
+"component-scanning). The following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:377
+msgid ""
+"If you use Spring's `JdbcDaoSupport` class and your various JDBC-backed DAO "
+"classes extend from it, your sub-class inherits a `setDataSource(..)` method "
+"from the `JdbcDaoSupport` class. You can choose whether to inherit from this "
+"class. The `JdbcDaoSupport` class is provided as a convenience only."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:384
+msgid ""
+"Regardless of which of the above template initialization styles you choose "
+"to use (or not), it is seldom necessary to create a new instance of a "
+"`JdbcTemplate` class each time you want to run SQL. Once configured, a "
+"`JdbcTemplate` instance is thread-safe.  If your application accesses "
+"multiple databases, you may want multiple `JdbcTemplate` instances, which "
+"requires multiple `DataSources` and, subsequently, multiple differently "
+"configured `JdbcTemplate` instances."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:387
+#, no-wrap
+msgid "Using `NamedParameterJdbcTemplate`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:396
+msgid ""
+"The `NamedParameterJdbcTemplate` class adds support for programming JDBC "
+"statements by using named parameters, as opposed to programming JDBC "
+"statements using only classic placeholder ( `'?'`) arguments. The "
+"`NamedParameterJdbcTemplate` class wraps a `JdbcTemplate` and delegates to "
+"the wrapped `JdbcTemplate` to do much of its work. This section describes "
+"only those areas of the `NamedParameterJdbcTemplate` class that differ from "
+"the `JdbcTemplate` itself -- namely, programming JDBC statements by using "
+"named parameters. The following example shows how to use "
+"`NamedParameterJdbcTemplate`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:405
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:450
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:540
+#, no-wrap
+msgid ""
+"\t// some JDBC-backed DAO class...\n"
+"\tprivate NamedParameterJdbcTemplate namedParameterJdbcTemplate;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:409
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:454
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:544
+#, no-wrap
+msgid ""
+"\tpublic void setDataSource(DataSource dataSource) {\n"
+"\t\tthis.namedParameterJdbcTemplate = new "
+"NamedParameterJdbcTemplate(dataSource);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:415
+#, no-wrap
+msgid ""
+"\tpublic int countOfActorsByFirstName(String firstName) {\n"
+"\t\tString sql = \"select count(*) from t_actor where first_name = "
+":first_name\";\n"
+"\t\tSqlParameterSource namedParameters = new "
+"MapSqlParameterSource(\"first_name\", firstName);\n"
+"\t\treturn this.namedParameterJdbcTemplate.queryForObject(sql, "
+"namedParameters, Integer.class);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:422
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:561
+#, no-wrap
+msgid ""
+"\tprivate val namedParameterJdbcTemplate = "
+"NamedParameterJdbcTemplate(dataSource)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:428
+#, no-wrap
+msgid ""
+"\tfun countOfActorsByFirstName(firstName: String): Int {\n"
+"\t\tval sql = \"select count(*) from t_actor where first_name = "
+":first_name\"\n"
+"\t\tval namedParameters = MapSqlParameterSource(\"first_name\", firstName)\n"
+"\t\treturn namedParameterJdbcTemplate.queryForObject(sql, namedParameters, "
+"Int::class.java)!!\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:434
+msgid ""
+"Notice the use of the named parameter notation in the value assigned to the "
+"`sql` variable and the corresponding value that is plugged into the "
+"`namedParameters` variable (of type `MapSqlParameterSource`)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:439
+msgid ""
+"Alternatively, you can pass along named parameters and their corresponding "
+"values to a `NamedParameterJdbcTemplate` instance by using the `Map`-based "
+"style. The remaining methods exposed by the `NamedParameterJdbcOperations` "
+"and implemented by the `NamedParameterJdbcTemplate` class follow a similar "
+"pattern and are not covered here."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:441
+msgid "The following example shows the use of the `Map`-based style:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:460
+#, no-wrap
+msgid ""
+"\tpublic int countOfActorsByFirstName(String firstName) {\n"
+"\t\tString sql = \"select count(*) from t_actor where first_name = "
+":first_name\";\n"
+"\t\tMap<String, String> namedParameters = "
+"Collections.singletonMap(\"first_name\", firstName);\n"
+"\t\treturn this.namedParameterJdbcTemplate.queryForObject(sql, "
+"namedParameters, Integer.class);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:468
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:559
+#, no-wrap
+msgid ""
+"\t// some JDBC-backed DAO class...\n"
+"\tprivate val namedParameterJdbcTemplate = "
+"NamedParameterJdbcTemplate(dataSource)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:474
+#, no-wrap
+msgid ""
+"\tfun countOfActorsByFirstName(firstName: String): Int {\n"
+"\t\tval sql = \"select count(*) from t_actor where first_name = "
+":first_name\"\n"
+"\t\tval namedParameters = mapOf(\"first_name\" to firstName)\n"
+"\t\treturn namedParameterJdbcTemplate.queryForObject(sql, namedParameters, "
+"Int::class.java)!!\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:484
+msgid ""
+"One nice feature related to the `NamedParameterJdbcTemplate` (and existing "
+"in the same Java package) is the `SqlParameterSource` interface. You have "
+"already seen an example of an implementation of this interface in one of the "
+"previous code snippets (the `MapSqlParameterSource` class). An "
+"`SqlParameterSource` is a source of named parameter values to a "
+"`NamedParameterJdbcTemplate`. The `MapSqlParameterSource` class is a simple "
+"implementation that is an adapter around a `java.util.Map`, where the keys "
+"are the parameter names and the values are the parameter values."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:490
+msgid ""
+"Another `SqlParameterSource` implementation is the "
+"`BeanPropertySqlParameterSource` class. This class wraps an arbitrary "
+"JavaBean (that is, an instance of a class that adheres to "
+"https://www.oracle.com/technetwork/java/javase/documentation/spec-136004.html[the "
+"JavaBean conventions]) and uses the properties of the wrapped JavaBean as "
+"the source of named parameter values."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:492
+msgid "The following example shows a typical JavaBean:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:500
+#, no-wrap
+msgid "\tpublic class Actor {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:504
+#, no-wrap
+msgid ""
+"\t\tprivate Long id;\n"
+"\t\tprivate String firstName;\n"
+"\t\tprivate String lastName;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:508
+#, no-wrap
+msgid ""
+"\t\tpublic String getFirstName() {\n"
+"\t\t\treturn this.firstName;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:512
+#, no-wrap
+msgid ""
+"\t\tpublic String getLastName() {\n"
+"\t\t\treturn this.lastName;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:516
+#, no-wrap
+msgid ""
+"\t\tpublic Long getId() {\n"
+"\t\t\treturn this.id;\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:519
+#, no-wrap
+msgid ""
+"\t\t// setters omitted...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:526
+#, no-wrap
+msgid ""
+"\tdata class Actor(val id: Long, val firstName: String, val lastName: "
+"String)\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:531
+msgid ""
+"The following example uses a `NamedParameterJdbcTemplate` to return the "
+"count of the members of the class shown in the preceding example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:551
+#, no-wrap
+msgid ""
+"\tpublic int countOfActors(Actor exampleActor) {\n"
+"\t\t// notice how the named parameters match the properties of the above "
+"'Actor' class\n"
+"\t\tString sql = \"select count(*) from t_actor where first_name = "
+":firstName and last_name = :lastName\";\n"
+"\t\tSqlParameterSource namedParameters = new "
+"BeanPropertySqlParameterSource(exampleActor);\n"
+"\t\treturn this.namedParameterJdbcTemplate.queryForObject(sql, "
+"namedParameters, Integer.class);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:568
+#, no-wrap
+msgid ""
+"\tfun countOfActors(exampleActor: Actor): Int {\n"
+"\t\t// notice how the named parameters match the properties of the above "
+"'Actor' class\n"
+"\t\tval sql = \"select count(*) from t_actor where first_name = :firstName "
+"and last_name = :lastName\"\n"
+"\t\tval namedParameters = BeanPropertySqlParameterSource(exampleActor)\n"
+"\t\treturn namedParameterJdbcTemplate.queryForObject(sql, namedParameters, "
+"Int::class.java)!!\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:576
+msgid ""
+"Remember that the `NamedParameterJdbcTemplate` class wraps a classic "
+"`JdbcTemplate` template. If you need access to the wrapped `JdbcTemplate` "
+"instance to access functionality that is present only in the `JdbcTemplate` "
+"class, you can use the `getJdbcOperations()` method to access the wrapped "
+"`JdbcTemplate` through the `JdbcOperations` interface."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:579
+msgid ""
+"See also "
+"xref:data-access/jdbc/core.adoc#jdbc-jdbctemplate-idioms[`JdbcTemplate` Best "
+"Practices] for guidelines on using the `NamedParameterJdbcTemplate` class in "
+"the context of an application."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:582
+#, no-wrap
+msgid "Unified JDBC Query/Update Operations: `JdbcClient`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:587
+msgid ""
+"As of 6.1, the named parameter statements of `NamedParameterJdbcTemplate` "
+"and the positional parameter statements of a regular `JdbcTemplate` are "
+"available through a unified client API with a fluent interaction model."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:589
+msgid "For example, with positional parameters:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:593
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:606
+#, no-wrap
+msgid "\tprivate JdbcClient jdbcClient = JdbcClient.create(dataSource);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:599
+#, no-wrap
+msgid ""
+"\tpublic int countOfActorsByFirstName(String firstName) {\n"
+"\t\treturn this.jdbcClient.sql(\"select count(*) from t_actor where "
+"first_name = ?\")\n"
+"\t\t\t\t.param(firstName)\n"
+"\t\t\t\t.query(Integer.class).single();\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:602
+msgid "For example, with named parameters:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:612
+#, no-wrap
+msgid ""
+"\tpublic int countOfActorsByFirstName(String firstName) {\n"
+"\t\treturn this.jdbcClient.sql(\"select count(*) from t_actor where "
+"first_name = :firstName\")\n"
+"\t\t\t\t.param(\"firstName\", firstName)\n"
+"\t\t\t\t.query(Integer.class).single();\n"
+"\t}\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:615
+msgid ""
+"`RowMapper` capabilities are available as well, with flexible result "
+"resolution:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:621
+#, no-wrap
+msgid ""
+"\tList<Actor> actors = this.jdbcClient.sql(\"select first_name, last_name "
+"from t_actor\")\n"
+"\t\t\t.query((rs, rowNum) -> new Actor(rs.getString(\"first_name\"), "
+"rs.getString(\"last_name\")))\n"
+"\t\t\t.list();\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:626
+msgid ""
+"Instead of a custom `RowMapper`, you may also specify a class to map to.  "
+"For example, assuming that `Actor` has `firstName` and `lastName` properties "
+"as a record class, a custom constructor, bean properties, or plain fields:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:632
+#, no-wrap
+msgid ""
+"\tList<Actor> actors = this.jdbcClient.sql(\"select first_name, last_name "
+"from t_actor\")\n"
+"\t\t\t.query(Actor.class)\n"
+"\t\t\t.list();\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:635
+msgid "With a required single object result:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:642
+#, no-wrap
+msgid ""
+"\tActor actor = this.jdbcClient.sql(\"select first_name, last_name from "
+"t_actor where id = ?\")\n"
+"\t\t\t.param(1212L)\n"
+"\t\t\t.query(Actor.class)\n"
+"\t\t\t.single();\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:645
+msgid "With a `java.util.Optional` result:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:652
+#, no-wrap
+msgid ""
+"\tOptional<Actor> actor = this.jdbcClient.sql(\"select first_name, last_name "
+"from t_actor where id = ?\")\n"
+"\t\t\t.param(1212L)\n"
+"\t\t\t.query(Actor.class)\n"
+"\t\t\t.optional();\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:655
+msgid "And for an update statement:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:661
+#, no-wrap
+msgid ""
+"\tthis.jdbcClient.sql(\"insert into t_actor (first_name, last_name) values "
+"(?, ?)\")\n"
+"\t\t\t.param(\"Leonor\").param(\"Watling\")\n"
+"\t\t\t.update();\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:664
+msgid "Or an update statement with named parameters:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:670
+#, no-wrap
+msgid ""
+"\tthis.jdbcClient.sql(\"insert into t_actor (first_name, last_name) values "
+"(:firstName, :lastName)\")\n"
+"\t\t\t.param(\"firstName\", \"Leonor\").param(\"lastName\", \"Watling\")\n"
+"\t\t\t.update();\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:675
+msgid ""
+"Instead of individual named parameters, you may also specify a parameter "
+"source object – for example, a record class, a class with bean properties, "
+"or a plain field holder which provides `firstName` and `lastName` "
+"properties, such as the `Actor` class from above:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:681
+#, no-wrap
+msgid ""
+"\tthis.jdbcClient.sql(\"insert into t_actor (first_name, last_name) values "
+"(:firstName, :lastName)\")\n"
+"\t\t\t.paramSource(new Actor(\"Leonor\", \"Watling\"))\n"
+"\t\t\t.update();\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:688
+msgid ""
+"The automatic `Actor` class mapping for parameters as well as the query "
+"results above is provided through implicit "
+"`SimplePropertySqlParameterSource` and `SimplePropertyRowMapper` strategies "
+"which are also available for direct use. They can serve as a common "
+"replacement for `BeanPropertySqlParameterSource` and "
+"`BeanPropertyRowMapper`/`DataClassRowMapper`, also with `JdbcTemplate` and "
+"`NamedParameterJdbcTemplate` themselves."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:693
+msgid ""
+"`JdbcClient` is a flexible but simplified facade for JDBC query/update "
+"statements.  Advanced capabilities such as batch inserts and stored "
+"procedure calls typically require extra customization: consider Spring's "
+"`SimpleJdbcInsert` and `SimpleJdbcCall` classes or plain direct "
+"`JdbcTemplate` usage for any such capabilities not available in "
+"`JdbcClient`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:696
+#, no-wrap
+msgid "Using `SQLExceptionTranslator`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:705
+msgid ""
+"`SQLExceptionTranslator` is an interface to be implemented by classes that "
+"can translate between ``SQLException``s and Spring's own "
+"`org.springframework.dao.DataAccessException`, which is agnostic in regard "
+"to data access strategy. Implementations can be generic (for example, using "
+"SQLState codes for JDBC) or proprietary (for example, using Oracle error "
+"codes) for greater precision. This exception translation mechanism is used "
+"behind the common `JdbcTemplate` and `JdbcTransactionManager` entry points "
+"which do not propagate `SQLException` but rather `DataAccessException`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:712
+msgid ""
+"As of 6.0, the default exception translator is "
+"`SQLExceptionSubclassTranslator`, detecting JDBC 4 `SQLException` subclasses "
+"with a few extra checks, and with a fallback to `SQLState` introspection "
+"through `SQLStateSQLExceptionTranslator`. This is usually sufficient for "
+"common database access and does not require vendor-specific detection.  For "
+"backwards compatibility, consider using `SQLErrorCodeSQLExceptionTranslator` "
+"as described below, potentially with custom error code mappings."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:723
+msgid ""
+"`SQLErrorCodeSQLExceptionTranslator` is the implementation of "
+"`SQLExceptionTranslator` that is used by default when a file named "
+"`sql-error-codes.xml` is present in the root of the classpath. This "
+"implementation uses specific vendor codes. It is more precise than "
+"`SQLState` or `SQLException` subclass translation. The error code "
+"translations are based on codes held in a JavaBean type class called "
+"`SQLErrorCodes`. This class is created and populated by an "
+"`SQLErrorCodesFactory`, which (as the name suggests) is a factory for "
+"creating `SQLErrorCodes` based on the contents of a configuration file named "
+"`sql-error-codes.xml`. This file is populated with vendor codes and based on "
+"the `DatabaseProductName` taken from `DatabaseMetaData`. The codes for the "
+"actual database you are using are used."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:725
+msgid ""
+"The `SQLErrorCodeSQLExceptionTranslator` applies matching rules in the "
+"following sequence:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:729
+msgid ""
+"Any custom translation implemented by a subclass. Normally, the provided "
+"concrete `SQLErrorCodeSQLExceptionTranslator` is used, so this rule does not "
+"apply. It applies only if you have actually provided a subclass "
+"implementation."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:731
+msgid ""
+"Any custom implementation of the `SQLExceptionTranslator` interface that is "
+"provided as the `customSqlExceptionTranslator` property of the "
+"`SQLErrorCodes` class."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:733
+msgid ""
+"The list of instances of the `CustomSQLErrorCodesTranslation` class "
+"(provided for the `customTranslations` property of the `SQLErrorCodes` "
+"class) are searched for a match."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:734
+msgid "Error code matching is applied."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:737
+msgid ""
+"Use the fallback translator. `SQLExceptionSubclassTranslator` is the default "
+"fallback translator. If this translation is not available, the next fallback "
+"translator is the `SQLStateSQLExceptionTranslator`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:742
+msgid ""
+"The `SQLErrorCodesFactory` is used by default to define error codes and "
+"custom exception translations. They are looked up in a file named "
+"`sql-error-codes.xml` from the classpath, and the matching `SQLErrorCodes` "
+"instance is located based on the database name from the database metadata of "
+"the database in use."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:744
+msgid ""
+"You can extend `SQLErrorCodeSQLExceptionTranslator`, as the following "
+"example shows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:752
+#, no-wrap
+msgid ""
+"\tpublic class CustomSQLErrorCodesTranslator extends "
+"SQLErrorCodeSQLExceptionTranslator {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:760
+#, no-wrap
+msgid ""
+"\t\tprotected DataAccessException customTranslate(String task, String sql, "
+"SQLException sqlEx) {\n"
+"\t\t\tif (sqlEx.getErrorCode() == -12345) {\n"
+"\t\t\t\treturn new DeadlockLoserDataAccessException(task, sqlEx);\n"
+"\t\t\t}\n"
+"\t\t\treturn null;\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:767
+#, no-wrap
+msgid ""
+"\tclass CustomSQLErrorCodesTranslator : SQLErrorCodeSQLExceptionTranslator() "
+"{\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:775
+#, no-wrap
+msgid ""
+"\t\toverride fun customTranslate(task: String, sql: String?, sqlEx: "
+"SQLException): DataAccessException? {\n"
+"\t\t\tif (sqlEx.errorCode == -12345) {\n"
+"\t\t\t\treturn DeadlockLoserDataAccessException(task, sqlEx)\n"
+"\t\t\t}\n"
+"\t\t\treturn null\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:784
+msgid ""
+"In the preceding example, the specific error code (`-12345`) is translated "
+"while other errors are left to be translated by the default translator "
+"implementation.  To use this custom translator, you must pass it to the "
+"`JdbcTemplate` through the method `setExceptionTranslator`, and you must use "
+"this `JdbcTemplate` for all of the data access processing where this "
+"translator is needed. The following example shows how you can use this "
+"custom translator:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:792
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:956
+#, no-wrap
+msgid "\tprivate JdbcTemplate jdbcTemplate;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:797
+#, no-wrap
+msgid ""
+"\tpublic void setDataSource(DataSource dataSource) {\n"
+"\t\t// create a JdbcTemplate and set data source\n"
+"\t\tthis.jdbcTemplate = new JdbcTemplate();\n"
+"\t\tthis.jdbcTemplate.setDataSource(dataSource);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:803
+#, no-wrap
+msgid ""
+"\t\t// create a custom translator and set the DataSource for the default "
+"translation lookup\n"
+"\t\tCustomSQLErrorCodesTranslator tr = new "
+"CustomSQLErrorCodesTranslator();\n"
+"\t\ttr.setDataSource(dataSource);\n"
+"\t\tthis.jdbcTemplate.setExceptionTranslator(tr);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:810
+#, no-wrap
+msgid ""
+"\tpublic void updateShippingCharge(long orderId, long pct) {\n"
+"\t\t// use the prepared JdbcTemplate for this update\n"
+"\t\tthis.jdbcTemplate.update(\"update orders\" +\n"
+"\t\t\t\" set shipping_charge = shipping_charge * ? / 100\" +\n"
+"\t\t\t\" where id = ?\", pct, orderId);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:823
+#, no-wrap
+msgid ""
+"\t// create a JdbcTemplate and set data source\n"
+"\tprivate val jdbcTemplate = JdbcTemplate(dataSource).apply {\n"
+"\t\t// create a custom translator and set the DataSource for the default "
+"translation lookup\n"
+"\t\texceptionTranslator = CustomSQLErrorCodesTranslator().apply {\n"
+"\t\t\tthis.dataSource = dataSource\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:830
+#, no-wrap
+msgid ""
+"\tfun updateShippingCharge(orderId: Long, pct: Long) {\n"
+"\t\t// use the prepared JdbcTemplate for this update\n"
+"\t\tthis.jdbcTemplate!!.update(\"update orders\" +\n"
+"\t\t\t\t\" set shipping_charge = shipping_charge * ? / 100\" +\n"
+"\t\t\t\t\" where id = ?\", pct, orderId)\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:835
+msgid ""
+"The custom translator is passed a data source in order to look up the error "
+"codes in `sql-error-codes.xml`."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:838
+#, no-wrap
+msgid "Running Statements"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:844
+msgid ""
+"Running an SQL statement requires very little code. You need a `DataSource` "
+"and a `JdbcTemplate`, including the convenience methods that are provided "
+"with the `JdbcTemplate`. The following example shows what you need to "
+"include for a minimal but fully functional class that creates a new table:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:853
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:904
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:999
+#, no-wrap
+msgid ""
+"\timport javax.sql.DataSource;\n"
+"\timport org.springframework.jdbc.core.JdbcTemplate;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:855
+#, no-wrap
+msgid "\tpublic class ExecuteAStatement {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:857
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:908
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1003
+#, no-wrap
+msgid "\t\tprivate JdbcTemplate jdbcTemplate;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:861
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:912
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1007
+#, no-wrap
+msgid ""
+"\t\tpublic void setDataSource(DataSource dataSource) {\n"
+"\t\t\tthis.jdbcTemplate = new JdbcTemplate(dataSource);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:866
+#, no-wrap
+msgid ""
+"\t\tpublic void doExecute() {\n"
+"\t\t\tthis.jdbcTemplate.execute(\"create table mytable (id integer, name "
+"varchar(100))\");\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:874
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1020
+#, no-wrap
+msgid ""
+"\timport javax.sql.DataSource\n"
+"\timport org.springframework.jdbc.core.JdbcTemplate\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:876
+#, no-wrap
+msgid "\tclass ExecuteAStatement(dataSource: DataSource) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:878
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1024
+#, no-wrap
+msgid "\t\tprivate val jdbcTemplate = JdbcTemplate(dataSource)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:883
+#, no-wrap
+msgid ""
+"\t\tfun doExecute() {\n"
+"\t\t\tjdbcTemplate.execute(\"create table mytable (id integer, name "
+"varchar(100))\")\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:888
+#, no-wrap
+msgid "Running Queries"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:895
+msgid ""
+"Some query methods return a single value. To retrieve a count or a specific "
+"value from one row, use `queryForObject(..)`. The latter converts the "
+"returned JDBC `Type` to the Java class that is passed in as an argument. If "
+"the type conversion is invalid, an `InvalidDataAccessApiUsageException` is "
+"thrown. The following example contains two query methods, one for an `int` "
+"and one that queries for a `String`:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:906
+#, no-wrap
+msgid "\tpublic class RunAQuery {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:916
+#, no-wrap
+msgid ""
+"\t\tpublic int getCount() {\n"
+"\t\t\treturn this.jdbcTemplate.queryForObject(\"select count(*) from "
+"mytable\", Integer.class);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:921
+#, no-wrap
+msgid ""
+"\t\tpublic String getName() {\n"
+"\t\t\treturn this.jdbcTemplate.queryForObject(\"select name from mytable\", "
+"String.class);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:929
+#, no-wrap
+msgid ""
+"import javax.sql.DataSource\n"
+"import org.springframework.jdbc.core.JdbcTemplate\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:931
+#, no-wrap
+msgid "class RunAQuery(dataSource: DataSource) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:933
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:971
+#, no-wrap
+msgid "\tprivate val jdbcTemplate = JdbcTemplate(dataSource)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:936
+#, no-wrap
+msgid ""
+"\tval count: Int\n"
+"\t\tget() = jdbcTemplate.queryForObject(\"select count(*) from "
+"mytable\")!!\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:940
+#, no-wrap
+msgid ""
+"\tval name: String?\n"
+"\t\tget() = jdbcTemplate.queryForObject(\"select name from mytable\")\n"
+"}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:948
+msgid ""
+"In addition to the single result query methods, several methods return a "
+"list with an entry for each row that the query returned. The most generic "
+"method is `queryForList(..)`, which returns a `List` where each element is a "
+"`Map` containing one entry for each column, using the column name as the "
+"key. If you add a method to the preceding example to retrieve a list of all "
+"the rows, it might be as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:960
+#, no-wrap
+msgid ""
+"\tpublic void setDataSource(DataSource dataSource) {\n"
+"\t\tthis.jdbcTemplate = new JdbcTemplate(dataSource);\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:964
+#, no-wrap
+msgid ""
+"\tpublic List<Map<String, Object>> getList() {\n"
+"\t\treturn this.jdbcTemplate.queryForList(\"select * from mytable\");\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:975
+#, no-wrap
+msgid ""
+"\tfun getList(): List<Map<String, Any>> {\n"
+"\t\treturn jdbcTemplate.queryForList(\"select * from mytable\")\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:979
+msgid "The returned list would resemble the following:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:983
+#, no-wrap
+msgid "[{name=Bob, id=1}, {name=Mary, id=2}]\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:987
+#, no-wrap
+msgid "Updating the Database"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:990
+msgid "The following example updates a column for a certain primary key:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1001
+#, no-wrap
+msgid "\tpublic class ExecuteAnUpdate {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1012
+#, no-wrap
+msgid ""
+"\t\tpublic void setName(int id, String name) {\n"
+"\t\t\tthis.jdbcTemplate.update(\"update mytable set name = ? where id = ?\", "
+"name, id);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1022
+#, no-wrap
+msgid "\tclass ExecuteAnUpdate(dataSource: DataSource) {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1029
+#, no-wrap
+msgid ""
+"\t\tfun setName(id: Int, name: String) {\n"
+"\t\t\tjdbcTemplate.update(\"update mytable set name = ? where id = ?\", "
+"name, id)\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1036
+msgid ""
+"In the preceding example, an SQL statement has placeholders for row "
+"parameters. You can pass the parameter values in as varargs or, "
+"alternatively, as an array of objects. Thus, you should explicitly wrap "
+"primitives in the primitive wrapper classes, or you should use auto-boxing."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1039
+#, no-wrap
+msgid "Retrieving Auto-generated Keys"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1049
+msgid ""
+"An `update()` convenience method supports the retrieval of primary keys "
+"generated by the database. This support is part of the JDBC 3.0 "
+"standard. See Chapter 13.6 of the specification for details. The method "
+"takes a `PreparedStatementCreator` as its first argument, and this is the "
+"way the required insert statement is specified. The other argument is a "
+"`KeyHolder`, which contains the generated key on successful return from the "
+"update. There is no standard single way to create an appropriate "
+"`PreparedStatement` (which explains why the method signature is the way it "
+"is). The following example works on Oracle but may not work on other "
+"platforms:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1058
+#, no-wrap
+msgid ""
+"\tfinal String INSERT_SQL = \"insert into my_test (name) values(?)\";\n"
+"\tfinal String name = \"Rob\";\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1065
+#, no-wrap
+msgid ""
+"\tKeyHolder keyHolder = new GeneratedKeyHolder();\n"
+"\tjdbcTemplate.update(connection -> {\n"
+"\t\tPreparedStatement ps = connection.prepareStatement(INSERT_SQL, new "
+"String[] { \"id\" });\n"
+"\t\tps.setString(1, name);\n"
+"\t\treturn ps;\n"
+"\t}, keyHolder);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1067
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1082
+#, no-wrap
+msgid "\t// keyHolder.getKey() now contains the generated key\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1075
+#, no-wrap
+msgid ""
+"\tval INSERT_SQL = \"insert into my_test (name) values(?)\"\n"
+"\tval name = \"Rob\"\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/jdbc/core.adoc:1080
+#, no-wrap
+msgid ""
+"\tval keyHolder = GeneratedKeyHolder()\n"
+"\tjdbcTemplate.update({\n"
+"\t\tit.prepareStatement (INSERT_SQL, arrayOf(\"id\")).apply { setString(1, "
+"name) }\n"
+"\t}, keyHolder)\n"
+msgstr ""

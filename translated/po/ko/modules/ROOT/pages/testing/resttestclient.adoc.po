@@ -1,0 +1,365 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:2
+#, no-wrap
+msgid "RestTestClient"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:9
+msgid ""
+"`RestTestClient` is an HTTP client designed for testing server "
+"applications. It wraps Spring's "
+"xref:integration/rest-clients.adoc#rest-restclient[`RestClient`] and uses it "
+"to perform requests, but exposes a testing facade for verifying "
+"responses. `RestTestClient` can be used to perform end-to-end HTTP tests. It "
+"can also be used to test Spring MVC applications without a running server "
+"via MockMvc."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:14
+#, no-wrap
+msgid "Setup"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:18
+msgid ""
+"To set up a `RestTestClient` you need to choose a server setup to bind "
+"to. This can be one of several MockMvc setup choices, or a connection to a "
+"live server."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:22
+#, no-wrap
+msgid "Bind to Controller"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:26
+msgid ""
+"This setup allows you to test specific controller(s) via mock request and "
+"response objects, without a running server."
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:29
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:63
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:87
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:113
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:35
+#, no-wrap
+msgid ""
+"\tRestTestClient client =\n"
+"\t\t\tRestTestClient.bindToController(new TestController()).build();\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:37
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:71
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:94
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:122
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:42
+#, no-wrap
+msgid "\tval client = RestTestClient.bindToController(TestController()).build()\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:46
+#, no-wrap
+msgid "Bind to `ApplicationContext`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:51
+msgid ""
+"This setup allows you to load Spring configuration with Spring MVC "
+"infrastructure and controller declarations and use it to handle requests via "
+"mock request and response objects, without a running server."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:56
+#, no-wrap
+msgid "Bind to Router Function"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:60
+msgid ""
+"This setup allows you to test xref:web/webmvc-functional.adoc[functional "
+"endpoints] via mock request and response objects, without a running server."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:69
+#, no-wrap
+msgid ""
+"\tRouterFunction<?> route = ...\n"
+"\tclient = RestTestClient.bindToRouterFunction(route).build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:77
+#, no-wrap
+msgid ""
+"\tval route: RouterFunction<*> = ...\n"
+"\tval client = RestTestClient.bindToRouterFunction(route).build()\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:81
+#, no-wrap
+msgid "Bind to Server"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:84
+msgid ""
+"This setup connects to a running server to perform full, end-to-end HTTP "
+"tests:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:92
+#, no-wrap
+msgid ""
+"\tclient = "
+"RestTestClient.bindToServer().baseUrl(\"http://localhost:8080\").build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:99
+#, no-wrap
+msgid ""
+"\tclient = "
+"RestTestClient.bindToServer().baseUrl(\"http://localhost:8080\").build()\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:105
+#, no-wrap
+msgid "Client Config"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:110
+msgid ""
+"In addition to the server setup options described earlier, you can also "
+"configure client options, including base URL, default headers, client "
+"filters, and others. These options are readily available following the "
+"initial `bindTo` call, as follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:120
+#, no-wrap
+msgid ""
+"\tclient = RestTestClient.bindToController(new TestController())\n"
+"\t\t\t.baseUrl(\"/test\")\n"
+"\t\t\t.build();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:129
+#, no-wrap
+msgid ""
+"\tclient = RestTestClient.bindToController(TestController())\n"
+"\t\t\t.baseUrl(\"/test\")\n"
+"\t\t\t.build()\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:136
+#, no-wrap
+msgid "Writing Tests"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:141
+msgid ""
+"xref:integration/rest-clients.adoc#rest-restclient[`RestClient`] and "
+"`RestTestClient` have the same API up to the point of the call to "
+"`exchange()`. After that, `RestTestClient` provides two alternative ways to "
+"verify the response:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:143
+msgid ""
+"xref:resttestclient-workflow[Built-in Assertions] extend the request "
+"workflow with a chain of expectations"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:144
+msgid ""
+"xref:resttestclient-assertj[AssertJ Integration] to verify the response via "
+"`assertThat()` statements"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:148
+#, no-wrap
+msgid "Built-in Assertions"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:152
+msgid ""
+"To use the built-in assertions, remain in the workflow after the call to "
+"`exchange()`, and use one of the expectation methods. For example:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:160
+msgid ""
+"If you would like for all expectations to be asserted even if one of them "
+"fails, you can use `expectAll(..)` instead of multiple chained `expect*(..)` "
+"calls. This feature is similar to the _soft assertions_ support in AssertJ "
+"and the `assertAll()` support in JUnit Jupiter."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:165
+msgid ""
+"You can then choose to decode the response body through one of the "
+"following:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:167
+msgid "`expectBody(Class<T>)`: Decode to single object."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:168
+msgid ""
+"`expectBody()`: Decode to `byte[]` for "
+"xref:testing/resttestclient.adoc#resttestclient-json[JSON Content] or an "
+"empty body."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:172
+msgid ""
+"If the built-in assertions are insufficient, you can consume the object "
+"instead and perform any other assertions:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:176
+msgid "Or you can exit the workflow and obtain a `EntityExchangeResult`:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:183
+msgid ""
+"When you need to decode to a target type with generics, look for the "
+"overloaded methods that accept "
+"{spring-framework-api}/core/ParameterizedTypeReference.html[`ParameterizedTypeReference`] "
+"instead of `Class<T>`."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:186
+#, no-wrap
+msgid "No Content"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:189
+msgid ""
+"If the response is not expected to have content, you can assert that as "
+"follows:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:193
+msgid ""
+"If you want to ignore the response content, the following releases the "
+"content without any assertions:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:198
+msgid ""
+"Consuming the response body (for example, with `expectBody`) is required if "
+"your tests are running with leak detection for pooled buffers. Without that, "
+"the tool will report buffers being leaked."
+msgstr ""
+
+#. type: Title ====
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:201
+#, no-wrap
+msgid "JSON Content"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:205
+msgid ""
+"You can use `expectBody()` without a target type to perform assertions on "
+"the raw content rather than through higher level Object(s)."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:207
+msgid ""
+"To verify the full JSON content with "
+"https://jsonassert.skyscreamer.org[JSONAssert]:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:212
+msgid "To verify JSON content with https://github.com/jayway/JsonPath[JSONPath]:"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:217
+#, no-wrap
+msgid "AssertJ Integration"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:222
+msgid ""
+"`RestTestClientResponse` is the main entry point for the AssertJ "
+"integration.  It is an `AssertProvider` that wraps the `ResponseSpec` of an "
+"exchange in order to enable use of `assertThat()` statements. For example:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/resttestclient.adoc:228
+msgid ""
+"You can also use the built-in workflow first, and then obtain an "
+"`ExchangeResult` to wrap and continue with AssertJ. For example:"
+msgstr ""

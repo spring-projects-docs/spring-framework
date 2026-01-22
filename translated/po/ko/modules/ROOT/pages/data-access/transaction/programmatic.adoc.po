@@ -1,0 +1,811 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Title =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:2
+#, no-wrap
+msgid "Programmatic Transaction Management"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:5
+msgid ""
+"The Spring Framework provides two means of programmatic transaction "
+"management, by using:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:7
+msgid "The `TransactionTemplate` or `TransactionalOperator`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:8
+msgid "A `TransactionManager` implementation directly."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:13
+msgid ""
+"The Spring team generally recommends the `TransactionTemplate` for "
+"programmatic transaction management in imperative flows and "
+"`TransactionalOperator` for reactive code.  The second approach is similar "
+"to using the JTA `UserTransaction` API, although exception handling is less "
+"cumbersome."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:16
+#, no-wrap
+msgid "Using the `TransactionTemplate`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:23
+msgid ""
+"The `TransactionTemplate` adopts the same approach as other Spring "
+"templates, such as the `JdbcTemplate`. It uses a callback approach (to free "
+"application code from having to do the boilerplate acquisition and release "
+"transactional resources) and results in code that is intention driven, in "
+"that your code focuses solely on what you want to do."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:28
+msgid ""
+"As the examples that follow show, using the `TransactionTemplate` absolutely "
+"couples you to Spring's transaction infrastructure and APIs. Whether or not "
+"programmatic transaction management is suitable for your development needs "
+"is a decision that you have to make yourself."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:35
+msgid ""
+"Application code that must run in a transactional context and that "
+"explicitly uses the `TransactionTemplate` resembles the next example. You, "
+"as an application developer, can write a `TransactionCallback` "
+"implementation (typically expressed as an anonymous inner class) that "
+"contains the code that you need to run in the context of a transaction. You "
+"can then pass an instance of your custom `TransactionCallback` to the "
+"`execute(..)` method exposed on the `TransactionTemplate`. The following "
+"example shows how to do so:"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:38
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:88
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:119
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:166
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:242
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:295
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:347
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:404
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:456
+#, no-wrap
+msgid "Java"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:43
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:171
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:247
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:352
+#, no-wrap
+msgid "\tpublic class SimpleService implements Service {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:46
+#, no-wrap
+msgid ""
+"\t\t// single TransactionTemplate shared amongst all methods in this "
+"instance\n"
+"\t\tprivate final TransactionTemplate transactionTemplate;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:51
+#, no-wrap
+msgid ""
+"\t\t// use constructor-injection to supply the PlatformTransactionManager\n"
+"\t\tpublic SimpleService(PlatformTransactionManager transactionManager) {\n"
+"\t\t\tthis.transactionTemplate = new "
+"TransactionTemplate(transactionManager);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:62
+#, no-wrap
+msgid ""
+"\t\tpublic Object someServiceMethod() {\n"
+"\t\t\treturn transactionTemplate.execute(new TransactionCallback() {\n"
+"\t\t\t\t// the code in this method runs in a transactional context\n"
+"\t\t\t\tpublic Object doInTransaction(TransactionStatus status) {\n"
+"\t\t\t\t\tupdateOperation1();\n"
+"\t\t\t\t\treturn resultOfUpdateOperation2();\n"
+"\t\t\t\t}\n"
+"\t\t\t});\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: Labeled list
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:64
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:100
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:136
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:185
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:267
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:309
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:368
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:423
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:476
+#, no-wrap
+msgid "Kotlin"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:70
+#, no-wrap
+msgid ""
+"\t// use constructor-injection to supply the PlatformTransactionManager\n"
+"\tclass SimpleService(transactionManager: PlatformTransactionManager) : "
+"Service {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:73
+#, no-wrap
+msgid ""
+"\t\t// single TransactionTemplate shared amongst all methods in this "
+"instance\n"
+"\t\tprivate val transactionTemplate = "
+"TransactionTemplate(transactionManager)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:79
+#, no-wrap
+msgid ""
+"\t\tfun someServiceMethod() = transactionTemplate.execute<Any?> {\n"
+"\t\t\tupdateOperation1()\n"
+"\t\t\tresultOfUpdateOperation2()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:85
+msgid ""
+"If there is no return value, you can use the convenient "
+"`TransactionCallbackWithoutResult` class with an anonymous class, as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:98
+#, no-wrap
+msgid ""
+"\ttransactionTemplate.execute(new TransactionCallbackWithoutResult() {\n"
+"\t\tprotected void doInTransactionWithoutResult(TransactionStatus status) "
+"{\n"
+"\t\t\tupdateOperation1();\n"
+"\t\t\tupdateOperation2();\n"
+"\t\t}\n"
+"\t});\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:110
+#, no-wrap
+msgid ""
+"\ttransactionTemplate.execute(object : TransactionCallbackWithoutResult() "
+"{\n"
+"\t\toverride fun doInTransactionWithoutResult(status: TransactionStatus) {\n"
+"\t\t\tupdateOperation1()\n"
+"\t\t\tupdateOperation2()\n"
+"\t\t}\n"
+"\t})\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:116
+msgid ""
+"Code within the callback can roll the transaction back by calling the "
+"`setRollbackOnly()` method on the supplied `TransactionStatus` object, as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:124
+#, no-wrap
+msgid "\ttransactionTemplate.execute(new TransactionCallbackWithoutResult() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:134
+#, no-wrap
+msgid ""
+"\t\tprotected void doInTransactionWithoutResult(TransactionStatus status) "
+"{\n"
+"\t\t\ttry {\n"
+"\t\t\t\tupdateOperation1();\n"
+"\t\t\t\tupdateOperation2();\n"
+"\t\t\t} catch (SomeBusinessException ex) {\n"
+"\t\t\t\tstatus.setRollbackOnly();\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t});\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:141
+#, no-wrap
+msgid ""
+"\ttransactionTemplate.execute(object : TransactionCallbackWithoutResult() "
+"{\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:151
+#, no-wrap
+msgid ""
+"\t\toverride fun doInTransactionWithoutResult(status: TransactionStatus) {\n"
+"\t\t\ttry {\n"
+"\t\t\t\tupdateOperation1()\n"
+"\t\t\t\tupdateOperation2()\n"
+"\t\t\t} catch (ex: SomeBusinessException) {\n"
+"\t\t\t\tstatus.setRollbackOnly()\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t})\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:155
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:336
+#, no-wrap
+msgid "Specifying Transaction Settings"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:163
+msgid ""
+"You can specify transaction settings (such as the propagation mode, the "
+"isolation level, the timeout, and so forth) on the `TransactionTemplate` "
+"either programmatically or in configuration. By default, "
+"`TransactionTemplate` instances have the "
+"xref:data-access/transaction/declarative/txadvice-settings.adoc[default "
+"transactional settings]. The following example shows the programmatic "
+"customization of the transactional settings for a specific "
+"`TransactionTemplate:`"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:173
+#, no-wrap
+msgid "\t\tprivate final TransactionTemplate transactionTemplate;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:176
+#, no-wrap
+msgid ""
+"\t\tpublic SimpleService(PlatformTransactionManager transactionManager) {\n"
+"\t\t\tthis.transactionTemplate = new "
+"TransactionTemplate(transactionManager);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:183
+#, no-wrap
+msgid ""
+"\t\t\t// the transaction settings can be set here explicitly if so desired\n"
+"\t\t\tthis.transactionTemplate.setIsolationLevel(TransactionDefinition.ISOLATION_READ_UNCOMMITTED);\n"
+"\t\t\tthis.transactionTemplate.setTimeout(30); // 30 seconds\n"
+"\t\t\t// and so forth...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:190
+#, no-wrap
+msgid ""
+"\tclass SimpleService(transactionManager: PlatformTransactionManager) : "
+"Service {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:198
+#, no-wrap
+msgid ""
+"\t\tprivate val transactionTemplate = "
+"TransactionTemplate(transactionManager).apply {\n"
+"\t\t\t// the transaction settings can be set here explicitly if so desired\n"
+"\t\t\tisolationLevel = TransactionDefinition.ISOLATION_READ_UNCOMMITTED\n"
+"\t\t\ttimeout = 30 // 30 seconds\n"
+"\t\t\t// and so forth...\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:203
+msgid ""
+"The following example defines a `TransactionTemplate` with some custom "
+"transactional settings by using Spring XML configuration:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:211
+#, no-wrap
+msgid ""
+"\t<bean id=\"sharedTransactionTemplate\"\n"
+"\t\t\tclass=\"org.springframework.transaction.support.TransactionTemplate\">\n"
+"\t\t<property name=\"isolationLevelName\" "
+"value=\"ISOLATION_READ_UNCOMMITTED\"/>\n"
+"\t\t<property name=\"timeout\" value=\"30\"/>\n"
+"\t</bean>\n"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:215
+msgid ""
+"You can then inject the `sharedTransactionTemplate` into as many services as "
+"are required."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:222
+msgid ""
+"Finally, instances of the `TransactionTemplate` class are thread-safe, in "
+"that instances do not maintain any conversational "
+"state. `TransactionTemplate` instances do, however, maintain configuration "
+"state. So, while a number of classes may share a single instance of a "
+"`TransactionTemplate`, if a class needs to use a `TransactionTemplate` with "
+"different settings (for example, a different isolation level), you need to "
+"create two distinct `TransactionTemplate` instances."
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:225
+#, no-wrap
+msgid "Using the `TransactionalOperator`"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:231
+msgid ""
+"The `TransactionalOperator` follows an operator design that is similar to "
+"other reactive operators. It uses a callback approach (to free application "
+"code from having to do the boilerplate acquisition and release transactional "
+"resources) and results in code that is intention driven, in that your code "
+"focuses solely on what you want to do."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:236
+msgid ""
+"As the examples that follow show, using the `TransactionalOperator` "
+"absolutely couples you to Spring's transaction infrastructure and "
+"APIs. Whether or not programmatic transaction management is suitable for "
+"your development needs is a decision that you have to make yourself."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:239
+msgid ""
+"Application code that must run in a transactional context and that "
+"explicitly uses the `TransactionalOperator` resembles the next example:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:250
+#, no-wrap
+msgid ""
+"\t\t// single TransactionalOperator shared amongst all methods in this "
+"instance\n"
+"\t\tprivate final TransactionalOperator transactionalOperator;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:255
+#, no-wrap
+msgid ""
+"\t\t// use constructor-injection to supply the ReactiveTransactionManager\n"
+"\t\tpublic SimpleService(ReactiveTransactionManager transactionManager) {\n"
+"\t\t\tthis.transactionalOperator = "
+"TransactionalOperator.create(transactionManager);\n"
+"\t\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:257
+#, no-wrap
+msgid "\t\tpublic Mono<Object> someServiceMethod() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:259
+#, no-wrap
+msgid "\t\t\t// the code in this method runs in a transactional context\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:261
+#, no-wrap
+msgid "\t\t\tMono<Object> update = updateOperation1();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:265
+#, no-wrap
+msgid ""
+"\t\t\treturn "
+"update.then(resultOfUpdateOperation2).as(transactionalOperator::transactional);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:273
+#, no-wrap
+msgid ""
+"\t// use constructor-injection to supply the ReactiveTransactionManager\n"
+"\tclass SimpleService(transactionManager: ReactiveTransactionManager) : "
+"Service {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:276
+#, no-wrap
+msgid ""
+"\t\t// single TransactionalOperator shared amongst all methods in this "
+"instance\n"
+"\t\tprivate val transactionalOperator = "
+"TransactionalOperator.create(transactionManager)\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:282
+#, no-wrap
+msgid ""
+"\t\tsuspend fun someServiceMethod() = "
+"transactionalOperator.executeAndAwait<Any?> {\n"
+"\t\t\tupdateOperation1()\n"
+"\t\t\tresultOfUpdateOperation2()\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:286
+msgid "`TransactionalOperator` can be used in two ways:"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:288
+msgid ""
+"Operator-style using Project Reactor types "
+"(`mono.as(transactionalOperator::transactional)`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:289
+msgid ""
+"Callback-style for every other case "
+"(`transactionalOperator.execute(TransactionCallback<T>)`)"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:292
+msgid ""
+"Code within the callback can roll the transaction back by calling the "
+"`setRollbackOnly()` method on the supplied `ReactiveTransaction` object, as "
+"follows:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:300
+#, no-wrap
+msgid "\ttransactionalOperator.execute(new TransactionCallback<>() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:307
+#, no-wrap
+msgid ""
+"\t\tpublic Mono<Object> doInTransaction(ReactiveTransaction status) {\n"
+"\t\t\treturn updateOperation1().then(updateOperation2)\n"
+"\t\t\t\t\t\t.doOnError(SomeBusinessException.class, e -> "
+"status.setRollbackOnly());\n"
+"\t\t\t}\n"
+"\t\t}\n"
+"\t});\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:314
+#, no-wrap
+msgid "\ttransactionalOperator.execute(object : TransactionCallback() {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:320
+#, no-wrap
+msgid ""
+"\t\toverride fun doInTransactionWithoutResult(status: ReactiveTransaction) "
+"{\n"
+"\t\t\tupdateOperation1().then(updateOperation2)\n"
+"\t\t\t\t\t\t.doOnError(SomeBusinessException.class, e -> "
+"status.setRollbackOnly())\n"
+"\t\t}\n"
+"\t})\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:324
+#, no-wrap
+msgid "Cancel Signals"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:334
+msgid ""
+"In Reactive Streams, a `Subscriber` can cancel its `Subscription` and stop "
+"its `Publisher`. Operators in Project Reactor, as well as in other "
+"libraries, such as `next()`, `take(long)`, `timeout(Duration)`, and others "
+"can issue cancellations. There is no way to know the reason for the "
+"cancellation, whether it is due to an error or a simply lack of interest to "
+"consume further. Since version 5.3 cancel signals lead to a roll back.  As a "
+"result it is important to consider the operators used downstream from a "
+"transaction `Publisher`. In particular in the case of a `Flux` or other "
+"multi-value `Publisher`, the full output must be consumed to allow the "
+"transaction to complete."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:344
+msgid ""
+"You can specify transaction settings (such as the propagation mode, the "
+"isolation level, the timeout, and so forth) for the "
+"`TransactionalOperator`. By default, `TransactionalOperator` instances have "
+"xref:data-access/transaction/declarative/txadvice-settings.adoc[default "
+"transactional settings]. The following example shows customization of the "
+"transactional settings for a specific `TransactionalOperator:`"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:354
+#, no-wrap
+msgid "\t\tprivate final TransactionalOperator transactionalOperator;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:357
+#, no-wrap
+msgid ""
+"\t\tpublic SimpleService(ReactiveTransactionManager transactionManager) {\n"
+"\t\t\tDefaultTransactionDefinition definition = new "
+"DefaultTransactionDefinition();\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:362
+#, no-wrap
+msgid ""
+"\t\t\t// the transaction settings can be set here explicitly if so desired\n"
+"\t\t\tdefinition.setIsolationLevel(TransactionDefinition.ISOLATION_READ_UNCOMMITTED);\n"
+"\t\t\tdefinition.setTimeout(30); // 30 seconds\n"
+"\t\t\t// and so forth...\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:366
+#, no-wrap
+msgid ""
+"\t\t\tthis.transactionalOperator = "
+"TransactionalOperator.create(transactionManager, definition);\n"
+"\t\t}\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:373
+#, no-wrap
+msgid ""
+"\tclass SimpleService(transactionManager: ReactiveTransactionManager) : "
+"Service {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:382
+#, no-wrap
+msgid ""
+"\t\tprivate val definition = DefaultTransactionDefinition().apply {\n"
+"\t\t\t// the transaction settings can be set here explicitly if so desired\n"
+"\t\t\tisolationLevel = TransactionDefinition.ISOLATION_READ_UNCOMMITTED\n"
+"\t\t\ttimeout = 30 // 30 seconds\n"
+"\t\t\t// and so forth...\n"
+"\t\t}\n"
+"\t\tprivate val transactionalOperator = "
+"TransactionalOperator(transactionManager, definition)\n"
+"\t}\n"
+msgstr ""
+
+#. type: Title ==
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:387
+#, no-wrap
+msgid "Using the `TransactionManager`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:391
+msgid ""
+"The following sections explain programmatic usage of imperative and reactive "
+"transaction managers."
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:393
+#, no-wrap
+msgid "Using the `PlatformTransactionManager`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:401
+msgid ""
+"For imperative transactions, you can use a "
+"`org.springframework.transaction.PlatformTransactionManager` directly to "
+"manage your transaction. To do so, pass the implementation of the "
+"`PlatformTransactionManager` you use to your bean through a bean "
+"reference. Then, by using the `TransactionDefinition` and "
+"`TransactionStatus` objects, you can initiate transactions, roll back, and "
+"commit. The following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:412
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:464
+#, no-wrap
+msgid ""
+"\tDefaultTransactionDefinition def = new DefaultTransactionDefinition();\n"
+"\t// explicitly setting the transaction name is something that can be done "
+"only programmatically\n"
+"\tdef.setName(\"SomeTxName\");\n"
+"\tdef.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:421
+#, no-wrap
+msgid ""
+"\tTransactionStatus status = txManager.getTransaction(def);\n"
+"\ttry {\n"
+"\t\t// put your business logic here\n"
+"\t} catch (MyException ex) {\n"
+"\t\ttxManager.rollback(status);\n"
+"\t\tthrow ex;\n"
+"\t}\n"
+"\ttxManager.commit(status);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:431
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:484
+#, no-wrap
+msgid ""
+"\tval def = DefaultTransactionDefinition()\n"
+"\t// explicitly setting the transaction name is something that can be done "
+"only programmatically\n"
+"\tdef.setName(\"SomeTxName\")\n"
+"\tdef.propagationBehavior = TransactionDefinition.PROPAGATION_REQUIRED\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:439
+#, no-wrap
+msgid ""
+"\tval status = txManager.getTransaction(def)\n"
+"\ttry {\n"
+"\t\t// put your business logic here\n"
+"\t} catch (ex: MyException) {\n"
+"\t\ttxManager.rollback(status)\n"
+"\t\tthrow ex\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:441
+#, no-wrap
+msgid "\ttxManager.commit(status)\n"
+msgstr ""
+
+#. type: Title ===
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:445
+#, no-wrap
+msgid "Using the `ReactiveTransactionManager`"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:453
+msgid ""
+"When working with reactive transactions, you can use a "
+"`org.springframework.transaction.ReactiveTransactionManager` directly to "
+"manage your transaction. To do so, pass the implementation of the "
+"`ReactiveTransactionManager` you use to your bean through a bean "
+"reference. Then, by using the `TransactionDefinition` and "
+"`ReactiveTransaction` objects, you can initiate transactions, roll back, and "
+"commit. The following example shows how to do so:"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:466
+#, no-wrap
+msgid ""
+"\tMono<ReactiveTransaction> reactiveTx = "
+"txManager.getReactiveTransaction(def);\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:468
+#, no-wrap
+msgid "\treactiveTx.flatMap(status -> {\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:470
+#, no-wrap
+msgid "\t\tMono<Object> tx = ...; // put your business logic here\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:474
+#, no-wrap
+msgid ""
+"\t\treturn tx.then(txManager.commit(status))\n"
+"\t\t\t\t.onErrorResume(ex -> "
+"txManager.rollback(status).then(Mono.error(ex)));\n"
+"\t});\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:487
+#, no-wrap
+msgid ""
+"\tval reactiveTx = txManager.getReactiveTransaction(def)\n"
+"\treactiveTx.flatMap { status ->\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:489
+#, no-wrap
+msgid "\t\tval tx = ... // put your business logic here\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/data-access/transaction/programmatic.adoc:493
+#, no-wrap
+msgid ""
+"\t\ttx.then(txManager.commit(status))\n"
+"\t\t\t\t.onErrorResume { ex -> "
+"txManager.rollback(status).then(Mono.error(ex)) }\n"
+"\t}\n"
+msgstr ""
