@@ -2,4 +2,5 @@
 /**/node_modules
 /**/*.po~
 /**/*.adoc.mo
-translated/ko/src
+translated/ko/src/**
+translated/ko/modules/**
