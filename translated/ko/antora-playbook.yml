@@ -7,7 +7,7 @@ git:
 content:
   sources:
   - url: ../../
-    branches: v7.0.3
+    branches: main
     start_path: translated/ko
 asciidoc:
   extensions:
