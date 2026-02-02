@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-01-22 15:52+0900\n"
+"POT-Creation-Date: 2026-02-02 11:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,8 @@ msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:10
-msgid "The `spring-web` module has a number of built-in `Filter` implementations:"
+msgid ""
+"The `spring-web` module has a number of built-in `Filter` implementations:"
 msgstr ""
 
 #. type: Plain text
@@ -49,7 +50,8 @@ msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:13
-msgid "xref:web/webmvc/filters.adoc#filters-forwarded-headers[Forwarded Headers]"
+msgid ""
+"xref:web/webmvc/filters.adoc#filters-forwarded-headers[Forwarded Headers]"
 msgstr ""
 
 #. type: Plain text
@@ -69,7 +71,8 @@ msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:18
-msgid "There are also base class implementations for use in Spring applications:"
+msgid ""
+"There are also base class implementations for use in Spring applications:"
 msgstr ""
 
 #. type: Plain text
@@ -93,8 +96,8 @@ msgstr ""
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:30
 msgid ""
 "Servlet filters can be configured in `web.xml` or via Servlet annotations.  "
-"In a Spring Boot application , you can "
-"{spring-boot-docs}/how-to/webserver.html#howto.webserver.add-servlet-filter-listener.spring-bean[declare "
+"In a Spring Boot application , you can {spring-boot-docs}/how-to/webserver."
+"html#howto.webserver.add-servlet-filter-listener.spring-bean[declare "
 "Filter's as beans] and Boot will have them configured."
 msgstr ""
 
@@ -107,20 +110,20 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:38
 msgid ""
-"Browsers can submit form data only through HTTP GET or HTTP POST but "
-"non-browser clients can also use HTTP PUT, PATCH, and DELETE. The Servlet "
-"API requires `ServletRequest.getParameter{asterisk}()` methods to support "
-"form field access only for HTTP POST."
+"Browsers can submit form data only through HTTP GET or HTTP POST but non-"
+"browser clients can also use HTTP PUT, PATCH, and DELETE. The Servlet API "
+"requires `ServletRequest.getParameter{asterisk}()` methods to support form "
+"field access only for HTTP POST."
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:43
 msgid ""
 "The `spring-web` module provides `FormContentFilter` to intercept HTTP PUT, "
-"PATCH, and DELETE requests with a content type of "
-"`application/x-www-form-urlencoded`, read the form data from the body of the "
-"request, and wrap the `ServletRequest` to make the form data available "
-"through the `ServletRequest.getParameter{asterisk}()` family of methods."
+"PATCH, and DELETE requests with a content type of `application/x-www-form-"
+"urlencoded`, read the form data from the body of the request, and wrap the "
+"`ServletRequest` to make the form data available through the `ServletRequest."
+"getParameter{asterisk}()` family of methods."
 msgstr ""
 
 #. type: Title ==
@@ -188,12 +191,12 @@ msgid ""
 "In order to support xref:web/webmvc/mvc-ann-async.adoc[asynchronous "
 "requests] and error dispatches this filter should be mapped with "
 "`DispatcherType.ASYNC` and also `DispatcherType.ERROR`.  If using Spring "
-"Framework's `AbstractAnnotationConfigDispatcherServletInitializer` (see "
-"xref:web/webmvc/mvc-servlet/container-config.adoc[Servlet Config]) all "
-"filters are automatically registered for all dispatch types. However if "
-"registering the filter via `web.xml` or in Spring Boot via a "
-"`FilterRegistrationBean` be sure to include `DispatcherType.ASYNC` and "
-"`DispatcherType.ERROR` in addition to `DispatcherType.REQUEST`."
+"Framework's `AbstractAnnotationConfigDispatcherServletInitializer` (see xref:"
+"web/webmvc/mvc-servlet/container-config.adoc[Servlet Config]) all filters "
+"are automatically registered for all dispatch types. However if registering "
+"the filter via `web.xml` or in Spring Boot via a `FilterRegistrationBean` be "
+"sure to include `DispatcherType.ASYNC` and `DispatcherType.ERROR` in "
+"addition to `DispatcherType.REQUEST`."
 msgstr ""
 
 #. type: Title ==
@@ -227,9 +230,9 @@ msgstr ""
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:98
 msgid ""
 "This filter has a `writeWeakETag` parameter that configures the filter to "
-"write weak ETags similar to the following: "
-"`W/\"02a2d595e6ed9a0b24f027f2b63b134d6\"` (as defined in "
-"{rfc-site}/rfc7232#section-2.3[RFC 7232 Section 2.3])."
+"write weak ETags similar to the following: `W/"
+"\"02a2d595e6ed9a0b24f027f2b63b134d6\"` (as defined in {rfc-site}/"
+"rfc7232#section-2.3[RFC 7232 Section 2.3])."
 msgstr ""
 
 #. type: Plain text
@@ -239,11 +242,11 @@ msgid ""
 "requests] this filter must be mapped with `DispatcherType.ASYNC` so that the "
 "filter can delay and successfully generate an ETag to the end of the last "
 "async dispatch. If using Spring Framework's "
-"`AbstractAnnotationConfigDispatcherServletInitializer` (see "
-"xref:web/webmvc/mvc-servlet/container-config.adoc[Servlet Config])  all "
-"filters are automatically registered for all dispatch types. However if "
-"registering the filter via `web.xml` or in Spring Boot via a "
-"`FilterRegistrationBean` be sure to include `DispatcherType.ASYNC`."
+"`AbstractAnnotationConfigDispatcherServletInitializer` (see xref:web/webmvc/"
+"mvc-servlet/container-config.adoc[Servlet Config])  all filters are "
+"automatically registered for all dispatch types. However if registering the "
+"filter via `web.xml` or in Spring Boot via a `FilterRegistrationBean` be "
+"sure to include `DispatcherType.ASYNC`."
 msgstr ""
 
 #. type: Title ==
@@ -271,8 +274,8 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:117
 msgid ""
-"See the sections on xref:web/webmvc-cors.adoc[CORS] and the "
-"xref:web/webmvc-cors.adoc#mvc-cors-filter[CORS Filter] for more details."
+"See the sections on xref:web/webmvc-cors.adoc[CORS] and the xref:web/webmvc-"
+"cors.adoc#mvc-cors-filter[CORS Filter] for more details."
 msgstr ""
 
 #. type: Title ==
@@ -289,39 +292,65 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:126
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:125
 msgid ""
-"In previous Spring Framework versions, Spring MVC could be configured to "
-"ignore trailing slashes in URL paths when mapping incoming requests on "
-"controller methods. This means that sending a \"GET /home/\" request would "
-"be handled by a controller method annotated with `@GetMapping(\"/home\")`."
+"You may want your controller endpoints to match routes with or without a "
+"trailing slash in the URL path.  For example, both \"GET /home\" and \"GET /"
+"home/\" should be handled by a controller method annotated with "
+"`@GetMapping(\"/home\")`."
 msgstr ""
 
 #. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:130
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:129
 msgid ""
-"This option was deprecated in 6.0 and removed in 7.0, but applications are "
-"still expected to handle such requests in a safe way. The `UrlHandlerFilter` "
-"Servlet filter has been designed for this purpose.  It can be configured to:"
+"Spring provides `UrlHandlerFilter` that removes the trailing slash from URL "
+"paths to ensure a consistent view of paths with or without a trailing "
+"slash.  This is important to avoid a mismatch between URL-based "
+"authorization decisions and web framework request mappings.  The filter can "
+"remove the trailing slash in one of a couple of ways:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:131
+msgid ""
+"respond with an HTTP redirect status that sends clients to the same path "
+"without a trailing slash."
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:132
-msgid ""
-"respond with an HTTP redirect status when receiving URLs with trailing "
-"slashes, sending browsers to the non-trailing slash URL variant."
+msgid "wrap the request to remove the trailing slash."
 msgstr ""
 
 #. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:133
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:136
 msgid ""
-"wrap the request to act as if the request was sent without a trailing slash "
-"and continue the processing of the request."
+"Historically Spring MVC supported trailing slash matching of URL paths.  "
+"This capability was deprecated in 6.0 for security reasons and removed in "
+"7.0 with `UrlHandlerFilter` providing a safer alternative."
 msgstr ""
 
 #. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:135
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:138
 msgid ""
 "Here is how you can instantiate and configure a `UrlHandlerFilter` for a "
 "blog application:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:142
+msgid "Keep in mind the following:"
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:144
+msgid "the root path `\"/\"` is excluded from trailing slash handling."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/web/webmvc/filters.adoc:145
+msgid ""
+"`@RequestMapping(\"/\")` adds a trailing slash to a type-level mapping, and "
+"therefore will not map when trailing slash handling applies; use "
+"`@RequestMapping` (no path attribute) instead."
 msgstr ""

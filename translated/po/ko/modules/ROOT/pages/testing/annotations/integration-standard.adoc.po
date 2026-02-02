@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"POT-Creation-Date: 2026-02-02 11:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,45 +53,40 @@ msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:13
-msgid "`@ManagedBean` (jakarta.annotation) if JSR-250 is present"
-msgstr ""
-
-#. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:14
 msgid "`@Inject` (jakarta.inject) if JSR-330 is present"
 msgstr ""
 
 #. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:15
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:14
 msgid "`@Named` (jakarta.inject) if JSR-330 is present"
 msgstr ""
 
 #. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:16
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:15
 msgid "`@PersistenceContext` (jakarta.persistence) if JPA is present"
 msgstr ""
 
 #. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:17
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:16
 msgid "`@PersistenceUnit` (jakarta.persistence) if JPA is present"
 msgstr ""
 
 #. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:19
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:18
 msgid ""
-"`@Transactional` (org.springframework.transaction.annotation)  _with "
-"xref:testing/testcontext-framework/tx.adoc#testcontext-tx-attribute-support[limited "
-"attribute support]_"
+"`@Transactional` (org.springframework.transaction.annotation)  _with xref:"
+"testing/testcontext-framework/tx.adoc#testcontext-tx-attribute-"
+"support[limited attribute support]_"
 msgstr ""
 
 #. type: Block title
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:20
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:19
 #, no-wrap
 msgid "JSR-250 Lifecycle Annotations"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:26
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:25
 msgid ""
 "In the Spring TestContext Framework, you can use `@PostConstruct` and "
 "`@PreDestroy` with standard semantics on any application components "
@@ -100,7 +95,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:34
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/annotations/integration-standard.adoc:33
 msgid ""
 "If a method within a test class is annotated with `@PostConstruct`, that "
 "method runs before any before methods of the underlying test framework (for "

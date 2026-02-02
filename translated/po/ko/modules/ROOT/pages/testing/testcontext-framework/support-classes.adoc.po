@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"POT-Creation-Date: 2026-02-02 11:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,21 +71,20 @@ msgstr ""
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:28
 msgid ""
 "Dependency injection for test constructors, test methods, and test lifecycle "
-"callback methods. See "
-"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit-jupiter-di[Dependency "
-"Injection with the `SpringExtension`] for further details."
+"callback methods. See xref:testing/testcontext-framework/support-classes."
+"adoc#testcontext-junit-jupiter-di[Dependency Injection with the "
+"`SpringExtension`] for further details."
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:33
 msgid ""
-"Powerful support for "
-"link:https://docs.junit.org/current/user-guide/#extensions-conditions[conditional "
-"test execution] based on SpEL expressions, environment variables, system "
-"properties, and so on. See the documentation for `@EnabledIf` and "
-"`@DisabledIf` in "
-"xref:testing/annotations/integration-junit-jupiter.adoc[Spring JUnit Jupiter "
-"Testing Annotations] for further details and examples."
+"Powerful support for link:https://docs.junit.org/current/extensions/"
+"conditional-test-execution.html[conditional test execution] based on SpEL "
+"expressions, environment variables, system properties, and so on. See the "
+"documentation for `@EnabledIf` and `@DisabledIf` in xref:testing/annotations/"
+"integration-junit-jupiter.adoc[Spring JUnit Jupiter Testing Annotations] for "
+"further details and examples."
 msgstr ""
 
 #. type: Plain text
@@ -93,9 +92,9 @@ msgstr ""
 msgid ""
 "Custom composed annotations that combine annotations from Spring and JUnit "
 "Jupiter. See the `@TransactionalDevTestConfig` and "
-"`@TransactionalIntegrationTest` examples in "
-"xref:testing/annotations/integration-meta.adoc[Meta-Annotation Support for "
-"Testing] for further details."
+"`@TransactionalIntegrationTest` examples in xref:testing/annotations/"
+"integration-meta.adoc[Meta-Annotation Support for Testing] for further "
+"details."
 msgstr ""
 
 #. type: Plain text
@@ -113,9 +112,9 @@ msgstr ""
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:265
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:306
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:344
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:422
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:513
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:580
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:433
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:524
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:591
 #, no-wrap
 msgid "Java"
 msgstr ""
@@ -152,9 +151,9 @@ msgstr ""
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:282
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:320
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:361
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:451
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:528
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:601
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:462
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:539
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:612
 #, no-wrap
 msgid "Kotlin"
 msgstr ""
@@ -174,7 +173,7 @@ msgstr ""
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:75
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:117
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:155
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:541
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:552
 #, no-wrap
 msgid ""
 "\t\t@Test\n"
@@ -264,11 +263,10 @@ msgstr ""
 #. type: delimited block =
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:169
 msgid ""
-"The `SpringExtension` implements the "
-"link:https://docs.junit.org/current/user-guide/#extensions-parameter-resolution[`ParameterResolver`] "
-"extension API from JUnit Jupiter, which lets Spring provide dependency "
-"injection for test constructors, test methods, and test lifecycle callback "
-"methods."
+"The `SpringExtension` implements the link:https://docs.junit.org/current/"
+"extensions/parameter-resolution.html[`ParameterResolver`] extension API from "
+"JUnit Jupiter, which lets Spring provide dependency injection for test "
+"constructors, test methods, and test lifecycle callback methods."
 msgstr ""
 
 #. type: delimited block =
@@ -291,10 +289,10 @@ msgstr ""
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:182
 msgid ""
 "If a specific parameter in a constructor for a JUnit Jupiter test class is "
-"of type `ApplicationContext` (or a sub-type thereof) or is annotated or "
-"meta-annotated with `@Autowired`, `@Qualifier`, or `@Value`, Spring injects "
-"the value for that specific parameter with the corresponding bean or value "
-"from the test's `ApplicationContext`."
+"of type `ApplicationContext` (or a sub-type thereof) or is annotated or meta-"
+"annotated with `@Autowired`, `@Qualifier`, or `@Value`, Spring injects the "
+"value for that specific parameter with the corresponding bean or value from "
+"the test's `ApplicationContext`."
 msgstr ""
 
 #. type: delimited block =
@@ -326,10 +324,10 @@ msgstr ""
 #. type: delimited block =
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:195
 msgid ""
-"See "
-"xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-annotations-testconstructor[`@TestConstructor`] "
-"for details on the use of `@TestConstructor` and how to change the global "
-"_test constructor autowire mode_."
+"See xref:testing/annotations/integration-junit-jupiter.adoc#integration-"
+"testing-annotations-testconstructor[`@TestConstructor`] for details on the "
+"use of `@TestConstructor` and how to change the global _test constructor "
+"autowire mode_."
 msgstr ""
 
 #. type: delimited block =
@@ -421,8 +419,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\t@SpringJUnitConfig(TestConfig::class)\n"
-"\tclass OrderServiceIntegrationTests @Autowired constructor(private val "
-"orderService: OrderService){\n"
+"\tclass OrderServiceIntegrationTests @Autowired constructor(private val orderService: OrderService){\n"
 "\t\t// tests that use the injected OrderService\n"
 "\t}\n"
 msgstr ""
@@ -438,9 +435,10 @@ msgstr ""
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:262
 msgid ""
 "If the `spring.test.constructor.autowire.mode` property is to `all` (see "
-"xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-annotations-testconstructor[`@TestConstructor`]), "
-"we can omit the declaration of `@Autowired` on the constructor in the "
-"previous example, resulting in the following."
+"xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-"
+"annotations-testconstructor[`@TestConstructor`]), we can omit the "
+"declaration of `@Autowired` on the constructor in the previous example, "
+"resulting in the following."
 msgstr ""
 
 #. type: delimited block -
@@ -558,8 +556,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\t\t@RepeatedTest(10)\n"
-"\t\tfun placeOrderRepeatedly(repetitionInfo:RepetitionInfo, @Autowired "
-"orderService:OrderService) {\n"
+"\t\tfun placeOrderRepeatedly(repetitionInfo:RepetitionInfo, @Autowired orderService:OrderService) {\n"
 msgstr ""
 
 #. type: delimited block =
@@ -579,8 +576,8 @@ msgstr ""
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:394
 msgid ""
 "The _Spring TestContext Framework_ supports the use of test-related "
-"annotations on `@Nested` test classes in JUnit Jupiter, including "
-"first-class support for inheriting test class configuration from enclosing "
+"annotations on `@Nested` test classes in JUnit Jupiter, including first-"
+"class support for inheriting test class configuration from enclosing "
 "classes, and such configuration will be inherited by default. To change from "
 "the default `INHERIT` mode to `OVERRIDE` mode, you may annotate an "
 "individual `@Nested` test class with "
@@ -592,7 +589,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:401
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:400
+msgid ""
+"As of Spring Framework 7.0, the `SpringExtension` uses a test-method scoped "
+"`ExtensionContext` within `@Nested` test class hierarchies by default. "
+"However, the `SpringExtension` can be configured to use a test-class scoped "
+"`ExtensionContext`."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:404
+msgid ""
+"See the documentation for xref:testing/annotations/integration-junit-jupiter."
+"adoc#integration-testing-annotations-"
+"springextensionconfig[`@SpringExtensionConfig`] for details."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:412
 msgid ""
 "If you are developing a component that integrates with the Spring "
 "TestContext Framework and needs to support annotation inheritance within "
@@ -602,34 +616,35 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:409
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:420
 msgid ""
 "In order to allow development teams to change the default to `OVERRIDE` – "
 "for example, for compatibility with Spring Framework 5.0 through 5.2 – the "
-"default mode can be changed globally via a JVM system property or a "
-"`spring.properties` file in the root of the classpath. See the "
-"xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-annotations-nestedtestconfiguration[\"Changing "
-"the default enclosing configuration inheritance mode\"] note for details."
+"default mode can be changed globally via a JVM system property or a `spring."
+"properties` file in the root of the classpath. See the xref:testing/"
+"annotations/integration-junit-jupiter.adoc#integration-testing-annotations-"
+"nestedtestconfiguration[\"Changing the default enclosing configuration "
+"inheritance mode\"] note for details."
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:419
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:430
 msgid ""
 "Although the following \"Hello World\" example is very simplistic, it shows "
 "how to declare common configuration on a top-level class that is inherited "
 "by its `@Nested` test classes. In this particular example, only the "
 "`TestConfig` configuration class is inherited. Each nested test class "
 "provides its own set of active profiles, resulting in a distinct "
-"`ApplicationContext` for each nested test class (see "
-"xref:testing/testcontext-framework/ctx-management/caching.adoc[Context "
-"Caching] for details).  Consult the list of "
-"xref:testing/annotations/integration-junit-jupiter.adoc#integration-testing-annotations-nestedtestconfiguration[supported "
-"annotations] to see which annotations can be inherited in `@Nested` test "
-"classes."
+"`ApplicationContext` for each nested test class (see xref:testing/"
+"testcontext-framework/ctx-management/caching.adoc[Context Caching] for "
+"details).  Consult the list of xref:testing/annotations/integration-junit-"
+"jupiter.adoc#integration-testing-annotations-"
+"nestedtestconfiguration[supported annotations] to see which annotations can "
+"be inherited in `@Nested` test classes."
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:428
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:439
 #, no-wrap
 msgid ""
 "\t@SpringJUnitConfig(TestConfig.class)\n"
@@ -637,7 +652,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:432
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:443
 #, no-wrap
 msgid ""
 "\t\t@Nested\n"
@@ -646,7 +661,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:438
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:449
 #, no-wrap
 msgid ""
 "\t\t\t@Test\n"
@@ -657,7 +672,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:442
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:453
 #, no-wrap
 msgid ""
 "\t\t@Nested\n"
@@ -666,7 +681,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:449
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:460
 #, no-wrap
 msgid ""
 "\t\t\t@Test\n"
@@ -678,7 +693,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:457
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:468
 #, no-wrap
 msgid ""
 "\t@SpringJUnitConfig(TestConfig::class)\n"
@@ -686,7 +701,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:461
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:472
 #, no-wrap
 msgid ""
 "\t\t@Nested\n"
@@ -695,7 +710,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:467
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:478
 #, no-wrap
 msgid ""
 "\t\t\t@Test\n"
@@ -706,7 +721,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:471
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:482
 #, no-wrap
 msgid ""
 "\t\t@Nested\n"
@@ -715,7 +730,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:478
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:489
 #, no-wrap
 msgid ""
 "\t\t\t@Test\n"
@@ -727,30 +742,30 @@ msgid ""
 msgstr ""
 
 #. type: Title ==
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:483
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:494
 #, no-wrap
 msgid "JUnit 4 Support"
 msgstr ""
 
 #. type: Title ===
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:486
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:497
 #, no-wrap
 msgid "Spring JUnit 4 Runner"
 msgstr ""
 
 #. type: Plain text
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:494
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:557
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:634
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:505
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:568
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:645
 msgid ""
 "JUnit 4 is officially in maintenance mode, and JUnit 4 support in Spring is "
-"deprecated since Spring Framework 7.0 in favor of the "
-"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit-jupiter-extension[`SpringExtension`] "
-"and JUnit Jupiter."
+"deprecated since Spring Framework 7.0 in favor of the xref:testing/"
+"testcontext-framework/support-classes.adoc#testcontext-junit-jupiter-"
+"extension[`SpringExtension`] and JUnit Jupiter."
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:507
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:518
 msgid ""
 "The Spring TestContext Framework offers full integration with JUnit 4 "
 "through a custom runner (supported on JUnit 4.12 or higher). By annotating "
@@ -762,20 +777,19 @@ msgid ""
 "test method execution, and so on. If you want to use the Spring TestContext "
 "Framework with an alternative runner (such as JUnit 4's `Parameterized` "
 "runner) or third-party runners (such as the `MockitoJUnitRunner`), you can, "
-"optionally, use "
-"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit4-rules[Spring's "
-"support for JUnit rules] instead."
+"optionally, use xref:testing/testcontext-framework/support-classes."
+"adoc#testcontext-junit4-rules[Spring's support for JUnit rules] instead."
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:510
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:521
 msgid ""
 "The following code listing shows the minimal requirements for configuring a "
 "test class to run with the custom Spring `Runner`:"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:520
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:531
 #, no-wrap
 msgid ""
 "\t@RunWith(SpringRunner.class)\n"
@@ -784,8 +798,8 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:526
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:599
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:537
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:610
 #, no-wrap
 msgid ""
 "\t\t@Test\n"
@@ -796,7 +810,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:535
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:546
 #, no-wrap
 msgid ""
 "\t@RunWith(SpringRunner::class)\n"
@@ -805,7 +819,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:547
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:558
 msgid ""
 "In the preceding example, `@TestExecutionListeners` is configured with an "
 "empty list, to disable the default listeners, which otherwise would require "
@@ -813,30 +827,30 @@ msgid ""
 msgstr ""
 
 #. type: Title ===
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:549
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:560
 #, no-wrap
 msgid "Spring JUnit 4 Rules"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:561
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:572
 msgid ""
 "The `org.springframework.test.context.junit4.rules` package provides the "
 "following JUnit 4 rules (supported on JUnit 4.12 or higher):"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:563
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:574
 msgid "`SpringClassRule`"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:564
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:575
 msgid "`SpringMethodRule`"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:568
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:579
 msgid ""
 "`SpringClassRule` is a JUnit `TestRule` that supports class-level features "
 "of the Spring TestContext Framework, whereas `SpringMethodRule` is a JUnit "
@@ -845,7 +859,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:573
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:584
 msgid ""
 "In contrast to the `SpringRunner`, Spring's rule-based JUnit support has the "
 "advantage of being independent of any `org.junit.runner.Runner` "
@@ -855,7 +869,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:577
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:588
 msgid ""
 "To support the full functionality of the TestContext framework, you must "
 "combine a `SpringClassRule` with a `SpringMethodRule`. The following example "
@@ -863,7 +877,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:587
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:598
 #, no-wrap
 msgid ""
 "\t// Optionally specify a non-Spring Runner via @RunWith(...)\n"
@@ -872,25 +886,23 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:590
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:601
 #, no-wrap
 msgid ""
 "\t\t@ClassRule\n"
-"\t\tpublic static final SpringClassRule springClassRule = new "
-"SpringClassRule();\n"
+"\t\tpublic static final SpringClassRule springClassRule = new SpringClassRule();\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:593
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:604
 #, no-wrap
 msgid ""
 "\t\t@Rule\n"
-"\t\tpublic final SpringMethodRule springMethodRule = new "
-"SpringMethodRule();\n"
+"\t\tpublic final SpringMethodRule springMethodRule = new SpringMethodRule();\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:608
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:619
 #, no-wrap
 msgid ""
 "\t// Optionally specify a non-Spring Runner via @RunWith(...)\n"
@@ -899,7 +911,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:611
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:622
 #, no-wrap
 msgid ""
 "\t\t@Rule\n"
@@ -907,7 +919,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:616
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:627
 #, no-wrap
 msgid ""
 "\t\t@Test\n"
@@ -917,7 +929,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:622
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:633
 #, no-wrap
 msgid ""
 "\t\tcompanion object {\n"
@@ -928,13 +940,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ===
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:626
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:637
 #, no-wrap
 msgid "JUnit 4 Base Classes"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:638
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:649
 msgid ""
 "The `org.springframework.test.context.junit4` package provides the following "
 "support classes for JUnit 4-based test cases (supported on JUnit 4.12 or "
@@ -942,17 +954,17 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:640
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:651
 msgid "`AbstractJUnit4SpringContextTests`"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:641
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:652
 msgid "`AbstractTransactionalJUnit4SpringContextTests`"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:647
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:658
 msgid ""
 "`AbstractJUnit4SpringContextTests` is an abstract base test class that "
 "integrates the Spring TestContext Framework with explicit "
@@ -963,7 +975,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:664
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:675
 msgid ""
 "`AbstractTransactionalJUnit4SpringContextTests` is an abstract transactional "
 "extension of `AbstractJUnit4SpringContextTests` that adds some convenience "
@@ -976,11 +988,11 @@ msgid ""
 "database state both before and after running database-related application "
 "code, and Spring ensures that such queries run in the scope of the same "
 "transaction as the application code. When used in conjunction with an ORM "
-"tool, be sure to avoid "
-"xref:testing/testcontext-framework/tx.adoc#testcontext-tx-false-positives[false "
-"positives].  As mentioned in xref:testing/support-jdbc.adoc[JDBC Testing "
-"Support], `AbstractTransactionalJUnit4SpringContextTests` also provides "
-"convenience methods that delegate to methods in `JdbcTestUtils` by using the "
+"tool, be sure to avoid xref:testing/testcontext-framework/tx."
+"adoc#testcontext-tx-false-positives[false positives].  As mentioned in xref:"
+"testing/support-jdbc.adoc[JDBC Testing Support], "
+"`AbstractTransactionalJUnit4SpringContextTests` also provides convenience "
+"methods that delegate to methods in `JdbcTestUtils` by using the "
 "aforementioned `jdbcTemplate`.  Furthermore, "
 "`AbstractTransactionalJUnit4SpringContextTests` provides an "
 "`executeSqlScript(..)` method for running SQL scripts against the configured "
@@ -988,40 +1000,40 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:669
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:680
 msgid ""
 "These classes are a convenience for extension. If you do not want your test "
 "classes to be tied to a Spring-specific class hierarchy, you can configure "
-"your own custom test classes by using `@RunWith(SpringRunner.class)` or "
-"xref:testing/testcontext-framework/support-classes.adoc#testcontext-junit4-rules[Spring's "
-"JUnit rules]."
+"your own custom test classes by using `@RunWith(SpringRunner.class)` or xref:"
+"testing/testcontext-framework/support-classes.adoc#testcontext-junit4-"
+"rules[Spring's JUnit rules]."
 msgstr ""
 
 #. type: Title ==
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:672
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:683
 #, no-wrap
 msgid "TestNG Support"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:676
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:687
 msgid ""
 "The `org.springframework.test.context.testng` package provides the following "
 "support classes for TestNG based test cases:"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:678
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:689
 msgid "`AbstractTestNGSpringContextTests`"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:679
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:690
 msgid "`AbstractTransactionalTestNGSpringContextTests`"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:685
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:696
 msgid ""
 "`AbstractTestNGSpringContextTests` is an abstract base test class that "
 "integrates the Spring TestContext Framework with explicit "
@@ -1032,7 +1044,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:702
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:713
 msgid ""
 "`AbstractTransactionalTestNGSpringContextTests` is an abstract transactional "
 "extension of `AbstractTestNGSpringContextTests` that adds some convenience "
@@ -1045,11 +1057,11 @@ msgid ""
 "database state both before and after running database-related application "
 "code, and Spring ensures that such queries run in the scope of the same "
 "transaction as the application code. When used in conjunction with an ORM "
-"tool, be sure to avoid "
-"xref:testing/testcontext-framework/tx.adoc#testcontext-tx-false-positives[false "
-"positives].  As mentioned in xref:testing/support-jdbc.adoc[JDBC Testing "
-"Support], `AbstractTransactionalTestNGSpringContextTests` also provides "
-"convenience methods that delegate to methods in `JdbcTestUtils` by using the "
+"tool, be sure to avoid xref:testing/testcontext-framework/tx."
+"adoc#testcontext-tx-false-positives[false positives].  As mentioned in xref:"
+"testing/support-jdbc.adoc[JDBC Testing Support], "
+"`AbstractTransactionalTestNGSpringContextTests` also provides convenience "
+"methods that delegate to methods in `JdbcTestUtils` by using the "
 "aforementioned `jdbcTemplate`.  Furthermore, "
 "`AbstractTransactionalTestNGSpringContextTests` provides an "
 "`executeSqlScript(..)` method for running SQL scripts against the configured "
@@ -1057,7 +1069,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:707
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/testing/testcontext-framework/support-classes.adoc:718
 msgid ""
 "These classes are a convenience for extension. If you do not want your test "
 "classes to be tied to a Spring-specific class hierarchy, you can configure "

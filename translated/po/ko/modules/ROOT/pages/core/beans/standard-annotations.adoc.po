@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"POT-Creation-Date: 2026-02-02 11:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,29 +19,35 @@ msgstr ""
 #. type: Title =
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:2
 #, no-wrap
-msgid "Using JSR 330 Standard Annotations"
+msgid "Using JSR-330 Standard Annotations"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:7
 msgid ""
-"Spring offers support for JSR-330 standard annotations (Dependency "
-"Injection). Those annotations are scanned in the same way as the Spring "
-"annotations. To use them, you need to have the relevant jars in your "
-"classpath."
+"Spring offers support for JSR-330 standard _Dependency Injection_ "
+"annotations which are available in the `jakarta.inject` package. These "
+"annotations may optionally be used as alternatives to Spring annotations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:11
+msgid ""
+"To use them, you need to have the relevant jar in your classpath. For "
+"example, the `jakarta.inject` artifact is available in the standard Maven "
+"repository (`https://repo.maven.apache.org/maven2/jakarta/inject/jakarta."
+"inject-api/2.0.0/`),"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:14
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:15
 msgid ""
-"If you use Maven, the `jakarta.inject` artifact is available in the standard "
-"Maven repository ( "
-"https://repo.maven.apache.org/maven2/jakarta/inject/jakarta.inject-api/2.0.0/[https://repo.maven.apache.org/maven2/jakarta/inject/jakarta.inject-api/2.0.0/]).  "
-"You can add the following dependency to your file pom.xml:"
+"If you use Maven, you can add the following dependency to your `pom.xml` "
+"file."
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:22
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:23
 #, no-wrap
 msgid ""
 "\t<dependency>\n"
@@ -52,57 +58,60 @@ msgid ""
 msgstr ""
 
 #. type: Title ==
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:27
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:28
 #, no-wrap
 msgid "Dependency Injection with `@Inject` and `@Named`"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:30
-msgid "Instead of `@Autowired`, you can use `@jakarta.inject.Inject` as follows:"
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:32
+msgid ""
+"Instead of using `@Autowired` for dependency injection, you may optionally "
+"choose to use `@jakarta.inject.Inject` as follows."
 msgstr ""
 
 #. type: Labeled list
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:33
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:83
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:131
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:190
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:224
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:268
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:312
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:35
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:87
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:137
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:199
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:238
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:283
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:327
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:362
 #, no-wrap
 msgid "Java"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:38
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:40
 #, no-wrap
 msgid "\timport jakarta.inject.Inject;\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:40
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:91
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:139
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:180
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:195
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:42
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:95
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:145
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:189
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:207
 #, no-wrap
 msgid "\tpublic class SimpleMovieLister {\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:42
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:141
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:235
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:279
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:44
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:147
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:249
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:294
 #, no-wrap
 msgid "\t\tprivate MovieFinder movieFinder;\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:47
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:240
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:284
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:49
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:254
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:299
 #, no-wrap
 msgid ""
 "\t\t@Inject\n"
@@ -112,7 +121,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:53
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:55
 #, no-wrap
 msgid ""
 "\t\tpublic void listMovies() {\n"
@@ -123,37 +132,38 @@ msgid ""
 msgstr ""
 
 #. type: Labeled list
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:55
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:106
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:151
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:203
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:245
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:289
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:323
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:57
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:110
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:157
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:215
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:259
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:304
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:338
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:379
 #, no-wrap
 msgid "Kotlin"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:60
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:111
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:62
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:220
 #, no-wrap
 msgid "\timport jakarta.inject.Inject\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:62
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:113
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:159
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:208
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:64
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:118
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:165
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:222
 #, no-wrap
 msgid "\tclass SimpleMovieLister {\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:65
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:257
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:301
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:67
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:271
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:316
 #, no-wrap
 msgid ""
 "\t\t@Inject\n"
@@ -161,7 +171,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:72
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:74
 #, no-wrap
 msgid ""
 "\t\tfun listMovies() {\n"
@@ -172,17 +182,24 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:80
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:79
 msgid ""
-"As with `@Autowired`, you can use `@Inject` at the field level, method level "
-"and constructor-argument level. Furthermore, you may declare your injection "
-"point as a `Provider`, allowing for on-demand access to beans of shorter "
-"scopes or lazy access to other beans through a `Provider.get()` call. The "
-"following example offers a variant of the preceding example:"
+"As with `@Autowired`, you can use `@Inject` at the field level, method "
+"level, and constructor-argument level."
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:84
+msgid ""
+"Furthermore, as an alternative to Spring's `ObjectProvider` mechanism, you "
+"may choose to declare your injection point as a `jakarta.inject.Provider`, "
+"allowing for on-demand access to beans of shorter scopes or lazy access to "
+"other beans through a `Provider.get()` call. The following example offers a "
+"variant of the preceding example."
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:89
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:93
 #, no-wrap
 msgid ""
 "\timport jakarta.inject.Inject;\n"
@@ -190,13 +207,13 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:93
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:97
 #, no-wrap
 msgid "\t\tprivate Provider<MovieFinder> movieFinder;\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:98
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:102
 #, no-wrap
 msgid ""
 "\t\t@Inject\n"
@@ -206,7 +223,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:104
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:108
 #, no-wrap
 msgid ""
 "\t\tpublic void listMovies() {\n"
@@ -220,12 +237,20 @@ msgstr ""
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:116
 #, no-wrap
 msgid ""
+"\timport jakarta.inject.Inject\n"
+"\timport jakarta.inject.Provider\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:121
+#, no-wrap
+msgid ""
 "\t\t@Inject\n"
 "\t\tlateinit var movieFinder: Provider<MovieFinder>\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:123
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:128
 #, no-wrap
 msgid ""
 "\t\tfun listMovies() {\n"
@@ -236,17 +261,17 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:128
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:134
 msgid ""
 "If you would like to use a qualified name for the dependency that should be "
-"injected, you should use the `@Named` annotation, as the following example "
-"shows:"
+"injected, you may choose to use the `@Named` annotation as an alternative to "
+"Spring's `@Qualifier` support, as the following example shows."
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:137
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:230
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:274
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:143
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:244
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:289
 #, no-wrap
 msgid ""
 "\timport jakarta.inject.Inject;\n"
@@ -254,7 +279,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:146
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:152
 #, no-wrap
 msgid ""
 "\t\t@Inject\n"
@@ -264,12 +289,12 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:149
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:169
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:243
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:260
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:287
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:304
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:155
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:175
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:257
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:274
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:302
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:319
 #, no-wrap
 msgid ""
 "\t\t// ...\n"
@@ -277,9 +302,9 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:157
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:251
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:295
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:163
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:265
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:310
 #, no-wrap
 msgid ""
 "\timport jakarta.inject.Inject\n"
@@ -287,13 +312,13 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:161
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:167
 #, no-wrap
 msgid "\t\tprivate lateinit var movieFinder: MovieFinder\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:166
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:172
 #, no-wrap
 msgid ""
 "\t\t@Inject\n"
@@ -303,16 +328,25 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:176
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:182
 msgid ""
 "As with `@Autowired`, `@Inject` can also be used with `java.util.Optional` "
 "or `@Nullable`. This is even more applicable here, since `@Inject` does not "
-"have a `required` attribute. The following pair of examples show how to use "
-"`@Inject` and `@Nullable`:"
+"have a `required` attribute. The following examples show how to use "
+"`@Inject` with `Optional`, `@Nullable`, and Kotlin's built-in support for "
+"nullable types."
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:186
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:187
+#, no-wrap
+msgid ""
+"\timport jakarta.inject.Inject;\n"
+"\timport java.util.Optional;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:195
 #, no-wrap
 msgid ""
 "\t\t@Inject\n"
@@ -323,7 +357,15 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:201
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:205
+#, no-wrap
+msgid ""
+"\timport jakarta.inject.Inject;\n"
+"\timport org.jspecify.annotations.Nullable;\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:213
 #, no-wrap
 msgid ""
 "\t\t@Inject\n"
@@ -334,7 +376,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:212
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:226
 #, no-wrap
 msgid ""
 "\t\t@Inject\n"
@@ -343,48 +385,45 @@ msgid ""
 msgstr ""
 
 #. type: Title ==
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:217
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:231
 #, no-wrap
-msgid ""
-"`@Named` and `@ManagedBean`: Standard Equivalents to the `@Component` "
-"Annotation"
+msgid "`@Named`: Standard Equivalent to the `@Component` Annotation"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:221
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:235
 msgid ""
-"Instead of `@Component`, you can use `@jakarta.inject.Named` or "
-"`jakarta.annotation.ManagedBean`, as the following example shows:"
+"Instead of `@Component` or other Spring stereotype annotations, you may "
+"optionally choose to use `@jakarta.inject.Named`, as the following example "
+"shows."
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:233
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:247
 #, no-wrap
 msgid ""
-"\t@Named(\"movieListener\")  // @ManagedBean(\"movieListener\") could be "
-"used as well\n"
+"\t@Named(\"movieListener\")\n"
 "\tpublic class SimpleMovieLister {\n"
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:254
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:268
 #, no-wrap
 msgid ""
-"\t@Named(\"movieListener\")  // @ManagedBean(\"movieListener\") could be "
-"used as well\n"
+"\t@Named(\"movieListener\")\n"
 "\tclass SimpleMovieLister {\n"
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:265
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:280
 msgid ""
-"It is very common to use `@Component` without specifying a name for the "
-"component.  `@Named` can be used in a similar fashion, as the following "
-"example shows:"
+"It is very common to use `@Component` or other Spring stereotype annotations "
+"without specifying an explicit name for the component, and `@Named` can be "
+"used in a similar fashion, as the following example shows."
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:277
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:292
 #, no-wrap
 msgid ""
 "\t@Named\n"
@@ -392,7 +431,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:298
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:313
 #, no-wrap
 msgid ""
 "\t@Named\n"
@@ -400,15 +439,14 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:309
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:324
 msgid ""
-"When you use `@Named` or `@ManagedBean`, you can use component scanning in "
-"the exact same way as when you use Spring annotations, as the following "
-"example shows:"
+"When you use `@Named`, you can use component scanning in the exact same way "
+"as when you use Spring annotations, as the following example shows."
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:321
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:336
 #, no-wrap
 msgid ""
 "\t@Configuration\n"
@@ -419,7 +457,7 @@ msgid ""
 msgstr ""
 
 #. type: delimited block -
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:332
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:347
 #, no-wrap
 msgid ""
 "\t@Configuration\n"
@@ -430,84 +468,127 @@ msgid ""
 msgstr ""
 
 #. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:338
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:352
 msgid ""
-"In contrast to `@Component`, the JSR-330 `@Named` and the JSR-250 "
-"`@ManagedBean` annotations are not composable. You should use Spring's "
-"stereotype model for building custom component annotations."
+"In contrast to `@Component`, the JSR-330 `@Named` annotation is not "
+"composable. You should use Spring's stereotype model for building custom "
+"component annotations."
+msgstr ""
+
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:359
+msgid ""
+"If you work with legacy systems that still use `@javax.inject.Named` or "
+"`@javax.annotation.ManagedBean` for components (note the `javax` package "
+"namespace), you can explicitly configure component scanning to include those "
+"annotation types, as shown in the following example."
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:377
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@ComponentScan(\n"
+"\t\tbasePackages = \"org.example\",\n"
+"\t\tincludeFilters = @Filter({\n"
+"\t\t\tjavax.inject.Named.class,\n"
+"\t\t\tjavax.annotation.ManagedBean.class\n"
+"\t\t})\n"
+"\t)\n"
+"\tpublic class AppConfig  {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block -
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:394
+#, no-wrap
+msgid ""
+"\t@Configuration\n"
+"\t@ComponentScan(\n"
+"\t\tbasePackages = [\"org.example\"],\n"
+"\t\tincludeFilters = [Filter([\n"
+"\t\t\tjavax.inject.Named::class,\n"
+"\t\t\tjavax.annotation.ManagedBean::class\n"
+"\t\t])]\n"
+"\t)\n"
+"\tclass AppConfig  {\n"
+"\t\t// ...\n"
+"\t}\n"
+msgstr ""
+
+#. type: delimited block =
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:403
+msgid ""
+"In addition, if you would like for the `value` attributes in `@javax.inject."
+"Named` and `@javax.annotation.ManagedBean` to be used as component names, "
+"you need to override the `isStereotypeWithNameValue(...)` method in "
+"`AnnotationBeanNameGenerator` to add explicit support for `javax.annotation."
+"ManagedBean` and `javax.inject.Named` and register your custom "
+"`AnnotationBeanNameGenerator` via the `nameGenerator` attribute in "
+"`@ComponentScan`."
 msgstr ""
 
 #. type: Title ==
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:341
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:407
 #, no-wrap
 msgid "Limitations of JSR-330 Standard Annotations"
 msgstr ""
 
-#. type: delimited block =
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:345
+#. type: Plain text
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:411
 msgid ""
-"When you work with standard annotations, you should know that some "
-"significant features are not available, as the following table shows:"
+"When you work with JSR-330 standard annotations, you should know that some "
+"significant features are not available, as the following table shows."
 msgstr ""
 
 #. type: Block title
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:347
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:413
 #, no-wrap
-msgid "Spring component model elements versus JSR-330 variants"
+msgid "Spring component model versus JSR-330 variants"
 msgstr ""
 
 #. type: Table
-#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:387
+#: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/core/beans/standard-annotations.adoc:453
 #, no-wrap
 msgid ""
-"| Spring| jakarta.inject.*| jakarta.inject restrictions / comments\n"
+"| Spring | JSR-330 | JSR-330 restrictions / comments\n"
 "\n"
-"| @Autowired\n"
-"| @Inject\n"
-"| `@Inject` has no 'required' attribute. Can be used with Java 8's "
-"`Optional` instead.\n"
+"| `@Autowired`\n"
+"| `@Inject`\n"
+"| `@Inject` has no `required` attribute. Can be used with Java's `Optional` instead.\n"
 "\n"
-"| @Component\n"
-"| @Named / @ManagedBean\n"
-"| JSR-330 does not provide a composable model, only a way to identify named "
-"components.\n"
+"| `@Component`\n"
+"| `@Named`\n"
+"| JSR-330 does not provide a composable model, only a way to identify named components.\n"
 "\n"
-"| @Scope(\"singleton\")\n"
-"| @Singleton\n"
-"| The JSR-330 default scope is like Spring's `prototype`. However, in order "
-"to keep it\n"
-"  consistent with Spring's general defaults, a JSR-330 bean declared in the "
-"Spring\n"
-"  container is a `singleton` by default. In order to use a scope other than "
-"`singleton`,\n"
-"  you should use Spring's `@Scope` annotation. `jakarta.inject` also "
-"provides a\n"
-"  `jakarta.inject.Scope` annotation: however, this one is only intended to "
-"be used\n"
+"| `@Scope(\"singleton\")`\n"
+"| `@Singleton`\n"
+"| The JSR-330 default scope is like Spring's `prototype`. However, in order to keep it\n"
+"  consistent with Spring's general defaults, a JSR-330 bean declared in the Spring\n"
+"  container is a `singleton` by default. In order to use a scope other than `singleton`,\n"
+"  you should use Spring's `@Scope` annotation. `jakarta.inject` also provides a\n"
+"  `jakarta.inject.Scope` annotation; however, this one is only intended to be used\n"
 "  for creating custom annotations.\n"
 "\n"
-"| @Qualifier\n"
-"| @Qualifier / @Named\n"
-"| `jakarta.inject.Qualifier` is just a meta-annotation for building custom "
-"qualifiers.\n"
-"  Concrete `String` qualifiers (like Spring's `@Qualifier` with a value) can "
-"be associated\n"
+"| `@Qualifier`\n"
+"| `@Qualifier` / `@Named`\n"
+"| `jakarta.inject.Qualifier` is just a meta-annotation for building custom qualifiers.\n"
+"  Concrete `String` qualifiers (like Spring's `@Qualifier` with a value) can be associated\n"
 "  through `jakarta.inject.Named`.\n"
 "\n"
-"| @Value\n"
+"| `@Value`\n"
 "| -\n"
 "| no equivalent\n"
 "\n"
-"| @Lazy\n"
+"| `@Lazy`\n"
 "| -\n"
 "| no equivalent\n"
 "\n"
-"| ObjectFactory\n"
-"| Provider\n"
-"| `jakarta.inject.Provider` is a direct alternative to Spring's "
-"`ObjectFactory`,\n"
-"  only with a shorter `get()` method name. It can also be used in "
-"combination with\n"
-"  Spring's `@Autowired` or with non-annotated constructors and setter "
-"methods.\n"
+"| `ObjectFactory`\n"
+"| `Provider`\n"
+"| `jakarta.inject.Provider` is a direct alternative to Spring's `ObjectFactory`,\n"
+"  only with a shorter `get()` method name. It can also be used in combination with\n"
+"  Spring's `@Autowired` or with non-annotated constructors and setter methods.\n"
 msgstr ""

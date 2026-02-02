@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-01-22 15:51+0900\n"
+"POT-Creation-Date: 2026-02-02 11:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,61 +25,58 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:10
 msgid ""
-"Kotlin {kotlin-docs}/coroutines-overview.html[Coroutines] are Kotlin "
-"lightweight threads allowing to write non-blocking code in an imperative "
-"way. On language side, suspending functions provides an abstraction for "
-"asynchronous operations while on library side "
-"{kotlin-github-org}/kotlinx.coroutines[kotlinx.coroutines] provides "
-"functions like "
-"{kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines/async.html[`async "
-"{ }`] and types like "
-"{kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/index.html[`Flow`]."
+"Kotlin {kotlin-docs}/coroutines-overview.html[Coroutines] are instances of "
+"suspendable computations allowing to write non-blocking code in an "
+"imperative way. On language side, suspending functions provides an "
+"abstraction for asynchronous operations while on library side {kotlin-github-"
+"org}/kotlinx.coroutines[kotlinx.coroutines] provides functions like {kotlin-"
+"coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines/async.html[`async "
+"{ }`] and types like {kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx."
+"coroutines.flow/-flow/index.html[`Flow`]."
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:12
-msgid "Spring Framework provides support for Coroutines on the following scope:"
+msgid ""
+"Spring Framework provides support for Coroutines on the following scope:"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:14
 msgid ""
-"{kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines/-deferred/index.html[Deferred] "
-"and "
-"{kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/index.html[Flow] "
-"return values support in Spring MVC and WebFlux annotated `@Controller`"
+"{kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines/-deferred/"
+"index.html[Deferred] and {kotlin-coroutines-api}/kotlinx-coroutines-core/"
+"kotlinx.coroutines.flow/-flow/index.html[Flow] return values support in "
+"Spring MVC and WebFlux annotated `@Controller`"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:15
 msgid ""
-"Suspending function support in Spring MVC and WebFlux annotated "
-"`@Controller`"
+"Suspending function support in Spring MVC and WebFlux annotated `@Controller`"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:16
 msgid ""
-"Extensions for WebFlux "
-"{spring-framework-api-kdoc}/spring-webflux/org.springframework.web.reactive.function.client/index.html[client] "
-"and "
-"{spring-framework-api-kdoc}/spring-webflux/org.springframework.web.reactive.function.server/index.html[server] "
-"functional API."
+"Extensions for WebFlux {spring-framework-api-kdoc}/spring-webflux/org."
+"springframework.web.reactive.function.client/index.html[client] and {spring-"
+"framework-api-kdoc}/spring-webflux/org.springframework.web.reactive.function."
+"server/index.html[server] functional API."
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:17
 msgid ""
-"WebFlux.fn "
-"{spring-framework-api-kdoc}/spring-webflux/org.springframework.web.reactive.function.server/co-router.html[coRouter "
-"{ }] DSL"
+"WebFlux.fn {spring-framework-api-kdoc}/spring-webflux/org.springframework."
+"web.reactive.function.server/co-router.html[coRouter { }] DSL"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:18
 msgid ""
-"WebFlux "
-"{spring-framework-api-kdoc}/spring-web/org.springframework.web.server/-co-web-filter/index.html[`CoWebFilter`]"
+"WebFlux {spring-framework-api-kdoc}/spring-web/org.springframework.web."
+"server/-co-web-filter/index.html[`CoWebFilter`]"
 msgstr ""
 
 #. type: Plain text
@@ -92,8 +89,8 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:20
 msgid ""
-"Extensions for "
-"{spring-framework-api-kdoc}/spring-messaging/org.springframework.messaging.rsocket/index.html[`RSocketRequester`]"
+"Extensions for {spring-framework-api-kdoc}/spring-messaging/org."
+"springframework.messaging.rsocket/index.html[`RSocketRequester`]"
 msgstr ""
 
 #. type: Plain text
@@ -110,8 +107,8 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:28
 msgid ""
-"Coroutines support is enabled when `kotlinx-coroutines-core` and "
-"`kotlinx-coroutines-reactor` dependencies are in the classpath:"
+"Coroutines support is enabled when `kotlinx-coroutines-core` and `kotlinx-"
+"coroutines-reactor` dependencies are in the classpath:"
 msgstr ""
 
 #. type: Plain text
@@ -194,9 +191,10 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:57
 msgid ""
-"{kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/index.html[`Flow`] "
-"is `Flux` equivalent in Coroutines world, suitable for hot or cold stream, "
-"finite or infinite streams, with the following main differences:"
+"{kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines.flow/-"
+"flow/index.html[`Flow`] is `Flux` equivalent in Coroutines world, suitable "
+"for hot or cold stream, finite or infinite streams, with the following main "
+"differences:"
 msgstr ""
 
 #. type: Plain text
@@ -212,17 +210,17 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:61
 msgid ""
-"`Flow` has only a "
-"{kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/collect.html[single "
-"suspending `collect` method] and operators are implemented as "
-"{kotlin-docs}/extensions.html[extensions]"
+"`Flow` has only a {kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx."
+"coroutines.flow/-flow/collect.html[single suspending `collect` method] and "
+"operators are implemented as {kotlin-docs}/extensions.html[extensions]"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:62
 msgid ""
-"{kotlin-github-org}/kotlinx.coroutines/tree/master/kotlinx-coroutines-core/common/src/flow/operators[Operators "
-"are easy to implement] thanks to Coroutines"
+"{kotlin-github-org}/kotlinx.coroutines/tree/master/kotlinx-coroutines-core/"
+"common/src/flow/operators[Operators are easy to implement] thanks to "
+"Coroutines"
 msgstr ""
 
 #. type: Plain text
@@ -238,18 +236,18 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:65
 msgid ""
-"{kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines.flow/map.html[`map` "
-"operator] supports asynchronous operation (no need for `flatMap`) since it "
-"takes a suspending function parameter"
+"{kotlin-coroutines-api}/kotlinx-coroutines-core/kotlinx.coroutines.flow/map."
+"html[`map` operator] supports asynchronous operation (no need for `flatMap`) "
+"since it takes a suspending function parameter"
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:68
 msgid ""
-"Read this blog post about "
-"{spring-site-blog}/2019/04/12/going-reactive-with-spring-coroutines-and-kotlin-flow[Going "
-"Reactive with Spring, Coroutines and Kotlin Flow] for more details, "
-"including how to run code concurrently with Coroutines."
+"Read this blog post about {spring-site-blog}/2019/04/12/going-reactive-with-"
+"spring-coroutines-and-kotlin-flow[Going Reactive with Spring, Coroutines and "
+"Kotlin Flow] for more details, including how to run code concurrently with "
+"Coroutines."
 msgstr ""
 
 #. type: Title ==
@@ -415,9 +413,9 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:174
 msgid ""
-"Here is an example of Coroutines router defined via the "
-"{spring-framework-api-kdoc}/spring-webflux/org.springframework.web.reactive.function.server/co-router.html[coRouter "
-"{ }] DSL and related handlers."
+"Here is an example of Coroutines router defined via the {spring-framework-"
+"api-kdoc}/spring-webflux/org.springframework.web.reactive.function.server/co-"
+"router.html[coRouter { }] DSL and related handlers."
 msgstr ""
 
 #. type: delimited block -
@@ -547,9 +545,7 @@ msgstr ""
 #. type: delimited block -
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:243
 #, no-wrap
-msgid ""
-"\t\tfun updatePeople() = "
-"findPeople().map(::updatePerson).transactional(operator)\n"
+msgid "\t\tfun updatePeople() = findPeople().map(::updatePerson).transactional(operator)\n"
 msgstr ""
 
 #. type: delimited block -
@@ -592,22 +588,20 @@ msgstr ""
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:265
 msgid ""
-"The "
-"{spring-framework-api-kdoc}/spring-core/org.springframework.core/-propagation-context-element/index.html[`PropagationContextElement`] "
-"operator generally ensures that the "
-"{micrometer-context-propagation-docs}/[Micrometer Context Propagation "
-"library] works with Kotlin Coroutines."
+"The {spring-framework-api-kdoc}/spring-core/org.springframework.core/-"
+"propagation-context-element/index.html[`PropagationContextElement`] operator "
+"generally ensures that the {micrometer-context-propagation-docs}/[Micrometer "
+"Context Propagation library] works with Kotlin Coroutines."
 msgstr ""
 
 #. type: Plain text
 #: /mnt/c/Users/etrees/Desktop/private/spring-framework/origin/framework-docs/modules/ROOT/pages/languages/kotlin/coroutines.adoc:270
 msgid ""
 "It requires the `io.micrometer:context-propagation` dependency and "
-"optionally the `org.jetbrains.kotlinx:kotlinx-coroutines-reactor` "
-"one. Automatic context propagation via "
-"`CoroutinesUtils#invokeSuspendingFunction` (used by Spring to adapt "
-"Coroutines to Reactor `Flux` or `Mono`) can be enabled by invoking "
-"`Hooks.enableAutomaticContextPropagation()`."
+"optionally the `org.jetbrains.kotlinx:kotlinx-coroutines-reactor` one. "
+"Automatic context propagation via `CoroutinesUtils#invokeSuspendingFunction` "
+"(used by Spring to adapt Coroutines to Reactor `Flux` or `Mono`) can be "
+"enabled by invoking `Hooks.enableAutomaticContextPropagation()`."
 msgstr ""
 
 #. type: Plain text
